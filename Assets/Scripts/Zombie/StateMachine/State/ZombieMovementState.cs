@@ -17,7 +17,6 @@ public class ZombieMovementState : IState
 
     public virtual void Enter()
     {
-        Debug.Log(GetType());
     }
 
     public virtual void Exit()
@@ -30,4 +29,5 @@ public class ZombieMovementState : IState
 
     protected bool IsMoving() => Enemy.Movement.NavMeshAgent.speed == 0;
     protected bool IsAttacking() => Enemy.ZombieAttack.IsAttacking;
+    protected bool IsDiying() => Enemy.IsDiying;
 }

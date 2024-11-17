@@ -54,6 +54,7 @@ public class DragAndDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
             {
                 Destroy(_gameObject);
             }
+
             transform.position = _originalPosition;
             _cardView.gameObject.SetActive(true);
         }

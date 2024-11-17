@@ -27,4 +27,9 @@ public class EnemyMovement : MonoBehaviour
         _navMesh.speed = _speed;
         _navMesh.SetDestination(_enemy.Target.transform.position);
     }
+
+    public void StopMovement()
+    {
+        _navMesh.speed = 0;
+    }
 }

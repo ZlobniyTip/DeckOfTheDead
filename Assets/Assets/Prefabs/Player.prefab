@@ -3325,6 +3325,7 @@ GameObject:
   - component: {fileID: 8362804002354954245}
   - component: {fileID: 4832717163306357467}
   - component: {fileID: 5890741567366463251}
+  - component: {fileID: 3544764252731362293}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -3483,7 +3484,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e5a4551b67f107468be0bfba4ce74ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Value: 100
+  _maxValue: 0
   _characterView: {fileID: 8362804002354954245}
 --- !u!114 &5142152912606087712
 MonoBehaviour:
@@ -3541,7 +3542,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _characterShooting: {fileID: 4832717163306357467}
-  _radius: 10
+--- !u!114 &3544764252731362293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1820013058228350869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f80c9a327cb2c5640b61b3451c204c09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1820299849512806003
 GameObject:
   m_ObjectHideFlags: 0

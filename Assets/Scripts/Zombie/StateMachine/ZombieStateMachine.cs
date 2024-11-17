@@ -12,7 +12,8 @@ public class ZombieStateMachine : IStateSwitcher
         {
             new ZombieIdlingState(this, enemy),
             new ZombieRunningState(this, enemy),
-            new ZombieAttackState(this, enemy)
+            new ZombieAttackState(this, enemy),
+            new ZombieDiyingState(this, enemy)
         };
 
         _currentState = _states[0];

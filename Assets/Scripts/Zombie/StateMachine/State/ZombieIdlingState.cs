@@ -24,6 +24,9 @@ public class ZombieIdlingState : ZombieMovementState
     {
         base.Update();
 
+        if (IsDiying())
+            StateSwitcher.SwitchState<ZombieDiyingState>();
+
         if (IsAttacking())
         {
             StateSwitcher.SwitchState<ZombieAttackState>();

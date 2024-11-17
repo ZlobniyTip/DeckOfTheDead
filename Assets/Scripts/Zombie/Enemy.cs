@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(EnemyMovement))]
@@ -11,8 +12,11 @@ public class Enemy : Health
     private EnemyMovement _movement;
     private ZombieStateMachine _zombieStateMachine;
 
+    private float _delayBetweenDeath = 2.5f;
+
     public event Action Diying;
 
+    public bool IsDiying { get; private set; } = false;
     public EnemyMovement Movement => _movement;
     public Character Target => _character;
     public ZombieView ZombieView => _zombieView;
@@ -39,13 +43,25 @@ public class Enemy : Health
 
         if (_value <= 0)
         {
+            IsDiying = true;
             Diying?.Invoke();
-            Destroy(gameObject);
+            StartCoroutine(Die());
         }
     }
 
     public void InitializeTarget(Character target)
     {
         _character = target;
+    }
+
+    private IEnumerator Die()
+    {
+        _movement.StopMovement();
+
+        var delay = new WaitForSeconds(_delayBetweenDeath);
+
+        yield return delay;
+
+        Destroy(gameObject);
     }
 }

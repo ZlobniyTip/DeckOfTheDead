@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Spawner : MonoBehaviour
 {
@@ -8,6 +9,10 @@ public class Spawner : MonoBehaviour
     [SerializeField] private Enemy[] _prefabEnemies;
 
     [SerializeField] private int _delaySpawn = 2;
+
+    private int _currentPoint = 0;
+
+    public event UnityAction<int, int> ReachedPoint;
 
     private void OnEnable()
     {
@@ -27,6 +32,8 @@ public class Spawner : MonoBehaviour
 
     private void StartSpawnEnemyes(Transform[] spawnPoints, int numberEnemiesInWave)
     {
+        _currentPoint++;
+        ReachedPoint?.Invoke(_currentPoint, _playerMovePoints.Length);
         StartCoroutine(SpawnEnemyes(spawnPoints, numberEnemiesInWave));
     }
 

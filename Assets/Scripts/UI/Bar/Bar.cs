@@ -6,16 +6,11 @@ namespace UI
 {
     public abstract class Bar : MonoBehaviour
     {
-        [SerializeField] protected Health _health;
         [SerializeField] protected Slider _barFilling;
 
-        private readonly float _recoveryRate = 0.2f;
-        private Coroutine _changeValue;
+        protected float RecoveryRate = 0.2f;
 
-        private void Awake()
-        {
-            _barFilling.value = _health.MaxValue;
-        }
+        private Coroutine _changeValue;
 
         public void OnValueChanged(int value, int maxValue)
         {
@@ -31,7 +26,7 @@ namespace UI
         {
             while (_barFilling.value != target)
             {
-                _barFilling.value = Mathf.MoveTowards(_barFilling.value, target, _recoveryRate * Time.deltaTime);
+                _barFilling.value = Mathf.MoveTowards(_barFilling.value, target, RecoveryRate * Time.deltaTime);
 
                 yield return null;
             }
