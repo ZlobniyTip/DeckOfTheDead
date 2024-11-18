@@ -14,6 +14,7 @@ public class DragAndDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
 
     private GameObject _gameObject;
     private ParticleSystem _spawnPlaceEffect;
+    private float _distanceFromRoad = 0.5f;
 
     private void Awake()
     {
@@ -52,7 +53,7 @@ public class DragAndDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
             Vector3 spawnPosition = _spawnPlaceEffect.transform.position;
 
             ParticleSystem spawnEffect = Instantiate(_prefabSpawnEffect,
-                new Vector3(spawnPosition.x, spawnPosition.y + 0.5f, spawnPosition.z),
+                new Vector3(spawnPosition.x, spawnPosition.y + _distanceFromRoad, spawnPosition.z),
                 Quaternion.identity);
 
             StartCoroutine(SetDelaySpawning(spawnPosition));
@@ -86,7 +87,9 @@ public class DragAndDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
 
     private IEnumerator SetDelaySpawning(Vector3 spawnPosition)
     {
-        yield return new WaitForSeconds(1f);
+        float amountDelayBeforeSpawning = 1f;
+
+        yield return new WaitForSeconds(amountDelayBeforeSpawning);
         _gameObject = Instantiate(_prefabGameObject, spawnPosition, Quaternion.identity);
     }
 }
