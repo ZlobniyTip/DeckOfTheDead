@@ -1,11 +1,10 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class DragAndDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler
 {
-    [SerializeField] private GameObject _dragObject;
+    [SerializeField] private GameObject _prefabGameObject;
     [SerializeField] private GameObject _cardView;
     [SerializeField] private ParticleSystem _prefabSpawnPlaceEffect;
     [SerializeField] private ParticleSystem _prefabSpawnEffect;
@@ -48,22 +47,23 @@ public class DragAndDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        if (FindSpawnLocation(out Vector3 spawnPosition))
+        if (_spawnPlaceEffect != null && _spawnPlaceEffect.gameObject.activeSelf)
         {
-            ParticleSystem spawnEffect = Instantiate(_prefabSpawnEffect, new Vector3(spawnPosition.x, spawnPosition.y + 0.5f, spawnPosition.z), Quaternion.identity);
-            StartCoroutine(SetDelaySpawning(spawnPosition));
+            Vector3 spawnPosition = _spawnPlaceEffect.transform.position;
 
+            ParticleSystem spawnEffect = Instantiate(_prefabSpawnEffect,
+                new Vector3(spawnPosition.x, spawnPosition.y + 0.5f, spawnPosition.z),
+                Quaternion.identity);
+
+            StartCoroutine(SetDelaySpawning(spawnPosition));
             _spawnPlaceEffect.gameObject.SetActive(false);
         }
         else
         {
-            if (_gameObject != null)
-            {
-                Destroy(_gameObject);
-            }
-
             transform.position = _originalPosition;
             _cardView.gameObject.SetActive(true);
+
+            _spawnPlaceEffect.gameObject.SetActive(false);
         }
     }
 
@@ -73,8 +73,11 @@ public class DragAndDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
 
         if (Physics.Raycast(ray, out RaycastHit hit))
         {
-            spawnPosition = hit.point;
-            return true;
+            if (hit.collider.GetComponent<Road>() != null)
+            {
+                spawnPosition = hit.point;
+                return true;
+            }
         }
 
         spawnPosition = _originalPosition;
@@ -84,6 +87,6 @@ public class DragAndDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
     private IEnumerator SetDelaySpawning(Vector3 spawnPosition)
     {
         yield return new WaitForSeconds(1f);
-        _gameObject = Instantiate(_dragObject, spawnPosition, Quaternion.identity);
+        _gameObject = Instantiate(_prefabGameObject, spawnPosition, Quaternion.identity);
     }
 }
