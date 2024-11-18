@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -5,11 +7,14 @@ public class DragAndDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
 {
     [SerializeField] private GameObject _dragObject;
     [SerializeField] private GameObject _cardView;
+    [SerializeField] private ParticleSystem _prefabSpawnPlaceEffect;
+    [SerializeField] private ParticleSystem _prefabSpawnEffect;
 
     private RectTransform _rectTransform;
     private Vector3 _originalPosition;
 
     private GameObject _gameObject;
+    private ParticleSystem _spawnPlaceEffect;
 
     private void Awake()
     {
@@ -23,8 +28,7 @@ public class DragAndDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
         if (FindSpawnLocation(out Vector3 spawnPosition))
         {
             _cardView.gameObject.SetActive(false);
-            _gameObject = Instantiate(_dragObject, spawnPosition, Quaternion.identity);
-            _gameObject.transform.position = spawnPosition;
+            _spawnPlaceEffect = Instantiate(_prefabSpawnPlaceEffect, spawnPosition, Quaternion.identity);
         }
         else
         {
@@ -38,15 +42,18 @@ public class DragAndDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
 
         if (FindSpawnLocation(out Vector3 spawnPosition))
         {
-            _gameObject.transform.position = spawnPosition;
+            _spawnPlaceEffect.transform.position = spawnPosition;
         }
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        if (_gameObject != null && FindSpawnLocation(out Vector3 spawnPosition))
+        if (FindSpawnLocation(out Vector3 spawnPosition))
         {
-            _gameObject.transform.position = spawnPosition;
+            ParticleSystem spawnEffect = Instantiate(_prefabSpawnEffect, new Vector3(spawnPosition.x, spawnPosition.y + 0.5f, spawnPosition.z), Quaternion.identity);
+            StartCoroutine(SetDelaySpawning(spawnPosition));
+
+            _spawnPlaceEffect.gameObject.SetActive(false);
         }
         else
         {
@@ -71,6 +78,12 @@ public class DragAndDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
         }
 
         spawnPosition = _originalPosition;
-        return false; 
+        return false;
+    }
+
+    private IEnumerator SetDelaySpawning(Vector3 spawnPosition)
+    {
+        yield return new WaitForSeconds(1f);
+        _gameObject = Instantiate(_dragObject, spawnPosition, Quaternion.identity);
     }
 }
