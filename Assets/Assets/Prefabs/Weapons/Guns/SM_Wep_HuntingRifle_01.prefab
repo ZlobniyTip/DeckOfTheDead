@@ -350,17 +350,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df91fefa4554964458f7df5edeff0596, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _shotEffect: {fileID: 6758864419164151641}
-  _bullet: {fileID: 2779122238377238336, guid: 7af0025c87c32d548bd8331f3955239a, type: 3}
-  _bulletPoints:
-  - {fileID: 2561764737613479305}
   _weaponStatus: 2
-  _icon: {fileID: 0}
+  _icon: {fileID: 21300000, guid: c5b54ea95e696cd4eb0cb4fc4771d5eb, type: 3}
   _name: Mosin
   _price: 0
   _attackDistance: 15
   _damage: 80
   _delayBetweenShots: 2
+  _shotEffect: {fileID: 6758864419164151641}
+  _bullet: {fileID: 2779122238377238336, guid: 7af0025c87c32d548bd8331f3955239a, type: 3}
+  _bulletPoints:
+  - {fileID: 2561764737613479305}
 --- !u!1 &743284684973224457
 GameObject:
   m_ObjectHideFlags: 0

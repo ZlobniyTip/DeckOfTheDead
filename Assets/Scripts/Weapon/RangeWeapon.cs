@@ -9,6 +9,7 @@ public class RangeWeapon : Weapon
 
     public override int Shooting()
     {
+        _audio.Play();
         _shotEffect.Play();
 
         if (_bulletPoints.Count > 1)
