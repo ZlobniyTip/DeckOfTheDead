@@ -13,7 +13,6 @@ public class CardView : MonoBehaviour
     [SerializeField] private TMP_Text _level;
     [SerializeField] private TMP_Text _health;
     [SerializeField] private TMP_Text _damage;
-    [SerializeField] private TMP_Text _speed;
     [SerializeField] private TMP_Text _ability;
 
     private void Start()
@@ -24,7 +23,6 @@ public class CardView : MonoBehaviour
         _level.text = _card.Level.ToString();
         _health.text = _card.Health.ToString();
         _damage.text = _card.Damage.ToString();
-        _speed.text = _card.Speed.ToString();
         _ability.text = _card.Ability;
     }
 }

@@ -9,12 +9,12 @@ public class ZombieAttack : MonoBehaviour
     [SerializeField] private float _delayBetweenAttack;
     [SerializeField] private float _attackDistance;
 
-    private Character _currentTarget;
+    private Unit _currentTarget;
     private float _distance;
 
     public bool IsAttacking { get; private set; } = false;
 
-    public void ActivateAttack(Character enemy)
+    public void ActivateAttack(Unit enemy)
     {
         _currentTarget = enemy;
         StopCoroutine(_zombieSearchTarget.SearchTarget());

@@ -1,12 +1,19 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class ZombieSearchTarget : MonoBehaviour
+public class UnitSearchTarget : MonoBehaviour
 {
-    [SerializeField] private ZombieAttack _zombieAttack;
     [SerializeField] private float _radius;
 
-    private Unit _currentTarget;
+    private UnitAttack _unitAttack;
+    private Unit _unit;
+
+    private void Awake()
+    {
+        _unit = GetComponent<Unit>();
+        _unitAttack = GetComponent<UnitAttack>();
+    }
 
     private void Start()
     {
@@ -15,7 +22,7 @@ public class ZombieSearchTarget : MonoBehaviour
 
     public IEnumerator SearchTarget()
     {
-        while (_currentTarget == null)
+        while (_unit.Target == null)
         {
             Collider[] overlappedColliders = Physics.OverlapSphere(transform.position, _radius);
             Rigidbody rigidbody;
@@ -26,21 +33,15 @@ public class ZombieSearchTarget : MonoBehaviour
 
                 if (rigidbody)
                 {
-                    if (rigidbody.gameObject.TryGetComponent(out Unit enemy))
+                    if (rigidbody.gameObject.TryGetComponent(out Enemy enemy))
                     {
-                        _currentTarget = enemy;
-                        _zombieAttack.ActivateAttack(_currentTarget);
+                        _unit.SetTarget(enemy);
+                        _unitAttack.ActivateAttack(enemy);
                     }
                 }
             }
 
             yield return null;
         }
-    }
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, _radius);
     }
 }

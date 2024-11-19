@@ -5320,7 +5320,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _zombieAttack: {fileID: -5432705806972628380}
-  _radius: 10
+  _radius: 2.5
 --- !u!1 &5519423236907205555
 GameObject:
   m_ObjectHideFlags: 0
