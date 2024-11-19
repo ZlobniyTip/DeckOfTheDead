@@ -25,6 +25,9 @@ public class UnitMovement : MonoBehaviour
 
     private void Update()
     {
+        _navMesh.speed = _unit.UnitConfig.Speed;
+        Debug.Log(_navMesh.speed);
+
         if (_unit.Target == null)
             MoveForward();
         else

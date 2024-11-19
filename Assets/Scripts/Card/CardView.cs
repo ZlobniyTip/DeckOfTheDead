@@ -15,6 +15,8 @@ public class CardView : MonoBehaviour
     [SerializeField] private TMP_Text _damage;
     [SerializeField] private TMP_Text _ability;
 
+    public Card Card => _card;
+
     private void Start()
     {
         _image.sprite = _card.Icon;

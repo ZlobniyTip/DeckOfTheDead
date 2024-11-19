@@ -3,6 +3,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Card", menuName = "Card/Create new card", order = 51)]
 public class Card : ScriptableObject
 {
+    [SerializeField] private Unit _prefabUnit;
     [SerializeField] private UnitConfig _unitConfig;
     [SerializeField] private Sprite _icon;
 
@@ -12,6 +13,7 @@ public class Card : ScriptableObject
 
     [SerializeField] private string _ability;
 
+    public Unit PrefabUnit => _prefabUnit;
     public Sprite Icon => _icon;
     public string Name => _name;
     public int Energy => _energy;
