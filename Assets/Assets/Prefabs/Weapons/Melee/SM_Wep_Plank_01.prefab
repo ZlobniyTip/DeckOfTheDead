@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 33615396373320560}
   - component: {fileID: 23217513453051668}
   - component: {fileID: 3576129489735053672}
+  - component: {fileID: 855954647918257620}
   m_Layer: 0
   m_Name: SM_Wep_Plank_01
   m_TagString: Untagged
@@ -98,12 +99,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _weaponStatus: 0
-  _icon: {fileID: 0}
-  _name: Plank
-  _price: 0
   _attackDistance: 1
   _damage: 3
   _delayBetweenShots: 1
+--- !u!114 &855954647918257620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1589933292683632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31c288e98b8c3d7459084dd240820270, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _type: 1
+  _icon: {fileID: 0}
+  _name: Plank
+  _price: 60
+  _index: 14
 --- !u!1 &1806064633815686
 GameObject:
   m_ObjectHideFlags: 0

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 33873488317132366}
   - component: {fileID: 23460970426849210}
   - component: {fileID: 5815615100261945197}
+  - component: {fileID: -5194908990280689316}
   m_Layer: 0
   m_Name: SM_Wep_FlameThrower_01
   m_TagString: Untagged
@@ -102,9 +103,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _weaponStatus: 2
-  _icon: {fileID: 0}
-  _name: Flame thrower
-  _price: 0
   _attackDistance: 10
   _damage: 10
   _delayBetweenShots: 0.1
@@ -112,6 +110,23 @@ MonoBehaviour:
   _bullet: {fileID: 3721224620376137543}
   _bulletPoints:
   - {fileID: 3155832188610308625}
+--- !u!114 &-5194908990280689316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1172656402973578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31c288e98b8c3d7459084dd240820270, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _type: 0
+  _icon: {fileID: 0}
+  _name: FlameThrower
+  _price: 3000
+  _index: 3
 --- !u!1 &1542385142591230
 GameObject:
   m_ObjectHideFlags: 0

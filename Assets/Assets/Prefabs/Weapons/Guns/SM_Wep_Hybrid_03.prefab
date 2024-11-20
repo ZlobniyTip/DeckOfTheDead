@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 33006174838482836}
   - component: {fileID: 23476011139662758}
   - component: {fileID: 4816849087286706637}
+  - component: {fileID: 6697692602957832542}
   m_Layer: 0
   m_Name: SM_Wep_Hybrid_03
   m_TagString: Untagged
@@ -105,6 +106,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df91fefa4554964458f7df5edeff0596, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _weaponStatus: 2
+  _attackDistance: 5
+  _damage: 50
+  _delayBetweenShots: 1
   _shotEffect: {fileID: 3446016120414107937}
   _bullet: {fileID: 2779122238377238336, guid: 7af0025c87c32d548bd8331f3955239a, type: 3}
   _bulletPoints:
@@ -113,13 +118,23 @@ MonoBehaviour:
   - {fileID: 8706886869257436328}
   - {fileID: 7648717758129790917}
   - {fileID: 3634134872321092260}
-  _weaponStatus: 2
+--- !u!114 &6697692602957832542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1092074819094010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31c288e98b8c3d7459084dd240820270, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _type: 0
   _icon: {fileID: 0}
   _name: Shotgun
-  _price: 0
-  _attackDistance: 5
-  _damage: 50
-  _delayBetweenShots: 1
+  _price: 600
+  _index: 6
 --- !u!1 &1110461034046764
 GameObject:
   m_ObjectHideFlags: 0

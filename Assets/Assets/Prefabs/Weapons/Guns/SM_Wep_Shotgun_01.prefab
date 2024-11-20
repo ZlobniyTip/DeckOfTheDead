@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 33893723093038062}
   - component: {fileID: 23936371116652476}
   - component: {fileID: 260374932984932369}
+  - component: {fileID: 1978283038413884634}
   m_Layer: 0
   m_Name: SM_Wep_Shotgun_01
   m_TagString: Untagged
@@ -104,6 +105,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df91fefa4554964458f7df5edeff0596, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _weaponStatus: 2
+  _attackDistance: 5
+  _damage: 35
+  _delayBetweenShots: 1
   _shotEffect: {fileID: 3632998015666136821}
   _bullet: {fileID: 2779122238377238336, guid: 7af0025c87c32d548bd8331f3955239a, type: 3}
   _bulletPoints:
@@ -112,13 +117,23 @@ MonoBehaviour:
   - {fileID: 4340635881792758065}
   - {fileID: 8018614856585754762}
   - {fileID: 4385187324470304090}
-  _weaponStatus: 2
+--- !u!114 &1978283038413884634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1105646471333690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31c288e98b8c3d7459084dd240820270, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _type: 0
   _icon: {fileID: 0}
-  _name: Sawn-off shotgun
-  _price: 0
-  _attackDistance: 5
-  _damage: 35
-  _delayBetweenShots: 1
+  _name: Shotgun
+  _price: 700
+  _index: 15
 --- !u!1 &1499018300189918
 GameObject:
   m_ObjectHideFlags: 0

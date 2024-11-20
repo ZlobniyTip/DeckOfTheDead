@@ -427,6 +427,7 @@ GameObject:
   - component: {fileID: 33612643866763530}
   - component: {fileID: 23875157421364124}
   - component: {fileID: 7277841580929271180}
+  - component: {fileID: -1724347144439780363}
   m_Layer: 0
   m_Name: SM_Wep_SniperRifle_01
   m_TagString: Untagged
@@ -518,17 +519,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df91fefa4554964458f7df5edeff0596, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _weaponStatus: 2
+  _attackDistance: 15
+  _damage: 100
+  _delayBetweenShots: 2
   _shotEffect: {fileID: 706431111321150592}
   _bullet: {fileID: 2779122238377238336, guid: 7af0025c87c32d548bd8331f3955239a, type: 3}
   _bulletPoints:
   - {fileID: 1158582015809167842}
-  _weaponStatus: 2
+--- !u!114 &-1724347144439780363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1658074229854742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31c288e98b8c3d7459084dd240820270, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _type: 0
   _icon: {fileID: 0}
-  _name: Rifle
-  _price: 0
-  _attackDistance: 15
-  _damage: 100
-  _delayBetweenShots: 2
+  _name: Sniper rifle
+  _price: 1500
+  _index: 16
 --- !u!1 &2193359133282052422
 GameObject:
   m_ObjectHideFlags: 0

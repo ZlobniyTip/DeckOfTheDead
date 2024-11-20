@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 33878994652290688}
   - component: {fileID: 23459569971010350}
   - component: {fileID: 3652512143433435082}
+  - component: {fileID: 6288911285545169618}
   m_Layer: 0
   m_Name: SM_Wep_Melee_GolfClub_01
   m_TagString: Untagged
@@ -99,12 +100,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _weaponStatus: 0
-  _icon: {fileID: 0}
-  _name: Golf club
-  _price: 0
   _attackDistance: 1
   _damage: 5
   _delayBetweenShots: 1.2
+--- !u!114 &6288911285545169618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1033218996785696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31c288e98b8c3d7459084dd240820270, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _type: 1
+  _icon: {fileID: 0}
+  _name: Golf club
+  _price: 120
+  _index: 9
 --- !u!1 &1482512395150420
 GameObject:
   m_ObjectHideFlags: 0
