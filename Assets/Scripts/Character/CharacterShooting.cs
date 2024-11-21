@@ -4,18 +4,18 @@ using UnityEngine;
 public class CharacterShooting : MonoBehaviour
 {
     [SerializeField] private CharacterScaning _characterScaning;
-    [SerializeField] private Weapon _weaponPrefab;
+    [SerializeField] private Weapon _defaultWeapon;
     [SerializeField] private Transform _weaponPoint;
 
     private Enemy _currentEnemy;
-    private Weapon _weapon;
+    private Weapon _currentWeapon;
 
     public bool IsShooting { get; private set; } = false;
-    public Weapon CurrentWeapon => _weaponPrefab;
+    public Weapon CurrentWeapon => _currentWeapon;
 
-    private void Start()
+    private void Awake()
     {
-        _weapon = Instantiate(_weaponPrefab, _weaponPoint);
+        EquipWeapon(_defaultWeapon);
     }
 
     private void Update()
@@ -34,13 +34,25 @@ public class CharacterShooting : MonoBehaviour
         StartCoroutine(Shooting());
     }
 
+    public void EquipWeapon(Weapon weapon)
+    {
+        if (_currentWeapon != null)
+        {
+            _currentWeapon.State.SetStatus(ItemStatus.Purchased);
+            Destroy(_currentWeapon);
+        }
+
+        _currentWeapon = Instantiate(weapon, _weaponPoint);
+        _currentWeapon.State.SetStatus(ItemStatus.Equipped);
+    }
+
     private IEnumerator Shooting()
     {
-        var delay = new WaitForSeconds(_weapon.DelayBetweenShots);
+        var delay = new WaitForSeconds(_currentWeapon.DelayBetweenShots);
 
         while (_currentEnemy != null)
         {
-            _currentEnemy.TakeDamage(_weapon.Shooting());
+            _currentEnemy.TakeDamage(_currentWeapon.Shooting());
 
             yield return delay;
         }

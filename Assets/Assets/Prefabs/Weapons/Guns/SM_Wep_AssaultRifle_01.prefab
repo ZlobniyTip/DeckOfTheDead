@@ -262,7 +262,6 @@ GameObject:
   - component: {fileID: 23153066502322858}
   - component: {fileID: 8882552771575711017}
   - component: {fileID: 7243420503779686367}
-  - component: {fileID: -6316169559700719910}
   m_Layer: 0
   m_Name: SM_Wep_AssaultRifle_01
   m_TagString: Untagged
@@ -352,6 +351,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df91fefa4554964458f7df5edeff0596, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _type: 0
+  _icon: {fileID: 21300000, guid: 8a1d5c60915e682498ccc6618da10e7c, type: 3}
+  _name: AK74U
+  _price: 10000
+  _index: 0
   _weaponStatus: 2
   _attackDistance: 10
   _damage: 10
@@ -456,23 +460,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &-6316169559700719910
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1900586067242068}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31c288e98b8c3d7459084dd240820270, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _type: 0
-  _icon: {fileID: 21300000, guid: 8a1d5c60915e682498ccc6618da10e7c, type: 3}
-  _name: AK74U
-  _price: 1000
-  _index: 0
 --- !u!1 &7046768850573435664
 GameObject:
   m_ObjectHideFlags: 0

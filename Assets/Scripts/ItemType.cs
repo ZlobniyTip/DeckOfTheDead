@@ -1,7 +1,6 @@
 public enum ItemType
 {
-    Weapon,
+    RangeWeapon,
     MelleWeapon,
     Card,
-    Consumables
 }

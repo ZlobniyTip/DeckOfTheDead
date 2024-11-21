@@ -17,6 +17,8 @@ public class ItemView : MonoBehaviour
     public event UnityAction<ItemView> PurchaseButtonPressed;
     public event UnityAction<ItemView> EquipButtonPressed;
 
+    public Product Product => _product;
+
     private void OnEnable()
     {
         _equipButton.onClick.AddListener(OnEquipButtonPressed);

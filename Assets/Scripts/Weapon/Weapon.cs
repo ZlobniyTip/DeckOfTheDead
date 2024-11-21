@@ -1,7 +1,6 @@
 using UnityEngine;
-using UnityEngine.Events;
 
-public abstract class Weapon : MonoBehaviour
+public abstract class Weapon : Product
 {
     [SerializeField] protected WeaponStatus _weaponStatus;
 

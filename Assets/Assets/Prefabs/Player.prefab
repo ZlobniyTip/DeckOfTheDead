@@ -3326,6 +3326,8 @@ GameObject:
   - component: {fileID: 4832717163306357467}
   - component: {fileID: 5890741567366463251}
   - component: {fileID: 3544764252731362293}
+  - component: {fileID: 5859536395642495812}
+  - component: {fileID: 2158486756480371071}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -3527,7 +3529,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _characterScaning: {fileID: 5890741567366463251}
-  _weaponPrefab: {fileID: 0}
+  _defaultWeapon: {fileID: -613813979818859296, guid: 30557939935d4ee48b28a5de57e9e605, type: 3}
   _weaponPoint: {fileID: 3112779362971448169}
 --- !u!114 &5890741567366463251
 MonoBehaviour:
@@ -3554,6 +3556,76 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f80c9a327cb2c5640b61b3451c204c09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5859536395642495812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1820013058228350869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96aa0662c7cf17d4ca5b829eac3794e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rangeWeapons:
+  - {fileID: 8882552771575711017, guid: ad49a19d2c4adc94b838606a5d459f85, type: 3}
+  - {fileID: 7169430731154728294, guid: a3fe0be603767ae42a0d14c81d777c2b, type: 3}
+  - {fileID: 3115095377988841637, guid: ccd191fcb9ab4364c8eac9e2dc2b3bf1, type: 3}
+  - {fileID: 5815615100261945197, guid: aef0a5fd18f8fc745b48fb751ebcf18b, type: 3}
+  - {fileID: 5762193243520655926, guid: f8ee5a952b0a300448ad8d17e2ab2584, type: 3}
+  - {fileID: 1359321557460389555, guid: 8b4c47d9211a9784fb3b35a87af8b353, type: 3}
+  - {fileID: 4816849087286706637, guid: 6e2b4b3768b35104ca1726c44266e483, type: 3}
+  - {fileID: 3923929334992788335, guid: 3e9dcf9e9d8d7a4438ae8cfb9e5badf2, type: 3}
+  - {fileID: 3640421154895809645, guid: a807abad9d573264b96019ffcfcae869, type: 3}
+  - {fileID: -6836792644946829731, guid: a1608518da2a041418e8a5351d223d94, type: 3}
+  - {fileID: 3369887224761613359, guid: 151fe3144103e1440900697f4b29c68e, type: 3}
+  - {fileID: 8582406574941914621, guid: ac46653d56756124eb294a6b8c58d2d3, type: 3}
+  - {fileID: 2112554058698600627, guid: 9281ea4fb86d62a4882324b916876584, type: 3}
+  - {fileID: 4877219440718290585, guid: d6c28b427b8bce649b57606441c2061d, type: 3}
+  - {fileID: 4028818248477452516, guid: 5f73668964f88164aae003225d1f933f, type: 3}
+  - {fileID: 260374932984932369, guid: a2458a3a2318bb64ea864a87f6558170, type: 3}
+  - {fileID: 7277841580929271180, guid: adc01ffa88b3d6744a5eb21a731f6c23, type: 3}
+  - {fileID: 1269814916776815631, guid: dd5e78229ec4a3f4eb3b2ace8c44e70e, type: 3}
+  - {fileID: 6074864951784468394, guid: e22ad038422a02c49b86a09ff69dedfc, type: 3}
+  - {fileID: 4105591834877352078, guid: e465d39263959404582f9fdf69f40c53, type: 3}
+  - {fileID: 473291411766604811, guid: 69b6ae1bb36dc814c9445c523810fe43, type: 3}
+  _melleWeapons:
+  - {fileID: -1570541196027518847, guid: 40dbbe2f5b021f542a733e6210cfb3cb, type: 3}
+  - {fileID: -6136854924940047355, guid: d855c6cd18605f34dbfdca25cb40d71c, type: 3}
+  - {fileID: -613813979818859296, guid: 30557939935d4ee48b28a5de57e9e605, type: 3}
+  - {fileID: -6281267757293088145, guid: 4deca74d46c275b40b3255680aa23aff, type: 3}
+  - {fileID: 5582312703991870276, guid: 9f7c41ee6908ddc4f89559758aae9548, type: 3}
+  - {fileID: -5408823278043200555, guid: 8775c006a5395ff488d9315934a2a901, type: 3}
+  - {fileID: 7173047789023210633, guid: cec5944b3fba5e643b7558cbd3366cd4, type: 3}
+  - {fileID: -3423792799091845738, guid: 3cc39ba111da66a40812e82215b69d7f, type: 3}
+  - {fileID: -4298789427504669519, guid: c93dc5e6b62380f499e6ec8328bc0160, type: 3}
+  - {fileID: 3652512143433435082, guid: 8ecc451f0f51f8141bb8e67a42bfa293, type: 3}
+  - {fileID: 4172928972494968986, guid: 0382438fca188874582f78853c471286, type: 3}
+  - {fileID: -6748323176418583494, guid: bef05be41376b52498b91573c3ff5a3b, type: 3}
+  - {fileID: 8974702881448415447, guid: e9ef675108448aa43848da8917e3f721, type: 3}
+  - {fileID: 5156931599230239379, guid: 67dc5c17caf2cce4b85e75244a2d8ce1, type: 3}
+  - {fileID: 3576129489735053672, guid: 1011c4b06c2192243a469c6bdd77475d, type: 3}
+  - {fileID: 902368604842541317, guid: c6cc2d6819c0e0747bb86f4244ba73b2, type: 3}
+  - {fileID: 2535391598434979823, guid: 58a3f3f478bd0374aa7b5d42880672f5, type: 3}
+  - {fileID: 4651898108335724637, guid: 14b9097cb10b27d40a35dc944853603d, type: 3}
+  - {fileID: 2181833529061203859, guid: 92d0d7425658b7548bb550389b91dc28, type: 3}
+  _cards: []
+  _characterShooting: {fileID: 4832717163306357467}
+  _characterCards: {fileID: 2158486756480371071}
+--- !u!114 &2158486756480371071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1820013058228350869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38be36743c214084c857237a6abc31c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _cards: []
 --- !u!1 &1820299849512806003
 GameObject:
   m_ObjectHideFlags: 0

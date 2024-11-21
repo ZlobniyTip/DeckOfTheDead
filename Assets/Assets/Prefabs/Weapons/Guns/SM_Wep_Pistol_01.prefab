@@ -262,7 +262,6 @@ GameObject:
   - component: {fileID: 23303408345767918}
   - component: {fileID: -6836792644946829731}
   - component: {fileID: -5089664809214674234}
-  - component: {fileID: 7895643426307039772}
   m_Layer: 0
   m_Name: SM_Wep_Pistol_01
   m_TagString: Untagged
@@ -354,6 +353,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df91fefa4554964458f7df5edeff0596, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _type: 0
+  _icon: {fileID: 21300000, guid: 2d193da356502104ab1cb2d5da99ef54, type: 3}
+  _name: Pistol
+  _price: 2000
+  _index: 9
   _weaponStatus: 1
   _attackDistance: 5
   _damage: 10
@@ -458,23 +462,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &7895643426307039772
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1562996608389564}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31c288e98b8c3d7459084dd240820270, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _type: 0
-  _icon: {fileID: 0}
-  _name: Pistol
-  _price: 200
-  _index: 9
 --- !u!1 &1823660752924116
 GameObject:
   m_ObjectHideFlags: 0

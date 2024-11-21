@@ -3,7 +3,14 @@ using UnityEngine;
 
 public class Shop : MonoBehaviour
 {
-    [SerializeField] private List<Product> _products;
+    [SerializeField] private Buyer _buyer;
+
+    [SerializeField] private ItemType _type;
+
+    [SerializeField] private List<RangeWeapon> _rangeWeapon;
+    [SerializeField] private List<MelleWeapon> _melleWeapon;
+    [SerializeField] private List<Card> _cards;
+
     [SerializeField] private ItemView _template;
     [SerializeField] private GameObject _itemContainer;
 
@@ -11,8 +18,19 @@ public class Shop : MonoBehaviour
 
     private void OnEnable()
     {
-        foreach (var item in _products)
-            AddItemView(item);
+        switch (_type)
+        {
+            case ItemType.RangeWeapon:
+                foreach (var item in _rangeWeapon)
+                    AddItemView(item);
+                break;
+            case ItemType.MelleWeapon:
+                foreach (var item in _melleWeapon)
+                    AddItemView(item);
+                break;
+            case ItemType.Card:
+                break;
+        }
     }
 
     private void OnDisable()
@@ -27,14 +45,6 @@ public class Shop : MonoBehaviour
         _content.Clear();
     }
 
-    public void GetListProducts(List<Product> products)
-    {
-        foreach (var item in products)
-        {
-            AddItemView(item);
-        }
-    }
-
     private void AddItemView(Product product)
     {
         var view = Instantiate(_template, _itemContainer.transform);
@@ -46,9 +56,11 @@ public class Shop : MonoBehaviour
 
     private void OnPurchaseButtonPressed(ItemView view)
     {
+        _buyer.TryBuy(view.Product);
     }
 
     private void OnEquipButtonPressed(ItemView view)
     {
+        _buyer.EquipItem(view.Product);
     }
 }

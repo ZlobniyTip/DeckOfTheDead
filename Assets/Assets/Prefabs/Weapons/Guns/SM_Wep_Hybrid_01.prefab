@@ -428,7 +428,6 @@ GameObject:
   - component: {fileID: 33625998777930994}
   - component: {fileID: 23005827699755962}
   - component: {fileID: 1359321557460389555}
-  - component: {fileID: -1565368431281584798}
   m_Layer: 0
   m_Name: SM_Wep_Hybrid_01
   m_TagString: Untagged
@@ -519,6 +518,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df91fefa4554964458f7df5edeff0596, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _type: 0
+  _icon: {fileID: 0}
+  _name: Hybrid
+  _price: 4000
+  _index: 5
   _weaponStatus: 2
   _attackDistance: 7
   _damage: 5
@@ -527,23 +531,6 @@ MonoBehaviour:
   _bullet: {fileID: 2779122238377238336, guid: 7af0025c87c32d548bd8331f3955239a, type: 3}
   _bulletPoints:
   - {fileID: 5157841524428127956}
---- !u!114 &-1565368431281584798
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1607563544594070}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31c288e98b8c3d7459084dd240820270, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _type: 0
-  _icon: {fileID: 0}
-  _name: Hybrid
-  _price: 700
-  _index: 5
 --- !u!1 &2330020467569098981
 GameObject:
   m_ObjectHideFlags: 0
