@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -18,16 +19,13 @@ public class UnitMovement : MonoBehaviour
         _nitAttack = GetComponent<UnitAttack>();
     }
 
-    private void Start()
+    private void OnEnable()
     {
-        _navMesh.speed = _unit.UnitConfig.Speed;
+        StartCoroutine(SetNavMeshSpeed());
     }
 
     private void Update()
     {
-        _navMesh.speed = _unit.UnitConfig.Speed;
-        Debug.Log(_navMesh.speed);
-
         if (_unit.Target == null)
             MoveForward();
         else
@@ -53,5 +51,11 @@ public class UnitMovement : MonoBehaviour
             Vector3 forwardPosition = transform.position + Vector3.right * 5.0f;
             _navMesh.SetDestination(forwardPosition);
         }
+    }
+
+    private IEnumerator SetNavMeshSpeed()
+    {
+        yield return null; 
+        _navMesh.speed = _unit.UnitConfig.Speed;
     }
 }
