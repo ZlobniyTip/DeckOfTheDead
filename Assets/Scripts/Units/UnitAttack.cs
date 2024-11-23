@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class UnitAttack : MonoBehaviour
 {
-    //[SerializeField] private int _damage;
     [SerializeField] private float _delayBetweenAttack;
     [SerializeField] private float _attackDistance;
 
@@ -45,7 +44,6 @@ public class UnitAttack : MonoBehaviour
 
             if (_distance <= _attackDistance)
             {
-                _unitMovement.NavMeshAgent.speed = 0;
                 IsAttacking = true;
 
                 _unit.Target.TakeDamage(_unit.UnitConfig.Damage);
@@ -58,6 +56,5 @@ public class UnitAttack : MonoBehaviour
 
         IsAttacking = false;
         StartCoroutine(_searchTarget.SearchTarget());
-        _unitMovement.NavMeshAgent.speed = _unitMovement.Speed;
     }
 }

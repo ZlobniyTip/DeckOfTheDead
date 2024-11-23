@@ -5,18 +5,16 @@ using UnityEngine.AI;
 public class UnitMovement : MonoBehaviour
 {
     private Unit _unit;
-    private UnitAttack _nitAttack;
+    private UnitAttack _unitAttack;
     private NavMeshAgent _navMesh;
-    private float _speed;
 
     public NavMeshAgent NavMeshAgent => _navMesh;
-    public float Speed => _speed;
 
     private void Awake()
     {
         _navMesh = GetComponent<NavMeshAgent>();
         _unit = GetComponent<Unit>();
-        _nitAttack = GetComponent<UnitAttack>();
+        _unitAttack = GetComponent<UnitAttack>();
     }
 
     private void OnEnable()
@@ -36,9 +34,14 @@ public class UnitMovement : MonoBehaviour
     {
         float distansToTarget = Vector3.Distance(transform.position, _unit.Target.transform.position);
 
-        if ((distansToTarget > _nitAttack.AttackDistance))
+        if (distansToTarget > _unitAttack.AttackDistance)
         {
+            _navMesh.speed = _unit.UnitConfig.Speed;
             _navMesh.SetDestination(_unit.Target.transform.position);
+        }
+        else
+        {
+            _navMesh.speed = 0;
         }
     }
 
@@ -48,6 +51,7 @@ public class UnitMovement : MonoBehaviour
 
         if (distansToCharacter < 5)
         {
+            _navMesh.speed = _unit.UnitConfig.Speed;
             Vector3 forwardPosition = transform.position + Vector3.right * 5.0f;
             _navMesh.SetDestination(forwardPosition);
         }

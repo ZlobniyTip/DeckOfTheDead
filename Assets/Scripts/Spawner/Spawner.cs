@@ -4,7 +4,7 @@ using UnityEngine.Events;
 
 public class Spawner : MonoBehaviour
 {
-    [SerializeField] private Character _target;
+    [SerializeField] private Health _target;
     [SerializeField] private PlayerMovePoint[] _playerMovePoints;
     [SerializeField] private Enemy[] _prefabEnemies;
 

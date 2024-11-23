@@ -9,14 +9,20 @@ public class ZombieAttack : MonoBehaviour
     [SerializeField] private float _delayBetweenAttack;
     [SerializeField] private float _attackDistance;
 
-    private Unit _currentTarget;
     private float _distance;
+    private Enemy _enemy;
 
     public bool IsAttacking { get; private set; } = false;
+    public float AttackDistance => _attackDistance;
 
-    public void ActivateAttack(Unit enemy)
+    private void Awake()
     {
-        _currentTarget = enemy;
+        _enemy = GetComponent<Enemy>();
+    }
+
+    public void ActivateAttack(Health enemy)
+    {
+        //_enemy.InitializeTarget(enemy);  
         StopCoroutine(_zombieSearchTarget.SearchTarget());
         StartCoroutine(Attacking());
     }
@@ -25,17 +31,16 @@ public class ZombieAttack : MonoBehaviour
     {
         var delay = new WaitForSeconds(_delayBetweenAttack);
 
-        while (_currentTarget != null)
+        while (_enemy.Target != null)
         {
-            transform.LookAt(_currentTarget.transform);
-            _distance = Vector3.Distance(transform.position, _currentTarget.transform.position);
+            transform.LookAt(_enemy.Target.transform);
+            _distance = Vector3.Distance(transform.position, _enemy.Target.transform.position);
 
             if (_distance <= _attackDistance)
             {
-                _enemyMovement.NavMeshAgent.speed = 0;
                 IsAttacking = true;
 
-                _currentTarget.TakeDamage(_damage);
+                _enemy.Target.TakeDamage(_damage);
 
                 yield return delay;
             }
