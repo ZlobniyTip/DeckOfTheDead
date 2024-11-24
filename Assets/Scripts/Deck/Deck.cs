@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,6 +12,7 @@ public class Deck : MonoBehaviour
 
     private List<CardView> _playerCards;
     private HashSet<Card> _usedCards;
+    private bool _checksActivity = true;
 
     public Character Character => _character;
 
@@ -23,22 +25,29 @@ public class Deck : MonoBehaviour
         {
             CreateCard();
         }
+
+        StartCoroutine(ViewActivity());
     }
 
-    private void Update()
+    private IEnumerator ViewActivity()
     {
-        foreach (var card in _playerCards)
+        var delay = new WaitForSeconds(0.3f);
+
+        while (_checksActivity)
         {
-            Debug.Log($"энергия карты {card.Card.Energy}, энергия игрока{_playerEnergy.CurrentEnergyCount}");
-            if(card.Card.Energy <= _playerEnergy.CurrentEnergyCount)
+            foreach (var card in _playerCards)
             {
-                card.ActivateCard();
-            }
-            else
-            {
-                card.DeactivateCard();
+                if (card.Card.Energy <= _playerEnergy.CurrentEnergyCount)
+                {
+                    card.ActivateCard();
+                }
+                else
+                {
+                    card.DeactivateCard();
+                }
             }
 
+            yield return delay;
         }
     }
 
