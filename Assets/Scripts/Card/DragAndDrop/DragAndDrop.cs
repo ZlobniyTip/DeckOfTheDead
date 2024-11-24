@@ -36,6 +36,7 @@ public class DragAndDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
         else
         {
             _unit = null;
+            _spawnPlaceEffect = null;
         }
     }
 
@@ -45,7 +46,10 @@ public class DragAndDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
 
         if (FindSpawnLocation(out Vector3 spawnPosition))
         {
-            _spawnPlaceEffect.transform.position = spawnPosition;
+            if (_spawnPlaceEffect != null)
+            {
+                _spawnPlaceEffect.transform.position = spawnPosition;
+            }
         }
     }
 
@@ -59,16 +63,17 @@ public class DragAndDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
                 new Vector3(spawnPosition.x, spawnPosition.y + _distanceFromRoad, spawnPosition.z),
                 Quaternion.identity);
 
+
             StartCoroutine(SetDelaySpawning(spawnPosition));
             _spawnPlaceEffect.gameObject.SetActive(false);
         }
-        //else
-        //{
-        //    transform.position = _originalPosition;
-        //    _cardObject.gameObject.SetActive(true);
+        else
+        {
+            transform.position = _originalPosition;
+            _cardObject.gameObject.SetActive(true);
 
-        //    _spawnPlaceEffect.gameObject.SetActive(false);
-        //}
+            _spawnPlaceEffect.gameObject.SetActive(false);
+        }
     }
 
     private bool FindSpawnLocation(out Vector3 spawnPosition)
@@ -95,5 +100,7 @@ public class DragAndDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
         yield return new WaitForSeconds(amountDelayBeforeSpawning);
         _unit = Instantiate(_cardView.Card.PrefabUnit, spawnPosition, Quaternion.identity);
         _unit.SetCharacter(_deck.Character);
+
+        Destroy(gameObject);
     }
 }

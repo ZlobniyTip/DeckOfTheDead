@@ -30,6 +30,6 @@ public class CardView : MonoBehaviour
 
     public void Initialized(Card card)
     {
-        _card = card;
+        _card = card;   
     }
 }
