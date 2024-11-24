@@ -24,4 +24,13 @@ public class PlayerEnergy : MonoBehaviour
             EnergyChanged?.Invoke();
         }
     }
+
+    public void TakeEnergy(int energy)
+    {
+        if(_currentEnergyCount >= energy)
+        {
+            _currentEnergyCount -= energy;
+            EnergyChanged?.Invoke();
+        } 
+    }
 }

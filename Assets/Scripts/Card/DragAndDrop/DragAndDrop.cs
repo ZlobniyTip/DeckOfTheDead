@@ -1,4 +1,4 @@
-using System.Collections;
+using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -67,6 +67,7 @@ public class DragAndDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
             _spawnPlaceEffect.gameObject.SetActive(false);
 
             _deck.RemoveCard(_cardView);
+            _deck.TakeAwayPlayerEnergy(_cardView.Card.Energy);
             Destroy(gameObject);
         }
         else

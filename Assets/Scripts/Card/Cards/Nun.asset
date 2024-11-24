@@ -12,10 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a7cba99e3905c0489400980398dbcf4, type: 3}
   m_Name: Nun
   m_EditorClassIdentifier: 
-  _prefabUnit: {fileID: 0}
-  _unitConfig: {fileID: 0}
+  _prefabUnit: {fileID: 975895071384281986, guid: 74412ce9064ddb742bb16e15c377a55b, type: 3}
+  _unitConfig: {fileID: 11400000, guid: 4f45e001b43ac1b4ca1784679e7c4997, type: 2}
   _icon: {fileID: 0}
-  _name: 
-  _energy: 0
-  _level: 0
-  _ability: 
+  _name: "\u041C\u043E\u043D\u0430\u0445\u0438\u043D\u044F"
+  _energy: 5
+  _level: 1
+  _ability: "\u041F\u043E\u0441\u0441\u0442\u043E\u044F\u043D\u043D\u043E \u0432\u043E\u0441\u0441\u0442\u0430\u043D\u0430\u0432\u043B\u0438\u0432\u0430\u0435\u0442
+    \u0445\u043F \u0441\u043E\u044E\u0437\u043D\u0438\u043A\u0430\u043C \u043F\u043E
+    \u043C\u0430\u043B\u0435\u043D\u044C\u043A\u043E\u0439 \u043F\u043B\u043E\u0449\u0430\u0434\u0438."

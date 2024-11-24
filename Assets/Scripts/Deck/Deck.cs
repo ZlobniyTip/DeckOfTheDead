@@ -62,6 +62,11 @@ public class Deck : MonoBehaviour
         CreateCard();
     }
 
+    public void TakeAwayPlayerEnergy(int energy)
+    {
+        _playerEnergy.TakeEnergy(energy);
+    }
+
     private void CreateCard()
     {
         Card randomCard = GetUniqueCard();
