@@ -15,6 +15,8 @@ public class CardView : MonoBehaviour
     [SerializeField] private TMP_Text _damage;
     [SerializeField] private TMP_Text _ability;
 
+    [SerializeField] private Image _activity;
+
     public Card Card => _card;
 
     private void Start()
@@ -31,5 +33,15 @@ public class CardView : MonoBehaviour
     public void Initialized(Card card)
     {
         _card = card;   
+    }
+
+    public void ActivateCard()
+    {
+        _activity.gameObject.SetActive(false);
+    }
+
+    public void DeactivateCard()
+    {
+        _activity.gameObject.SetActive(true);
     }
 }

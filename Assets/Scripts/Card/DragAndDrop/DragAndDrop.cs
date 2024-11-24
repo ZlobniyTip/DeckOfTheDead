@@ -14,10 +14,12 @@ public class DragAndDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
     private float _distanceFromRoad = 0.5f;
     private CardView _cardView;
     private UnitSpawner _unitSpawner;
+    private Deck _deck;
 
     private void Awake()
     {
         _unitSpawner = GetComponentInParent<UnitSpawner>();
+        _deck = GetComponentInParent<Deck>();
         _rectTransform = GetComponent<RectTransform>();
         _cardView = GetComponent<CardView>();
     }
@@ -64,14 +66,12 @@ public class DragAndDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
             _unitSpawner.Spawn(spawnPosition, _cardView.Card.PrefabUnit);
             _spawnPlaceEffect.gameObject.SetActive(false);
 
+            _deck.RemoveCard(_cardView);
             Destroy(gameObject);
         }
         else
         {
             transform.position = _originalPosition;
-            _cardObject.gameObject.SetActive(true);
-
-            _spawnPlaceEffect.gameObject.SetActive(false);
         }
     }
 
