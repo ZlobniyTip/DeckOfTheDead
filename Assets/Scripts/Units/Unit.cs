@@ -17,6 +17,7 @@ public class Unit : Health
     private void Awake()
     {
         _maxValue = _config.Health;
+        _value = _maxValue;
     }
 
     public void SetTarget(Enemy target)

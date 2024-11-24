@@ -46,6 +46,7 @@ public class EnemyMovement : MonoBehaviour
         else
         {
             StopMovement();
+
         }
     }
 }

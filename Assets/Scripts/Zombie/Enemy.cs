@@ -7,7 +7,7 @@ public class Enemy : Health
 {
     [SerializeField] private ZombieView _zombieView;
 
-    public Health _target;
+    private Health _target;
     private ZombieAttack _zombieAttack;
     private EnemyMovement _movement;
     private ZombieStateMachine _zombieStateMachine;
@@ -50,10 +50,20 @@ public class Enemy : Health
         }
     }
 
-    public void InitializeTarget(Health target)
+    public void InitializeStartTarget(Health target)
     {
         _target = target;
         _startTarget = target;
+    }
+
+    public void InitializeTarget(Health target)
+    {
+        _target = target;
+    }
+
+    public void SetStartTarget()
+    {
+        _target = _startTarget;
     }
 
     private IEnumerator Die()
@@ -67,8 +77,4 @@ public class Enemy : Health
         Destroy(gameObject);
     }
 
-    public void SetStartTarget()
-    {
-        _target = _startTarget;
-    }
 }

@@ -25,41 +25,41 @@ public class UnitMovement : MonoBehaviour
     private void Update()
     {
         if (_unit.Target == null)
-            MoveForward();
+        {
+            float distansToCharacterX = transform.position.x - _unit.Character.transform.position.x;
+
+            if (distansToCharacterX < 4)
+            {
+                MoveForward();
+            }
+        }
         else
-            MoveToTarget();
+        {
+            float distansToTarget = Vector3.Distance(transform.position, _unit.Target.transform.position);
+
+            if (distansToTarget > _unitAttack.AttackDistance)
+            {
+                MoveToTarget();
+            }
+        }
     }
 
     private void MoveToTarget()
     {
-        float distansToTarget = Vector3.Distance(transform.position, _unit.Target.transform.position);
-
-        if (distansToTarget > _unitAttack.AttackDistance)
-        {
-            _navMesh.speed = _unit.UnitConfig.Speed;
-            _navMesh.SetDestination(_unit.Target.transform.position);
-        }
-        else
-        {
-            _navMesh.speed = 0;
-        }
+        _navMesh.speed = _unit.UnitConfig.Speed;
+        _navMesh.SetDestination(_unit.Target.transform.position);
     }
 
     private void MoveForward()
     {
-        float distansToCharacter = Vector3.Distance(transform.position, _unit.Character.transform.position);
-
-        if (distansToCharacter < 5)
-        {
-            _navMesh.speed = _unit.UnitConfig.Speed;
-            Vector3 forwardPosition = transform.position + Vector3.right * 5.0f;
-            _navMesh.SetDestination(forwardPosition);
-        }
+        _navMesh.speed = _unit.UnitConfig.Speed;
+        Vector3 forwardPosition = transform.position + Vector3.right * 5.0f;
+        _navMesh.SetDestination(forwardPosition);
     }
 
     private IEnumerator SetNavMeshSpeed()
     {
-        yield return null; 
+        yield return null;
         _navMesh.speed = _unit.UnitConfig.Speed;
     }
 }

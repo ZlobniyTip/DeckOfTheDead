@@ -27,4 +27,9 @@ public class CardView : MonoBehaviour
         _damage.text = _card.Damage.ToString();
         _ability.text = _card.Ability;
     }
+
+    public void Initialized(Card card)
+    {
+        _card = card;
+    }
 }

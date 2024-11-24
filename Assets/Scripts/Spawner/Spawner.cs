@@ -47,7 +47,7 @@ public class Spawner : MonoBehaviour
                 spawnPoints[Random.Range(0, spawnPoints.Length)].transform.position,
                 Quaternion.identity);
 
-            enemy.InitializeTarget(_target);
+            enemy.InitializeStartTarget(_target);
             numberEnemiesInWave--;
 
             yield return delay;

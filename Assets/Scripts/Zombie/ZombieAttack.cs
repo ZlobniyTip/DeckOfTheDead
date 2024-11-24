@@ -44,8 +44,11 @@ public class ZombieAttack : MonoBehaviour
 
                 yield return delay;
             }
+            else
+            {
+                yield return null;
 
-            yield return null;
+            }
         }
 
         IsAttacking = false;

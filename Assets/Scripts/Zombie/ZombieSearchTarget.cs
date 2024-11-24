@@ -35,7 +35,7 @@ public class ZombieSearchTarget : MonoBehaviour
                     {
                         if (enemy as Unit)
                         {
-                            _enemy._target = enemy;
+                            _enemy.InitializeTarget(enemy);
                             _zombieAttack.ActivateAttack(enemy);
                         }
                     }

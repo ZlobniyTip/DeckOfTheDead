@@ -62,13 +62,13 @@ public class DragAndDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
             StartCoroutine(SetDelaySpawning(spawnPosition));
             _spawnPlaceEffect.gameObject.SetActive(false);
         }
-        else
-        {
-            transform.position = _originalPosition;
-            _cardObject.gameObject.SetActive(true);
+        //else
+        //{
+        //    transform.position = _originalPosition;
+        //    _cardObject.gameObject.SetActive(true);
 
-            _spawnPlaceEffect.gameObject.SetActive(false);
-        }
+        //    _spawnPlaceEffect.gameObject.SetActive(false);
+        //}
     }
 
     private bool FindSpawnLocation(out Vector3 spawnPosition)
