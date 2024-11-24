@@ -10,16 +10,14 @@ public class DragAndDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
 
     private RectTransform _rectTransform;
     private Vector3 _originalPosition;
-
-    private Unit _unit;
     private ParticleSystem _spawnPlaceEffect;
     private float _distanceFromRoad = 0.5f;
     private CardView _cardView;
-    private Deck _deck;
+    private UnitSpawner _unitSpawner;
 
     private void Awake()
     {
-        _deck = GetComponentInParent<Deck>();
+        _unitSpawner = GetComponentInParent<UnitSpawner>();
         _rectTransform = GetComponent<RectTransform>();
         _cardView = GetComponent<CardView>();
     }
@@ -35,7 +33,6 @@ public class DragAndDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
         }
         else
         {
-            _unit = null;
             _spawnPlaceEffect = null;
         }
     }
@@ -64,8 +61,10 @@ public class DragAndDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
                 Quaternion.identity);
 
 
-            StartCoroutine(SetDelaySpawning(spawnPosition));
+            _unitSpawner.Spawn(spawnPosition, _cardView.Card.PrefabUnit);
             _spawnPlaceEffect.gameObject.SetActive(false);
+
+            Destroy(gameObject);
         }
         else
         {
@@ -91,16 +90,5 @@ public class DragAndDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
 
         spawnPosition = _originalPosition;
         return false;
-    }
-
-    private IEnumerator SetDelaySpawning(Vector3 spawnPosition)
-    {
-        float amountDelayBeforeSpawning = 1f;
-
-        yield return new WaitForSeconds(amountDelayBeforeSpawning);
-        _unit = Instantiate(_cardView.Card.PrefabUnit, spawnPosition, Quaternion.identity);
-        _unit.SetCharacter(_deck.Character);
-
-        Destroy(gameObject);
     }
 }
