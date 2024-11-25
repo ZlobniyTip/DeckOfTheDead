@@ -4,7 +4,7 @@ using UnityEngine.Events;
 
 public class Spawner : MonoBehaviour
 {
-    [SerializeField] private Character _target;
+    [SerializeField] private Health _target;
     [SerializeField] private PlayerMovePoint[] _playerMovePoints;
     [SerializeField] private Enemy[] _prefabEnemies;
 
@@ -47,7 +47,7 @@ public class Spawner : MonoBehaviour
                 spawnPoints[Random.Range(0, spawnPoints.Length)].transform.position,
                 Quaternion.identity);
 
-            enemy.InitializeTarget(_target);
+            enemy.InitializeStartTarget(_target);
             numberEnemiesInWave--;
 
             yield return delay;

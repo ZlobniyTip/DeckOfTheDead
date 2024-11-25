@@ -13,15 +13,24 @@ public class PlayerEnergy : MonoBehaviour
     private void Start()
     {
         IncreaseEnergy();
+        EnergyChanged?.Invoke();
     }
 
     public void IncreaseEnergy()
     {
-        EnergyChanged?.Invoke();
-
         if (_currentEnergyCount < _maxEnergyCount)
         {
             _currentEnergyCount++;
+            EnergyChanged?.Invoke();
         }
+    }
+
+    public void TakeEnergy(int energy)
+    {
+        if(_currentEnergyCount >= energy)
+        {
+            _currentEnergyCount -= energy;
+            EnergyChanged?.Invoke();
+        } 
     }
 }

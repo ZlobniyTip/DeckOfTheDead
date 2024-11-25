@@ -1,4 +1,4 @@
-using System.Collections;
+using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -10,15 +10,15 @@ public class DragAndDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
 
     private RectTransform _rectTransform;
     private Vector3 _originalPosition;
-
-    private Unit _unit;
     private ParticleSystem _spawnPlaceEffect;
     private float _distanceFromRoad = 0.5f;
     private CardView _cardView;
+    private UnitSpawner _unitSpawner;
     private Deck _deck;
 
     private void Awake()
     {
+        _unitSpawner = GetComponentInParent<UnitSpawner>();
         _deck = GetComponentInParent<Deck>();
         _rectTransform = GetComponent<RectTransform>();
         _cardView = GetComponent<CardView>();
@@ -35,7 +35,7 @@ public class DragAndDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
         }
         else
         {
-            _unit = null;
+            _spawnPlaceEffect = null;
         }
     }
 
@@ -45,7 +45,10 @@ public class DragAndDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
 
         if (FindSpawnLocation(out Vector3 spawnPosition))
         {
-            _spawnPlaceEffect.transform.position = spawnPosition;
+            if (_spawnPlaceEffect != null)
+            {
+                _spawnPlaceEffect.transform.position = spawnPosition;
+            }
         }
     }
 
@@ -59,15 +62,17 @@ public class DragAndDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
                 new Vector3(spawnPosition.x, spawnPosition.y + _distanceFromRoad, spawnPosition.z),
                 Quaternion.identity);
 
-            StartCoroutine(SetDelaySpawning(spawnPosition));
+
+            _unitSpawner.Spawn(spawnPosition, _cardView.Card.PrefabUnit);
             _spawnPlaceEffect.gameObject.SetActive(false);
+
+            _deck.RemoveCard(_cardView);
+            _deck.TakeAwayPlayerEnergy(_cardView.Card.Energy);
+            Destroy(gameObject);
         }
         else
         {
             transform.position = _originalPosition;
-            _cardObject.gameObject.SetActive(true);
-
-            _spawnPlaceEffect.gameObject.SetActive(false);
         }
     }
 
@@ -86,14 +91,5 @@ public class DragAndDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
 
         spawnPosition = _originalPosition;
         return false;
-    }
-
-    private IEnumerator SetDelaySpawning(Vector3 spawnPosition)
-    {
-        float amountDelayBeforeSpawning = 1f;
-
-        yield return new WaitForSeconds(amountDelayBeforeSpawning);
-        _unit = Instantiate(_cardView.Card.PrefabUnit, spawnPosition, Quaternion.identity);
-        _unit.SetCharacter(_deck.Character);
     }
 }

@@ -7,10 +7,11 @@ public class Enemy : Health
 {
     [SerializeField] private ZombieView _zombieView;
 
-    private Character _character;
+    private Health _target;
     private ZombieAttack _zombieAttack;
     private EnemyMovement _movement;
     private ZombieStateMachine _zombieStateMachine;
+    private Health _startTarget;
 
     private float _delayBetweenDeath = 2.5f;
 
@@ -18,7 +19,7 @@ public class Enemy : Health
 
     public bool IsDiying { get; private set; } = false;
     public EnemyMovement Movement => _movement;
-    public Character Target => _character;
+    public Health Target => _target;
     public ZombieView ZombieView => _zombieView;
     public ZombieAttack ZombieAttack => _zombieAttack;
 
@@ -49,9 +50,20 @@ public class Enemy : Health
         }
     }
 
-    public void InitializeTarget(Character target)
+    public void InitializeStartTarget(Health target)
     {
-        _character = target;
+        _target = target;
+        _startTarget = target;
+    }
+
+    public void InitializeTarget(Health target)
+    {
+        _target = target;
+    }
+
+    public void SetStartTarget()
+    {
+        _target = _startTarget;
     }
 
     private IEnumerator Die()
@@ -64,4 +76,5 @@ public class Enemy : Health
 
         Destroy(gameObject);
     }
+
 }
