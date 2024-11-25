@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _prefabUnit: {fileID: 5566368325892015085, guid: 9f03b6aba731bdd4a9e26425ce2a7ae5, type: 3}
   _unitConfig: {fileID: 11400000, guid: 59ffacbff36e5b54981e51ff42429f7b, type: 2}
-  _icon: {fileID: 0}
+  _icon: {fileID: 21300000, guid: d06fb05e8849101439ceaed7ba761959, type: 3}
   _name: "\u0416\u0443\u0440\u043D\u0430\u043B\u0438\u0441\u0442"
   _energy: 3
   _level: 1
