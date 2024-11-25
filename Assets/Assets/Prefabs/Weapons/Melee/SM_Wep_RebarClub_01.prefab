@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 33030701405766048}
   - component: {fileID: 23073532407823040}
   - component: {fileID: 902368604842541317}
-  - component: {fileID: 1496258882854840679}
   m_Layer: 0
   m_Name: SM_Wep_RebarClub_01
   m_TagString: Untagged
@@ -97,24 +96,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2edcfa999bb13af4b8139217bb8ec262, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _type: 1
+  _icon: {fileID: 0}
+  _name: Rebar club
+  _price: 600
+  _index: 15
   _weaponStatus: 0
   _attackDistance: 1
   _damage: 12
   _delayBetweenShots: 1.5
---- !u!114 &1496258882854840679
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1713903467633356}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31c288e98b8c3d7459084dd240820270, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _type: 1
-  _icon: {fileID: 0}
-  _name: Rebar club
-  _price: 100
-  _index: 15

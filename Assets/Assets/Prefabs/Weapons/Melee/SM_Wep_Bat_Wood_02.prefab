@@ -95,7 +95,6 @@ GameObject:
   - component: {fileID: 33333364302389010}
   - component: {fileID: 23288764827694918}
   - component: {fileID: -613813979818859296}
-  - component: {fileID: -7228947255275638498}
   m_Layer: 0
   m_Name: SM_Wep_Bat_Wood_02
   m_TagString: Untagged
@@ -181,24 +180,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2edcfa999bb13af4b8139217bb8ec262, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _type: 1
+  _icon: {fileID: 21300000, guid: 1b1e84e378b2bc64f8768525d3e5477e, type: 3}
+  _name: Bat wood
+  _price: 200
+  _index: 2
   _weaponStatus: 0
   _attackDistance: 1
   _damage: 2
   _delayBetweenShots: 1
---- !u!114 &-7228947255275638498
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1844027589456706}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31c288e98b8c3d7459084dd240820270, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _type: 1
-  _icon: {fileID: 21300000, guid: 1b1e84e378b2bc64f8768525d3e5477e, type: 3}
-  _name: Bat wood
-  _price: 2
-  _index: 20

@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 33187590420447314}
   - component: {fileID: 23557176138279092}
   - component: {fileID: 8974702881448415447}
-  - component: {fileID: 3704637628762967733}
   m_Layer: 0
   m_Name: SM_Wep_Pipe_01
   m_TagString: Untagged
@@ -97,24 +96,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2edcfa999bb13af4b8139217bb8ec262, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _type: 1
+  _icon: {fileID: 0}
+  _name: Pipe
+  _price: 600
+  _index: 12
   _weaponStatus: 0
   _attackDistance: 1
   _damage: 7
   _delayBetweenShots: 0.9
---- !u!114 &3704637628762967733
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1449313484441434}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31c288e98b8c3d7459084dd240820270, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _type: 1
-  _icon: {fileID: 0}
-  _name: Pipe
-  _price: 70
-  _index: 12

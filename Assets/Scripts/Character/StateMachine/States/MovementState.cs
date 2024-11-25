@@ -1,8 +1,8 @@
-using UnityEngine;
-
 public class MovementState : IState
 {
     protected readonly IStateSwitcher StateSwitcher;
+
+    protected Weapon CurrentWeapon;
 
     private readonly Character _character;
 
@@ -17,10 +17,12 @@ public class MovementState : IState
 
     public virtual void Enter()
     {
+        _character.CharacterShooting.ChangedWeapon += IsChangedWeapon;
     }
 
     public virtual void Exit()
     {
+        _character.CharacterShooting.ChangedWeapon -= IsChangedWeapon;
     }
 
     public virtual void Update()
@@ -29,4 +31,9 @@ public class MovementState : IState
 
     protected bool IsMoving() => Character.Movement.NavMeshAgent.speed == 0;
     protected bool IsAttacking() => Character.CharacterShooting.IsShooting;
+    protected void IsChangedWeapon()
+    {
+        Exit();
+        Enter();
+    }
 }

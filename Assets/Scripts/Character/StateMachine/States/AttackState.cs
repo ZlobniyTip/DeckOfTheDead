@@ -26,13 +26,15 @@ public class AttackState : MovementState
                 CharacterView.StartState(IsShootingRifle);
                 break;
         }
+
+        CurrentWeapon = Character.CharacterShooting.CurrentWeapon;
     }
 
     public override void Exit()
     {
         base.Exit();
 
-        switch (Character.CharacterShooting.CurrentWeapon.WeaponStatus)
+        switch (CurrentWeapon.WeaponStatus)
         {
             case WeaponStatus.Melle:
                 CharacterView.StopState(IsAttackingMelle);

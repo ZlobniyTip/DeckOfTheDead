@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 33800645707813556}
   - component: {fileID: 23190749499234548}
   - component: {fileID: -3423792799091845738}
-  - component: {fileID: 5864064273956772389}
   m_Layer: 0
   m_Name: SM_Wep_Hammer_01
   m_TagString: Untagged
@@ -97,24 +96,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2edcfa999bb13af4b8139217bb8ec262, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _type: 1
+  _icon: {fileID: 21300000, guid: adb51e3db54330a4cb7689499f5397e4, type: 3}
+  _name: Hammer
+  _price: 300
+  _index: 7
   _weaponStatus: 0
   _attackDistance: 1
   _damage: 4
   _delayBetweenShots: 0.8
---- !u!114 &5864064273956772389
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1238499803652380}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31c288e98b8c3d7459084dd240820270, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _type: 1
-  _icon: {fileID: 21300000, guid: adb51e3db54330a4cb7689499f5397e4, type: 3}
-  _name: Hammer
-  _price: 60
-  _index: 7

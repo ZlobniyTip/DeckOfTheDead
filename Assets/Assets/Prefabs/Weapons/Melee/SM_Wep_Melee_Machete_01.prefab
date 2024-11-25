@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 33352950625041376}
   - component: {fileID: 23950739685890986}
   - component: {fileID: -6748323176418583494}
-  - component: {fileID: -4375363755967501701}
   m_Layer: 0
   m_Name: SM_Wep_Melee_Machete_01
   m_TagString: Untagged
@@ -98,27 +97,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2edcfa999bb13af4b8139217bb8ec262, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _type: 1
+  _icon: {fileID: 0}
+  _name: Machete
+  _price: 1200
+  _index: 11
   _weaponStatus: 0
   _attackDistance: 1
   _damage: 8
   _delayBetweenShots: 0.8
---- !u!114 &-4375363755967501701
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1167932600818802}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31c288e98b8c3d7459084dd240820270, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _type: 1
-  _icon: {fileID: 0}
-  _name: Machete
-  _price: 120
-  _index: 11
 --- !u!1 &1526694429186876
 GameObject:
   m_ObjectHideFlags: 0

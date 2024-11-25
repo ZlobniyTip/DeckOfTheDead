@@ -95,7 +95,6 @@ GameObject:
   - component: {fileID: 33719800422405106}
   - component: {fileID: 23874614387203066}
   - component: {fileID: 5156931599230239379}
-  - component: {fileID: 3012096418536189739}
   m_Layer: 0
   m_Name: SM_Wep_PipeWrench_01
   m_TagString: Untagged
@@ -181,24 +180,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2edcfa999bb13af4b8139217bb8ec262, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _type: 1
+  _icon: {fileID: 0}
+  _name: Pipe wrench
+  _price: 500
+  _index: 13
   _weaponStatus: 0
   _attackDistance: 1
   _damage: 6
   _delayBetweenShots: 0.8
---- !u!114 &3012096418536189739
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1458207331373352}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31c288e98b8c3d7459084dd240820270, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _type: 1
-  _icon: {fileID: 0}
-  _name: Pipe wrench
-  _price: 80
-  _index: 13

@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 33904407317093096}
   - component: {fileID: 23544367054293244}
   - component: {fileID: -6281267757293088145}
-  - component: {fileID: 1663412120648788247}
   m_Layer: 0
   m_Name: SM_Wep_Baton_01
   m_TagString: Untagged
@@ -97,24 +96,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2edcfa999bb13af4b8139217bb8ec262, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _type: 1
+  _icon: {fileID: 21300000, guid: 4d25fa3b205ab474d875934301c5c8ff, type: 3}
+  _name: Police baton
+  _price: 300
+  _index: 3
   _weaponStatus: 0
   _attackDistance: 1
   _damage: 1
   _delayBetweenShots: 0.8
---- !u!114 &1663412120648788247
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1402644178857166}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31c288e98b8c3d7459084dd240820270, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _type: 1
-  _icon: {fileID: 21300000, guid: 4d25fa3b205ab474d875934301c5c8ff, type: 3}
-  _name: Police baton
-  _price: 30
-  _index: 3

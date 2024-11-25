@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -9,6 +10,8 @@ public class CharacterShooting : MonoBehaviour
 
     private Enemy _currentEnemy;
     private Weapon _currentWeapon;
+
+    public event Action ChangedWeapon;
 
     public bool IsShooting { get; private set; } = false;
     public Weapon CurrentWeapon => _currentWeapon;
@@ -44,6 +47,8 @@ public class CharacterShooting : MonoBehaviour
 
         _currentWeapon = Instantiate(weapon, _weaponPoint);
         _currentWeapon.State.SetStatus(ItemStatus.Equipped);
+
+        ChangedWeapon?.Invoke();
     }
 
     private IEnumerator Shooting()
