@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -16,6 +15,8 @@ public class DragAndDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
     private UnitSpawner _unitSpawner;
     private Deck _deck;
 
+    private bool _isSpawnPossible;
+
     private void Awake()
     {
         _unitSpawner = GetComponentInParent<UnitSpawner>();
@@ -32,10 +33,12 @@ public class DragAndDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
         {
             _cardObject.gameObject.SetActive(false);
             _spawnPlaceEffect = Instantiate(_prefabSpawnPlaceEffect, spawnPosition, Quaternion.identity);
+            _isSpawnPossible = true;
         }
         else
         {
             _spawnPlaceEffect = null;
+            _isSpawnPossible = false;
         }
     }
 
@@ -45,9 +48,24 @@ public class DragAndDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
 
         if (FindSpawnLocation(out Vector3 spawnPosition))
         {
-            if (_spawnPlaceEffect != null)
+            if (!_isSpawnPossible)
+            {
+                _spawnPlaceEffect = Instantiate(_prefabSpawnPlaceEffect, spawnPosition, Quaternion.identity);
+                _isSpawnPossible = true;
+                _cardObject.gameObject.SetActive(false);
+            }
+            else if (_spawnPlaceEffect != null)
             {
                 _spawnPlaceEffect.transform.position = spawnPosition;
+            }
+        }
+        else
+        {
+            if (_isSpawnPossible && _spawnPlaceEffect != null)
+            {
+                Destroy(_spawnPlaceEffect.gameObject);
+                _cardObject.gameObject.SetActive(true);
+                _isSpawnPossible = false;
             }
         }
     }
