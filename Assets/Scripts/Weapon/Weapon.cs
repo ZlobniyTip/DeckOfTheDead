@@ -1,10 +1,9 @@
 using System;
 using UnityEngine;
-using UnityEngine.UI;
 
 public abstract class Weapon : MonoBehaviour, IProduct
 {
-    [SerializeField] protected WeaponStatus _weaponStatus;
+    [SerializeField] protected WeaponType _weaponType;
 
     [SerializeField] private ItemType _type;
     [SerializeField] private Sprite _icon;
@@ -19,8 +18,9 @@ public abstract class Weapon : MonoBehaviour, IProduct
     [NonSerialized] private ItemState _state = null;
 
     protected AudioSource _audio;
+    protected bool _isShooting = false;
 
-    public WeaponStatus WeaponStatus => _weaponStatus;
+    public WeaponType WeaponType => _weaponType;
     public float DelayBetweenShots => _delayBetweenShots;
     public float AttackDistance => _attackDistance;
 
@@ -40,6 +40,11 @@ public abstract class Weapon : MonoBehaviour, IProduct
     {
         _audio.Play();
         return _damage;
+    }
+
+    public void StopShooting()
+    {
+        _isShooting = false;
     }
 
     public void Init(ItemStatus state)

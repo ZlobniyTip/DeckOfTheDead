@@ -45,10 +45,4 @@ public class ZombieSearchTarget : MonoBehaviour
             yield return null;
         }
     }
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, _radius);
-    }
 }

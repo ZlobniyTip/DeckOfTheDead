@@ -12,17 +12,17 @@ public class RunningState : MovementState
     {
         base.Enter();
 
-        switch (Character.CharacterShooting.CurrentWeapon.WeaponStatus)
+        switch (Character.CharacterShooting.CurrentWeapon.WeaponType)
         {
-            case WeaponStatus.Melle:
+            case WeaponType.Melle:
                 CharacterView.StartState(IsRunningMelle);
                 break;
 
-            case WeaponStatus.Pistol:
+            case WeaponType.Pistol:
                 CharacterView.StartState(IsRunningPistol);
                 break;
 
-            case WeaponStatus.Rifle:
+            case WeaponType.Rifle:
                 CharacterView.StartState(IsRunningRifle);
                 break;
         }
@@ -34,17 +34,17 @@ public class RunningState : MovementState
     {
         base.Exit();
 
-        switch (CurrentWeapon.WeaponStatus)
+        switch (CurrentWeapon.WeaponType)
         {
-            case WeaponStatus.Melle:
+            case WeaponType.Melle:
                 CharacterView.StopState(IsRunningMelle);
                 break;
 
-            case WeaponStatus.Pistol:
+            case WeaponType.Pistol:
                 CharacterView.StopState(IsRunningPistol);
                 break;
 
-            case WeaponStatus.Rifle:
+            case WeaponType.Rifle:
                 CharacterView.StopState(IsRunningRifle);
                 break;
         }

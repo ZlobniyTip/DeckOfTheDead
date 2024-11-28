@@ -22,7 +22,6 @@ public class ZombieAttack : MonoBehaviour
 
     public void ActivateAttack(Health enemy)
     {
-        _enemy.InitializeTarget(enemy);
         StopCoroutine(_zombieSearchTarget.SearchTarget());
         StartCoroutine(Attacking());
     }

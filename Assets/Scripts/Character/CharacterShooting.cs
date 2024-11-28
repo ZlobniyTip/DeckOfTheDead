@@ -21,14 +21,6 @@ public class CharacterShooting : MonoBehaviour
         EquipWeapon(_defaultWeapon);
     }
 
-    private void Update()
-    {
-        if (_currentEnemy != null)
-        {
-            transform.LookAt(_currentEnemy.transform);
-        }
-    }
-
     public void ActivShooting(Enemy enemy)
     {
         _currentEnemy = enemy;
@@ -57,12 +49,17 @@ public class CharacterShooting : MonoBehaviour
 
         while (_currentEnemy != null)
         {
+            transform.LookAt(_currentEnemy.transform);
             _currentEnemy.TakeDamage(_currentWeapon.Shooting());
 
             yield return delay;
         }
 
-        _currentEnemy = null;
+        if (_currentWeapon.WeaponType == WeaponType.FlameThrower)
+        {
+            _currentWeapon.StopShooting();
+        }
+
         IsShooting = false;
         StartCoroutine(_characterScaning.SearchEnemy());
     }

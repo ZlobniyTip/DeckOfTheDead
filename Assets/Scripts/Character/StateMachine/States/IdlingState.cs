@@ -12,17 +12,17 @@ public class IdlingState : MovementState
     {
         base.Enter();
 
-        switch (Character.CharacterShooting.CurrentWeapon.WeaponStatus)
+        switch (Character.CharacterShooting.CurrentWeapon.WeaponType)
         {
-            case WeaponStatus.Melle:
+            case WeaponType.Melle:
                 CharacterView.StartState(IsIdlingMelle);
                 break;
 
-            case WeaponStatus.Pistol:
+            case WeaponType.Pistol:
                 CharacterView.StartState(IsIdlingPistol);
                 break;
 
-            case WeaponStatus.Rifle:
+            case WeaponType.Rifle:
                 CharacterView.StartState(IsIdlingRifle);
                 break;
         }
@@ -34,17 +34,17 @@ public class IdlingState : MovementState
     {
         base.Exit();
 
-        switch (CurrentWeapon.WeaponStatus)
+        switch (CurrentWeapon.WeaponType)
         {
-            case WeaponStatus.Melle:
+            case WeaponType.Melle:
                 CharacterView.StopState(IsIdlingMelle);
                 break;
 
-            case WeaponStatus.Pistol:
+            case WeaponType.Pistol:
                 CharacterView.StopState(IsIdlingPistol);
                 break;
 
-            case WeaponStatus.Rifle:
+            case WeaponType.Rifle:
                 CharacterView.StopState(IsIdlingRifle);
                 break;
         }
