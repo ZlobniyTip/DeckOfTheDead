@@ -18,6 +18,8 @@ public class RangeWeapon : Weapon
             {
                 Instantiate(_bullet, _bulletPoints[i].position, _bulletPoints[i].rotation);
             }
+
+            return _damage;
         }
 
         Instantiate(_bullet, _bulletPoints[0].position, _bulletPoints[0].rotation);

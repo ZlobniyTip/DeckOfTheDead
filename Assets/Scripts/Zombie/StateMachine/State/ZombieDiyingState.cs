@@ -5,6 +5,8 @@ public class ZombieDiyingState : ZombieMovementState
     private const string IsDiyingVar1 = "IsDiyingVar1";
     private const string IsDiyingVar2 = "IsDiyingVar2";
 
+    private int _randomState;
+
     public ZombieDiyingState(IStateSwitcher stateSwitcher, Enemy enemy) : base(stateSwitcher, enemy)
     {
     }
@@ -13,9 +15,9 @@ public class ZombieDiyingState : ZombieMovementState
     {
         base.Enter();
 
-        int random = Random.Range(0, 2);
+        _randomState = Random.Range(0, 2);
 
-        if (random == 0)
+        if (_randomState == 0)
         {
             ZombieView.StartState(IsDiyingVar1);
         }
@@ -29,9 +31,7 @@ public class ZombieDiyingState : ZombieMovementState
     {
         base.Exit();
 
-        int random = Random.Range(0, 2);
-
-        if (random == 0)
+        if (_randomState == 0)
         {
             ZombieView.StopState(IsDiyingVar1);
         }
@@ -44,6 +44,5 @@ public class ZombieDiyingState : ZombieMovementState
     public override void Update()
     {
         base.Update();
-        Debug.Log(GetType());
     }
 }

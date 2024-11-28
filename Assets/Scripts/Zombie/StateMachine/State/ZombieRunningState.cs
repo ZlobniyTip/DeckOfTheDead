@@ -25,7 +25,10 @@ public class ZombieRunningState : ZombieMovementState
         base.Update();
 
         if (IsDiying())
+        {
             StateSwitcher.SwitchState<ZombieDiyingState>();
+            return;
+        }
 
         if (IsAttacking())
         {
@@ -34,6 +37,8 @@ public class ZombieRunningState : ZombieMovementState
         }
 
         if (IsMoving())
+        {
             StateSwitcher.SwitchState<ZombieIdlingState>();
+        }
     }
 }

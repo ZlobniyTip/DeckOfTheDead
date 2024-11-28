@@ -2,12 +2,11 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CardView : MonoBehaviour
+public class CardView : ItemView
 {
     [SerializeField] private Card _card;
 
-    [SerializeField] private Image _image;
-
+    [SerializeField] private Image _icon;
     [SerializeField] private TMP_Text _name;
     [SerializeField] private TMP_Text _energy;
     [SerializeField] private TMP_Text _level;
@@ -28,7 +27,7 @@ public class CardView : MonoBehaviour
 
     private void Start()
     {
-        _image.sprite = _card.Icon;
+        _icon.sprite = _card.Icon;
         _name.text = _card.Name;
         _energy.text = _card.Energy.ToString();
         _level.text = _card.Level.ToString();

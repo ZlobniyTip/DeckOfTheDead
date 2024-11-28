@@ -22,7 +22,7 @@ public class ZombieAttack : MonoBehaviour
 
     public void ActivateAttack(Health enemy)
     {
-        //_enemy.InitializeTarget(enemy);  
+        _enemy.InitializeTarget(enemy);
         StopCoroutine(_zombieSearchTarget.SearchTarget());
         StartCoroutine(Attacking());
     }
@@ -44,11 +44,8 @@ public class ZombieAttack : MonoBehaviour
 
                 yield return delay;
             }
-            else
-            {
-                yield return null;
 
-            }
+            yield return null;
         }
 
         IsAttacking = false;

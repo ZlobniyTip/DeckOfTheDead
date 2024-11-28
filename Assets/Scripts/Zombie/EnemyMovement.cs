@@ -7,7 +7,7 @@ public class EnemyMovement : MonoBehaviour
 {
     private NavMeshAgent _navMesh;
     private Enemy _enemy;
-    private float _speed = 2;
+    private float _speed = 5;
     private ZombieAttack _zombieAttack;
 
     public NavMeshAgent NavMeshAgent => _navMesh;
@@ -46,7 +46,6 @@ public class EnemyMovement : MonoBehaviour
         else
         {
             StopMovement();
-
         }
     }
 }

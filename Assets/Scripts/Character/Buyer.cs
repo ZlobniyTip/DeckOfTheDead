@@ -23,7 +23,7 @@ public class Buyer : MonoBehaviour
     }
 #endif
 
-    public bool TryBuy(Product product)
+    public bool TryBuy(IProduct product)
     {
         if (_money < product.Price)
             return false;
@@ -36,7 +36,7 @@ public class Buyer : MonoBehaviour
         return true;
     }
 
-    public void EquipItem(Product product)
+    public void EquipItem(IProduct product)
     {
         switch (product.Type)
         {
