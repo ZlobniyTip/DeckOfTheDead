@@ -1,6 +1,6 @@
 public class MelleWeapon : Weapon
 {
-    public override int Shooting()
+    public override int Shoot()
     {
         return _damage;
     }

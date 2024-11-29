@@ -1,12 +1,13 @@
 using UnityEngine;
 using UnityEngine.AI;
 
+[RequireComponent(typeof(ZombieSearchTarget))]
 [RequireComponent(typeof(NavMeshAgent))]
 [RequireComponent(typeof(Enemy))]
 public class EnemyMovement : MonoBehaviour
 {
+    private ZombieSearchTarget _zombieSearch;
     private NavMeshAgent _navMesh;
-    private Enemy _enemy;
     private float _speed = 5;
     private ZombieAttack _zombieAttack;
 
@@ -14,8 +15,8 @@ public class EnemyMovement : MonoBehaviour
 
     private void Awake()
     {
+        _zombieSearch = GetComponent<ZombieSearchTarget>();
         _navMesh = GetComponent<NavMeshAgent>();
-        _enemy = GetComponent<Enemy>();
         _zombieAttack = GetComponent<ZombieAttack>();
     }
 
@@ -31,17 +32,17 @@ public class EnemyMovement : MonoBehaviour
 
     private void MoveToTarget()
     {
-        if(_enemy.Target == null)
+        if(_zombieSearch.Target == null)
         {
-            _enemy.SetStartTarget();
+            _zombieSearch.SetStartTarget();
         }
 
-        float distansToTarget = Vector3.Distance(transform.position, _enemy.Target.transform.position);
+        float distansToTarget = Vector3.Distance(transform.position, _zombieSearch.Target.transform.position);
 
         if (distansToTarget > _zombieAttack.AttackDistance)
         {
             _navMesh.speed = _speed;
-            _navMesh.SetDestination(_enemy.Target.transform.position);
+            _navMesh.SetDestination(_zombieSearch.Target.transform.position);
         }
         else
         {

@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using UnityEngine;
 
@@ -6,10 +5,12 @@ public class Unit : Health
 {
     [SerializeField] private UnitConfig _config;
 
+    private Weapon _currentWeapon;
     private Character _character;
     private Enemy _target;
     private float _delayBetweenDeath = 2f;
 
+    public Weapon CurrentWeapon => _currentWeapon;
     public UnitConfig UnitConfig => _config;
     public Enemy Target => _target;
     public Character Character => _character;

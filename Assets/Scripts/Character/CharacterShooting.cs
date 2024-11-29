@@ -50,7 +50,7 @@ public class CharacterShooting : MonoBehaviour
         while (_currentEnemy != null)
         {
             transform.LookAt(_currentEnemy.transform);
-            _currentEnemy.TakeDamage(_currentWeapon.Shooting());
+            _currentEnemy.TakeDamage(_currentWeapon.Shoot());
 
             yield return delay;
         }

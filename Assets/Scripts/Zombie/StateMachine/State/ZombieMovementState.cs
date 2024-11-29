@@ -1,5 +1,3 @@
-using UnityEngine;
-
 public class ZombieMovementState : IState
 {
     protected readonly IStateSwitcher StateSwitcher;

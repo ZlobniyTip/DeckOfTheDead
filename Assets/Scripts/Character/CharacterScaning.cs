@@ -29,6 +29,7 @@ public class CharacterScaning : MonoBehaviour
                     {
                         _currentEnemy = enemy;
                         _characterShooting.ActivShooting(_currentEnemy);
+
                         yield break;
                     }
                 }

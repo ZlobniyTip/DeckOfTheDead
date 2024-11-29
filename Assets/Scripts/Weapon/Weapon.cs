@@ -17,8 +17,12 @@ public abstract class Weapon : MonoBehaviour, IProduct
 
     [NonSerialized] private ItemState _state = null;
 
+    private int _multiplyDamage = 0;
+
     protected AudioSource _audio;
     protected bool _isShooting = false;
+
+    public event Action Shooting;
 
     public WeaponType WeaponType => _weaponType;
     public float DelayBetweenShots => _delayBetweenShots;
@@ -36,9 +40,19 @@ public abstract class Weapon : MonoBehaviour, IProduct
         _audio = GetComponent<AudioSource>();
     }
 
-    public virtual int Shooting()
+    public virtual int Shoot()
     {
+        Shooting?.Invoke();
         _audio.Play();
+
+        if (_multiplyDamage > 0)
+        {
+            int damage = _damage * _multiplyDamage;
+            _multiplyDamage = 0;
+
+            return damage;
+        }
+
         return _damage;
     }
 
@@ -50,5 +64,10 @@ public abstract class Weapon : MonoBehaviour, IProduct
     public void Init(ItemStatus state)
     {
         State.SetStatus(state);
+    }
+
+    public void BuffMultiplyDamage(int buff)
+    {
+        _multiplyDamage = buff;
     }
 }

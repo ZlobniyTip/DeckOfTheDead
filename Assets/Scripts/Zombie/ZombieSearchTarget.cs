@@ -6,12 +6,10 @@ public class ZombieSearchTarget : MonoBehaviour
     [SerializeField] private ZombieAttack _zombieAttack;
     [SerializeField] private float _radius;
 
-    private Enemy _enemy;
+    private Health _target;
+    private Health _defaultTarget;
 
-    private void Awake()
-    {
-        _enemy = GetComponent<Enemy>();
-    }
+    public Health Target => _target;
 
     private void Start()
     {
@@ -20,7 +18,7 @@ public class ZombieSearchTarget : MonoBehaviour
 
     public IEnumerator SearchTarget()
     {
-        while (_enemy.Target as Character)
+        while (_target as Character)
         {
             Collider[] overlappedColliders = Physics.OverlapSphere(transform.position, _radius);
             Rigidbody rigidbody;
@@ -35,7 +33,7 @@ public class ZombieSearchTarget : MonoBehaviour
                     {
                         if (enemy as Unit)
                         {
-                            _enemy.InitializeTarget(enemy);
+                            InitializeTarget(enemy);
                             _zombieAttack.ActivateAttack(enemy);
                         }
                     }
@@ -44,5 +42,21 @@ public class ZombieSearchTarget : MonoBehaviour
 
             yield return null;
         }
+    }
+
+    public void InitializeStartTarget(Health target)
+    {
+        _target = target;
+        _defaultTarget = target;
+    }
+
+    public void InitializeTarget(Health target)
+    {
+        _target = target;
+    }
+
+    public void SetStartTarget()
+    {
+        _target = _defaultTarget;
     }
 }
