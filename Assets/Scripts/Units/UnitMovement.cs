@@ -29,18 +29,18 @@ public class UnitMovement : MonoBehaviour
             float distansToCharacterX = transform.position.x - _unit.Character.transform.position.x;
 
             if (distansToCharacterX < 4)
-            {
                 MoveForward();
-            }
+            else
+                _navMesh.speed = 0;
         }
         else
         {
             float distansToTarget = Vector3.Distance(transform.position, _unit.Target.transform.position);
 
             if (distansToTarget > _unitAttack.AttackDistance)
-            {
                 MoveToTarget();
-            }
+            else
+                _navMesh.speed = 0;
         }
     }
 

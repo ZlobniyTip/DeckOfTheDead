@@ -4482,6 +4482,7 @@ GameObject:
   - component: {fileID: 8800250625632340058}
   - component: {fileID: 777402496239575926}
   - component: {fileID: 8010485443745732854}
+  - component: {fileID: 2687984001460300141}
   m_Layer: 0
   m_Name: SM_Chr_Criminal_Male_01
   m_TagString: Untagged
@@ -4546,7 +4547,7 @@ Animator:
   m_GameObject: {fileID: 6594853068861005816}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: ffdfcb810f2918b4f8fe9f917f07bc78, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 02a3ebfa4b158104db58c25eb7a115f5, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -4571,6 +4572,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxValue: 60
   _config: {fileID: 11400000, guid: d6172f3d39a6eec48b7b1efdd0f1c653, type: 2}
+  _view: {fileID: 2687984001460300141}
 --- !u!114 &2467552096313657742
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4682,6 +4684,18 @@ CapsuleCollider:
   m_Height: 2.7473867
   m_Direction: 1
   m_Center: {x: 0, y: 0.87369335, z: 0}
+--- !u!114 &2687984001460300141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6594853068861005816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ea8cce7f1735124a97ea02df8130784, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6737784186707092547
 GameObject:
   m_ObjectHideFlags: 0

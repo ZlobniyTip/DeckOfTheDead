@@ -10,6 +10,7 @@ public class UnitMovementState : IState
         _unit = unit;
     }
 
+    protected UnitView UnitView => _unit.View;
     protected Unit unit => unit;
 
     public virtual void Enter()
@@ -25,4 +26,7 @@ public class UnitMovementState : IState
     public virtual void Update()
     {
     }
+
+    protected bool IsMoving() => _unit.Movement.NavMeshAgent.speed == 0;
+    protected bool IsAttacking() => _unit.Attack.IsAttacking;
 }

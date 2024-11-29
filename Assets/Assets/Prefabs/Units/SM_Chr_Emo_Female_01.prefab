@@ -4174,6 +4174,7 @@ GameObject:
   - component: {fileID: 1551364212387330010}
   - component: {fileID: 4993060507005498536}
   - component: {fileID: 1106203456846972792}
+  - component: {fileID: 7518288169550021950}
   m_Layer: 0
   m_Name: SM_Chr_Emo_Female_01
   m_TagString: Untagged
@@ -4238,7 +4239,7 @@ Animator:
   m_GameObject: {fileID: 6443402226922862477}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: ffdfcb810f2918b4f8fe9f917f07bc78, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 02a3ebfa4b158104db58c25eb7a115f5, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -4263,6 +4264,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxValue: 60
   _config: {fileID: 11400000, guid: eb577483c81551c45a769ab708ab477b, type: 2}
+  _view: {fileID: 7518288169550021950}
 --- !u!114 &8004034624883948541
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4374,6 +4376,18 @@ CapsuleCollider:
   m_Height: 2.7473867
   m_Direction: 1
   m_Center: {x: 0, y: 0.87369335, z: 0}
+--- !u!114 &7518288169550021950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6443402226922862477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ea8cce7f1735124a97ea02df8130784, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6478176646833098472
 GameObject:
   m_ObjectHideFlags: 0

@@ -16,7 +16,7 @@ MonoBehaviour:
   _unitConfig: {fileID: 11400000, guid: 4f45e001b43ac1b4ca1784679e7c4997, type: 2}
   _icon: {fileID: 21300000, guid: 4e3c6571804d5dc4682e94655ac25e81, type: 3}
   _name: "\u041C\u043E\u043D\u0430\u0445\u0438\u043D\u044F"
-  _energy: 5
+  _energy: 1
   _level: 1
   _ability: "\u041F\u043E\u0441\u0441\u0442\u043E\u044F\u043D\u043D\u043E \u0432\u043E\u0441\u0441\u0442\u0430\u043D\u0430\u0432\u043B\u0438\u0432\u0430\u0435\u0442
     \u0445\u043F \u0441\u043E\u044E\u0437\u043D\u0438\u043A\u0430\u043C \u043F\u043E

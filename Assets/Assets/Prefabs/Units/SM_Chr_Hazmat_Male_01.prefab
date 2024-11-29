@@ -4645,6 +4645,7 @@ GameObject:
   - component: {fileID: 7191445882600863456}
   - component: {fileID: 6494855636316344016}
   - component: {fileID: 3818180237972553595}
+  - component: {fileID: 7229596731291125855}
   m_Layer: 0
   m_Name: SM_Chr_Hazmat_Male_01
   m_TagString: Untagged
@@ -4710,7 +4711,7 @@ Animator:
   m_GameObject: {fileID: 6375955822255237479}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: ffdfcb810f2918b4f8fe9f917f07bc78, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 02a3ebfa4b158104db58c25eb7a115f5, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -4735,6 +4736,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxValue: 60
   _config: {fileID: 11400000, guid: 365c6aa67b913ad448d684b4eeda147a, type: 2}
+  _view: {fileID: 7229596731291125855}
 --- !u!114 &1407770420176780103
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4846,6 +4848,18 @@ CapsuleCollider:
   m_Height: 2.7473867
   m_Direction: 1
   m_Center: {x: 0, y: 0.87369335, z: 0}
+--- !u!114 &7229596731291125855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6375955822255237479}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ea8cce7f1735124a97ea02df8130784, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6386228923133964777
 GameObject:
   m_ObjectHideFlags: 0

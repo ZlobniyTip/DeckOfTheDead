@@ -1,18 +1,19 @@
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEngine;
 
 public class UnitStateMachine : IStateSwitcher
 {
     private List<IState> _states;
     private IState _currentState;
 
-    public UnitStateMachine(Character character)
+    public UnitStateMachine(Unit unit)
     {
         _states = new List<IState>()
         {
-
+             new UnitIdlingState(this, unit),
+            new UnitRunningState(this, unit),
+            new UnitAttackState(this, unit),
+            new UnitDiyingState(this, unit)
         };
 
         _currentState = _states[0];

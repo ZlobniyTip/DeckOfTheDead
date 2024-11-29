@@ -1,6 +1,6 @@
 public class UnitIdlingState : UnitMovementState
 {
-    //private const string IsIdling = "IsIdling";
+    private const string IsIdling = "IsIdling";
 
     public UnitIdlingState(IStateSwitcher stateSwitcher, Unit unit) : base(stateSwitcher, unit)
     {
@@ -10,31 +10,23 @@ public class UnitIdlingState : UnitMovementState
     {
         base.Enter();
 
-        //UnitView.StartState(IsIdling);
+        UnitView.StartState(IsIdling);
     }
 
     public override void Exit()
     {
         base.Exit();
 
-        //UnitView.StopState(IsIdling);
+        UnitView.StopState(IsIdling);
     }
 
     public override void Update()
     {
         base.Update();
 
-        //if (IsDiying())
-        //    StateSwitcher.SwitchState<UnitDiyingState>();
+        if (IsMoving())
+            return;
 
-        //if (IsAttacking())
-        //{
-        //    StateSwitcher.SwitchState<UnitAttackState>();
-        //}
-
-        //if (IsMoving())
-        //    return;
-
-        //StateSwitcher.SwitchState<UnitRunningState>();
+        StateSwitcher.SwitchState<UnitRunningState>();
     }
 }
