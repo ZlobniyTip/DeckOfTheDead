@@ -12,6 +12,7 @@ public class Shop : MonoBehaviour
     [SerializeField] private List<Card> _cards;
 
     [SerializeField] private ItemView _template;
+    [SerializeField] private CardView _templateCard;
     [SerializeField] private GameObject _itemContainer;
 
     private readonly List<ItemView> _content = new();
@@ -29,6 +30,8 @@ public class Shop : MonoBehaviour
                     AddItemView(item);
                 break;
             case ItemType.Card:
+                foreach (var item in _cards)
+                    AddCardView(item, item);
                 break;
         }
     }
@@ -45,10 +48,20 @@ public class Shop : MonoBehaviour
         _content.Clear();
     }
 
-    private void AddItemView(Product product)
+    private void AddItemView(IProduct product)
     {
         var view = Instantiate(_template, _itemContainer.transform);
         view.Init(product);
+        view.PurchaseButtonPressed += OnPurchaseButtonPressed;
+        view.EquipButtonPressed += OnEquipButtonPressed;
+        _content.Add(view);
+    }
+
+    private void AddCardView(IProduct product, Card card)
+    {
+        var view = Instantiate(_templateCard, _itemContainer.transform);
+        view.Init(product);
+        view.Initialized(card);
         view.PurchaseButtonPressed += OnPurchaseButtonPressed;
         view.EquipButtonPressed += OnEquipButtonPressed;
         _content.Add(view);

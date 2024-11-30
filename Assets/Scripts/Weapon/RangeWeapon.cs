@@ -7,7 +7,7 @@ public class RangeWeapon : Weapon
     [SerializeField] private Bullet _bullet;
     [SerializeField] private List<Transform> _bulletPoints;
 
-    public override int Shooting()
+    public override int Shoot()
     {
         _audio.Play();
         _shotEffect.Play();
@@ -18,6 +18,8 @@ public class RangeWeapon : Weapon
             {
                 Instantiate(_bullet, _bulletPoints[i].position, _bulletPoints[i].rotation);
             }
+
+            return _damage;
         }
 
         Instantiate(_bullet, _bulletPoints[0].position, _bulletPoints[0].rotation);

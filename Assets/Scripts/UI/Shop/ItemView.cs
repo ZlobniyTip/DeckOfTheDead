@@ -5,19 +5,20 @@ using UnityEngine.UI;
 
 public class ItemView : MonoBehaviour
 {
-    [SerializeField] private TMP_Text _label;
     [SerializeField] private TMP_Text _price;
-    [SerializeField] private Image _icon;
     [SerializeField] private Button _purchaseButton;
     [SerializeField] private Button _equipButton;
     [SerializeField] private GameObject _equippedLabel;
 
-    private Product _product;
+    [SerializeField] private TMP_Text _name;
+    [SerializeField] private Image _icon;
+
+    private IProduct _product;
 
     public event UnityAction<ItemView> PurchaseButtonPressed;
     public event UnityAction<ItemView> EquipButtonPressed;
 
-    public Product Product => _product;
+    public IProduct Product => _product;
 
     private void OnEnable()
     {
@@ -36,7 +37,7 @@ public class ItemView : MonoBehaviour
         _product.State.Changed -= OnWeaponStateChanged;
     }
 
-    public void Init(Product product)
+    public void Init(IProduct product)
     {
         _product = product;
 
@@ -47,7 +48,7 @@ public class ItemView : MonoBehaviour
 
     private void UpdateView()
     {
-        _label.text = _product.Name;
+        _name.text = _product.Name;
         _price.text = _product.Price.ToString();
         _icon.sprite = _product.Icon;
 
