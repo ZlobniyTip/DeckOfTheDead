@@ -26,6 +26,7 @@ public class EnemyMovement : MonoBehaviour
 
     public void StopMovement()
     {
+        _navMesh.isStopped = true;
         _navMesh.speed = 0;
     }
 

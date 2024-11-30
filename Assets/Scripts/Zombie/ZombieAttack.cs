@@ -52,9 +52,4 @@ public class ZombieAttack : MonoBehaviour
 
         StartCoroutine(_zombieSearchTarget.SearchTarget());
     }
-
-    private void Update()
-    {
-        Debug.Log(IsAttacking);
-    }
 }
