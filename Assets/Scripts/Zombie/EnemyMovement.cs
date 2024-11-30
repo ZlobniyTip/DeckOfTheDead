@@ -8,7 +8,7 @@ public class EnemyMovement : MonoBehaviour
 {
     private ZombieSearchTarget _zombieSearch;
     private NavMeshAgent _navMesh;
-    private float _speed = 5;
+    private float _speed = 2;
     private ZombieAttack _zombieAttack;
 
     public NavMeshAgent NavMeshAgent => _navMesh;
@@ -42,6 +42,7 @@ public class EnemyMovement : MonoBehaviour
 
         if (distansToTarget > _zombieAttack.AttackDistance)
         {
+            _navMesh.isStopped = false;
             _navMesh.speed = _speed;
             _navMesh.SetDestination(_zombieSearch.Target.transform.position);
         }

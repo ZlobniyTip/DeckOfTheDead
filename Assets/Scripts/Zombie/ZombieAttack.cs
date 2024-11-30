@@ -30,16 +30,16 @@ public class ZombieAttack : MonoBehaviour
     {
         var delay = new WaitForSeconds(_delayBetweenAttack);
 
-        while (_enemy.Target != null)
+        while (_zombieSearchTarget.Target != null)
         {
-            transform.LookAt(_enemy.Target.transform);
-            _distance = Vector3.Distance(transform.position, _enemy.Target.transform.position);
+            transform.LookAt(_zombieSearchTarget.Target.transform);
+            _distance = Vector3.Distance(transform.position, _zombieSearchTarget.Target.transform.position);
 
             if (_distance <= _attackDistance)
             {
                 IsAttacking = true;
 
-                _enemy.Target.TakeDamage(_damage);
+                _zombieSearchTarget.Target.TakeDamage(_damage);
 
                 yield return delay;
             }

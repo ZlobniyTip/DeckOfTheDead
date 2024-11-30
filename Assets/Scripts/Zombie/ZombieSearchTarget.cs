@@ -8,6 +8,10 @@ public class ZombieSearchTarget : MonoBehaviour
 
     private Enemy _enemy;
     private bool _searchingTarget = true;
+    private Health _target;
+    private Health _startTarget;
+
+    public Health Target => _target;
 
     private void Awake()
     {
@@ -43,16 +47,34 @@ public class ZombieSearchTarget : MonoBehaviour
 
             if (unitTarget != null)
             {
-                _enemy.InitializeTarget(unitTarget);
+                InitializeTarget(unitTarget);
                 _zombieAttack.ActivateAttack(unitTarget); 
             }
-            else if (_enemy.Target == null) 
+            else if (Target == null) 
             {
-                _enemy.SetStartTarget();
+                SetStartTarget();
             }
 
             yield return new WaitForSeconds(0.5f);
         }
+
+
+    }
+
+    public void InitializeStartTarget(Health target)
+    {
+        _target = target;
+        _startTarget = target;
+    }
+
+    public void InitializeTarget(Health target)
+    {
+        _target = target;
+    }
+
+    public void SetStartTarget()
+    {
+        _target = _startTarget;
     }
 
     private void OnDrawGizmos()

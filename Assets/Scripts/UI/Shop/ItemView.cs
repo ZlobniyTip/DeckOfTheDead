@@ -30,11 +30,11 @@ public class ItemView : MonoBehaviour
     {
         _equipButton.onClick.RemoveListener(OnEquipButtonPressed);
         _purchaseButton.onClick.RemoveListener(OnPurchaseButtonPressed);
+        _product.State.Changed -= OnWeaponStateChanged;
     }
 
     private void OnDestroy()
     {
-        _product.State.Changed -= OnWeaponStateChanged;
     }
 
     public void Init(IProduct product)
