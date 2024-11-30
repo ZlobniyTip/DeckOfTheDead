@@ -22,7 +22,6 @@ public class ZombieAttack : MonoBehaviour
 
     public void ActivateAttack(Health enemy)
     {
-        //_enemy.InitializeTarget(enemy);  
         StopCoroutine(_zombieSearchTarget.SearchTarget());
         StartCoroutine(Attacking());
     }
@@ -47,11 +46,15 @@ public class ZombieAttack : MonoBehaviour
             else
             {
                 yield return null;
-
+                IsAttacking = false;
             }
         }
 
-        IsAttacking = false;
         StartCoroutine(_zombieSearchTarget.SearchTarget());
+    }
+
+    private void Update()
+    {
+        Debug.Log(IsAttacking);
     }
 }
