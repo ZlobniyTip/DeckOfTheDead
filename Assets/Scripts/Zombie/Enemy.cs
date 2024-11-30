@@ -76,5 +76,4 @@ public class Enemy : Health
 
         Destroy(gameObject);
     }
-
 }

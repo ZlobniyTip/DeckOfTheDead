@@ -44,6 +44,5 @@ public class ZombieDiyingState : ZombieMovementState
     public override void Update()
     {
         base.Update();
-        Debug.Log(GetType());
     }
 }

@@ -10,7 +10,6 @@ public class ZombieStateMachine : IStateSwitcher
     {
         _states = new List<IState>()
         {
-            new ZombieIdlingState(this, enemy),
             new ZombieRunningState(this, enemy),
             new ZombieAttackState(this, enemy),
             new ZombieDiyingState(this, enemy)
