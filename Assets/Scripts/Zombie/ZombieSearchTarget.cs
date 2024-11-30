@@ -7,6 +7,7 @@ public class ZombieSearchTarget : MonoBehaviour
     [SerializeField] private float _radius;
 
     private Enemy _enemy;
+    private bool _searchingTarget = true;
 
     private void Awake()
     {
@@ -20,29 +21,37 @@ public class ZombieSearchTarget : MonoBehaviour
 
     public IEnumerator SearchTarget()
     {
-        while (_enemy.Target as Character)
+        while (_searchingTarget)
         {
             Collider[] overlappedColliders = Physics.OverlapSphere(transform.position, _radius);
             Rigidbody rigidbody;
+            Health unitTarget = null;
 
             for (int i = 0; i < overlappedColliders.Length; i++)
             {
                 rigidbody = overlappedColliders[i].attachedRigidbody;
 
-                if (rigidbody)
+                if (rigidbody && rigidbody.gameObject.TryGetComponent(out Health health))
                 {
-                    if (rigidbody.gameObject.TryGetComponent(out Health enemy))
+                    if (health is Unit)
                     {
-                        if (enemy as Unit)
-                        {
-                            _enemy.InitializeTarget(enemy);
-                            _zombieAttack.ActivateAttack(enemy);
-                        }
+                        unitTarget = health;
+                        break;
                     }
                 }
             }
 
-            yield return null;
+            if (unitTarget != null)
+            {
+                _enemy.InitializeTarget(unitTarget);
+                _zombieAttack.ActivateAttack(unitTarget); 
+            }
+            else if (_enemy.Target == null) 
+            {
+                _enemy.SetStartTarget();
+            }
+
+            yield return new WaitForSeconds(0.5f);
         }
     }
 

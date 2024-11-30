@@ -28,7 +28,6 @@ public class Unit : Health
 
         _movement = GetComponent<UnitMovement>();
         _attack = GetComponent<UnitAttack>();
-        //_view = GetComponent<UnitView>();
         _view.Initialize();
 
         _stateMachine = new UnitStateMachine(this);
@@ -37,7 +36,6 @@ public class Unit : Health
     private void Update()
     {
         _stateMachine.Update();
-        Debug.Log(_movement.NavMeshAgent.speed);
     }
 
     public void SetTarget(Enemy target)
