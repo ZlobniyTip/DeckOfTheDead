@@ -5035,7 +5035,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d24e9ba970207214aaf74eee8dce37c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxValue: 50
+  _maxValue: 150
   _zombieView: {fileID: 173381879777323493}
 --- !u!114 &6857338918763445364
 MonoBehaviour:

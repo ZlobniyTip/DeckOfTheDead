@@ -6,20 +6,26 @@ public class UnitAttack : MonoBehaviour
 {
     [SerializeField] private float _delayBetweenAttack;
     [SerializeField] private float _attackDistance;
+    [SerializeField] private Weapon _weapon;
+    [SerializeField] private Transform _weaponPoint;
 
-    UnitSearchTarget _searchTarget;
+    private UnitSearchTarget _searchTarget;
     private UnitMovement _unitMovement;
     private Unit _unit;
     private float _distance;
+    private Weapon _currentWeapon;
 
     public float AttackDistance => _attackDistance;
     public bool IsAttacking { get; private set; } = false;
+    public Weapon CurrentWeapon => _currentWeapon;
 
     private void Awake()
     {
         _unit = GetComponent<Unit>();
         _unitMovement = GetComponent<UnitMovement>();
         _searchTarget = GetComponent<UnitSearchTarget>();
+
+        InstallWeapons();
     }
 
     public void ActivateAttack(Enemy enemy)
@@ -56,5 +62,10 @@ public class UnitAttack : MonoBehaviour
 
         IsAttacking = false;
         StartCoroutine(_searchTarget.SearchTarget());
+    }
+
+    private void InstallWeapons()
+    {
+        _currentWeapon = Instantiate(_weapon, _weaponPoint);
     }
 }

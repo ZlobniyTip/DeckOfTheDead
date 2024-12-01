@@ -38663,7 +38663,7 @@ MonoBehaviour:
   - {fileID: 1916724312}
   - {fileID: 831533490}
   - {fileID: 608748072}
-  _numberEnemiesInWave: 8
+  _numberEnemiesInWave: 1
 --- !u!1001 &943907897
 PrefabInstance:
   m_ObjectHideFlags: 0

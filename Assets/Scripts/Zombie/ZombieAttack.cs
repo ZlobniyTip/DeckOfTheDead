@@ -45,8 +45,8 @@ public class ZombieAttack : MonoBehaviour
             }
             else
             {
-                yield return null;
                 IsAttacking = false;
+                yield return null;
             }
         }
 

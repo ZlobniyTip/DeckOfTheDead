@@ -1,3 +1,7 @@
+
+
+using UnityEngine;
+
 public class ZombieAttackState : ZombieMovementState
 {
     private const string IsAttackingZombie = "IsAttacking";
@@ -33,7 +37,7 @@ public class ZombieAttackState : ZombieMovementState
         {
             return;
         }
-        else if(IsMoving())
+        else 
         {
             StateSwitcher.SwitchState<ZombieRunningState>();
         }
