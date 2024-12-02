@@ -1,3 +1,5 @@
+using UnityEngine;
+
 public class UnitIdlingState : UnitMovementState
 {
     const string IsIdlingMelle = "IsIdlingMelle";
@@ -12,7 +14,7 @@ public class UnitIdlingState : UnitMovementState
     {
         base.Enter();
 
-        switch (unit.Attack.CurrentWeapon.WeaponType)
+        switch (Unit.Attack.CurrentWeapon.WeaponType)
         {
             case WeaponType.Melle:
                 UnitView.StartState(IsIdlingMelle);
@@ -27,7 +29,7 @@ public class UnitIdlingState : UnitMovementState
                 break;
         }
 
-        CurrentWeapon = unit.Attack.CurrentWeapon;
+        CurrentWeapon = Unit.Attack.CurrentWeapon;
     }
 
     public override void Exit()

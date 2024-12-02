@@ -14,7 +14,7 @@ public class UnitAttackState : UnitMovementState
     {
         base.Enter();
 
-        switch (unit.Attack.CurrentWeapon.WeaponType)
+        switch (Unit.Attack.CurrentWeapon.WeaponType)
         {
             case WeaponType.Melle:
                 UnitView.StartState(IsAttackingMelle);
@@ -41,7 +41,7 @@ public class UnitAttackState : UnitMovementState
                 break;
         }
 
-        CurrentWeapon = unit.Attack.CurrentWeapon;
+        CurrentWeapon = Unit.Attack.CurrentWeapon;
     }
 
     public override void Exit()

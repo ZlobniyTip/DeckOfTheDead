@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class UnitAttack : MonoBehaviour
@@ -20,8 +19,7 @@ public class UnitAttack : MonoBehaviour
         _unit = GetComponent<Unit>();
         _unitMovement = GetComponent<UnitMovement>();
         _searchTarget = GetComponent<UnitSearchTarget>();
-
-        InstallWeapons();
+        InstallWeapon(_unit.UnitConfig.Weapon);
     }
 
     public void ActivateAttack(Enemy enemy)
@@ -60,7 +58,7 @@ public class UnitAttack : MonoBehaviour
         StartCoroutine(_searchTarget.SearchTarget());
     }
 
-    private void InstallWeapons()
+    public void InstallWeapon(Weapon _)
     {
         _currentWeapon = _unit.UnitConfig.Weapon;
         _currentWeapon = Instantiate(_unit.UnitConfig.Weapon, _weaponPoint);

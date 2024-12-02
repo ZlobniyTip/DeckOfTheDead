@@ -12,7 +12,7 @@ public class UnitMovementState : IState
     }
 
     protected UnitView UnitView => _unit.View;
-    protected Unit unit => unit;
+    protected Unit Unit => _unit;
 
     public virtual void Enter()
     {
