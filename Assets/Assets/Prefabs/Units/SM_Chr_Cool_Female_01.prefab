@@ -2862,6 +2862,37 @@ Transform:
   - {fileID: 8222878403522634016}
   m_Father: {fileID: 5369993122178102783}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5290178146308067700
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9062261886272518464}
+  m_Layer: 0
+  m_Name: WeaponPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9062261886272518464
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5290178146308067700}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.06987045, y: 0.7109767, z: 0.06843606, w: 0.6963812}
+  m_LocalPosition: {x: 0.097, y: 0.025, z: -0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8222878403522634016}
+  m_LocalEulerAnglesHint: {x: -11.223, y: 91.212, z: -0.236}
 --- !u!1 &5618425201844671052
 GameObject:
   m_ObjectHideFlags: 0
@@ -4883,7 +4914,7 @@ Animator:
   m_GameObject: {fileID: 8143021279637564522}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: ffdfcb810f2918b4f8fe9f917f07bc78, type: 3}
-  m_Controller: {fileID: 9100000, guid: 02a3ebfa4b158104db58c25eb7a115f5, type: 2}
+  m_Controller: {fileID: 9100000, guid: 02d92f12fc07d57458e7db79aefc3869, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -4933,7 +4964,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71b310d7e69872d46a7c6e3ba7364d13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _radius: 2.5
 --- !u!114 &3268814862269853262
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4946,8 +4976,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f3fc4cb45ceb1e428a922c9d511ef1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _delayBetweenAttack: 1
-  _attackDistance: 1.2
+  _weaponPoint: {fileID: 9062261886272518464}
 --- !u!195 &5235927173047509567
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -5730,6 +5759,7 @@ Transform:
   - {fileID: 4443098644801291161}
   - {fileID: 3421046451001305882}
   - {fileID: 7917567045720301199}
+  - {fileID: 9062261886272518464}
   m_Father: {fileID: 3355149959365227455}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &9081850188989092151

@@ -33,6 +33,8 @@ public abstract class Weapon : MonoBehaviour, IProduct
     public string Name => _name;
     public int Price => _price;
     public int Index => _index;
+    public int Damage => _damage;
+
     public ItemState State => _state ??= new ItemState(ItemStatus.NotPurchased);
 
     private void Start()

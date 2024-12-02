@@ -3,6 +3,7 @@ public class UnitMovementState : IState
     protected readonly IStateSwitcher StateSwitcher;
 
     private readonly Unit _unit;
+    protected Weapon CurrentWeapon;
 
     public UnitMovementState(IStateSwitcher stateSwitcher, Unit unit)
     {

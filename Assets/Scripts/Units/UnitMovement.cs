@@ -37,7 +37,7 @@ public class UnitMovement : MonoBehaviour
         {
             float distansToTarget = Vector3.Distance(transform.position, _unit.Target.transform.position);
 
-            if (distansToTarget > _unitAttack.AttackDistance)
+            if (distansToTarget > _unitAttack.CurrentWeapon.AttackDistance)
                 MoveToTarget();
             else
                 _navMesh.speed = 0;

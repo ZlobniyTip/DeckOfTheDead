@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Businessman
   m_EditorClassIdentifier: 
   _health: 50
-  _damage: 4
+  _weapon: {fileID: -6136854924940047355, guid: d855c6cd18605f34dbfdca25cb40d71c, type: 3}
   _speed: 3

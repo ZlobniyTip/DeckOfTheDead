@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Girl
   m_EditorClassIdentifier: 
   _health: 50
-  _damage: 10
+  _weapon: {fileID: 3640421154895809645, guid: a807abad9d573264b96019ffcfcae869, type: 3}
   _speed: 3

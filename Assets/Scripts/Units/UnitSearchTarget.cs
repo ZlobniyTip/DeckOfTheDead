@@ -1,11 +1,9 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class UnitSearchTarget : MonoBehaviour
 {
-    [SerializeField] private float _radius;
-
+    private float _radius = 4;
     private UnitAttack _unitAttack;
     private Unit _unit;
 
@@ -22,6 +20,11 @@ public class UnitSearchTarget : MonoBehaviour
 
     public IEnumerator SearchTarget()
     {
+        if (_unitAttack.CurrentWeapon.AttackDistance > _radius)
+        {
+            _radius = _unitAttack.CurrentWeapon.AttackDistance;
+        }
+
         while (_unit.Target == null)
         {
             Collider[] overlappedColliders = Physics.OverlapSphere(transform.position, _radius);
@@ -43,5 +46,11 @@ public class UnitSearchTarget : MonoBehaviour
 
             yield return null;
         }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(transform.position, _radius);
     }
 }

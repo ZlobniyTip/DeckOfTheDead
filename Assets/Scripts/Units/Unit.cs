@@ -12,7 +12,7 @@ public class Unit : Health
     private UnitMovement _movement;
     private UnitAttack _attack;
     private UnitStateMachine _stateMachine;
-    private Weapon _currentWeapon;
+    //private Weapon _currentWeapon;
 
     public UnitMovement Movement => _movement;
     public UnitAttack Attack => _attack;
@@ -20,7 +20,7 @@ public class Unit : Health
     public Enemy Target => _target;
     public Character Character => _character;
     public UnitView View => _view;
-    public Weapon CurrentWeapon => _currentWeapon;
+    //public Weapon CurrentWeapon => _currentWeapon;
 
     private void Awake()
     {

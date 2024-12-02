@@ -1,6 +1,8 @@
 public class UnitRunningState : UnitMovementState
 {
-    private const string IsRunning = "IsRunning";
+    const string IsRunningMelle = "IsRunningMelle";
+    const string IsRunningPistol = "IsRunningPistol";
+    const string IsRunningRifle = "IsRunningRifle";
 
     public UnitRunningState(IStateSwitcher stateSwitcher, Unit unit) : base(stateSwitcher, unit)
     {
@@ -10,14 +12,42 @@ public class UnitRunningState : UnitMovementState
     {
         base.Enter();
 
-        UnitView.StartState(IsRunning);
+        switch (unit.Attack.CurrentWeapon.WeaponType)
+        {
+            case WeaponType.Melle:
+                UnitView.StartState(IsRunningMelle);
+                break;
+
+            case WeaponType.Pistol:
+                UnitView.StartState(IsRunningPistol);
+                break;
+
+            case WeaponType.Rifle:
+                UnitView.StartState(IsRunningRifle);
+                break;
+        }
+
+        CurrentWeapon = unit.Attack.CurrentWeapon;
     }
 
     public override void Exit()
     {
         base.Exit();
 
-        UnitView.StopState(IsRunning);
+        switch (CurrentWeapon.WeaponType)
+        {
+            case WeaponType.Melle:
+                UnitView.StopState(IsRunningMelle);
+                break;
+
+            case WeaponType.Pistol:
+                UnitView.StopState(IsRunningPistol);
+                break;
+
+            case WeaponType.Rifle:
+                UnitView.StopState(IsRunningRifle);
+                break;
+        }
     }
 
     public override void Update()

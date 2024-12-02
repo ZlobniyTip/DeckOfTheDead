@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class UnitAttack : MonoBehaviour
 {
-    [SerializeField] private float _delayBetweenAttack;
-    [SerializeField] private float _attackDistance;
-    [SerializeField] private Weapon _weapon;
     [SerializeField] private Transform _weaponPoint;
 
     private UnitSearchTarget _searchTarget;
@@ -15,7 +12,6 @@ public class UnitAttack : MonoBehaviour
     private float _distance;
     private Weapon _currentWeapon;
 
-    public float AttackDistance => _attackDistance;
     public bool IsAttacking { get; private set; } = false;
     public Weapon CurrentWeapon => _currentWeapon;
 
@@ -41,18 +37,18 @@ public class UnitAttack : MonoBehaviour
 
     private IEnumerator Attacking()
     {
-        var delay = new WaitForSeconds(_delayBetweenAttack);
+        var delay = new WaitForSeconds(_currentWeapon.DelayBetweenShots);
 
         while (_unit.Target != null)
         {
             transform.LookAt(_unit.Target.transform);
             _distance = Vector3.Distance(transform.position, _unit.Target.transform.position);
 
-            if (_distance <= _attackDistance)
+            if (_distance <= _currentWeapon.AttackDistance)
             {
                 IsAttacking = true;
 
-                _unit.Target.TakeDamage(_unit.UnitConfig.Damage);
+                _unit.Target.TakeDamage(_currentWeapon.Damage);
 
                 yield return delay;
             }
@@ -66,6 +62,7 @@ public class UnitAttack : MonoBehaviour
 
     private void InstallWeapons()
     {
-        _currentWeapon = Instantiate(_weapon, _weaponPoint);
+        _currentWeapon = _unit.UnitConfig.Weapon;
+        _currentWeapon = Instantiate(_unit.UnitConfig.Weapon, _weaponPoint);
     }
 }

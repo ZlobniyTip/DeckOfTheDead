@@ -12,17 +12,17 @@ public class Biker : Skill
 
     private void Start()
     {
-        _unit.CurrentWeapon.Shooting += CountStrokes;
+        //_unit.CurrentWeapon.Shooting += CountStrokes;
     }
 
     private void OnDestroy()
     {
-        _unit.CurrentWeapon.Shooting -= CountStrokes;
+        //_unit.CurrentWeapon.Shooting -= CountStrokes;
     }
 
     public override void UseSkill()
     {
-        _unit.CurrentWeapon.BuffMultiplyDamage(_criticalAttack);
+        //_unit.CurrentWeapon.BuffMultiplyDamage(_criticalAttack);
     }
 
     private void CountStrokes()

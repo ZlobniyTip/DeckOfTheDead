@@ -27,7 +27,7 @@ public class Card : ScriptableObject, IProduct
     public int Energy => _energy;
     public int Level => _level;
     public int Health => _unitConfig.Health;
-    public int Damage => _unitConfig.Damage;
+    public int Damage => _unitConfig.Weapon.Damage;
     public float Speed => _unitConfig.Speed;
     public string Ability => _ability;
 
