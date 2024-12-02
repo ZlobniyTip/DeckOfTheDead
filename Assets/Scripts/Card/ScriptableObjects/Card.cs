@@ -30,6 +30,7 @@ public class Card : ScriptableObject, IProduct
     public int Damage => _unitConfig.Weapon.Damage;
     public float Speed => _unitConfig.Speed;
     public string Ability => _ability;
+    public UnitConfig UnitConfig => _unitConfig;
 
     public ItemType Type => _type;
     public int Price => _price;

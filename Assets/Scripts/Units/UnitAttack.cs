@@ -19,7 +19,7 @@ public class UnitAttack : MonoBehaviour
         _unit = GetComponent<Unit>();
         _unitMovement = GetComponent<UnitMovement>();
         _searchTarget = GetComponent<UnitSearchTarget>();
-        InstallWeapon(_unit.UnitConfig.Weapon);
+        InstallWeapon();
     }
 
     public void ActivateAttack(Enemy enemy)
@@ -58,7 +58,7 @@ public class UnitAttack : MonoBehaviour
         StartCoroutine(_searchTarget.SearchTarget());
     }
 
-    public void InstallWeapon(Weapon _)
+    public void InstallWeapon()
     {
         _currentWeapon = _unit.UnitConfig.Weapon;
         _currentWeapon = Instantiate(_unit.UnitConfig.Weapon, _weaponPoint);

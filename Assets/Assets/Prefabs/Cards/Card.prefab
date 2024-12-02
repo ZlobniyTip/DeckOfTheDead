@@ -714,6 +714,8 @@ MonoBehaviour:
   _name: {fileID: 8320021411205515304}
   _icon: {fileID: 4490216494014467748}
   _card: {fileID: 11400000, guid: 4a8768024bb92e842a2b7f17b36d6b27, type: 2}
+  _icon: {fileID: 4490216494014467748}
+  _name: {fileID: 8320021411205515304}
   _energy: {fileID: 1605734872471934573}
   _level: {fileID: 4753519401886735113}
   _health: {fileID: 5784285601499063229}
@@ -735,6 +737,7 @@ MonoBehaviour:
   _cardObject: {fileID: 3428677139722256099}
   _prefabSpawnPlaceEffect: {fileID: 5003715098164324716, guid: 02e32cab0ae4bc4428a3844d35c90c4d, type: 3}
   _prefabSpawnEffect: {fileID: 2333588375221883515, guid: 1a115f85e49436f4e898472045273cc6, type: 3}
+  attackRadiusVisual: {fileID: 4669786038433809806, guid: ad24ac0e5d1a63a498972578a78ba9f0, type: 3}
 --- !u!1 &4303438788156474068
 GameObject:
   m_ObjectHideFlags: 0

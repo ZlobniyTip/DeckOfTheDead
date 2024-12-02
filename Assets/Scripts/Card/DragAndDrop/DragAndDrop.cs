@@ -6,7 +6,9 @@ public class DragAndDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
     [SerializeField] private GameObject _cardObject;
     [SerializeField] private ParticleSystem _prefabSpawnPlaceEffect;
     [SerializeField] private ParticleSystem _prefabSpawnEffect;
+    [SerializeField] private GameObject attackRadiusVisual;
 
+    private GameObject _currentAttackRadiusVisual;
     private RectTransform _rectTransform;
     private Vector3 _originalPosition;
     private ParticleSystem _spawnPlaceEffect;
@@ -33,11 +35,14 @@ public class DragAndDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
         {
             _cardObject.gameObject.SetActive(false);
             _spawnPlaceEffect = Instantiate(_prefabSpawnPlaceEffect, spawnPosition, Quaternion.identity);
+
+            ShowAttackRadius(spawnPosition);
             _isSpawnPossible = true;
         }
         else
         {
             _spawnPlaceEffect = null;
+            _currentAttackRadiusVisual = null;
             _isSpawnPossible = false;
         }
     }
@@ -50,20 +55,44 @@ public class DragAndDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
         {
             if (!_isSpawnPossible)
             {
-                _spawnPlaceEffect = Instantiate(_prefabSpawnPlaceEffect, spawnPosition, Quaternion.identity);
+                if (_spawnPlaceEffect == null)
+                {
+                    _spawnPlaceEffect = Instantiate(_prefabSpawnPlaceEffect, spawnPosition, Quaternion.identity);
+                }
+
+                if (_currentAttackRadiusVisual == null)
+                {
+                    ShowAttackRadius(spawnPosition);
+                }
+
                 _isSpawnPossible = true;
                 _cardObject.gameObject.SetActive(false);
             }
-            else if (_spawnPlaceEffect != null)
+            else
             {
-                _spawnPlaceEffect.transform.position = spawnPosition;
+                if (_spawnPlaceEffect != null)
+                    _spawnPlaceEffect.transform.position = spawnPosition;
+
+                if (_currentAttackRadiusVisual != null)
+                    _currentAttackRadiusVisual.transform.position = spawnPosition;
             }
         }
         else
         {
-            if (_isSpawnPossible && _spawnPlaceEffect != null)
+            if (_isSpawnPossible)
             {
-                Destroy(_spawnPlaceEffect.gameObject);
+                if (_spawnPlaceEffect != null)
+                {
+                    Destroy(_spawnPlaceEffect.gameObject);
+                    _spawnPlaceEffect = null;
+                }
+
+                if (_currentAttackRadiusVisual != null)
+                {
+                    Destroy(_currentAttackRadiusVisual.gameObject);
+                    _currentAttackRadiusVisual = null;
+                }
+
                 _cardObject.gameObject.SetActive(true);
                 _isSpawnPossible = false;
             }
@@ -83,6 +112,7 @@ public class DragAndDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
 
             _unitSpawner.Spawn(spawnPosition, _cardView.Card.PrefabUnit);
             _spawnPlaceEffect.gameObject.SetActive(false);
+            _currentAttackRadiusVisual.gameObject.SetActive(false);
 
             _deck.RemoveCard(_cardView);
             _deck.TakeAwayPlayerEnergy(_cardView.Card.Energy);
@@ -109,5 +139,16 @@ public class DragAndDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
 
         spawnPosition = _originalPosition;
         return false;
+    }
+
+    private void ShowAttackRadius(Vector3 position)
+    {
+        _currentAttackRadiusVisual = Instantiate(attackRadiusVisual, position, Quaternion.identity);
+        Vector3 newScale = new Vector3(
+         _cardView.Card.UnitConfig.Weapon.AttackDistance * 2,
+         _currentAttackRadiusVisual.transform.localScale.y,
+         _cardView.Card.UnitConfig.Weapon.AttackDistance * 2);
+
+        _currentAttackRadiusVisual.transform.localScale = newScale;
     }
 }
