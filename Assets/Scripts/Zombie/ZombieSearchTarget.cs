@@ -57,8 +57,6 @@ public class ZombieSearchTarget : MonoBehaviour
 
             yield return new WaitForSeconds(0.5f);
         }
-
-
     }
 
     public void InitializeStartTarget(Health target)

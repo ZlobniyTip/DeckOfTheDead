@@ -10,6 +10,7 @@ public class UnitAttack : MonoBehaviour
     private Unit _unit;
     private float _distance;
     private Weapon _currentWeapon;
+    private UnitAnimator _unitAnimator;
 
     public bool IsAttacking { get; private set; } = false;
     public Weapon CurrentWeapon => _currentWeapon;
@@ -19,6 +20,7 @@ public class UnitAttack : MonoBehaviour
         _unit = GetComponent<Unit>();
         _unitMovement = GetComponent<UnitMovement>();
         _searchTarget = GetComponent<UnitSearchTarget>();
+        _unitAnimator = GetComponent<UnitAnimator>();
         InstallWeapon();
     }
 
@@ -44,6 +46,7 @@ public class UnitAttack : MonoBehaviour
 
             if (_distance <= _currentWeapon.AttackDistance)
             {
+                _unitAnimator.PlauAttackAnimation(_currentWeapon.WeaponType);
                 IsAttacking = true;
 
                 _unit.Target.TakeDamage(_currentWeapon.Damage);
@@ -62,10 +65,5 @@ public class UnitAttack : MonoBehaviour
     {
         _currentWeapon = _unit.UnitConfig.Weapon;
         _currentWeapon = Instantiate(_unit.UnitConfig.Weapon, _weaponPoint);
-    }
-
-    private void Update()
-    {
-        Debug.Log(IsAttacking);
     }
 }

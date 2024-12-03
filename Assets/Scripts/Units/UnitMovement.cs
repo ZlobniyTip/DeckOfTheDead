@@ -7,6 +7,7 @@ public class UnitMovement : MonoBehaviour
     private Unit _unit;
     private UnitAttack _unitAttack;
     private NavMeshAgent _navMesh;
+    private UnitAnimator _unitAnimator;
 
     public NavMeshAgent NavMeshAgent => _navMesh;
 
@@ -15,6 +16,7 @@ public class UnitMovement : MonoBehaviour
         _navMesh = GetComponent<NavMeshAgent>();
         _unit = GetComponent<Unit>();
         _unitAttack = GetComponent<UnitAttack>();
+        _unitAnimator = GetComponent<UnitAnimator>();
     }
 
     private void OnEnable()
@@ -31,7 +33,14 @@ public class UnitMovement : MonoBehaviour
             if (distansToCharacterX < 4)
                 MoveForward();
             else
+            {
                 _navMesh.speed = 0;
+
+                if (_unitAttack.IsAttacking == false)
+                {
+                    _unitAnimator.PlauIdlingAnimation(_unitAttack.CurrentWeapon.WeaponType);
+                }
+            }
         }
         else
         {
@@ -40,18 +49,27 @@ public class UnitMovement : MonoBehaviour
             if (distansToTarget > _unitAttack.CurrentWeapon.AttackDistance)
                 MoveToTarget();
             else
+            {
                 _navMesh.speed = 0;
+
+                if (_unitAttack.IsAttacking == false)
+                {
+                    _unitAnimator.PlauIdlingAnimation(_unitAttack.CurrentWeapon.WeaponType);
+                }
+            }
         }
     }
 
     private void MoveToTarget()
     {
+        _unitAnimator.PlauRunningAnimation(_unitAttack.CurrentWeapon.WeaponType);
         _navMesh.speed = _unit.UnitConfig.Speed;
         _navMesh.SetDestination(_unit.Target.transform.position);
     }
 
     private void MoveForward()
     {
+        _unitAnimator.PlauRunningAnimation(_unitAttack.CurrentWeapon.WeaponType);
         _navMesh.speed = _unit.UnitConfig.Speed;
         Vector3 forwardPosition = transform.position + Vector3.right * 5.0f;
         _navMesh.SetDestination(forwardPosition);

@@ -38,16 +38,15 @@ public class ZombieAttack : MonoBehaviour
             if (_distance <= _attackDistance)
             {
                 IsAttacking = true;
-
-                _zombieSearchTarget.Target.TakeDamage(_damage);
-
                 yield return delay;
+                _zombieSearchTarget.Target.TakeDamage(_damage);
             }
             else
             {
                 IsAttacking = false;
-                yield return null;
             }
+
+            yield return delay; 
         }
 
         StartCoroutine(_zombieSearchTarget.SearchTarget());
