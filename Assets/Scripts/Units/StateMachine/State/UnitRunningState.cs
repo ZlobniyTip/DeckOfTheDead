@@ -54,6 +54,11 @@ public class UnitRunningState : UnitMovementState
     {
         base.Update();
 
+        if (IsAttacking())
+        {
+            StateSwitcher.SwitchState<UnitAttackState>();
+        }
+
         if (IsMoving())
             StateSwitcher.SwitchState<UnitIdlingState>();
     }

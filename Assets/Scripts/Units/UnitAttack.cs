@@ -63,4 +63,9 @@ public class UnitAttack : MonoBehaviour
         _currentWeapon = _unit.UnitConfig.Weapon;
         _currentWeapon = Instantiate(_unit.UnitConfig.Weapon, _weaponPoint);
     }
+
+    private void Update()
+    {
+        Debug.Log(IsAttacking);
+    }
 }
