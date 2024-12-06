@@ -15,8 +15,6 @@ public class EnemyMovement : MonoBehaviour
 
     public NavMeshAgent NavMeshAgent => _navMesh;
 
-    //public event Action StartedWalking;
-
     private void Awake()
     {
         _enemy = GetComponent<Enemy>();
@@ -53,8 +51,6 @@ public class EnemyMovement : MonoBehaviour
 
         if (distansToTarget > _zombieAttack.AttackDistance)
         {
-            //StartedWalking.Invoke();
-
             _navMesh.isStopped = false;
             _navMesh.speed = _speed;
             _navMesh.SetDestination(_zombieSearch.Target.transform.position);
