@@ -28,7 +28,7 @@ public class UnitMovement : MonoBehaviour
     {
         if (_unitAttack.IsAttacking)
         {
-            _navMesh.speed = 0;
+            StopMovement();
             return; 
         }
 
@@ -40,7 +40,7 @@ public class UnitMovement : MonoBehaviour
                 MoveForward();
             else
             {
-                _navMesh.speed = 0;
+                StopMovement();
 
                 if (_unitAttack.IsAttacking == false)
                     _unitAnimator.PlauIdlingAnimation(_unitAttack.CurrentWeapon.WeaponType);
@@ -54,12 +54,17 @@ public class UnitMovement : MonoBehaviour
                 MoveToTarget();
             else
             {
-                _navMesh.speed = 0;
+                StopMovement();
 
                 if (_unitAttack.IsAttacking == false)
                     _unitAnimator.PlauIdlingAnimation(_unitAttack.CurrentWeapon.WeaponType);
             }
         }
+    }
+
+    public void StopMovement()
+    {
+        _navMesh.speed = 0;
     }
 
     private void MoveToTarget()

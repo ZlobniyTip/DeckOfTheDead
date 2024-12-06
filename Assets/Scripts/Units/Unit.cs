@@ -8,10 +8,11 @@ public class Unit : Health
 
     private Character _character;
     private Enemy _target;
-    private float _delayBetweenDeath = 2f;
+    private float _delayBetweenDeath = 2.5f;
     private UnitMovement _movement;
     private UnitAttack _attack;
     private UnitStateMachine _stateMachine;
+    private UnitAnimator _unitAnimator;
 
     public UnitMovement Movement => _movement;
     public UnitAttack Attack => _attack;
@@ -27,6 +28,7 @@ public class Unit : Health
 
         _movement = GetComponent<UnitMovement>();
         _attack = GetComponent<UnitAttack>();
+        _unitAnimator = GetComponent<UnitAnimator>();
         _view.Initialize();   
     }
 
@@ -63,6 +65,8 @@ public class Unit : Health
     private IEnumerator Die()
     {
         var delay = new WaitForSeconds(_delayBetweenDeath);
+
+        _unitAnimator.PlauDiyingAnimation();
         yield return delay;
 
         Destroy(gameObject);

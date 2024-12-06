@@ -29,9 +29,9 @@ public class ZombieAttack : MonoBehaviour
         while (_zombieSearchTarget.Target != null)
         {
             transform.LookAt(_zombieSearchTarget.Target.transform);
-            _attackDistance = Vector3.Distance(transform.position, _zombieSearchTarget.Target.transform.position);
+            var distance = Vector3.Distance(transform.position, _zombieSearchTarget.Target.transform.position);
 
-            if (_attackDistance <= _attackDistance)
+            if (distance <= _attackDistance)
             {
                 yield return delay;
                 _zombieSearchTarget.Target.TakeDamage(_damage);

@@ -5075,8 +5075,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _zombieSearchTarget: {fileID: 1783502744295560063}
   _damage: 5
-  _delayBetweenAttack: 2
-  _attackDistance: 0.7
+  _delayBetweenAttack: 1
+  _attackDistance: 1.5
 --- !u!114 &1783502744295560063
 MonoBehaviour:
   m_ObjectHideFlags: 0

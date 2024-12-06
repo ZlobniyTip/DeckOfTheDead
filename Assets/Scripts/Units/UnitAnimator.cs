@@ -16,6 +16,8 @@ public class UnitAnimator : MonoBehaviour
     const string IsIdlingPistol = "IsIdlingPistol";
     const string IsIdlingRifle = "IsIdlingRifle";
 
+    private const string IsDiying = "IsDiying";
+
     [SerializeField] Animator _animator;
 
     public void PlauAttackAnimation(WeaponType weaponType)
@@ -82,5 +84,10 @@ public class UnitAnimator : MonoBehaviour
                 _animator.SetTrigger(IsIdlingRifle);
                 break;
         }
+    }
+
+    public void PlauDiyingAnimation()
+    {
+        _animator.SetTrigger(IsDiying);
     }
 }
