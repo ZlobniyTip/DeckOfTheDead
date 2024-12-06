@@ -4,24 +4,20 @@ using UnityEngine;
 public class ZombieAttack : MonoBehaviour
 {
     [SerializeField] private ZombieSearchTarget _zombieSearchTarget;
-    [SerializeField] private EnemyMovement _enemyMovement;
     [SerializeField] private int _damage;
     [SerializeField] private float _delayBetweenAttack;
     [SerializeField] private float _attackDistance;
 
-    private float _distance;
-    private Enemy _enemy;
-
     public bool IsAttacking { get; private set; } = false;
     public float AttackDistance => _attackDistance;
 
-    private void Awake()
+    public void ActivateAttack()
     {
-        _enemy = GetComponent<Enemy>();
-    }
+        if (IsAttacking)
+            return;
 
-    public void ActivateAttack(Health enemy)
-    {
+        IsAttacking = true;
+
         StopCoroutine(_zombieSearchTarget.SearchTarget());
         StartCoroutine(Attacking());
     }
@@ -33,11 +29,10 @@ public class ZombieAttack : MonoBehaviour
         while (_zombieSearchTarget.Target != null)
         {
             transform.LookAt(_zombieSearchTarget.Target.transform);
-            _distance = Vector3.Distance(transform.position, _zombieSearchTarget.Target.transform.position);
+            _attackDistance = Vector3.Distance(transform.position, _zombieSearchTarget.Target.transform.position);
 
-            if (_distance <= _attackDistance)
+            if (_attackDistance <= _attackDistance)
             {
-                IsAttacking = true;
                 yield return delay;
                 _zombieSearchTarget.Target.TakeDamage(_damage);
             }
@@ -46,9 +41,10 @@ public class ZombieAttack : MonoBehaviour
                 IsAttacking = false;
             }
 
-            yield return delay; 
+            yield return delay;
         }
 
+        IsAttacking = false;
         StartCoroutine(_zombieSearchTarget.SearchTarget());
     }
 }

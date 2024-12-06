@@ -38,8 +38,6 @@ public class Unit : Health
     private void Update()
     {
         _stateMachine.Update();
-
-        Debug.Log(_value);
     }
 
     public void SetTarget(Enemy target)

@@ -30311,56 +30311,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4894746385696420, guid: 0450a127987e4124aa4c55845a477bf0, type: 3}
   m_PrefabInstance: {fileID: 744596087}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &744740385
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1217159610}
-    m_Modifications:
-    - target: {fileID: 4141363128966184, guid: 01059c456645545488cee4964c6d8cf3, type: 3}
-      propertyPath: m_RootOrder
-      value: 1990
-      objectReference: {fileID: 0}
-    - target: {fileID: 4141363128966184, guid: 01059c456645545488cee4964c6d8cf3, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -7.470003
-      objectReference: {fileID: 0}
-    - target: {fileID: 4141363128966184, guid: 01059c456645545488cee4964c6d8cf3, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4141363128966184, guid: 01059c456645545488cee4964c6d8cf3, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 8.799993
-      objectReference: {fileID: 0}
-    - target: {fileID: 4141363128966184, guid: 01059c456645545488cee4964c6d8cf3, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.68227935
-      objectReference: {fileID: 0}
-    - target: {fileID: 4141363128966184, guid: 01059c456645545488cee4964c6d8cf3, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4141363128966184, guid: 01059c456645545488cee4964c6d8cf3, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0.73109156
-      objectReference: {fileID: 0}
-    - target: {fileID: 4141363128966184, guid: 01059c456645545488cee4964c6d8cf3, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 01059c456645545488cee4964c6d8cf3, type: 3}
---- !u!4 &744740386 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4141363128966184, guid: 01059c456645545488cee4964c6d8cf3, type: 3}
-  m_PrefabInstance: {fileID: 744740385}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &745876389
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -49438,7 +49388,6 @@ Transform:
   - {fileID: 1596921125}
   - {fileID: 2095017208}
   - {fileID: 1356238302}
-  - {fileID: 744740386}
   - {fileID: 1706614142}
   - {fileID: 425115263}
   - {fileID: 1236709352}

@@ -26,6 +26,12 @@ public class UnitMovement : MonoBehaviour
 
     private void Update()
     {
+        if (_unitAttack.IsAttacking)
+        {
+            _navMesh.speed = 0;
+            return; 
+        }
+
         if (_unit.Target == null)
         {
             float distansToCharacterX = transform.position.x - _unit.Character.transform.position.x;
@@ -37,9 +43,7 @@ public class UnitMovement : MonoBehaviour
                 _navMesh.speed = 0;
 
                 if (_unitAttack.IsAttacking == false)
-                {
                     _unitAnimator.PlauIdlingAnimation(_unitAttack.CurrentWeapon.WeaponType);
-                }
             }
         }
         else
@@ -53,9 +57,7 @@ public class UnitMovement : MonoBehaviour
                 _navMesh.speed = 0;
 
                 if (_unitAttack.IsAttacking == false)
-                {
                     _unitAnimator.PlauIdlingAnimation(_unitAttack.CurrentWeapon.WeaponType);
-                }
             }
         }
     }

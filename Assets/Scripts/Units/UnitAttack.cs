@@ -46,8 +46,8 @@ public class UnitAttack : MonoBehaviour
 
             if (_distance <= _currentWeapon.AttackDistance)
             {
-                _unitAnimator.PlauAttackAnimation(_currentWeapon.WeaponType);
                 IsAttacking = true;
+                _unitAnimator.PlauAttackAnimation(_currentWeapon.WeaponType);
 
                 _unit.Target.TakeDamage(_currentWeapon.Damage);
 
