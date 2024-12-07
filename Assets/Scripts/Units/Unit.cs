@@ -14,6 +14,7 @@ public class Unit : Health
     private UnitStateMachine _stateMachine;
     private UnitSearchTarget _searchTarget;
     private UnitAnimator _unitAnimator;
+    private UnitController _controller;
 
     public UnitMovement Movement => _movement;
     public UnitAttack Attack => _attack;
@@ -31,7 +32,8 @@ public class Unit : Health
         _attack = GetComponent<UnitAttack>();
         _unitAnimator = GetComponent<UnitAnimator>();
         _searchTarget = GetComponent<UnitSearchTarget>();
-        _view.Initialize();   
+        _controller = GetComponent<UnitController>();
+        _view.Initialize();
     }
 
     private void Start()
@@ -42,11 +44,34 @@ public class Unit : Health
     private void Update()
     {
         _stateMachine.Update();
+
+        if (_target != null)
+        {
+            Debug.Log("Таргет не нал");
+
+        }
+    }
+
+    public void ClearTarget(Enemy _)
+    {
+        _target = null;
     }
 
     public void SetTarget(Enemy target)
     {
+        Debug.Log(target.gameObject.name);
+
+        if (_target != null)
+        {
+            _target.Died -= ClearTarget;
+        }
+
         _target = target;
+
+        if (_target != null)
+        {
+            _target.Died += ClearTarget;
+        }
     }
 
     public void SetCharacter(Character character)
@@ -68,9 +93,7 @@ public class Unit : Health
     {
         var delay = new WaitForSeconds(_delayBetweenDeath);
 
-        _movement.enabled = false;
-        _attack.StopAttack();
-        _searchTarget.StopSearch();
+        _controller.DisableStates();
         _unitAnimator.PlauDiyingAnimation();
         yield return delay;
 

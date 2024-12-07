@@ -24,35 +24,34 @@ public class UnitAttack : MonoBehaviour
         InstallWeapon();
     }
 
-    public void ActivateAttack(Enemy enemy)
+    private void OnEnable()
     {
-        StopCoroutine(_searchTarget.SearchTarget());
         _coroutine = StartCoroutine(Attacking());
+        IsAttacking = true;
     }
 
-    public void StopAttack()
+    private void OnDisable()
     {
-        StopCoroutine(_coroutine);
-        this.enabled = false;
-    }
+        if (_coroutine != null)
+        {
+            StopCoroutine(_coroutine);
+            _coroutine = null;
+        }
 
-    //private void Start()
-    //{
-    //   _coroutine = StartCoroutine(Attacking());
-    //}
+        IsAttacking = false;
+    }
 
     private IEnumerator Attacking()
     {
         var delay = new WaitForSeconds(_currentWeapon.DelayBetweenShots);
 
-        while (_unit.Target != null)
+        while (true)
         {
             transform.LookAt(_unit.Target.transform);
             var distance = Vector3.Distance(transform.position, _unit.Target.transform.position);
 
             if (distance <= _currentWeapon.AttackDistance)
-            {
-                IsAttacking = true;
+            {    
                 _unitAnimator.PlauAttackAnimation(_currentWeapon.WeaponType);
 
                 _unit.Target.TakeDamage(_currentWeapon.Damage);
@@ -62,9 +61,6 @@ public class UnitAttack : MonoBehaviour
 
             yield return null;
         }
-
-        IsAttacking = false;
-        StartCoroutine(_searchTarget.SearchTarget());
     }
 
     public void InstallWeapon()

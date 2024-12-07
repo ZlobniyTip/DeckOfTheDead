@@ -4678,6 +4678,7 @@ GameObject:
   - component: {fileID: 3818180237972553595}
   - component: {fileID: 7229596731291125855}
   - component: {fileID: -2247392419935966248}
+  - component: {fileID: 9147290101703569014}
   m_Layer: 0
   m_Name: SM_Chr_Hazmat_Male_01
   m_TagString: Untagged
@@ -4903,6 +4904,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 3752862162899361780}
+--- !u!114 &9147290101703569014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6375955822255237479}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c15008850d5ba1a43bd4450c7c893663, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6386228923133964777
 GameObject:
   m_ObjectHideFlags: 0

@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 4198359648136331963}
   - component: {fileID: -1757976858966680029}
   - component: {fileID: 1849658467699048438}
+  - component: {fileID: 2456124956361488053}
   m_Layer: 0
   m_Name: SM_Chr_Cool_Male_01
   m_TagString: Untagged
@@ -243,6 +244,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 5232070252029111447}
+--- !u!114 &2456124956361488053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 37082601362207996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c15008850d5ba1a43bd4450c7c893663, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &195484859372115182
 GameObject:
   m_ObjectHideFlags: 0

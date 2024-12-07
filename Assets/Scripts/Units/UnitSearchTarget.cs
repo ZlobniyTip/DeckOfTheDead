@@ -6,6 +6,7 @@ public class UnitSearchTarget : MonoBehaviour
     private float _radius = 4;
     private UnitAttack _unitAttack;
     private Unit _unit;
+    private Coroutine _coroutine;
 
     private void Awake()
     {
@@ -13,15 +14,18 @@ public class UnitSearchTarget : MonoBehaviour
         _unitAttack = GetComponent<UnitAttack>();
     }
 
-    private void Start()
+    private void OnEnable()
     {
-        StartCoroutine(SearchTarget());
+        _coroutine = StartCoroutine(SearchTarget());
     }
 
-    public void StopSearch()
+    private void OnDisable()
     {
-        StopCoroutine(SearchTarget());
-        this.enabled = false;
+        if (_coroutine != null)
+        {
+            StopCoroutine(_coroutine);
+            _coroutine = null;
+        }
     }
 
     public IEnumerator SearchTarget()
@@ -31,7 +35,7 @@ public class UnitSearchTarget : MonoBehaviour
             _radius = _unitAttack.CurrentWeapon.AttackDistance;
         }
 
-        while (_unit.Target == null)
+        while (true)
         {
             Collider[] overlappedColliders = Physics.OverlapSphere(transform.position, _radius);
             Rigidbody rigidbody;
@@ -45,7 +49,6 @@ public class UnitSearchTarget : MonoBehaviour
                     if (rigidbody.gameObject.TryGetComponent(out Enemy enemy))
                     {
                         _unit.SetTarget(enemy);
-                        _unitAttack.ActivateAttack(enemy);
                     }
                 }
             }

@@ -5503,6 +5503,7 @@ GameObject:
   - component: {fileID: 3432665586807776457}
   - component: {fileID: -364391967379944350}
   - component: {fileID: -3030417443764150589}
+  - component: {fileID: -5893064153799913046}
   m_Layer: 0
   m_Name: SM_Chr_Press_Male_01
   m_TagString: Untagged
@@ -5727,6 +5728,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 5939524194149718333}
+--- !u!114 &-5893064153799913046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8488949910064434950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c15008850d5ba1a43bd4450c7c893663, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8531912780678533994
 GameObject:
   m_ObjectHideFlags: 0

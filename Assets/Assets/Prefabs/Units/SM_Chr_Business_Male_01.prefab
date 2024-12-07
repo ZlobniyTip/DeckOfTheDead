@@ -4262,6 +4262,7 @@ GameObject:
   - component: {fileID: 3146991598712448359}
   - component: {fileID: -659746830630200763}
   - component: {fileID: -12361155724787627}
+  - component: {fileID: 5666754256358414577}
   m_Layer: 0
   m_Name: SM_Chr_Business_Male_01
   m_TagString: Untagged
@@ -4486,6 +4487,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 2681425540512086390}
+--- !u!114 &5666754256358414577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6009865997827512522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c15008850d5ba1a43bd4450c7c893663, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6026117388831376841
 GameObject:
   m_ObjectHideFlags: 0
