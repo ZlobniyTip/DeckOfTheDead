@@ -8,8 +8,10 @@ public class UnitMovement : MonoBehaviour
     private UnitAttack _unitAttack;
     private NavMeshAgent _navMesh;
     private UnitAnimator _unitAnimator;
+    private bool _cameUp;
 
     public NavMeshAgent NavMeshAgent => _navMesh;
+    public bool CameUp => _cameUp;
 
     private void Awake()
     {
@@ -51,9 +53,13 @@ public class UnitMovement : MonoBehaviour
             float distansToTarget = Vector3.Distance(transform.position, _unit.Target.transform.position);
 
             if (distansToTarget > _unitAttack.CurrentWeapon.AttackDistance)
+            {
+                _cameUp = false;
                 MoveToTarget();
+            }
             else
             {
+                _cameUp = true;
                 StopMovement();
 
                 if (_unitAttack.IsAttacking == false)

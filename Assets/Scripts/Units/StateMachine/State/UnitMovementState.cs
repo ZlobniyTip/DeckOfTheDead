@@ -11,7 +11,7 @@ public class UnitMovementState : IState
         _unit = unit;
     }
 
-    protected UnitView UnitView => _unit.View;
+    //protected UnitView UnitView => _unit.View;
     protected Unit Unit => _unit;
 
     public virtual void Enter()

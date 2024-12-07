@@ -16,7 +16,6 @@ public class Enemy : Health
     private float _delayBetweenDeath = 2.5f;
 
     public event Action Diying;
-    public event Action<Enemy> Died;
 
     public bool IsDiying { get; private set; } = false;
 
@@ -47,7 +46,6 @@ public class Enemy : Health
 
         if (_value <= 0)
         {
-            Died?.Invoke(this);
             IsDiying = true;
             Diying?.Invoke();
             StartCoroutine(Die());

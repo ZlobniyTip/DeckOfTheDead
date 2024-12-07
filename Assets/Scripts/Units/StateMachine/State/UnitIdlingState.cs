@@ -14,20 +14,20 @@ public class UnitIdlingState : UnitMovementState
     {
         base.Enter();
 
-        switch (Unit.Attack.CurrentWeapon.WeaponType)
-        {
-            case WeaponType.Melle:
-                UnitView.StartState(IsIdlingMelle);
-                break;
+        //switch (Unit.Attack.CurrentWeapon.WeaponType)
+        //{
+        //    case WeaponType.Melle:
+        //        UnitView.StartState(IsIdlingMelle);
+        //        break;
 
-            case WeaponType.Pistol:
-                UnitView.StartState(IsIdlingPistol);
-                break;
+        //    case WeaponType.Pistol:
+        //        UnitView.StartState(IsIdlingPistol);
+        //        break;
 
-            case WeaponType.Rifle:
-                UnitView.StartState(IsIdlingRifle);
-                break;
-        }
+        //    case WeaponType.Rifle:
+        //        UnitView.StartState(IsIdlingRifle);
+        //        break;
+        //}
 
         CurrentWeapon = Unit.Attack.CurrentWeapon;
     }
@@ -36,20 +36,20 @@ public class UnitIdlingState : UnitMovementState
     {
         base.Exit();
 
-        switch (CurrentWeapon.WeaponType)
-        {
-            case WeaponType.Melle:
-                UnitView.StopState(IsIdlingMelle);
-                break;
+        //switch (CurrentWeapon.WeaponType)
+        //{
+        //    case WeaponType.Melle:
+        //        UnitView.StopState(IsIdlingMelle);
+        //        break;
 
-            case WeaponType.Pistol:
-                UnitView.StopState(IsIdlingPistol);
-                break;
+        //    case WeaponType.Pistol:
+        //        UnitView.StopState(IsIdlingPistol);
+        //        break;
 
-            case WeaponType.Rifle:
-                UnitView.StopState(IsIdlingRifle);
-                break;
-        }
+        //    case WeaponType.Rifle:
+        //        UnitView.StopState(IsIdlingRifle);
+        //        break;
+        //}
     }
 
     public override void Update()

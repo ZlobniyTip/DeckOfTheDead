@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class UnitController : MonoBehaviour
+public class UnitObserver : MonoBehaviour
 {
     private UnitSearchTarget _unitSearchTarget;
     private UnitAttack _unitAttack;
@@ -15,13 +15,14 @@ public class UnitController : MonoBehaviour
         _unitAttack = GetComponent<UnitAttack>();
         _unitMovement = GetComponent<UnitMovement>();
         _unit = GetComponent<Unit>();
-
-        DisableStates();
     }
 
     private void Start()
     {
+        DisableStates();
+
         _unitMovement.enabled = true;
+        enabled = true;
     }
 
     private void Update()
@@ -31,7 +32,7 @@ public class UnitController : MonoBehaviour
             _unitSearchTarget.enabled = true;
             _unitAttack.enabled = false;
         }
-        else
+        else if(_unit.Target != null && _unitMovement.CameUp == true)
         {
             _unitSearchTarget.enabled = false;
             _unitAttack.enabled = true;
@@ -43,5 +44,6 @@ public class UnitController : MonoBehaviour
         _unitSearchTarget.enabled = false;
         _unitAttack.enabled = false;
         _unitMovement.enabled = false;
+        enabled = false;
     }
 }

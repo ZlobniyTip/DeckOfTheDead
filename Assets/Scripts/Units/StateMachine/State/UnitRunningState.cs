@@ -12,20 +12,20 @@ public class UnitRunningState : UnitMovementState
     {
         base.Enter();
 
-        switch (Unit.Attack.CurrentWeapon.WeaponType)
-        {
-            case WeaponType.Melle:
-                UnitView.StartState(IsRunningMelle);
-                break;
+        //switch (Unit.Attack.CurrentWeapon.WeaponType)
+        //{
+        //    case WeaponType.Melle:
+        //        UnitView.StartState(IsRunningMelle);
+        //        break;
 
-            case WeaponType.Pistol:
-                UnitView.StartState(IsRunningPistol);
-                break;
+        //    case WeaponType.Pistol:
+        //        UnitView.StartState(IsRunningPistol);
+        //        break;
 
-            case WeaponType.Rifle:
-                UnitView.StartState(IsRunningRifle);
-                break;
-        }
+        //    case WeaponType.Rifle:
+        //        UnitView.StartState(IsRunningRifle);
+        //        break;
+        //}
 
         CurrentWeapon = Unit.Attack.CurrentWeapon;
     }
@@ -34,20 +34,20 @@ public class UnitRunningState : UnitMovementState
     {
         base.Exit();
 
-        switch (CurrentWeapon.WeaponType)
-        {
-            case WeaponType.Melle:
-                UnitView.StopState(IsRunningMelle);
-                break;
+        //switch (CurrentWeapon.WeaponType)
+        //{
+        //    case WeaponType.Melle:
+        //        UnitView.StopState(IsRunningMelle);
+        //        break;
 
-            case WeaponType.Pistol:
-                UnitView.StopState(IsRunningPistol);
-                break;
+        //    case WeaponType.Pistol:
+        //        UnitView.StopState(IsRunningPistol);
+        //        break;
 
-            case WeaponType.Rifle:
-                UnitView.StopState(IsRunningRifle);
-                break;
-        }
+        //    case WeaponType.Rifle:
+        //        UnitView.StopState(IsRunningRifle);
+        //        break;
+        //}
     }
 
     public override void Update()
