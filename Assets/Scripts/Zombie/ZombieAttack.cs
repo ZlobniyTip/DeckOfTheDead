@@ -8,18 +8,19 @@ public class ZombieAttack : MonoBehaviour
     [SerializeField] private float _delayBetweenAttack;
     [SerializeField] private float _attackDistance;
 
-    public bool IsAttacking { get; private set; } = false;
+    private bool _isAttacking = false; 
+    private Coroutine _attackCoroutine;
+
     public float AttackDistance => _attackDistance;
+    public bool IsAttacking => _isAttacking;
 
     public void ActivateAttack()
     {
-        if (IsAttacking)
-            return;
+        if (_isAttacking) return;
 
-        IsAttacking = true;
-
-        StopCoroutine(_zombieSearchTarget.SearchTarget());
-        StartCoroutine(Attacking());
+        _isAttacking = true;
+        if (_attackCoroutine != null) StopCoroutine(_attackCoroutine); 
+        _attackCoroutine = StartCoroutine(Attacking());
     }
 
     private IEnumerator Attacking()
@@ -32,19 +33,19 @@ public class ZombieAttack : MonoBehaviour
             var distance = Vector3.Distance(transform.position, _zombieSearchTarget.Target.transform.position);
 
             if (distance <= _attackDistance)
-            {
-                yield return delay;
                 _zombieSearchTarget.Target.TakeDamage(_damage);
-            }
             else
-            {
-                IsAttacking = false;
-            }
+                break; 
 
             yield return delay;
         }
 
-        IsAttacking = false;
-        StartCoroutine(_zombieSearchTarget.SearchTarget());
+        _isAttacking = false; 
+        _attackCoroutine = null;
+
+        if (!_zombieSearchTarget.SearchingTarget)
+        {
+            StartCoroutine(_zombieSearchTarget.SearchTarget());
+        }
     }
 }

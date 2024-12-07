@@ -7,11 +7,11 @@ public class ZombieSearchTarget : MonoBehaviour
     [SerializeField] private float _radius;
 
     private Enemy _enemy;
-    private bool _searchingTarget = true;
     private Health _target;
     private Health _startTarget;
 
     public Health Target => _target;
+    public bool SearchingTarget { get; private set; } = true;
 
     private void Awake()
     {
@@ -25,19 +25,26 @@ public class ZombieSearchTarget : MonoBehaviour
 
     public IEnumerator SearchTarget()
     {
-        while (_searchingTarget)
+        SearchingTarget = true;
+
+        while (SearchingTarget)
         {
             Collider[] overlappedColliders = Physics.OverlapSphere(transform.position, _radius);
             Rigidbody rigidbody;
             Health unitTarget = null;
 
-            for (int i = 0; i < overlappedColliders.Length; i++)
+            foreach (var collider in overlappedColliders)
             {
-                rigidbody = overlappedColliders[i].attachedRigidbody;
+                rigidbody = collider.attachedRigidbody;
 
                 if (rigidbody && rigidbody.gameObject.TryGetComponent(out Health health))
                 {
                     if (health is Unit)
+                    {
+                        unitTarget = health;
+                        break;
+                    }
+                    else if (health is Character)
                     {
                         unitTarget = health;
                         break;
@@ -48,12 +55,13 @@ public class ZombieSearchTarget : MonoBehaviour
             if (unitTarget != null)
             {
                 InitializeTarget(unitTarget);
-                _zombieAttack.ActivateAttack(); 
+                _zombieAttack.ActivateAttack();
             }
-            else if (Target == null) 
+            else if (Target == null)
             {
                 SetStartTarget();
             }
+
 
             yield return new WaitForSeconds(0.5f);
         }
@@ -73,6 +81,11 @@ public class ZombieSearchTarget : MonoBehaviour
     public void SetStartTarget()
     {
         _target = _startTarget;
+    }
+
+    private void OnDisable()
+    {
+        SearchingTarget = false;
     }
 
     private void OnDrawGizmos()

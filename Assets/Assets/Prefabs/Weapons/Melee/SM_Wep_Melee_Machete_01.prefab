@@ -97,13 +97,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2edcfa999bb13af4b8139217bb8ec262, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _weaponType: 0
   _type: 1
   _icon: {fileID: 0}
   _name: Machete
   _price: 1200
   _index: 11
-  _weaponStatus: 0
-  _attackDistance: 1
+  _attackDistance: 1.5
   _damage: 8
   _delayBetweenShots: 0.8
 --- !u!1 &1526694429186876

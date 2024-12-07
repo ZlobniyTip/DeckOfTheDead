@@ -12,6 +12,7 @@ public class Unit : Health
     private UnitMovement _movement;
     private UnitAttack _attack;
     private UnitStateMachine _stateMachine;
+    private UnitSearchTarget _searchTarget;
     private UnitAnimator _unitAnimator;
 
     public UnitMovement Movement => _movement;
@@ -29,6 +30,7 @@ public class Unit : Health
         _movement = GetComponent<UnitMovement>();
         _attack = GetComponent<UnitAttack>();
         _unitAnimator = GetComponent<UnitAnimator>();
+        _searchTarget = GetComponent<UnitSearchTarget>();
         _view.Initialize();   
     }
 
@@ -66,6 +68,9 @@ public class Unit : Health
     {
         var delay = new WaitForSeconds(_delayBetweenDeath);
 
+        _movement.enabled = false;
+        _attack.StopAttack();
+        _searchTarget.StopSearch();
         _unitAnimator.PlauDiyingAnimation();
         yield return delay;
 

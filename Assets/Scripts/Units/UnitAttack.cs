@@ -8,9 +8,9 @@ public class UnitAttack : MonoBehaviour
     private UnitSearchTarget _searchTarget;
     private UnitMovement _unitMovement;
     private Unit _unit;
-    private float _distance;
     private Weapon _currentWeapon;
     private UnitAnimator _unitAnimator;
+    private Coroutine _coroutine;
 
     public bool IsAttacking { get; private set; } = false;
     public Weapon CurrentWeapon => _currentWeapon;
@@ -27,13 +27,19 @@ public class UnitAttack : MonoBehaviour
     public void ActivateAttack(Enemy enemy)
     {
         StopCoroutine(_searchTarget.SearchTarget());
-        StartCoroutine(Attacking());
+        _coroutine = StartCoroutine(Attacking());
     }
 
-    private void Start()
+    public void StopAttack()
     {
-        StartCoroutine(Attacking());
+        StopCoroutine(_coroutine);
+        this.enabled = false;
     }
+
+    //private void Start()
+    //{
+    //   _coroutine = StartCoroutine(Attacking());
+    //}
 
     private IEnumerator Attacking()
     {
@@ -42,9 +48,9 @@ public class UnitAttack : MonoBehaviour
         while (_unit.Target != null)
         {
             transform.LookAt(_unit.Target.transform);
-            _distance = Vector3.Distance(transform.position, _unit.Target.transform.position);
+            var distance = Vector3.Distance(transform.position, _unit.Target.transform.position);
 
-            if (_distance <= _currentWeapon.AttackDistance)
+            if (distance <= _currentWeapon.AttackDistance)
             {
                 IsAttacking = true;
                 _unitAnimator.PlauAttackAnimation(_currentWeapon.WeaponType);

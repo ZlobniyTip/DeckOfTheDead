@@ -180,12 +180,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2edcfa999bb13af4b8139217bb8ec262, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _weaponType: 0
   _type: 1
   _icon: {fileID: 0}
   _name: Pipe wrench
   _price: 500
   _index: 13
-  _weaponStatus: 0
-  _attackDistance: 1
+  _attackDistance: 1.5
   _damage: 6
   _delayBetweenShots: 0.8

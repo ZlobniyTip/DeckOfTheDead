@@ -18,6 +18,12 @@ public class UnitSearchTarget : MonoBehaviour
         StartCoroutine(SearchTarget());
     }
 
+    public void StopSearch()
+    {
+        StopCoroutine(SearchTarget());
+        this.enabled = false;
+    }
+
     public IEnumerator SearchTarget()
     {
         if (_unitAttack.CurrentWeapon.AttackDistance > _radius)

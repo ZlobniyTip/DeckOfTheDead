@@ -97,13 +97,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2edcfa999bb13af4b8139217bb8ec262, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _weaponType: 0
   _type: 1
   _icon: {fileID: 21300000, guid: e9a7c9530d44e274eab7c1ac616a9aae, type: 3}
   _name: Bat wood
   _price: 500
   _index: 1
-  _weaponStatus: 0
-  _attackDistance: 1
+  _attackDistance: 1.5
   _damage: 4
   _delayBetweenShots: 1
 --- !u!1 &1230774735970100
