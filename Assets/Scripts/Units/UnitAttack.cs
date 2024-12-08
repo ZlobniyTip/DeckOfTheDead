@@ -54,7 +54,7 @@ public class UnitAttack : MonoBehaviour
             {    
                 _unitAnimator.PlauAttackAnimation(_currentWeapon.WeaponType);
 
-                _unit.Target.TakeDamage(_currentWeapon.Damage);
+                _unit.Target.TakeDamage(_currentWeapon.Shoot());
 
                 yield return delay;
             }

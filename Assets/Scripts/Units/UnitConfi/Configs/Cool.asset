@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58f98b24b1d414f4e8f2f3adf8db43f8, type: 3}
   m_Name: Cool
   m_EditorClassIdentifier: 
-  _health: 50
+  _health: 140
   _weapon: {fileID: -5408823278043200555, guid: 8775c006a5395ff488d9315934a2a901, type: 3}
   _speed: 2

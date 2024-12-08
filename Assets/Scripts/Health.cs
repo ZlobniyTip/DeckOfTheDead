@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public abstract class Health : MonoBehaviour 
+public abstract class Health : MonoBehaviour
 {
     [SerializeField] protected int _maxValue;
 
@@ -14,11 +14,10 @@ public abstract class Health : MonoBehaviour
 
     public virtual void TakeDamage(int damage)
     {
-        Changed?.Invoke(_value, _maxValue);
-
         if (damage > 0)
         {
-            _value -= damage;  
+            _value -= damage;
+            Changed?.Invoke(_value, _maxValue);
         }
     }
 }

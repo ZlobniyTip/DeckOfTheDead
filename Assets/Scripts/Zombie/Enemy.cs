@@ -37,6 +37,8 @@ public class Enemy : Health
 
     private void Update()
     {
+        Debug.Log(_value);
+
         _zombieStateMachine.Update();
     }
 
@@ -45,21 +47,19 @@ public class Enemy : Health
         base.TakeDamage(damage);
 
         if (_value <= 0)
-        {
-            IsDiying = true;
-            Diying?.Invoke();
+        {         
             StartCoroutine(Die());
         }
     }
 
     private IEnumerator Die()
     {
+        IsDiying = true;
+        Diying?.Invoke();
         _movement.StopMovement();
 
         var delay = new WaitForSeconds(_delayBetweenDeath);
-
         yield return delay;
-
         Destroy(gameObject);
     }
 }
