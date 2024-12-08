@@ -262,6 +262,7 @@ GameObject:
   - component: {fileID: 23303408345767918}
   - component: {fileID: -6836792644946829731}
   - component: {fileID: -5089664809214674234}
+  - component: {fileID: 8590480939316943051}
   m_Layer: 0
   m_Name: SM_Wep_Pistol_01
   m_TagString: Untagged
@@ -462,6 +463,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &8590480939316943051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1562996608389564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a570985ed91df104f8a36bb1535efa72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1823660752924116
 GameObject:
   m_ObjectHideFlags: 0

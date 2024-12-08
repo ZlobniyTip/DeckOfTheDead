@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 23100420200266682}
   - component: {fileID: 4028818248477452516}
   - component: {fileID: 4480554835088993119}
+  - component: {fileID: -9064511451885572885}
   m_Layer: 0
   m_Name: SM_Wep_RocketLauncher_01
   m_TagString: Untagged
@@ -295,6 +296,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-9064511451885572885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1265324198127248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a570985ed91df104f8a36bb1535efa72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1409115737782438
 GameObject:
   m_ObjectHideFlags: 0
