@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[RequireComponent(typeof(Animator))]
+//[RequireComponent(typeof(Animator))]
 public abstract class CreatureView : MonoBehaviour
 {
     protected Animator _animator;

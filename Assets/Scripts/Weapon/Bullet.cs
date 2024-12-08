@@ -4,7 +4,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     private Rigidbody _rigidbody;
-    private float _force = 10000;
+    private float _force = 50;
     private float _timer = 2;
 
     private void Start()
@@ -15,7 +15,8 @@ public class Bullet : MonoBehaviour
     private void Update()
     {
         _timer -= Time.deltaTime;
-        _rigidbody.AddForce(transform.forward * _force * Time.deltaTime);
+        transform.Translate(Vector3.forward * _force * Time.deltaTime);
+        //_rigidbody.AddForce(transform.forward * _force * Time.deltaTime);
 
         if (_timer <= 0)
         {

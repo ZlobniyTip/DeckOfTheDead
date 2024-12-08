@@ -41,13 +41,23 @@ public class UnitAttack : MonoBehaviour
         IsAttacking = false;
     }
 
+    private void Update()
+    {
+        if (_unit.Target != null)
+        {
+            Vector3 direction =_unit.Target.transform. position - transform.position;
+            direction.y = 0;
+            Quaternion targetRotation = Quaternion.LookRotation(direction);
+            transform.rotation = targetRotation;
+        }
+    }
+
     private IEnumerator Attacking()
     {
         var delay = new WaitForSeconds(_currentWeapon.DelayBetweenShots);
 
         while (true)
         {
-            transform.LookAt(_unit.Target.transform);
             var distance = Vector3.Distance(transform.position, _unit.Target.transform.position);
 
             if (distance <= _currentWeapon.AttackDistance)

@@ -2,8 +2,8 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-[RequireComponent(typeof(ZombieSearchTarget))]
-[RequireComponent(typeof(EnemyMovement))]
+//[RequireComponent(typeof(ZombieSearchTarget))]
+//[RequireComponent(typeof(EnemyMovement))]
 public class Enemy : Health
 {
     [SerializeField] private ZombieView _zombieView;
@@ -37,8 +37,6 @@ public class Enemy : Health
 
     private void Update()
     {
-        Debug.Log(_value);
-
         _zombieStateMachine.Update();
     }
 
