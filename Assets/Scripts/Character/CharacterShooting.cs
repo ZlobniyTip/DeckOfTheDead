@@ -49,7 +49,7 @@ public class CharacterShooting : MonoBehaviour
 
         while (_currentEnemy != null)
         {
-            transform.LookAt(_currentEnemy.transform);
+            TurnToTarget();
             _currentEnemy.TakeDamage(_currentWeapon.Shoot());
 
             yield return delay;
@@ -62,5 +62,16 @@ public class CharacterShooting : MonoBehaviour
 
         IsShooting = false;
         StartCoroutine(_characterScaning.SearchEnemy());
+    }
+
+    private void TurnToTarget()
+    {
+        if (_currentEnemy != null)
+        {
+            Vector3 direction = _currentEnemy.transform.position - transform.position;
+            direction.y = 0;
+            Quaternion targetRotation = Quaternion.LookRotation(direction);
+            transform.rotation = targetRotation;
+        }
     }
 }

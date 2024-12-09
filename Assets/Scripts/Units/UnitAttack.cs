@@ -26,29 +26,18 @@ public class UnitAttack : MonoBehaviour
 
     private void OnEnable()
     {
-        _coroutine = StartCoroutine(Attacking());
         IsAttacking = true;
+        _coroutine = StartCoroutine(Attacking());
     }
 
     private void OnDisable()
     {
+        IsAttacking = false;
+
         if (_coroutine != null)
         {
             StopCoroutine(_coroutine);
             _coroutine = null;
-        }
-
-        IsAttacking = false;
-    }
-
-    private void Update()
-    {
-        if (_unit.Target != null)
-        {
-            Vector3 direction =_unit.Target.transform. position - transform.position;
-            direction.y = 0;
-            Quaternion targetRotation = Quaternion.LookRotation(direction);
-            transform.rotation = targetRotation;
         }
     }
 
@@ -56,8 +45,9 @@ public class UnitAttack : MonoBehaviour
     {
         var delay = new WaitForSeconds(_currentWeapon.DelayBetweenShots);
 
-        while (true)
+        while (IsAttacking)
         {
+            TurnToTarget();
             var distance = Vector3.Distance(transform.position, _unit.Target.transform.position);
 
             if (distance <= _currentWeapon.AttackDistance)
@@ -73,7 +63,18 @@ public class UnitAttack : MonoBehaviour
         }
     }
 
-    public void InstallWeapon()
+    private void TurnToTarget()
+    {
+        if (_unit.Target != null)
+        {
+            Vector3 direction = _unit.Target.transform.position - transform.position;
+            direction.y = 0;
+            Quaternion targetRotation = Quaternion.LookRotation(direction);
+            transform.rotation = targetRotation;
+        }
+    }
+
+    private void InstallWeapon()
     {
         _currentWeapon = _unit.UnitConfig.Weapon;
         _currentWeapon = Instantiate(_unit.UnitConfig.Weapon, _weaponPoint);

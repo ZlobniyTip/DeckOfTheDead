@@ -29,7 +29,7 @@ public class ZombieAttack : MonoBehaviour
 
         while (_zombieSearchTarget.Target != null)
         {
-            transform.LookAt(_zombieSearchTarget.Target.transform);
+            TurnToTarget();
             var distance = Vector3.Distance(transform.position, _zombieSearchTarget.Target.transform.position);
 
             if (distance <= _attackDistance)
@@ -46,6 +46,17 @@ public class ZombieAttack : MonoBehaviour
         if (!_zombieSearchTarget.SearchingTarget)
         {
             StartCoroutine(_zombieSearchTarget.SearchTarget());
+        }
+    }
+
+    private void TurnToTarget()
+    {
+        if (_zombieSearchTarget.Target != null)
+        {
+            Vector3 direction = _zombieSearchTarget.Target.transform.position - transform.position;
+            direction.y = 0;
+            Quaternion targetRotation = Quaternion.LookRotation(direction);
+            transform.rotation = targetRotation;
         }
     }
 }
