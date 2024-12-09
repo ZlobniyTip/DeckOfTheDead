@@ -11,6 +11,7 @@ public class WeaponRotation : MonoBehaviour
 
     private void Update()
     {
-        transform.LookAt(_unit.Target.transform);
+        if (_unit.Target != null)
+            transform.LookAt(_unit.Target.transform);
     }
 }

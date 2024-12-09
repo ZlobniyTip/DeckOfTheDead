@@ -18,6 +18,8 @@ public class UnitAnimator : MonoBehaviour
 
     private const string IsDiying = "IsDiying";
 
+    private string _currentAnimationKey = string.Empty;
+
     [SerializeField] Animator _animator;
 
     public void PlauAttackAnimation(WeaponType weaponType)
@@ -25,27 +27,27 @@ public class UnitAnimator : MonoBehaviour
         switch (weaponType)
         {
             case WeaponType.Melle:
-                _animator.SetTrigger(IsAttackingMelle);
+                SetAnimation(IsAttackingMelle);
                 break;
 
             case WeaponType.Pistol:
-                _animator.SetTrigger(IsShootingPistol);
+                SetAnimation(IsShootingPistol);
                 break;
 
             case WeaponType.Rifle:
-                _animator.SetTrigger(IsShootingRifle);
+                SetAnimation(IsShootingRifle);
                 break;
 
             case WeaponType.Shotgun:
-                _animator.SetTrigger(IsShootinShotgun);
+                SetAnimation(IsShootinShotgun);
                 break;
 
             case WeaponType.HunterRifle:
-                _animator.SetTrigger(IsShootingHunterRifle);
+                SetAnimation(IsShootingHunterRifle);
                 break;
 
             case WeaponType.FlameThrower:
-                _animator.SetTrigger(IsShootingHunterRifle);
+                SetAnimation(IsShootingHunterRifle);
                 break;
         }
     }
@@ -55,15 +57,15 @@ public class UnitAnimator : MonoBehaviour
         switch (weaponType)
         {
             case WeaponType.Melle:
-                _animator.SetTrigger(IsRunningMelle);
+                SetAnimation(IsRunningMelle);
                 break;
 
             case WeaponType.Pistol:
-                _animator.SetTrigger(IsRunningPistol);
+                SetAnimation(IsRunningPistol);
                 break;
 
             case WeaponType.Rifle:
-                _animator.SetTrigger(IsRunningRifle);
+                SetAnimation(IsRunningRifle);
                 break;
         }
     }
@@ -73,21 +75,30 @@ public class UnitAnimator : MonoBehaviour
         switch (weaponType)
         {
             case WeaponType.Melle:
-                _animator.SetTrigger(IsIdlingMelle);
+                SetAnimation(IsIdlingMelle);
                 break;
 
             case WeaponType.Pistol:
-                _animator.SetTrigger(IsIdlingPistol);
+                SetAnimation(IsIdlingPistol);
                 break;
 
             case WeaponType.Rifle:
-                _animator.SetTrigger(IsIdlingRifle);
+                SetAnimation(IsIdlingRifle);
                 break;
         }
     }
 
     public void PlauDiyingAnimation()
     {
-        _animator.SetTrigger(IsDiying);
+        SetAnimation(IsDiying);
+    }
+
+    private void SetAnimation( string animationName)
+    {
+        if (_currentAnimationKey == animationName)
+            return;
+
+        _currentAnimationKey = animationName;
+        _animator.SetTrigger(_currentAnimationKey);
     }
 }
