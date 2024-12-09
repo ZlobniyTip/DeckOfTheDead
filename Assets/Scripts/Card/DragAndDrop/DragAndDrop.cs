@@ -127,8 +127,9 @@ public class DragAndDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
     private bool FindSpawnLocation(out Vector3 spawnPosition)
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit[] hits = Physics.RaycastAll(ray);
 
-        if (Physics.Raycast(ray, out RaycastHit hit))
+        foreach (var hit in hits)
         {
             if (hit.collider.GetComponent<Road>() != null)
             {
