@@ -7,8 +7,11 @@ public class Character : Health
 
     private CharacterShooting _characterShooting;
     private CharacterMovement _movement;
+    private CharacterCards _characterCards;
+
     private CharacterStateMachine _stateMachine;
 
+    public CharacterCards CharacterCards => _characterCards;
     public CharacterMovement Movement => _movement;
     public CharacterView CharacterView => _characterView;
     public CharacterShooting CharacterShooting => _characterShooting;

@@ -32,11 +32,7 @@ public class AttackState : MovementState
                 CharacterView.StartState(IsShootinShotgun);
                 break;
 
-            case WeaponType.HunterRifle:
-                CharacterView.StartState(IsShootingHunterRifle);
-                break;
-
-            case WeaponType.FlameThrower:
+            default:
                 CharacterView.StartState(IsShootingHunterRifle);
                 break;
         }
@@ -66,11 +62,7 @@ public class AttackState : MovementState
                 CharacterView.StopState(IsShootinShotgun);
                 break;
 
-            case WeaponType.HunterRifle:
-                CharacterView.StopState(IsShootingHunterRifle);
-                break;
-
-            case WeaponType.FlameThrower:
+            default:
                 CharacterView.StopState(IsShootingHunterRifle);
                 break;
         }

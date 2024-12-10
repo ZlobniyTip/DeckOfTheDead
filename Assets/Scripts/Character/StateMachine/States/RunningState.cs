@@ -25,6 +25,10 @@ public class RunningState : MovementState
             case WeaponType.Rifle:
                 CharacterView.StartState(IsRunningRifle);
                 break;
+
+            default:
+                CharacterView.StartState(IsRunningRifle);
+                break;
         }
 
         CurrentWeapon = Character.CharacterShooting.CurrentWeapon;
@@ -45,6 +49,10 @@ public class RunningState : MovementState
                 break;
 
             case WeaponType.Rifle:
+                CharacterView.StopState(IsRunningRifle);
+                break;
+
+            default:
                 CharacterView.StopState(IsRunningRifle);
                 break;
         }

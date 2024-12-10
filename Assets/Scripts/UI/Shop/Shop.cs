@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,8 +8,8 @@ public class Shop : MonoBehaviour
 
     [SerializeField] private ItemType _type;
 
-    [SerializeField] private List<RangeWeapon> _rangeWeapon;
-    [SerializeField] private List<MelleWeapon> _melleWeapon;
+    [SerializeField] private List<Weapon> _rangeWeapon;
+    [SerializeField] private List<Weapon> _melleWeapon;
     [SerializeField] private List<Card> _cards;
 
     [SerializeField] private ItemView _template;
@@ -16,6 +17,8 @@ public class Shop : MonoBehaviour
     [SerializeField] private GameObject _itemContainer;
 
     private readonly List<ItemView> _content = new();
+
+    public event Action PlayerEquippedItem;
 
     private void OnEnable()
     {
@@ -51,7 +54,7 @@ public class Shop : MonoBehaviour
     private void AddItemView(IProduct product)
     {
         var view = Instantiate(_template, _itemContainer.transform);
-        view.Init(product);
+        view.Init(product, this);
         view.PurchaseButtonPressed += OnPurchaseButtonPressed;
         view.EquipButtonPressed += OnEquipButtonPressed;
         _content.Add(view);
@@ -60,8 +63,9 @@ public class Shop : MonoBehaviour
     private void AddCardView(IProduct product, Card card)
     {
         var view = Instantiate(_templateCard, _itemContainer.transform);
-        view.Init(product);
+        view.Init(product, this);
         view.Initialized(card);
+        view.SwitchDragAndDrop(false);
         view.PurchaseButtonPressed += OnPurchaseButtonPressed;
         view.EquipButtonPressed += OnEquipButtonPressed;
         _content.Add(view);
@@ -74,6 +78,7 @@ public class Shop : MonoBehaviour
 
     private void OnEquipButtonPressed(ItemView view)
     {
+        PlayerEquippedItem?.Invoke();
         _buyer.EquipItem(view.Product);
     }
 }
