@@ -4,6 +4,7 @@ using UnityEngine;
 public class Unit : Health
 {
     [SerializeField] private UnitConfig _config;
+    [SerializeField] private AudioSource _soundSpawn;
 
     private Character _character;
     private Enemy _target;
@@ -30,6 +31,12 @@ public class Unit : Health
         _unitAnimator = GetComponent<UnitAnimator>();
         _searchTarget = GetComponent<UnitSearchTarget>();
         _controller = GetComponent<UnitObserver>();
+    }
+
+    private void OnEnable()
+    {
+        if (_soundSpawn != null)
+            _soundSpawn.Play();
     }
 
     public void ClearTarget()
