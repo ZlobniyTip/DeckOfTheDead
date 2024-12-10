@@ -37,6 +37,9 @@ public class UnitMovement : MonoBehaviour
             else
             {
                 StopMovement();
+
+                if (_unitAttack.IsAttacking == false)
+                    _unitAnimator.PlauIdlingAnimation(_unitAttack.CurrentWeapon.WeaponType);
             }
         }
         else
@@ -59,9 +62,6 @@ public class UnitMovement : MonoBehaviour
     public void StopMovement()
     {
         _navMesh.speed = 0;
-
-        if (_unitAttack.IsAttacking == false)
-            _unitAnimator.PlauIdlingAnimation(_unitAttack.CurrentWeapon.WeaponType);
     }
 
     private void MoveToTarget()

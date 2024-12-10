@@ -103,7 +103,7 @@ MonoBehaviour:
   _name: Plank
   _price: 200
   _index: 14
-  _attackDistance: 1.5
+  _attackDistance: 1.7
   _damage: 3
   _delayBetweenShots: 1
 --- !u!1 &1806064633815686

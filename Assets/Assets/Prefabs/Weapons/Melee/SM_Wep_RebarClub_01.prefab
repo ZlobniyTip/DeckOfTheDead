@@ -102,6 +102,6 @@ MonoBehaviour:
   _name: Rebar club
   _price: 600
   _index: 15
-  _attackDistance: 1.5
+  _attackDistance: 1.7
   _damage: 12
   _delayBetweenShots: 1.5

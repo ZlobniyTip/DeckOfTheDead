@@ -102,6 +102,6 @@ MonoBehaviour:
   _name: Hunting knife
   _price: 700
   _index: 10
-  _attackDistance: 1.5
+  _attackDistance: 1.7
   _damage: 6
   _delayBetweenShots: 0.8

@@ -8,16 +8,17 @@ public class DragAndDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
     [SerializeField] private ParticleSystem _prefabSpawnEffect;
     [SerializeField] private GameObject attackRadiusVisual;
 
+    [SerializeField] private AudioSource _soundCard;
+
     private GameObject _currentAttackRadiusVisual;
     private RectTransform _rectTransform;
     private Vector3 _originalPosition;
     private ParticleSystem _spawnPlaceEffect;
-    private float _distanceFromRoad = 0.5f;
+    private bool _isSpawnPossible;
+
     private CardView _cardView;
     private UnitSpawner _unitSpawner;
     private Deck _deck;
-
-    private bool _isSpawnPossible;
 
     private void Awake()
     {
@@ -29,99 +30,108 @@ public class DragAndDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
 
     public void OnBeginDrag(PointerEventData eventData)
     {
+        _soundCard.Play();
+
         _originalPosition = transform.position;
-
-        if (FindSpawnLocation(out Vector3 spawnPosition))
-        {
-            _cardObject.gameObject.SetActive(false);
-            _spawnPlaceEffect = Instantiate(_prefabSpawnPlaceEffect, spawnPosition, Quaternion.identity);
-
-            ShowAttackRadius(spawnPosition);
-            _isSpawnPossible = true;
-        }
-        else
-        {
-            _spawnPlaceEffect = null;
-            _currentAttackRadiusVisual = null;
-            _isSpawnPossible = false;
-        }
+        TryUpdateSpawnVisuals();
     }
 
     public void OnDrag(PointerEventData eventData)
     {
         _rectTransform.anchoredPosition += eventData.delta;
+        TryUpdateSpawnVisuals();
+    }
 
+    public void OnEndDrag(PointerEventData eventData)
+    {
+        if (_isSpawnPossible)
+            PerformSpawn();
+        else
+            ResetPosition();
+
+        CleanupVisuals();
+    }
+
+    private void TryUpdateSpawnVisuals()
+    {
         if (FindSpawnLocation(out Vector3 spawnPosition))
         {
             if (!_isSpawnPossible)
             {
-                if (_spawnPlaceEffect == null)
-                {
-                    _spawnPlaceEffect = Instantiate(_prefabSpawnPlaceEffect, spawnPosition, Quaternion.identity);
-                }
-
-                if (_currentAttackRadiusVisual == null)
-                {
-                    ShowAttackRadius(spawnPosition);
-                }
-
+                CreateSpawnVisuals(spawnPosition);
+                _cardObject.SetActive(false);
                 _isSpawnPossible = true;
-                _cardObject.gameObject.SetActive(false);
             }
             else
             {
-                if (_spawnPlaceEffect != null)
-                    _spawnPlaceEffect.transform.position = spawnPosition;
-
-                if (_currentAttackRadiusVisual != null)
-                    _currentAttackRadiusVisual.transform.position = spawnPosition;
+                UpdateSpawnVisuals(spawnPosition);
             }
         }
         else
         {
             if (_isSpawnPossible)
             {
-                if (_spawnPlaceEffect != null)
-                {
-                    Destroy(_spawnPlaceEffect.gameObject);
-                    _spawnPlaceEffect = null;
-                }
-
-                if (_currentAttackRadiusVisual != null)
-                {
-                    Destroy(_currentAttackRadiusVisual.gameObject);
-                    _currentAttackRadiusVisual = null;
-                }
-
-                _cardObject.gameObject.SetActive(true);
+                CleanupVisuals();
+                _cardObject.SetActive(true);
                 _isSpawnPossible = false;
             }
         }
     }
 
-    public void OnEndDrag(PointerEventData eventData)
+    private void PerformSpawn()
     {
-        if (_spawnPlaceEffect != null && _spawnPlaceEffect.gameObject.activeSelf)
+        Vector3 spawnPosition = _spawnPlaceEffect.transform.position;
+        Instantiate(_prefabSpawnEffect, spawnPosition + Vector3.up * 0.5f, Quaternion.identity);
+
+        _unitSpawner.Spawn(spawnPosition, _cardView.Card.PrefabUnit);
+        _deck.RemoveCard(_cardView);
+        _deck.TakeAwayPlayerEnergy(_cardView.Card.Energy);
+
+        Destroy(gameObject);
+    }
+
+    private void ResetPosition()
+    {
+        transform.position = _originalPosition;
+    }
+
+    private void CreateSpawnVisuals(Vector3 position)
+    {
+        _spawnPlaceEffect = Instantiate(_prefabSpawnPlaceEffect, position, Quaternion.identity);
+        _currentAttackRadiusVisual = Instantiate(attackRadiusVisual, position, Quaternion.identity);
+        UpdateAttackRadiusVisual();
+    }
+
+    private void UpdateSpawnVisuals(Vector3 position)
+    {
+        if (_spawnPlaceEffect != null) 
+            _spawnPlaceEffect.transform.position = position;
+        if (_currentAttackRadiusVisual != null) 
+            _currentAttackRadiusVisual.transform.position = position;
+    }
+
+    private void CleanupVisuals()
+    {
+        if (_spawnPlaceEffect != null)
         {
-            Vector3 spawnPosition = _spawnPlaceEffect.transform.position;
-
-            ParticleSystem spawnEffect = Instantiate(_prefabSpawnEffect,
-                new Vector3(spawnPosition.x, spawnPosition.y + _distanceFromRoad, spawnPosition.z),
-                Quaternion.identity);
-
-
-            _unitSpawner.Spawn(spawnPosition, _cardView.Card.PrefabUnit);
-            _spawnPlaceEffect.gameObject.SetActive(false);
-            _currentAttackRadiusVisual.gameObject.SetActive(false);
-
-            _deck.RemoveCard(_cardView);
-            _deck.TakeAwayPlayerEnergy(_cardView.Card.Energy);
-            Destroy(gameObject);
+            Destroy(_spawnPlaceEffect.gameObject);
+            _spawnPlaceEffect = null;
         }
-        else
+
+        if (_currentAttackRadiusVisual != null)
         {
-            transform.position = _originalPosition;
+            Destroy(_currentAttackRadiusVisual.gameObject);
+            _currentAttackRadiusVisual = null;
         }
+    }
+
+    private void UpdateAttackRadiusVisual()
+    {
+        if (_currentAttackRadiusVisual == null) return;
+
+        float attackDistance = _cardView.Card.UnitConfig.Weapon.AttackDistance;
+        Vector3 newScale = new Vector3(attackDistance * 2, _currentAttackRadiusVisual.transform.localScale.y, attackDistance * 2);
+        _currentAttackRadiusVisual.transform.localScale = newScale;
     }
 
     private bool FindSpawnLocation(out Vector3 spawnPosition)
@@ -140,16 +150,5 @@ public class DragAndDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
 
         spawnPosition = _originalPosition;
         return false;
-    }
-
-    private void ShowAttackRadius(Vector3 position)
-    {
-        _currentAttackRadiusVisual = Instantiate(attackRadiusVisual, position, Quaternion.identity);
-        Vector3 newScale = new Vector3(
-         _cardView.Card.UnitConfig.Weapon.AttackDistance * 2,
-         _currentAttackRadiusVisual.transform.localScale.y,
-         _cardView.Card.UnitConfig.Weapon.AttackDistance * 2);
-
-        _currentAttackRadiusVisual.transform.localScale = newScale;
     }
 }

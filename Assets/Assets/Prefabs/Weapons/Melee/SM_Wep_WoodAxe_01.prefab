@@ -186,6 +186,6 @@ MonoBehaviour:
   _name: Wood axe
   _price: 1200
   _index: 17
-  _attackDistance: 1.5
+  _attackDistance: 1.7
   _damage: 9
   _delayBetweenShots: 1
