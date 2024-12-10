@@ -12,7 +12,7 @@ public class Unit : Health
     private UnitSearchTarget _searchTarget;
     private UnitAnimator _unitAnimator;
     private UnitObserver _controller;
-    private float _delayBetweenDeath = 3f;
+    private float _delayBetweenDeath = 2.7f;
 
     public UnitMovement Movement => _movement;
     public UnitAttack Attack => _attack;
