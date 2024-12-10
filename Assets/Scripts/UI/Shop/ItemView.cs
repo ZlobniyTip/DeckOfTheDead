@@ -14,6 +14,8 @@ public class ItemView : MonoBehaviour
     [SerializeField] private Image _icon;
 
     private IProduct _product;
+    private bool _isShopItem = false;
+    private Shop _shop;
 
     public event UnityAction<ItemView> PurchaseButtonPressed;
     public event UnityAction<ItemView> EquipButtonPressed;
@@ -30,18 +32,27 @@ public class ItemView : MonoBehaviour
     {
         _equipButton.onClick.RemoveListener(OnEquipButtonPressed);
         _purchaseButton.onClick.RemoveListener(OnPurchaseButtonPressed);
-        _product.State.Changed -= OnWeaponStateChanged;
     }
 
     private void OnDestroy()
     {
+        if (_isShopItem)
+        {
+            _shop.PlayerEquippedItem -= ShowEquipButton;
+            _product.State.Changed -= OnWeaponStateChanged;
+        }
     }
 
-    public void Init(IProduct product)
+    public void Init(IProduct product, Shop shop)
     {
+        _shop = shop;
+        _isShopItem = true;
         _product = product;
 
-        _product.State.Changed += OnWeaponStateChanged;
+        if (_isShopItem)
+        {
+            _product.State.Changed += OnWeaponStateChanged;
+        }
 
         UpdateView();
     }
@@ -62,8 +73,17 @@ public class ItemView : MonoBehaviour
                 break;
             case ItemStatus.Equipped:
                 ShowEquippedLabel();
+
+                if (_isShopItem)
+                    _shop.PlayerEquippedItem += ChangeStatus;
                 break;
         }
+    }
+
+    private void ChangeStatus()
+    {
+        _product.State.SetStatus(ItemStatus.Purchased);
+        ShowEquipButton();
     }
 
     private void ShowButton(bool isPurchase, bool isEquip, bool isEquipped)

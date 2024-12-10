@@ -1,6 +1,5 @@
 using System;
 using UnityEngine;
-using UnityEngine.UI;
 
 [CreateAssetMenu(fileName = "New Card", menuName = "Card/Create new card", order = 51)]
 public class Card : ScriptableObject, IProduct

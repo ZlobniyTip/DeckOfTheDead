@@ -3610,7 +3610,17 @@ MonoBehaviour:
   - {fileID: 2535391598434979823, guid: 58a3f3f478bd0374aa7b5d42880672f5, type: 3}
   - {fileID: 4651898108335724637, guid: 14b9097cb10b27d40a35dc944853603d, type: 3}
   - {fileID: 2181833529061203859, guid: 92d0d7425658b7548bb550389b91dc28, type: 3}
-  _cards: []
+  _cards:
+  - {fileID: 11400000, guid: 4a8768024bb92e842a2b7f17b36d6b27, type: 2}
+  - {fileID: 11400000, guid: 24244fff6fe4d1f43807555f0d376ebc, type: 2}
+  - {fileID: 11400000, guid: 2cff5e3e57672b24fb56bc86575fece5, type: 2}
+  - {fileID: 11400000, guid: f4f1faaf9a2eab24fbb79aee608361c6, type: 2}
+  - {fileID: 11400000, guid: b3d1a708c28c4c744bba77b363753c2e, type: 2}
+  - {fileID: 11400000, guid: 7c954f3535082304fa6b104fe423c786, type: 2}
+  - {fileID: 11400000, guid: 6e8fcfc57bda7b148991f284a1a013db, type: 2}
+  - {fileID: 11400000, guid: 630ffe9d964b7cf4184f8056bf959e0f, type: 2}
+  - {fileID: 11400000, guid: 6c239535019938c4b8400ceaab0c47e7, type: 2}
+  - {fileID: 11400000, guid: 60ebe122ae807cc4985e1a6a11d93b62, type: 2}
   _characterShooting: {fileID: 4832717163306357467}
   _characterCards: {fileID: 2158486756480371071}
 --- !u!114 &2158486756480371071

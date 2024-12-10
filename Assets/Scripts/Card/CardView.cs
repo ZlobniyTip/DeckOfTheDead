@@ -44,12 +44,17 @@ public class CardView : ItemView
     public void ActivateCard()
     {
         _activity.gameObject.SetActive(false);
-        _dragAndDrop.enabled = true;
+        SwitchDragAndDrop(true);
     }
 
     public void DeactivateCard()
     {
         _activity.gameObject.SetActive(true);
-        _dragAndDrop.enabled = false;
+        SwitchDragAndDrop(false);
+    }
+
+    public void SwitchDragAndDrop(bool isActiv)
+    {
+        _dragAndDrop.enabled = isActiv;
     }
 }

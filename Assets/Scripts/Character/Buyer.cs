@@ -16,12 +16,22 @@ public class Buyer : MonoBehaviour
     public event Action<int> MoneyChanged;
     public event Action EquipmentChanged;
 
+    public int Money => _money;
+    public CharacterShooting CharacterShooting => _characterShooting;
+
 #if UNITY_EDITOR
     private void Start()
     {
-        _money += 9000;
+        _money += 100000;
+        MoneyChanged?.Invoke(_money);
     }
 #endif
+
+    public void LoadMoney(int money)
+    {
+        _money = money;
+        MoneyChanged?.Invoke(_money);
+    }
 
     public bool TryBuy(IProduct product)
     {
@@ -29,8 +39,9 @@ public class Buyer : MonoBehaviour
             return false;
 
         _money -= product.Price;
-        MoneyChanged?.Invoke(_money);
         product.State.SetStatus(ItemStatus.Purchased);
+
+        MoneyChanged?.Invoke(_money);
         EquipmentChanged?.Invoke();
 
         return true;
@@ -41,16 +52,14 @@ public class Buyer : MonoBehaviour
         switch (product.Type)
         {
             case ItemType.RangeWeapon:
-                _characterShooting.EquipWeapon(_rangeWeapons[product.Index]);
+                _characterShooting.EquipWeapon(_rangeWeapons[product.Index], EquipmentChanged);
                 break;
             case ItemType.MelleWeapon:
-                _characterShooting.EquipWeapon(_melleWeapons[product.Index]);
+                _characterShooting.EquipWeapon(_melleWeapons[product.Index], EquipmentChanged);
                 break;
             case ItemType.Card:
-                _characterCards.AddCard(_cards[product.Index]);
+                _characterCards.AddCard(_cards[product.Index], EquipmentChanged);
                 break;
         }
-
-        EquipmentChanged?.Invoke();
     }
 }

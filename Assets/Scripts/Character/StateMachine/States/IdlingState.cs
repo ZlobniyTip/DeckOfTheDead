@@ -25,6 +25,10 @@ public class IdlingState : MovementState
             case WeaponType.Rifle:
                 CharacterView.StartState(IsIdlingRifle);
                 break;
+
+            default:
+                CharacterView.StartState(IsIdlingRifle);
+                break;
         }
 
         CurrentWeapon = Character.CharacterShooting.CurrentWeapon;
@@ -47,6 +51,11 @@ public class IdlingState : MovementState
             case WeaponType.Rifle:
                 CharacterView.StopState(IsIdlingRifle);
                 break;
+
+            default:
+                CharacterView.StopState(IsIdlingRifle);
+                break;
+
         }
     }
 

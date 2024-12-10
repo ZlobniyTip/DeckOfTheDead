@@ -5,20 +5,28 @@ using UnityEngine;
 public class CharacterShooting : MonoBehaviour
 {
     [SerializeField] private CharacterScaning _characterScaning;
-    [SerializeField] private Weapon _defaultWeapon;
     [SerializeField] private Transform _weaponPoint;
+    [SerializeField] private Weapon _defaultWeapon;
 
     private Enemy _currentEnemy;
     private Weapon _currentWeapon;
+    private int _score;
 
     public event Action ChangedWeapon;
 
     public bool IsShooting { get; private set; } = false;
+
     public Weapon CurrentWeapon => _currentWeapon;
+    public int Score => _score;
 
     private void Awake()
     {
-        EquipWeapon(_defaultWeapon);
+        EquipWeapon(_defaultWeapon, null);
+    }
+
+    public void LoadScore(int score)
+    {
+        _score = score;
     }
 
     public void ActivShooting(Enemy enemy)
@@ -29,18 +37,15 @@ public class CharacterShooting : MonoBehaviour
         StartCoroutine(Shooting());
     }
 
-    public void EquipWeapon(Weapon weapon)
+    public void EquipWeapon(Weapon weapon, Action equipmentChanged)
     {
-        if (_currentWeapon != null)
-        {
-            _currentWeapon.State.SetStatus(ItemStatus.Purchased);
-            Destroy(_currentWeapon);
-        }
+        weapon.State.SetStatus(ItemStatus.Equipped);
 
-        _currentWeapon = Instantiate(weapon, _weaponPoint);
-        _currentWeapon.State.SetStatus(ItemStatus.Equipped);
-
+        equipmentChanged?.Invoke();
         ChangedWeapon?.Invoke();
+
+        Destroy(_currentWeapon);
+        _currentWeapon = Instantiate(weapon, _weaponPoint);
     }
 
     private IEnumerator Shooting()
