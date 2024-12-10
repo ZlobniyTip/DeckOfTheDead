@@ -2402,8 +2402,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
-    m_Left: 800
-    m_Right: 0
+    m_Left: 0
+    m_Right: 400
     m_Top: 150
     m_Bottom: 0
   m_ChildAlignment: 4
@@ -3240,6 +3240,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c02a7e20f5db3824196c3cf411589b59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _prefabSpawnEffect: {fileID: 0}
+  _soundSpawn: {fileID: 0}
 --- !u!1 &7061371726649516629
 GameObject:
   m_ObjectHideFlags: 0

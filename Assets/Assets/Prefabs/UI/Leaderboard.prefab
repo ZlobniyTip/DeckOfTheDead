@@ -394,7 +394,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   imageLoad: {fileID: 4497279074729560800}
-  topPlayerActivityComponents: []
+  topPlayerActivityComponents:
+  - {fileID: 919358677833125366}
   thisPlayerActivityComponents: []
   textLegasy:
     rank: {fileID: 7051819502079571833}
