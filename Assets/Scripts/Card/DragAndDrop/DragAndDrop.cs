@@ -4,8 +4,7 @@ using UnityEngine.EventSystems;
 public class DragAndDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler
 {
     [SerializeField] private GameObject _cardObject;
-    [SerializeField] private ParticleSystem _prefabSpawnPlaceEffect;
-    [SerializeField] private ParticleSystem _prefabSpawnEffect;
+    [SerializeField] private ParticleSystem _prefabSpawnPlaceEffect;   
     [SerializeField] private GameObject attackRadiusVisual;
 
     [SerializeField] private AudioSource _soundCard;
@@ -81,7 +80,6 @@ public class DragAndDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
     private void PerformSpawn()
     {
         Vector3 spawnPosition = _spawnPlaceEffect.transform.position;
-        Instantiate(_prefabSpawnEffect, spawnPosition + Vector3.up * 0.5f, Quaternion.identity);
 
         _unitSpawner.Spawn(spawnPosition, _cardView.Card.PrefabUnit);
         _deck.RemoveCard(_cardView);

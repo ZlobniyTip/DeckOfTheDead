@@ -3,6 +3,9 @@ using UnityEngine;
 
 public class UnitSpawner : MonoBehaviour
 {
+    [SerializeField] private ParticleSystem _prefabSpawnEffect;
+    [SerializeField] private AudioSource _soundSpawn;
+
     private Deck _deck;
 
     private void Awake()
@@ -12,6 +15,8 @@ public class UnitSpawner : MonoBehaviour
 
     public void Spawn(Vector3 point, Unit prefabUnit)
     {
+        _soundSpawn.Play();
+        Instantiate(_prefabSpawnEffect, point + Vector3.up * 0.5f, Quaternion.identity);
         StartCoroutine(SetDelaySpawning(point, prefabUnit));
     }
 
