@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class Unit : Health
+public class Unit : Health, IAim
 {
     [SerializeField] private UnitConfig _config;
     [SerializeField] private AudioSource _soundSpawn;

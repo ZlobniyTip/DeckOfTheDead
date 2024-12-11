@@ -2,16 +2,16 @@ using UnityEngine;
 
 public class WeaponRotation : MonoBehaviour
 {
-    private Unit _unit;
+    private IAim _aim;
 
     private void Awake()
     {
-        _unit = GetComponentInParent<Unit>();
+        _aim = GetComponentInParent<IAim>();
     }
 
     private void Update()
     {
-        if (_unit.Target != null)
-            transform.LookAt(_unit.Target.transform);
+        if (_aim.Target != null)
+            transform.LookAt(_aim.Target.transform);
     }
 }

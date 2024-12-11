@@ -30,7 +30,7 @@ public class UnitSearchTarget : MonoBehaviour
 
     public IEnumerator SearchTarget()
     {
-        if (_unitAttack.CurrentWeapon.AttackDistance > _radius)
+        if (_unit.Attack.CurrentWeapon != null && _unit.Attack.CurrentWeapon.AttackDistance > _radius)
         {
             _radius = _unitAttack.CurrentWeapon.AttackDistance;
         }
@@ -53,13 +53,13 @@ public class UnitSearchTarget : MonoBehaviour
                 }
             }
 
-            yield return null;
+            yield return 0.1f;
         }
     }
 
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.blue;
-        Gizmos.DrawWireSphere(transform.position, _radius);
-    }
+    //private void OnDrawGizmos()
+    //{
+    //    Gizmos.color = Color.blue;
+    //    Gizmos.DrawWireSphere(transform.position, _radius);
+    //}
 }

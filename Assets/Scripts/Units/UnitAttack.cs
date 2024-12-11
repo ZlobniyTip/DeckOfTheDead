@@ -11,6 +11,7 @@ public class UnitAttack : MonoBehaviour
     private Weapon _currentWeapon;
     private UnitAnimator _unitAnimator;
     private Coroutine _coroutine;
+    public float _distance;
 
     public bool IsAttacking { get; private set; } = false;
     public Weapon CurrentWeapon => _currentWeapon;
@@ -43,23 +44,33 @@ public class UnitAttack : MonoBehaviour
 
     private IEnumerator Attacking()
     {
+        if (_currentWeapon == null)
+            yield break;
+
         var delay = new WaitForSeconds(_currentWeapon.DelayBetweenShots);
 
         while (IsAttacking)
         {
             TurnToTarget();
-            var distance = Vector3.Distance(transform.position, _unit.Target.transform.position);
 
-            if (distance <= _currentWeapon.AttackDistance)
-            {    
-                _unitAnimator.PlauAttackAnimation(_currentWeapon.WeaponType);
+            if (_unit.Target != null)
+            {
+                _distance = Vector3.Distance(transform.position, _unit.Target.transform.position);
 
-                _unit.Target.TakeDamage(_currentWeapon.Shoot());
+                if (_distance <= _currentWeapon.AttackDistance)
+                {
+                    _unitAnimator.PlauAttackAnimation(_currentWeapon.WeaponType);
 
-                yield return delay;
+                    if (_unit.Target != null)
+                    {
+                        _unit.Target.TakeDamage(_currentWeapon.Shoot());
+                    }
+
+                    yield return delay;
+                }
             }
 
-            yield return null;
+            yield return 0.1f;
         }
     }
 

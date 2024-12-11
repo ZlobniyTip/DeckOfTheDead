@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-public class CharacterShooting : MonoBehaviour
+public class CharacterShooting : MonoBehaviour, IAim
 {
     [SerializeField] private CharacterScaning _characterScaning;
     [SerializeField] private Transform _weaponPoint;
@@ -18,6 +18,8 @@ public class CharacterShooting : MonoBehaviour
 
     public Weapon CurrentWeapon => _currentWeapon;
     public int Score => _score;
+
+    public Enemy Target => _currentEnemy;
 
     private void Awake()
     {

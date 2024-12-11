@@ -1,11 +1,13 @@
 using System.Collections;
 using UnityEngine;
 
-public class CharacterScaning : MonoBehaviour
+public class CharacterScaning : MonoBehaviour 
 {
     [SerializeField] private CharacterShooting _characterShooting;
 
     private Enemy _currentEnemy;
+
+    public Enemy Target => _currentEnemy;
 
     private void Start()
     {
