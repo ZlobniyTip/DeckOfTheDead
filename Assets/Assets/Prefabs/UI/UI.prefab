@@ -3097,6 +3097,7 @@ GameObject:
   - component: {fileID: 6879451951163223641}
   - component: {fileID: 5217668762094637574}
   - component: {fileID: 6514275886122739476}
+  - component: {fileID: 8679246749629193383}
   m_Layer: 5
   m_Name: Cards
   m_TagString: Untagged
@@ -3240,8 +3241,104 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c02a7e20f5db3824196c3cf411589b59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _prefabSpawnEffect: {fileID: 0}
-  _soundSpawn: {fileID: 0}
+  _prefabSpawnEffect: {fileID: 2333588375221883515, guid: 1a115f85e49436f4e898472045273cc6, type: 3}
+  _soundSpawn: {fileID: 8679246749629193383}
+--- !u!82 &8679246749629193383
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6915630744833462375}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 22b39ef1d51aaa4459f6961967772896, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.766
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &7061371726649516629
 GameObject:
   m_ObjectHideFlags: 0
@@ -5282,7 +5379,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2597173871587776173, guid: b5cad4cc951c7c94c9239a28f83246d0, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 1.194397
+      value: 1.1943359
       objectReference: {fileID: 0}
     - target: {fileID: 2749708641982727653, guid: b5cad4cc951c7c94c9239a28f83246d0, type: 3}
       propertyPath: m_Pivot.x
@@ -5407,6 +5504,10 @@ PrefabInstance:
       value: 'Options
 
 '
+      objectReference: {fileID: 0}
+    - target: {fileID: 2597173871587776173, guid: b5cad4cc951c7c94c9239a28f83246d0, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 1.1943359
       objectReference: {fileID: 0}
     - target: {fileID: 2749708641982727653, guid: b5cad4cc951c7c94c9239a28f83246d0, type: 3}
       propertyPath: m_Pivot.x
@@ -6010,6 +6111,10 @@ PrefabInstance:
       propertyPath: m_text
       value: Leaderboard
       objectReference: {fileID: 0}
+    - target: {fileID: 2597173871587776173, guid: b5cad4cc951c7c94c9239a28f83246d0, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 1.1943359
+      objectReference: {fileID: 0}
     - target: {fileID: 2749708641982727653, guid: b5cad4cc951c7c94c9239a28f83246d0, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -6072,7 +6177,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2749708641982727653, guid: b5cad4cc951c7c94c9239a28f83246d0, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -7.411072
+      value: -7.411133
       objectReference: {fileID: 0}
     - target: {fileID: 2749708641982727653, guid: b5cad4cc951c7c94c9239a28f83246d0, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -6115,6 +6220,10 @@ PrefabInstance:
     - target: {fileID: 2595802421506401068, guid: b5cad4cc951c7c94c9239a28f83246d0, type: 3}
       propertyPath: m_text
       value: Range weapon
+      objectReference: {fileID: 0}
+    - target: {fileID: 2597173871587776173, guid: b5cad4cc951c7c94c9239a28f83246d0, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 1.1943359
       objectReference: {fileID: 0}
     - target: {fileID: 2749708641982727653, guid: b5cad4cc951c7c94c9239a28f83246d0, type: 3}
       propertyPath: m_Pivot.x
@@ -6225,6 +6334,10 @@ PrefabInstance:
     - target: {fileID: 2595802421506401068, guid: b5cad4cc951c7c94c9239a28f83246d0, type: 3}
       propertyPath: m_fontSize
       value: 101.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 2597173871587776173, guid: b5cad4cc951c7c94c9239a28f83246d0, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 1.1943359
       objectReference: {fileID: 0}
     - target: {fileID: 2749708641982727653, guid: b5cad4cc951c7c94c9239a28f83246d0, type: 3}
       propertyPath: m_Pivot.x
@@ -6662,6 +6775,10 @@ PrefabInstance:
       propertyPath: m_text
       value: Melle weapon
       objectReference: {fileID: 0}
+    - target: {fileID: 2597173871587776173, guid: b5cad4cc951c7c94c9239a28f83246d0, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 1.1943359
+      objectReference: {fileID: 0}
     - target: {fileID: 2749708641982727653, guid: b5cad4cc951c7c94c9239a28f83246d0, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -6724,7 +6841,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2749708641982727653, guid: b5cad4cc951c7c94c9239a28f83246d0, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -5.15448
+      value: -5.154541
       objectReference: {fileID: 0}
     - target: {fileID: 2749708641982727653, guid: b5cad4cc951c7c94c9239a28f83246d0, type: 3}
       propertyPath: m_AnchoredPosition.y
