@@ -13,6 +13,7 @@ public class ZombieAttack : MonoBehaviour
 
     public float AttackDistance => _attackDistance;
     public bool IsAttacking => _isAttacking;
+    public float DelayBetweenAttack => _delayBetweenAttack; 
 
     public void ActivateAttack()
     {
@@ -21,6 +22,11 @@ public class ZombieAttack : MonoBehaviour
         _isAttacking = true;
         if (_attackCoroutine != null) StopCoroutine(_attackCoroutine); 
         _attackCoroutine = StartCoroutine(Attacking());
+    }
+
+    public void SlowingDownAttack(float speed)
+    {
+        _delayBetweenAttack = speed;
     }
 
     private IEnumerator Attacking()
@@ -58,5 +64,10 @@ public class ZombieAttack : MonoBehaviour
             Quaternion targetRotation = Quaternion.LookRotation(direction);
             transform.rotation = targetRotation;
         }
+    }
+
+    private void Update()
+    {
+        Debug.Log(_delayBetweenAttack);
     }
 }

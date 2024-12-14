@@ -7,17 +7,20 @@ using UnityEngine;
 public class Enemy : Health
 {
     [SerializeField] private ZombieView _zombieView;
+    [SerializeField] private ParticleSystem _effectCamp;
 
     private ZombieAttack _zombieAttack;
     private EnemyMovement _movement;
     private ZombieStateMachine _zombieStateMachine;
     private ZombieSearchTarget _zombieSearch;
+    private bool _isUnderCamp = false;
 
     private float _delayBetweenDeath = 2.5f;
 
     public event Action Diying;
 
     public bool IsDiying { get; private set; } = false;
+    public bool IsUnderCamp => _isUnderCamp;
 
     public ZombieSearchTarget ZombieSearch => _zombieSearch;
     public EnemyMovement Movement => _movement;
@@ -33,6 +36,7 @@ public class Enemy : Health
         _zombieStateMachine = new ZombieStateMachine(this);
 
         _value = _maxValue;
+        _effectCamp.Stop();
     }
 
     private void Update()
@@ -40,12 +44,24 @@ public class Enemy : Health
         _zombieStateMachine.Update();
     }
 
+    public void EnterCamp()
+    {
+        _effectCamp.Play();
+        _isUnderCamp = true;
+    }
+
+    public void ExitCamp()
+    {
+        _effectCamp.Stop();
+        _isUnderCamp = false;
+    } 
+
     public override void TakeDamage(int damage)
     {
         base.TakeDamage(damage);
 
         if (_value <= 0)
-        {         
+        {
             StartCoroutine(Die());
         }
     }
