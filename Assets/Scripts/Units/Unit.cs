@@ -13,6 +13,7 @@ public class Unit : Health, IAim
     private UnitSearchTarget _searchTarget;
     private UnitAnimator _unitAnimator;
     private UnitObserver _controller;
+    private FXUnit _fxUnit;
     private float _delayBetweenDeath = 2.7f;
 
     public UnitMovement Movement => _movement;
@@ -31,6 +32,7 @@ public class Unit : Health, IAim
         _unitAnimator = GetComponent<UnitAnimator>();
         _searchTarget = GetComponent<UnitSearchTarget>();
         _controller = GetComponent<UnitObserver>();
+        _fxUnit = GetComponent<FXUnit>();
     }
 
     private void OnEnable()
@@ -39,10 +41,10 @@ public class Unit : Health, IAim
             _soundSpawn.Play();
     }
 
-    public void ClearTarget()
-    {
-        _target = null;
-    }
+    public void ClearTarget() => _target = null;
+
+    public void RestoringHealth () => _fxUnit.PlayRecoveryHealth();
+    public void NotRestoringHealth () => _fxUnit.StopRecoveryHealth();
 
     public void SetTarget(Enemy target)
     {

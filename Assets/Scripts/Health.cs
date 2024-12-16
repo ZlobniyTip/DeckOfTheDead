@@ -20,4 +20,18 @@ public abstract class Health : MonoBehaviour
             Changed?.Invoke(_value, _maxValue);
         }
     }
+    public void AddHealth(int count)
+    {
+        if (_value < _maxValue)
+        {
+            _value += count;
+
+            if(_value > _maxValue)
+            {
+                _value = _maxValue;
+            }
+
+            Changed?.Invoke(_value, _maxValue);
+        }
+    }
 }

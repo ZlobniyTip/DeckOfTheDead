@@ -11,7 +11,7 @@ public class SkillsHomeless : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(SearchTarget());
+        StartCoroutine(SlowDown());
     }
     private void OnDisable()
     {
@@ -21,7 +21,7 @@ public class SkillsHomeless : MonoBehaviour
         }
     }
 
-    public IEnumerator SearchTarget()
+    public IEnumerator SlowDown()
     {
         while (true)
         {
