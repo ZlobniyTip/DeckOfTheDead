@@ -7,12 +7,11 @@ public class ZombieSearchTarget : MonoBehaviour
     [SerializeField] private float _radius;
 
     private Enemy _enemy;
+
     private Health _target;
     private Health _startTarget;
-    private bool _onlySearchEnemies = false;
 
     public Health Target => _target;
-    public bool OnlySearchEnemies => _onlySearchEnemies;
     public bool SearchingTarget { get; private set; } = true;
 
     private void Awake()
@@ -33,40 +32,32 @@ public class ZombieSearchTarget : MonoBehaviour
         {
             Collider[] overlappedColliders = Physics.OverlapSphere(transform.position, _radius);
             Rigidbody rigidbody;
-            Health target = null;
+            Health unitTarget = null;
 
             foreach (var collider in overlappedColliders)
             {
                 rigidbody = collider.attachedRigidbody;
 
-                if (rigidbody)
+                if (rigidbody && rigidbody.gameObject.TryGetComponent(out Health health))
                 {
-                    if (_onlySearchEnemies && rigidbody.gameObject.TryGetComponent(out Enemy enemy))
+                    if (health is Unit || health is Character)
                     {
-                        if (enemy != _enemy)
-                        {
-                            target = enemy;
-                            break;
-                        }
-                    }
-                    else if (!_onlySearchEnemies && rigidbody.gameObject.TryGetComponent(out Health health))
-                    {
-                        if (health is Unit || health is Character)
-                        {
-                            target = health;
-                            break;
-                        }
+                        unitTarget = health;
+                        break;
                     }
                 }
             }
 
-            if (target != null)
+            if (unitTarget != null)
             {
-                InitializeTarget(target);
+                InitializeTarget(unitTarget);
                 _zombieAttack.ActivateAttack();
             }
             else if (Target == null)
+            {
                 SetStartTarget();
+            }
+
 
             yield return new WaitForSeconds(0.5f);
         }
@@ -78,13 +69,18 @@ public class ZombieSearchTarget : MonoBehaviour
         _startTarget = target;
     }
 
-    public void InitializeTarget(Health target) => _target = target;
+    public void InitializeTarget(Health target)
+    {
+        _target = target;
+    }
 
-    public void LookingZombies() => _onlySearchEnemies = true;
+    public void SetStartTarget()
+    {
+        _target = _startTarget;
+    }
 
-    public void DonLookZombies() => _onlySearchEnemies = false;
-
-    public void SetStartTarget() => _target = _startTarget;
-
-    private void OnDisable() => SearchingTarget = false;
+    private void OnDisable()
+    {
+        SearchingTarget = false;
+    }
 }

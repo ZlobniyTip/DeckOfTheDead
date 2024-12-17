@@ -72,9 +72,4 @@ public class ZombieAttack : MonoBehaviour
             transform.rotation = targetRotation;
         }
     }
-
-    private void Update()
-    {
-        Debug.Log(_delayBetweenAttack);
-    }
 }
