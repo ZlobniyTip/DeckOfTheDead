@@ -1,23 +1,13 @@
+using TMPro;
 using UnityEngine;
 
 public class FXUnit : MonoBehaviour
 {
-    [SerializeField] private ParticleSystem _recoveryHealth;
+    [SerializeField] private TMP_Text _timer;
 
-    private void Awake()
+ 
+    public TMP_Text StartTimer()
     {
-        StopRecoveryHealth();
+        return _timer;
     }
-
-    public void PlayRecoveryHealth()
-    {
-        if (!_recoveryHealth.isPlaying)
-            _recoveryHealth.Play();
-    } 
-
-    public void StopRecoveryHealth()
-    {
-        if (_recoveryHealth.isPlaying)
-            _recoveryHealth.Stop();
-    } 
 }

@@ -12,6 +12,7 @@ public class ZombieSearchTarget : MonoBehaviour
     private Health _startTarget;
 
     public Health Target => _target;
+    public Health StartTarget => _startTarget;
     public bool SearchingTarget { get; private set; } = true;
 
     private void Awake()
@@ -62,6 +63,7 @@ public class ZombieSearchTarget : MonoBehaviour
             yield return new WaitForSeconds(0.5f);
         }
     }
+
 
     public void InitializeStartTarget(Health target)
     {

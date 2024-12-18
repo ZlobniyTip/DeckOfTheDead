@@ -21,6 +21,7 @@ public class Unit : Health, IAim
     public UnitConfig UnitConfig => _config;
     public Enemy Target => _target;
     public Character Character => _character;
+    public FXUnit FXUnit => _fxUnit;
 
     private void Awake()
     {
@@ -42,9 +43,6 @@ public class Unit : Health, IAim
     }
 
     public void ClearTarget() => _target = null;
-
-    public void RestoringHealth () => _fxUnit.PlayRecoveryHealth();
-    public void NotRestoringHealth () => _fxUnit.StopRecoveryHealth();
 
     public void SetTarget(Enemy target)
     {
@@ -73,6 +71,13 @@ public class Unit : Health, IAim
     private IEnumerator Die()
     {
         var delay = new WaitForSeconds(_delayBetweenDeath);
+
+        var zombieConverter = GetComponent<SkillEmo>();
+
+        if (zombieConverter != null)
+        {
+            zombieConverter.ConvertEnemyToAlly(_lastAttacker, _character);
+        }
 
         _controller.DisableStates();
         _unitAnimator.PlauDiyingAnimation();
