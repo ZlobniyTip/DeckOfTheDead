@@ -25,7 +25,7 @@ public class PlayerEnergy : MonoBehaviour
         }
     }
 
-    public void TakeEnergy(int energy)
+    public void UseUpEnergy(int energy)
     {
         if(_currentEnergyCount >= energy)
         {

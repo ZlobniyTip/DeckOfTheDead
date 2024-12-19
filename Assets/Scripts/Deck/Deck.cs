@@ -64,7 +64,7 @@ public class Deck : MonoBehaviour
 
     public void TakeAwayPlayerEnergy(int energy)
     {
-        _playerEnergy.TakeEnergy(energy);
+        _playerEnergy.UseUpEnergy(energy);
     }
 
     private void CreateCard()

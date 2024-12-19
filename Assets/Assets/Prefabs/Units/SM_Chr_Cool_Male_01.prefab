@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 1849658467699048438}
   - component: {fileID: 2456124956361488053}
   - component: {fileID: 204077357658664921}
+  - component: {fileID: 7000395178228164128}
   m_Layer: 0
   m_Name: SM_Chr_Cool_Male_01
   m_TagString: Untagged
@@ -111,6 +112,7 @@ MonoBehaviour:
   _maxValue: 60
   _config: {fileID: 11400000, guid: c9bd45bbf2e78224a8976c0cd963affa, type: 2}
   _soundSpawn: {fileID: 204077357658664921}
+  _policeArmour: {fileID: 0}
 --- !u!114 &6816625243959802395
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -148,6 +150,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _weaponPoint: {fileID: 7291805866989694537}
+  _distance: 0
 --- !u!195 &7545638857374183423
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -353,6 +356,22 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &7000395178228164128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 37082601362207996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d02b4b41f1069c4582bd3d913f78906, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _molotov: {fileID: -6556556452434832421, guid: 4d62bfe4ec3b0b944a443fe0d37c906d, type: 3}
+  _startingPoint: {fileID: 7291805866989694537}
+  _velocityMult: 5
+  _cooldownThrow: 5
 --- !u!1 &195484859372115182
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -5,6 +6,7 @@ public class Unit : Health, IAim
 {
     [SerializeField] private UnitConfig _config;
     [SerializeField] private AudioSource _soundSpawn;
+    [SerializeField] private PoliceAmmunition _policeArmour;
 
     private Character _character;
     private Enemy _target;
@@ -14,6 +16,8 @@ public class Unit : Health, IAim
     private UnitAnimator _unitAnimator;
     private UnitObserver _controller;
     private float _delayBetweenDeath = 2.7f;
+
+    public event Action Died;
 
     public UnitMovement Movement => _movement;
     public UnitAttack Attack => _attack;
@@ -60,6 +64,15 @@ public class Unit : Health, IAim
 
     public override void TakeDamage(int damage)
     {
+
+        if (_policeArmour != null)
+        {
+            BlockDamageWithArmour(damage);
+
+            if (_policeArmour.Value > 0)
+                return;
+        }
+
         base.TakeDamage(damage);
 
         if (_value <= 0)
@@ -70,6 +83,7 @@ public class Unit : Health, IAim
 
     private IEnumerator Die()
     {
+        Died?.Invoke();
         var delay = new WaitForSeconds(_delayBetweenDeath);
 
         _controller.DisableStates();
@@ -77,5 +91,10 @@ public class Unit : Health, IAim
         yield return delay;
 
         Destroy(gameObject);
+    }
+
+    private void BlockDamageWithArmour(int damage)
+    {
+        _policeArmour.TakeDamage(damage);
     }
 }

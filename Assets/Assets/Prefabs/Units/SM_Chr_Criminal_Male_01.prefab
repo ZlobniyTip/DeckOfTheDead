@@ -4486,6 +4486,7 @@ GameObject:
   - component: {fileID: 2980696561108632382}
   - component: {fileID: 7693357301442908834}
   - component: {fileID: 4225509639554968251}
+  - component: {fileID: 845681648429052734}
   m_Layer: 0
   m_Name: SM_Chr_Criminal_Male_01
   m_TagString: Untagged
@@ -4576,6 +4577,7 @@ MonoBehaviour:
   _maxValue: 60
   _config: {fileID: 11400000, guid: d6172f3d39a6eec48b7b1efdd0f1c653, type: 2}
   _soundSpawn: {fileID: 4225509639554968251}
+  _policeArmour: {fileID: 0}
 --- !u!114 &2467552096313657742
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4613,6 +4615,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _weaponPoint: {fileID: 913571257781054829}
+  _distance: 0
 --- !u!195 &8800250625632340058
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -4818,6 +4821,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &845681648429052734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6594853068861005816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 703d1286e44f87d448b9d98ee8fb8076, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _name: Lethal count
+  _unit: {fileID: 4154534539150764249}
+  _particle: {fileID: 198107820186352126, guid: b369efb4abe69e044890b664115fab9e, type: 3}
 --- !u!1 &6737784186707092547
 GameObject:
   m_ObjectHideFlags: 0

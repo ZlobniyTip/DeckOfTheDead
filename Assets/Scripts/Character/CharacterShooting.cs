@@ -57,7 +57,7 @@ public class CharacterShooting : MonoBehaviour, IAim
         while (_currentEnemy != null)
         {
             TurnToTarget();
-            //_currentEnemy.TakeDamage(_currentWeapon.Shoot());
+            _currentEnemy.TakeDamage(_currentWeapon.Shoot());
 
             yield return delay;
         }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SkillsHomeless : MonoBehaviour
+public class SkillsHomeless : Skill
 {
     private HashSet<Enemy> _slowedZombies = new HashSet<Enemy>();
 
@@ -13,6 +13,7 @@ public class SkillsHomeless : MonoBehaviour
     {
         StartCoroutine(SearchTarget());
     }
+
     private void OnDisable()
     {
         foreach (var enemy in _slowedZombies)
@@ -21,7 +22,7 @@ public class SkillsHomeless : MonoBehaviour
         }
     }
 
-    public IEnumerator SearchTarget()
+    private IEnumerator SearchTarget()
     {
         while (true)
         {

@@ -4,6 +4,7 @@ using UnityEngine;
 public class RangeWeapon : Weapon
 {
     [SerializeField] private ParticleSystem _shotEffect;
+    [SerializeField] private ParticleSystem _shotEffect2;
     [SerializeField] private Bullet _bullet;
     [SerializeField] private List<Transform> _bulletPoints;
 
@@ -11,6 +12,7 @@ public class RangeWeapon : Weapon
     {
         _audio.Play();
         _shotEffect.Play();
+        _shotEffect2.Play();
 
         if (_bulletPoints.Count > 1)
         {

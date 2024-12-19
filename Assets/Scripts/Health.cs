@@ -20,4 +20,14 @@ public abstract class Health : MonoBehaviour
             Changed?.Invoke(_value, _maxValue);
         }
     }
+
+    public virtual void TakeHeal(int healValue)
+    {
+        if (_value + healValue <= _maxValue)
+        {
+            _value += healValue;
+            Changed?.Invoke(_value, _maxValue);
+            Debug.Log(_value);
+        }
+    }
 }
