@@ -5200,6 +5200,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44b201ff50d61764aa668f87100ed766, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _name: Wampirism
   _particleSystem: {fileID: 198845528862921382, guid: 0afb193a74634d74182b4a6a6e9dc8fb, type: 3}
   _damage: 5
   _cooldown: 1

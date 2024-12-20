@@ -3929,7 +3929,7 @@ GameObject:
   - component: {fileID: -12361155724787627}
   - component: {fileID: 5666754256358414577}
   - component: {fileID: -8924743449028031501}
-  - component: {fileID: 3225147632765311801}
+  - component: {fileID: 2507271386052868719}
   m_Layer: 0
   m_Name: SM_Chr_Business_Male_01
   m_TagString: Untagged
@@ -4020,7 +4020,7 @@ MonoBehaviour:
   _maxValue: 60
   _config: {fileID: 11400000, guid: de293c6768fa70d4d83df5539075f6ba, type: 2}
   _soundSpawn: {fileID: -8924743449028031501}
-  _policeArmour: {fileID: 3225147632765311801}
+  _policeArmour: {fileID: 0}
 --- !u!114 &997846981684322831
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4264,7 +4264,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &3225147632765311801
+--- !u!114 &2507271386052868719
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4273,10 +4273,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 6009865997827512522}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d59487197712504da658b501d0dfbf6, type: 3}
+  m_Script: {fileID: 11500000, guid: bfb83143e348158459b453091938bbc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxValue: 100
+  _maxValue: 150
   _name: Police ammunition
 --- !u!1 &6026117388831376841
 GameObject:
@@ -6605,7 +6605,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _barFilling: {fileID: 3832239073348030766}
-  _health: {fileID: 3225147632765311801}
+  _health: {fileID: 2507271386052868719}
 --- !u!224 &6436687834943115552 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7960420476135095685, guid: 5ecf46cc29882b3478f3b341836a72c6, type: 3}

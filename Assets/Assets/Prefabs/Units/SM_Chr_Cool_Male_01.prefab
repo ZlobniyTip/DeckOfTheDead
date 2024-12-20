@@ -368,6 +368,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d02b4b41f1069c4582bd3d913f78906, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _name: Throw molotov
   _molotov: {fileID: -6556556452434832421, guid: 4d62bfe4ec3b0b944a443fe0d37c906d, type: 3}
   _startingPoint: {fileID: 7291805866989694537}
   _velocityMult: 5

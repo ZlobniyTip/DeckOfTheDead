@@ -3674,6 +3674,7 @@ MonoBehaviour:
   _maxValue: 60
   _config: {fileID: 11400000, guid: 4a5656b2814c2ef43aa28832de951220, type: 2}
   _soundSpawn: {fileID: 7941952116052283675}
+  _policeArmour: {fileID: 0}
 --- !u!114 &5780118871399791508
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3929,6 +3930,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c40be0c2b6412804195ed3f9be4775de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _name: Slowing aura
 --- !u!114 &-4521179899107858874
 MonoBehaviour:
   m_ObjectHideFlags: 0

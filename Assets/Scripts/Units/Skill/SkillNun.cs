@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SkillNun : MonoBehaviour
+public class SkillNun : Skill
 {
     private HashSet<Unit> _units = new HashSet<Unit>();
 
@@ -33,7 +33,7 @@ public class SkillNun : MonoBehaviour
 
                     if (_units.Contains(unit))
                     {
-                        unit.AddHealth(2);
+                        unit.TakeHeal(2);
                     }
                     else
                     {
