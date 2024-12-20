@@ -4680,6 +4680,7 @@ GameObject:
   - component: {fileID: -2247392419935966248}
   - component: {fileID: 9147290101703569014}
   - component: {fileID: 7225518377543647029}
+  - component: {fileID: -9075448441649766369}
   m_Layer: 0
   m_Name: SM_Chr_Hazmat_Male_01
   m_TagString: Untagged
@@ -4771,6 +4772,7 @@ MonoBehaviour:
   _maxValue: 60
   _config: {fileID: 11400000, guid: 365c6aa67b913ad448d684b4eeda147a, type: 2}
   _soundSpawn: {fileID: 7225518377543647029}
+  _policeArmour: {fileID: 0}
 --- !u!114 &1407770420176780103
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4808,6 +4810,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _weaponPoint: {fileID: 7896127656865686080}
+  _distance: 0
 --- !u!195 &7191445882600863456
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -5013,6 +5016,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-9075448441649766369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6375955822255237479}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4827e1e3418b264fadce575377745ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _name: Poison rain
+  _rain: {fileID: 7435880133306232935, guid: 10d0d7ccdc5bb554ba2413046c185223, type: 3}
+  _cooldown: 15
 --- !u!1 &6386228923133964777
 GameObject:
   m_ObjectHideFlags: 0

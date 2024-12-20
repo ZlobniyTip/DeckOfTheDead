@@ -5505,6 +5505,7 @@ GameObject:
   - component: {fileID: -3030417443764150589}
   - component: {fileID: -5893064153799913046}
   - component: {fileID: -1198978831032438287}
+  - component: {fileID: 160151431184824020}
   m_Layer: 0
   m_Name: SM_Chr_Press_Male_01
   m_TagString: Untagged
@@ -5595,6 +5596,7 @@ MonoBehaviour:
   _maxValue: 60
   _config: {fileID: 11400000, guid: 59ffacbff36e5b54981e51ff42429f7b, type: 2}
   _soundSpawn: {fileID: -1198978831032438287}
+  _policeArmour: {fileID: 0}
 --- !u!114 &1800772692354562858
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5632,6 +5634,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _weaponPoint: {fileID: 8131873677878841726}
+  _distance: 0
 --- !u!195 &4055975345392506505
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -5837,6 +5840,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &160151431184824020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8488949910064434950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d161fb7647f870946a90d41d7cb889db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _name: Posthumous support
+  _energy: {fileID: 0}
+  _unit: {fileID: 5566368325892015085}
 --- !u!1 &8531912780678533994
 GameObject:
   m_ObjectHideFlags: 0

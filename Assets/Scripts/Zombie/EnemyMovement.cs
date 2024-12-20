@@ -1,10 +1,9 @@
-using System;
 using UnityEngine;
 using UnityEngine.AI;
 
-[RequireComponent(typeof(ZombieSearchTarget))]
-[RequireComponent(typeof(NavMeshAgent))]
-[RequireComponent(typeof(Enemy))]
+//[RequireComponent(typeof(ZombieSearchTarget))]
+//[RequireComponent(typeof(NavMeshAgent))]
+//[RequireComponent(typeof(Enemy))]
 public class EnemyMovement : MonoBehaviour
 {
     private ZombieSearchTarget _zombieSearch;
@@ -46,18 +45,20 @@ public class EnemyMovement : MonoBehaviour
         {
             _zombieSearch.SetStartTarget();
         }
-
-        float distansToTarget = Vector3.Distance(transform.position, _zombieSearch.Target.transform.position);
-
-        if (distansToTarget > _zombieAttack.AttackDistance)
-        {
-            _navMesh.isStopped = false;
-            _navMesh.speed = _speed;
-            _navMesh.SetDestination(_zombieSearch.Target.transform.position);
-        }
         else
         {
-            StopMovement();
+            float distansToTarget = Vector3.Distance(transform.position, _zombieSearch.Target.transform.position);
+
+            if (distansToTarget > _zombieAttack.AttackDistance)
+            {
+                _navMesh.isStopped = false;
+                _navMesh.speed = _speed;
+                _navMesh.SetDestination(_zombieSearch.Target.transform.position);
+            }
+            else
+            {
+                StopMovement();
+            }
         }
     }
 }

@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 58f98b24b1d414f4e8f2f3adf8db43f8, type: 3}
-  m_Name: Businessman
+  m_Name: Police
   m_EditorClassIdentifier: 
   _health: 150
   _weapon: {fileID: -6136854924940047355, guid: d855c6cd18605f34dbfdca25cb40d71c, type: 3}

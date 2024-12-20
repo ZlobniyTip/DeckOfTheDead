@@ -4853,6 +4853,7 @@ GameObject:
   - component: {fileID: 7924455473396244660}
   - component: {fileID: -3008078262196365468}
   - component: {fileID: -8484025157231507993}
+  - component: {fileID: -6435230105079649154}
   m_Layer: 0
   m_Name: SM_Chr_Cool_Female_01
   m_TagString: Untagged
@@ -4943,6 +4944,7 @@ MonoBehaviour:
   _maxValue: 60
   _config: {fileID: 11400000, guid: 14bff5dc4702f5f42a75af4c7ef5c820, type: 2}
   _soundSpawn: {fileID: -8484025157231507993}
+  _policeArmour: {fileID: 0}
 --- !u!114 &3462779929227589785
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4980,6 +4982,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _weaponPoint: {fileID: 9062261886272518464}
+  _distance: 0
 --- !u!195 &5235927173047509567
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -5185,6 +5188,23 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-6435230105079649154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8143021279637564522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44b201ff50d61764aa668f87100ed766, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _name: Wampirism
+  _particleSystem: {fileID: 198845528862921382, guid: 0afb193a74634d74182b4a6a6e9dc8fb, type: 3}
+  _damage: 5
+  _cooldown: 1
+  _radius: 1
 --- !u!1 &8210699351108603186
 GameObject:
   m_ObjectHideFlags: 0

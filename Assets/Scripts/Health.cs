@@ -6,6 +6,7 @@ public abstract class Health : MonoBehaviour
     [SerializeField] protected int _maxValue;
 
     protected int _value;
+    protected Enemy _lastAttacker;
 
     public event Action<int, int> Changed;
 
@@ -19,5 +20,28 @@ public abstract class Health : MonoBehaviour
             _value -= damage;
             Changed?.Invoke(_value, _maxValue);
         }
+    }
+
+    public virtual void TakeHeal(int healValue)
+    {
+        if (_value + healValue <= _maxValue)
+        {
+            _value += healValue;
+            Changed?.Invoke(_value, _maxValue);
+            Debug.Log(_value);
+        }
+    }
+
+    public void TakeDamageFromEnemy(int damage, Enemy attacker)
+    {
+        _lastAttacker = attacker;
+        TakeDamage(damage);
+    }
+
+    public void SetValue(int value, int maxValue)
+    {
+        _value = value;
+        _maxValue = maxValue;
+        Changed?.Invoke(_value, _maxValue);
     }
 }
