@@ -7,10 +7,12 @@ public class ZombieSearchTarget : MonoBehaviour
     [SerializeField] private float _radius;
 
     private Enemy _enemy;
+
     private Health _target;
     private Health _startTarget;
 
     public Health Target => _target;
+    public Health StartTarget => _startTarget;
     public bool SearchingTarget { get; private set; } = true;
 
     private void Awake()
@@ -39,12 +41,7 @@ public class ZombieSearchTarget : MonoBehaviour
 
                 if (rigidbody && rigidbody.gameObject.TryGetComponent(out Health health))
                 {
-                    if (health is Unit)
-                    {
-                        unitTarget = health;
-                        break;
-                    }
-                    else if (health is Character)
+                    if (health is Unit || health is Character)
                     {
                         unitTarget = health;
                         break;
@@ -67,6 +64,7 @@ public class ZombieSearchTarget : MonoBehaviour
         }
     }
 
+
     public void InitializeStartTarget(Health target)
     {
         _target = target;
@@ -86,11 +84,5 @@ public class ZombieSearchTarget : MonoBehaviour
     private void OnDisable()
     {
         SearchingTarget = false;
-    }
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, _radius);
     }
 }

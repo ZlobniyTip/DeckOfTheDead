@@ -4178,6 +4178,8 @@ GameObject:
   - component: {fileID: 240628594656969214}
   - component: {fileID: -6601206211250824655}
   - component: {fileID: -4430781906213041904}
+  - component: {fileID: -2126984287021931419}
+  - component: {fileID: -857548606424428886}
   m_Layer: 0
   m_Name: SM_Chr_Emo_Female_01
   m_TagString: Untagged
@@ -4305,6 +4307,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _weaponPoint: {fileID: 7325610983747276124}
+  _distance: 0
 --- !u!195 &1551364212387330010
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -4510,6 +4513,33 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-2126984287021931419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6443402226922862477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90a9b96a2f914254b8c1427e3c6ebf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _timer: {fileID: 0}
+--- !u!114 &-857548606424428886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6443402226922862477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4648aadf824befe41b4e1bdfd899da6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _enemyFriend: {fileID: 2516926439542102155, guid: dcbfc23d5849cf847a00a2153e08a633, type: 3}
+  _timerHandler: {fileID: 3073264761115197368, guid: 247a1c6277285eb4fb0e48478c3fce8b, type: 3}
 --- !u!1 &6478176646833098472
 GameObject:
   m_ObjectHideFlags: 0

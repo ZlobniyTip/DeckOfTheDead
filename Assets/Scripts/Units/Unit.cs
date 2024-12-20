@@ -15,6 +15,7 @@ public class Unit : Health, IAim
     private UnitSearchTarget _searchTarget;
     private UnitAnimator _unitAnimator;
     private UnitObserver _controller;
+    private FXUnit _fxUnit;
     private float _delayBetweenDeath = 2.7f;
 
     public event Action Died;
@@ -24,6 +25,7 @@ public class Unit : Health, IAim
     public UnitConfig UnitConfig => _config;
     public Enemy Target => _target;
     public Character Character => _character;
+    public FXUnit FXUnit => _fxUnit;
 
     private void Awake()
     {
@@ -35,6 +37,7 @@ public class Unit : Health, IAim
         _unitAnimator = GetComponent<UnitAnimator>();
         _searchTarget = GetComponent<UnitSearchTarget>();
         _controller = GetComponent<UnitObserver>();
+        _fxUnit = GetComponent<FXUnit>();
     }
 
     private void OnEnable()
@@ -43,10 +46,7 @@ public class Unit : Health, IAim
             _soundSpawn.Play();
     }
 
-    public void ClearTarget()
-    {
-        _target = null;
-    }
+    public void ClearTarget() => _target = null;
 
     public void SetTarget(Enemy target)
     {
@@ -85,6 +85,13 @@ public class Unit : Health, IAim
     {
         Died?.Invoke();
         var delay = new WaitForSeconds(_delayBetweenDeath);
+
+        var zombieConverter = GetComponent<SkillEmo>();
+
+        if (zombieConverter != null)
+        {
+            zombieConverter.ConvertEnemyToAlly(_lastAttacker, _character);
+        }
 
         _controller.DisableStates();
         _unitAnimator.PlauDiyingAnimation();

@@ -3582,6 +3582,7 @@ GameObject:
   - component: {fileID: 9209754856749033729}
   - component: {fileID: 7941952116052283675}
   - component: {fileID: -8875651651482537228}
+  - component: {fileID: -4521179899107858874}
   m_Layer: 0
   m_Name: SM_Chr_Homeless_Male_01
   m_TagString: Untagged
@@ -3928,6 +3929,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c40be0c2b6412804195ed3f9be4775de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-4521179899107858874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5434232066226523262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90a9b96a2f914254b8c1427e3c6ebf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _timer: {fileID: 0}
 --- !u!1 &5436350218293466595
 GameObject:
   m_ObjectHideFlags: 0
