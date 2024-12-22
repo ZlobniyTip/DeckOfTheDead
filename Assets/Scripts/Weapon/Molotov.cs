@@ -4,6 +4,7 @@ using UnityEngine;
 public class Molotov : MonoBehaviour
 {
     [SerializeField] private ParticleSystem _burningEffect;
+    [SerializeField] private ParticleSystem _radiusEffect;
     [SerializeField] private float _delayBetweenDamage;
     [SerializeField] private float _radius;
     [SerializeField] private int _damage;
@@ -22,6 +23,9 @@ public class Molotov : MonoBehaviour
         {
             StartCoroutine(Flame());
             Instantiate(_burningEffect, transform);
+            Instantiate(_radiusEffect, transform.localPosition,Quaternion.identity);
+
+            Destroy(gameObject);
         }
     }
 
@@ -55,8 +59,12 @@ public class Molotov : MonoBehaviour
             }
 
             yield return null;
-        }
+        } 
+    }
 
-        Destroy(gameObject);
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(transform.position, _radius);
     }
 }

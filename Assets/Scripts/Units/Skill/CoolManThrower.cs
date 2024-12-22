@@ -8,6 +8,7 @@ public class CoolManThrower : Skill
     [SerializeField] private Transform _startingPoint;
     [SerializeField] private float _velocityMult;
     [SerializeField] private float _cooldownThrow;
+    [SerializeField] private AudioSource _molotovSource;
 
     private Unit _unit;
     private Molotov _currentMolotov;
@@ -47,6 +48,8 @@ public class CoolManThrower : Skill
 
     private void Throw(Transform target)
     {
+        _molotovSource.Play();
+
         _currentMolotov = Instantiate(_molotov, _startingPoint);
         _rbMolotov = _currentMolotov.GetComponent<Rigidbody>();
 

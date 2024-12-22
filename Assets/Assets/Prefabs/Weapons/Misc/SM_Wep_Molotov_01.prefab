@@ -99,8 +99,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _burningEffect: {fileID: 198373134025340838, guid: a543ff400bf87bf4596d647a5a30095b, type: 3}
+  _radiusEffect: {fileID: 7024275531142198371, guid: 8ad04eb070e95e246bfff25b0f26e343, type: 3}
   _delayBetweenDamage: 1
-  _radius: 5
+  _radius: 3
   _damage: 20
   _durationBurning: 5
 --- !u!65 &-6215478966621764689
