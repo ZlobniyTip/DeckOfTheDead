@@ -4,6 +4,7 @@ public class CriminalCriticalAttack : Skill
 {
     [SerializeField] private Unit _unit;
     [SerializeField] private ParticleSystem _particle;
+    [SerializeField] private AudioSource _audioSource;
 
     private int _lethalCount = 1;
     private int _chance = 20;
@@ -21,7 +22,9 @@ public class CriminalCriticalAttack : Skill
 
     public override void UseSkill()
     {
-        Instantiate(_particle, _unit.Attack.CurrentWeapon.transform);
+        //Instantiate(_particle, _unit.Attack.CurrentWeapon.transform);
+        _particle.Play();
+        _audioSource.Play();
         _unit.Target.TakeDamage(_unit.Attack.CurrentWeapon.Damage * _multiplyDamage);
     }
 

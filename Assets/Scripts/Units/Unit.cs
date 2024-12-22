@@ -18,8 +18,6 @@ public class Unit : Health, IAim
     private FXUnit _fxUnit;
     private float _delayBetweenDeath = 2.7f;
 
-    public event Action Died;
-
     public UnitMovement Movement => _movement;
     public UnitAttack Attack => _attack;
     public UnitConfig UnitConfig => _config;
@@ -83,7 +81,8 @@ public class Unit : Health, IAim
 
     private IEnumerator Die()
     {
-        Died?.Invoke();
+        _isDiying = true;
+       
         var delay = new WaitForSeconds(_delayBetweenDeath);
 
         var zombieConverter = GetComponent<SkillEmo>();

@@ -12,15 +12,22 @@ public class CoolManThrower : Skill
     private Unit _unit;
     private Molotov _currentMolotov;
     private Rigidbody _rbMolotov;
+    private UnitAnimator _animator;
 
     private void Awake()
     {
         _unit = GetComponent<Unit>();
+        _animator = GetComponent<UnitAnimator>();
     }
 
     private void Start()
     {
         StartCoroutine(WaitingThrow());
+    }
+
+    private void OnDisable()
+    {
+        StopCoroutine(WaitingThrow());
     }
 
     private IEnumerator WaitingThrow()
@@ -29,12 +36,12 @@ public class CoolManThrower : Skill
 
         while (true)
         {
+            yield return delayBetweenThrow;
+
             if (_unit.Target != null)
             {
                 Throw(_unit.Target.transform);
             }
-
-            yield return delayBetweenThrow;
         }
     }
 
@@ -47,5 +54,6 @@ public class CoolManThrower : Skill
 
         _currentMolotov.transform.parent = null;
         _rbMolotov.velocity = delta * _velocityMult;
+        _animator.PlayThrows();
     }
 }

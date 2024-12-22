@@ -16,6 +16,6 @@ public class PressIncreaseEnergy : Skill
 
     public override void UseSkill()
     {
-        _unit.Character.Energy.IncreaseEnergy();
+        StartCoroutine(_unit.Character.Energy.IncreaseEnergyJournalist());
     }
 }

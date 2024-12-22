@@ -17,6 +17,7 @@ public class UnitAnimator : MonoBehaviour
     const string IsIdlingRifle = "IsIdlingRifle";
 
     private const string IsDiying = "IsDiying";
+    private const string Throws = "Throws";
 
     private string _currentAnimationKey = string.Empty;
 
@@ -99,6 +100,11 @@ public class UnitAnimator : MonoBehaviour
     public void PlauDiyingAnimation()
     {
         SetAnimation(IsDiying);
+    }
+
+    public void PlayThrows()
+    {
+        SetAnimation(Throws);
     }
 
     private void SetAnimation( string animationName)

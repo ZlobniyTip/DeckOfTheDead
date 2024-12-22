@@ -7,11 +7,14 @@ public abstract class Health : MonoBehaviour
 
     protected int _value;
     protected Enemy _lastAttacker;
-
-    public event Action<int, int> Changed;
+    protected bool _isDiying = false;
 
     public int MaxValue => _maxValue;
     public int Value => _value;
+    public bool IsDiying => _isDiying;
+
+    public event Action<int, int> Changed;
+    public event Action Died;
 
     public virtual void TakeDamage(int damage)
     {
@@ -19,6 +22,9 @@ public abstract class Health : MonoBehaviour
         {
             _value -= damage;
             Changed?.Invoke(_value, _maxValue);
+
+            if (_value <= 0)
+                Died?.Invoke();
         }
     }
 

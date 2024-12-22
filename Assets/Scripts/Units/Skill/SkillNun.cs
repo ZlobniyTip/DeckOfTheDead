@@ -55,10 +55,4 @@ public class SkillNun : Skill
             yield return new WaitForSeconds(1f);
         }
     }
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, _detectionRadius);
-    }
 }
