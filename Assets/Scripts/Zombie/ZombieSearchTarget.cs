@@ -94,11 +94,6 @@ public class ZombieSearchTarget : MonoBehaviour
         SetStartTarget();
     }
 
-    private void Update()
-    {
-        Debug.Log(_target);
-    }
-
     private void OnDisable()
     {
         SearchingTarget = false;

@@ -63,8 +63,11 @@ public class SkillsHomeless : Skill
 
     private void RestoreCharacteristics(Enemy enemy)
     {
-        enemy.ExitCamp();
-        enemy.ZombieAttack.RestoreAttackSpeed();
-        enemy.ZombieView.RestoreAnimationSpeed();
+        if (enemy != null) 
+        {
+            enemy.ExitCamp();
+            enemy.ZombieAttack.RestoreAttackSpeed();
+            enemy.ZombieView.RestoreAnimationSpeed();
+        }
     }
 }

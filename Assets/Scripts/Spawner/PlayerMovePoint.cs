@@ -5,6 +5,7 @@ public class PlayerMovePoint : MonoBehaviour
 {
     [SerializeField] private Transform[] _spawnPoints;
     [SerializeField] private int _numberEnemiesInWave = 8;
+    [SerializeField] private AudioSource _zombieSource;
 
     public event Action<Transform[], int> PlayerOnPoint;
 
@@ -13,6 +14,7 @@ public class PlayerMovePoint : MonoBehaviour
         if (other.TryGetComponent(out Character character))
         {
             PlayerOnPoint?.Invoke(_spawnPoints, _numberEnemiesInWave);
+            _zombieSource.Play();
         }
     }
 }

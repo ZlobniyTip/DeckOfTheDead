@@ -34,7 +34,6 @@ public abstract class Health : MonoBehaviour
         {
             _value += healValue;
             Changed?.Invoke(_value, _maxValue);
-            Debug.Log(_value);
         }
     }
 

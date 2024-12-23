@@ -9,54 +9,48 @@ public class CoolManThrower : Skill
     [SerializeField] private float _velocityMult;
     [SerializeField] private float _cooldownThrow;
     [SerializeField] private AudioSource _molotovSource;
+    [SerializeField] private float _throwAnimationDuration = 2.0f;
 
     private Unit _unit;
-    private Molotov _currentMolotov;
-    private Rigidbody _rbMolotov;
     private UnitAnimator _animator;
+    private UnitObserver _unitObserver;
 
     private void Awake()
     {
         _unit = GetComponent<Unit>();
         _animator = GetComponent<UnitAnimator>();
+        _unitObserver = GetComponent<UnitObserver>();
     }
 
-    private void Start()
-    {
-        StartCoroutine(WaitingThrow());
-    }
+    private void OnEnable() => StartCoroutine(ThrowRoutine());
+    private void OnDisable() => StopAllCoroutines();
 
-    private void OnDisable()
+    private IEnumerator ThrowRoutine()
     {
-        StopCoroutine(WaitingThrow());
-    }
-
-    private IEnumerator WaitingThrow()
-    {
-        var delayBetweenThrow = new WaitForSeconds(_cooldownThrow);
+        var delay = new WaitForSeconds(_cooldownThrow);
 
         while (true)
         {
-            yield return delayBetweenThrow;
+            yield return delay;
 
             if (_unit.Target != null)
-            {
-                Throw(_unit.Target.transform);
-            }
+                yield return PerformThrow(_unit.Target.transform);
         }
     }
 
-    private void Throw(Transform target)
+    private IEnumerator PerformThrow(Transform target)
     {
-        _molotovSource.Play();
-
-        _currentMolotov = Instantiate(_molotov, _startingPoint);
-        _rbMolotov = _currentMolotov.GetComponent<Rigidbody>();
-
-        Vector3 delta = target.position - transform.position;
-
-        _currentMolotov.transform.parent = null;
-        _rbMolotov.velocity = delta * _velocityMult;
+        _unitObserver?.BlockAttack(true);
         _animator.PlayThrows();
+
+        yield return new WaitForSeconds(0.5f);
+
+        _molotovSource.Play();
+        var molotovInstance = Instantiate(_molotov, _startingPoint.position, Quaternion.identity);
+        var rbMolotov = molotovInstance.GetComponent<Rigidbody>();
+        rbMolotov.velocity = (target.position - transform.position) * _velocityMult;
+
+        yield return new WaitForSeconds(_throwAnimationDuration);
+        _unitObserver?.BlockAttack(false);
     }
 }

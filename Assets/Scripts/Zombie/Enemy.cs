@@ -7,12 +7,12 @@ using UnityEngine;
 public class Enemy : Health
 {
     [SerializeField] private ZombieView _zombieView;
+    [SerializeField] private ParticleSystem _effectCamp;
 
     private ZombieAttack _zombieAttack;
     private EnemyMovement _movement;
     private ZombieStateMachine _zombieStateMachine;
     private ZombieSearchTarget _zombieSearch;
-    private FXZombie _fxZombie;
     private bool _isUnderCamp = false;
     private float _delayBetweenDeath = 2.5f;
 
@@ -31,11 +31,10 @@ public class Enemy : Health
         _zombieAttack = GetComponent<ZombieAttack>();
         _zombieView.Initialize();
         _movement = GetComponent<EnemyMovement>();
-        _fxZombie = GetComponent<FXZombie>();
         _zombieStateMachine = new ZombieStateMachine(this);
 
         _value = _maxValue;
-     
+        _effectCamp.Stop();
     }
 
     private void Update()
@@ -45,13 +44,19 @@ public class Enemy : Health
 
     public void EnterCamp()
     {
-       _fxZombie.EnterCamp();
+        if (_effectCamp != null) 
+        {
+            _effectCamp.Play();
+        }
         _isUnderCamp = true;
     }
 
     public void ExitCamp()
     {
-        _fxZombie.ExitCamp();
+        if (_effectCamp != null) 
+        {
+            _effectCamp.Stop();
+        }
         _isUnderCamp = false;
     } 
 

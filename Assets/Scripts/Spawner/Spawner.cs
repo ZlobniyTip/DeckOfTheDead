@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -11,8 +12,10 @@ public class Spawner : MonoBehaviour
     [SerializeField] private int _delaySpawn = 2;
 
     private int _currentPoint = 0;
+    private int _activeEnemies = 0;
 
     public event UnityAction<int, int> ReachedPoint;
+    public event UnityAction WaveCleared; // Событие для уведомления о конце волны
 
     private void OnEnable()
     {
@@ -40,6 +43,7 @@ public class Spawner : MonoBehaviour
     private IEnumerator SpawnEnemyes(Transform[] spawnPoints, int numberEnemiesInWave)
     {
         var delay = new WaitForSeconds(_delaySpawn);
+        _activeEnemies = numberEnemiesInWave;
 
         while (numberEnemiesInWave > 0)
         {
@@ -48,9 +52,20 @@ public class Spawner : MonoBehaviour
                 Quaternion.identity);
 
             enemy.ZombieSearch.InitializeStartTarget(_target);
+            enemy.Diying += HandleEnemyDeath; 
             numberEnemiesInWave--;
 
             yield return delay;
+        }
+    }
+
+    private void HandleEnemyDeath()
+    {
+        _activeEnemies--;
+
+        if (_activeEnemies <= 0)
+        {
+            WaveCleared?.Invoke(); 
         }
     }
 }
