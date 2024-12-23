@@ -372,9 +372,34 @@ MonoBehaviour:
   _name: Throw molotov
   _molotov: {fileID: -6556556452434832421, guid: 4d62bfe4ec3b0b944a443fe0d37c906d, type: 3}
   _startingPoint: {fileID: 7291805866989694537}
-  _velocityMult: 5
+  _flightCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.9874878
+      value: 0.008010864
+      inSlope: -2.1921456
+      outSlope: -2.1921456
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.033743344
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _flightDuration: 1
   _cooldownThrow: 5
   _molotovSource: {fileID: -2264645629181643422}
+  _throwAnimationDuration: 2
 --- !u!82 &-2264645629181643422
 AudioSource:
   m_ObjectHideFlags: 0

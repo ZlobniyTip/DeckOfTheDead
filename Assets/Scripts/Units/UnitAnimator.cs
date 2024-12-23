@@ -40,7 +40,7 @@ public class UnitAnimator : MonoBehaviour
                 break;
 
             case WeaponType.Shotgun:
-                SetAnimation(IsShootinShotgun);
+                SetAnimation(IsShootingRifle);
                 break;
 
             case WeaponType.HunterRifle:
@@ -72,6 +72,14 @@ public class UnitAnimator : MonoBehaviour
             case WeaponType.FlameThrower:
                 SetAnimation(IsRunningRifle);
                 break;
+
+            case WeaponType.Shotgun:
+                SetAnimation(IsRunningRifle);
+                break;
+
+            case WeaponType.HunterRifle:
+                SetAnimation(IsRunningRifle);
+                break;
         }
     }
 
@@ -93,6 +101,15 @@ public class UnitAnimator : MonoBehaviour
 
             case WeaponType.FlameThrower:
                 SetAnimation(IsIdlingRifle);
+                break;
+
+            case WeaponType.Shotgun:
+                SetAnimation(IsIdlingRifle);
+                break;
+
+            case WeaponType.HunterRifle:
+                SetAnimation(IsIdlingRifle);
+
                 break;
         }
     }

@@ -6,10 +6,10 @@ public class CoolManThrower : Skill
 {
     [SerializeField] private Molotov _molotov;
     [SerializeField] private Transform _startingPoint;
-    [SerializeField] private float _velocityMult;
+    [SerializeField] private AnimationCurve _flightCurve;
+    [SerializeField] private float _flightDuration = 0.4f;
     [SerializeField] private float _cooldownThrow;
     [SerializeField] private AudioSource _molotovSource;
-    [SerializeField] private float _throwAnimationDuration = 2.0f;
 
     private Unit _unit;
     private UnitAnimator _animator;
@@ -44,13 +44,32 @@ public class CoolManThrower : Skill
         _animator.PlayThrows();
 
         yield return new WaitForSeconds(0.5f);
-
         _molotovSource.Play();
         var molotovInstance = Instantiate(_molotov, _startingPoint.position, Quaternion.identity);
-        var rbMolotov = molotovInstance.GetComponent<Rigidbody>();
-        rbMolotov.velocity = (target.position - transform.position) * _velocityMult;
 
-        yield return new WaitForSeconds(_throwAnimationDuration);
+        yield return StartCoroutine(PerformArchedFlight(molotovInstance, target.position));
         _unitObserver?.BlockAttack(false);
+    }
+
+    private IEnumerator PerformArchedFlight(Molotov molotovInstance, Vector3 targetPosition)
+    {
+        Vector3 startPosition = _startingPoint.position;
+        float elapsedTime = 0f;
+
+        while (elapsedTime < _flightDuration)
+        {
+            elapsedTime += Time.deltaTime;
+
+            float progress = Mathf.Clamp01(elapsedTime / _flightDuration);
+            Vector3 horizontalPosition = Vector3.Lerp(startPosition, targetPosition, progress);
+            float verticalOffset = _flightCurve.Evaluate(progress);
+            Vector3 newPosition = horizontalPosition + Vector3.up * verticalOffset;
+
+            molotovInstance.transform.position = newPosition;
+
+            yield return null;
+        }
+
+        molotovInstance.transform.position = targetPosition;
     }
 }
