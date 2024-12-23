@@ -15,7 +15,7 @@ public class Spawner : MonoBehaviour
     private int _activeEnemies = 0;
 
     public event UnityAction<int, int> ReachedPoint;
-    public event UnityAction WaveCleared; // Событие для уведомления о конце волны
+    public event UnityAction WaveCleared; 
 
     private void OnEnable()
     {
@@ -64,8 +64,6 @@ public class Spawner : MonoBehaviour
         _activeEnemies--;
 
         if (_activeEnemies <= 0)
-        {
             WaveCleared?.Invoke(); 
-        }
     }
 }

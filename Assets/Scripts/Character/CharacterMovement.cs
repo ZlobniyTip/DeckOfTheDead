@@ -10,7 +10,7 @@ public class CharacterMovement : MonoBehaviour
 
     private NavMeshAgent _navMesh;
     private int _pointIndex = 0;
-    private float _speed = 5;
+    private float _speed = 4.5f;
 
     public NavMeshAgent NavMeshAgent => _navMesh;
 
@@ -43,5 +43,10 @@ public class CharacterMovement : MonoBehaviour
             _navMesh.SetDestination(_points[_pointIndex].position);
             _pointIndex++;
         }
+    }
+
+    public void StopMove()
+    {
+        _navMesh.speed = 0;
     }
 }

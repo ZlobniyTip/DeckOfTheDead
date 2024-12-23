@@ -14,6 +14,7 @@ public class PlayerMovePoint : MonoBehaviour
         if (other.TryGetComponent(out Character character))
         {
             PlayerOnPoint?.Invoke(_spawnPoints, _numberEnemiesInWave);
+            character.Movement.StopMove();
             _zombieSource.Play();
         }
     }

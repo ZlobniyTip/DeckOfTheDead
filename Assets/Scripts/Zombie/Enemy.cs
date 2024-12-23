@@ -68,10 +68,14 @@ public class Enemy : Health
             StartCoroutine(Die());
     }
 
+    public void ReportDeath() => Diying?.Invoke();
+
     private IEnumerator Die()
     {
+        if (IsDiying) yield break; 
+
         IsDiying = true;
-        Diying?.Invoke();
+        ReportDeath();
         _movement.StopMovement();
 
         var delay = new WaitForSeconds(_delayBetweenDeath);

@@ -23,7 +23,7 @@ public class CoolManThrower : Skill
     }
 
     private void OnEnable() => StartCoroutine(ThrowRoutine());
-    private void OnDisable() => StopAllCoroutines();
+    private void OnDisable() => StopCoroutine(ThrowRoutine());
 
     private IEnumerator ThrowRoutine()
     {
