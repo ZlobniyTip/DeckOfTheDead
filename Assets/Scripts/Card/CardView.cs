@@ -2,44 +2,22 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CardView : ItemView
+public abstract class CardView : ItemView
 {
-    [SerializeField] private Card _card;
-
-    [SerializeField] private Image _icon;
-    [SerializeField] private TMP_Text _name;
-    [SerializeField] private TMP_Text _energy;
-    [SerializeField] private TMP_Text _level;
-    [SerializeField] private TMP_Text _health;
-    [SerializeField] private TMP_Text _damage;
-    [SerializeField] private TMP_Text _ability;
-
     [SerializeField] private Image _activity;
 
+    protected CardData _cardData;
     private DragAndDrop _dragAndDrop;
 
-    public Card Card => _card;
+    public CardData Card => _cardData;
 
     private void Awake()
     {
-       _dragAndDrop = GetComponent<DragAndDrop>();
+        _dragAndDrop = GetComponent<DragAndDrop>();
     }
 
-    private void Start()
-    {
-        _icon.sprite = _card.Icon;
-        _name.text = _card.Name;
-        _energy.text = _card.Energy.ToString();
-        _level.text = _card.Level.ToString();
-        _health.text = _card.Health.ToString();
-        _damage.text = _card.Damage.ToString();
-        _ability.text = _card.Ability;
-    }
+    public abstract void Initialize(CardData cardData);
 
-    public void Initialized(Card card)
-    {
-        _card = card;   
-    }
 
     public void ActivateCard()
     {
