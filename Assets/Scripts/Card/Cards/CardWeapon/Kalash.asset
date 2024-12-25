@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e54859d3e55fc4f40b0c873b7e728be2, type: 3}
   m_Name: Kalash
   m_EditorClassIdentifier: 
-  _icon: {fileID: 0}
-  _name: 
-  _energy: 0
-  _level: 0
-  _type: 0
-  _price: 0
+  _icon: {fileID: 21300000, guid: 5e9cbba07eb033949a83e472bb594679, type: 3}
+  _name: "\u041A\u0430\u043B\u0430\u0448"
+  _energy: 1
+  _level: 1
+  _type: 2
+  _price: 2000
   _index: 0
-  _prefabWeapon: {fileID: 0}
-  _timeAction: 0
+  _prefabWeapon: {fileID: 8882552771575711017, guid: ad49a19d2c4adc94b838606a5d459f85, type: 3}
+  _timeAction: 10
