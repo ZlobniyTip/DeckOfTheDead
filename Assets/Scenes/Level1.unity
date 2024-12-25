@@ -355,7 +355,7 @@ MonoBehaviour:
   - {fileID: 943731423}
   - {fileID: 25629878}
   _prefabEnemies:
-  - {fileID: 5101115309210582976, guid: 7ba11c17ea1706041afa21529aea2d60, type: 3}
+  - {fileID: 5101115309210582976, guid: a7b454baef06c944b8d046fd654e97d6, type: 3}
   _delaySpawn: 2
 --- !u!4 &278653929
 Transform:
@@ -1660,19 +1660,19 @@ PrefabInstance:
       objectReference: {fileID: 1836574279}
     - target: {fileID: 2659870481333283301, guid: 0a74f698bd1807f4389896e3f7bbd78e, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2659870481333283301, guid: 0a74f698bd1807f4389896e3f7bbd78e, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2659870481333283301, guid: 0a74f698bd1807f4389896e3f7bbd78e, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3082686181201674527, guid: 0a74f698bd1807f4389896e3f7bbd78e, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3218918090368764659, guid: 0a74f698bd1807f4389896e3f7bbd78e, type: 3}
       propertyPath: _buyer
@@ -1816,7 +1816,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7314694824602714456, guid: 0a74f698bd1807f4389896e3f7bbd78e, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7815013061263579833, guid: 0a74f698bd1807f4389896e3f7bbd78e, type: 3}
       propertyPath: m_AnchorMax.x

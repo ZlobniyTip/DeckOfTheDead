@@ -7,7 +7,7 @@ public class ZombieDiyingState : ZombieMovementState
 
     private int _randomState;
 
-    public ZombieDiyingState(IStateSwitcher stateSwitcher, Zombie enemy) : base(stateSwitcher, enemy)
+    public ZombieDiyingState(IStateSwitcher stateSwitcher, Enemy enemy) : base(stateSwitcher, enemy)
     {
     }
 

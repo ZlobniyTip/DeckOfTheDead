@@ -2,14 +2,14 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-[RequireComponent(typeof(ZombieSearchTarget))]
-[RequireComponent(typeof(ZombieMovement))]
-public class Zombie : Health
+//[RequireComponent(typeof(ZombieSearchTarget))]
+//[RequireComponent(typeof(EnemyMovement))]
+public class Enemy : Health
 {
     [SerializeField] private ZombieView _zombieView;
 
     private ZombieAttack _zombieAttack;
-    private ZombieMovement _movement;
+    private EnemyMovement _movement;
     private ZombieStateMachine _zombieStateMachine;
     private ZombieSearchTarget _zombieSearch;
     private FXZombie _fxZombie;
@@ -21,7 +21,7 @@ public class Zombie : Health
     public bool IsDiying { get; private set; } = false;
     public bool IsUnderCamp => _isUnderCamp;
     public ZombieSearchTarget ZombieSearch => _zombieSearch;
-    public ZombieMovement Movement => _movement;
+    public EnemyMovement Movement => _movement;
     public ZombieView ZombieView => _zombieView;
     public ZombieAttack ZombieAttack => _zombieAttack;
 
@@ -30,7 +30,7 @@ public class Zombie : Health
         _zombieSearch = GetComponent<ZombieSearchTarget>();
         _zombieAttack = GetComponent<ZombieAttack>();
         _zombieView.Initialize();
-        _movement = GetComponent<ZombieMovement>();
+        _movement = GetComponent<EnemyMovement>();
         _fxZombie = GetComponent<FXZombie>();
         _zombieStateMachine = new ZombieStateMachine(this);
 

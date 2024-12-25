@@ -8,7 +8,7 @@ public class CharacterShooting : MonoBehaviour, IAim
     [SerializeField] private Transform _weaponPoint;
     [SerializeField] private Weapon _defaultWeapon;
 
-    private Zombie _currentEnemy;
+    private Enemy _currentEnemy;
     private Weapon _currentWeapon;
     private int _score;
 
@@ -19,7 +19,7 @@ public class CharacterShooting : MonoBehaviour, IAim
     public Weapon CurrentWeapon => _currentWeapon;
     public int Score => _score;
 
-    public Zombie Target => _currentEnemy;
+    public Enemy Target => _currentEnemy;
 
     private void Awake()
     {
@@ -31,7 +31,7 @@ public class CharacterShooting : MonoBehaviour, IAim
         _score = score;
     }
 
-    public void ActivShooting(Zombie enemy)
+    public void ActivShooting(Enemy enemy)
     {
         _currentEnemy = enemy;
         IsShooting = true;

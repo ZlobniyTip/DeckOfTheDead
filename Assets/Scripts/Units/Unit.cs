@@ -9,7 +9,7 @@ public class Unit : Health, IAim
     [SerializeField] private PoliceAmmunition _policeArmour;
 
     private Character _character;
-    private Zombie _target;
+    private Enemy _target;
     private UnitMovement _movement;
     private UnitAttack _attack;
     private UnitSearchTarget _searchTarget;
@@ -19,12 +19,11 @@ public class Unit : Health, IAim
     private float _delayBetweenDeath = 2.7f;
 
     public event Action Died;
-    public event Action<Unit> TurnIntoZombie;
 
     public UnitMovement Movement => _movement;
     public UnitAttack Attack => _attack;
     public UnitConfig UnitConfig => _config;
-    public Zombie Target => _target;
+    public Enemy Target => _target;
     public Character Character => _character;
     public FXUnit FXUnit => _fxUnit;
 
@@ -49,7 +48,7 @@ public class Unit : Health, IAim
 
     public void ClearTarget() => _target = null;
 
-    public void SetTarget(Zombie target)
+    public void SetTarget(Enemy target)
     {
         if (_target != null)
             _target.Diying -= ClearTarget;
@@ -85,8 +84,8 @@ public class Unit : Health, IAim
     private IEnumerator Die()
     {
         Died?.Invoke();
-
         var delay = new WaitForSeconds(_delayBetweenDeath);
+
         var zombieConverter = GetComponent<SkillEmo>();
 
         if (zombieConverter != null)
@@ -97,8 +96,6 @@ public class Unit : Health, IAim
         _controller.DisableStates();
         _unitAnimator.PlauDiyingAnimation();
         yield return delay;
-
-        TurnIntoZombie?.Invoke(this);
 
         Destroy(gameObject);
     }

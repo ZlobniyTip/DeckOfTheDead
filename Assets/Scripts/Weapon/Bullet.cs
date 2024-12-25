@@ -26,7 +26,7 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.GetComponent<Zombie>())
+        if (other.GetComponent<Enemy>())
         {
             Destroy(gameObject);
         }

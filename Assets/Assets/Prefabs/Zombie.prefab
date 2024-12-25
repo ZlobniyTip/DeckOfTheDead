@@ -2746,12 +2746,12 @@ GameObject:
   - component: {fileID: 3108597298360471425}
   - component: {fileID: 1599638409683996520}
   - component: {fileID: 4501426137532954801}
-  - component: {fileID: 387848531293012637}
   - component: {fileID: 5101115309210582976}
   - component: {fileID: 611869122152438859}
   - component: {fileID: 1899850828463226743}
   - component: {fileID: 6525182960791149322}
   - component: {fileID: 5713849658351355620}
+  - component: {fileID: 387848531293012637}
   - component: {fileID: -6542239192473180469}
   m_Layer: 0
   m_Name: Zombie
@@ -2847,29 +2847,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 84
   m_CollisionDetection: 0
---- !u!136 &387848531293012637
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3159962360857455571}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 2.0041304
-  m_Direction: 1
-  m_Center: {x: 0, y: -0.13588664, z: 0}
 --- !u!114 &5101115309210582976
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2938,6 +2915,29 @@ MonoBehaviour:
   _damage: 10
   _delayBetweenAttack: 1
   _attackDistance: 1.5
+--- !u!136 &387848531293012637
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3159962360857455571}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 2.0041304
+  m_Direction: 1
+  m_Center: {x: 0, y: -0.13588664, z: 0}
 --- !u!114 &-6542239192473180469
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5280,7 +5280,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &272176434845669209
 Transform:
   m_ObjectHideFlags: 0
@@ -6551,7 +6551,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6394081380212304801
 Transform:
   m_ObjectHideFlags: 0

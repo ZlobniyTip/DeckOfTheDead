@@ -24,10 +24,10 @@ public class GirlWampirism : Skill
 
     private IEnumerator StealingLife()
     {
-        var delay = new WaitForSeconds(_cooldown);
-
         while (true)
         {
+            var delay = new WaitForSeconds(_cooldown);
+
             Collider[] overlappedColliders = Physics.OverlapSphere(transform.position, _radius);
             Rigidbody rigidbody;
 
@@ -37,7 +37,7 @@ public class GirlWampirism : Skill
 
                 if (rigidbody)
                 {
-                    if (rigidbody.gameObject.TryGetComponent(out Zombie enemy))
+                    if (rigidbody.gameObject.TryGetComponent(out Enemy enemy))
                     {
                         enemy.TakeDamage(_damage);
                         _unit.TakeHeal(_damage);

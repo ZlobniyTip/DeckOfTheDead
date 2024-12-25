@@ -40,7 +40,7 @@ public class Rain : MonoBehaviour
 
                 if (rigidbody)
                 {
-                    if (rigidbody.gameObject.TryGetComponent(out Zombie enemy))
+                    if (rigidbody.gameObject.TryGetComponent(out Enemy enemy))
                     {
                         enemy.TakeDamage(_damage);
                     }

@@ -5,7 +5,7 @@ public class SkillEmo : MonoBehaviour
     [SerializeField] private Unit _enemyFriend;
     [SerializeField] private TimerHandler _timerHandler;
 
-    public void ConvertEnemyToAlly(Zombie enemy, Character character)
+    public void ConvertEnemyToAlly(Enemy enemy, Character character)
     {
         if (enemy != null)
         {

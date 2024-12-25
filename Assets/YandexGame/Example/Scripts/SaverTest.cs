@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 namespace YG.Example
 {
@@ -52,7 +51,6 @@ namespace YG.Example
                 YandexGame.savesData.cardStates[i] = _cards[i].State.Status;
             }
 
-            YandexGame.savesData.currentLevel = SceneManager.GetActiveScene().buildIndex;
             YandexGame.savesData.playerMoney = _buyer.Money;
             YandexGame.savesData.leaderboardScore = _buyer.CharacterShooting.Score;
 

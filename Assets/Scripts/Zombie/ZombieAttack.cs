@@ -12,7 +12,7 @@ public class ZombieAttack : MonoBehaviour
     private bool _isAttacking = false; 
     private Coroutine _attackCoroutine;
     private float _startDelayBetweenAttack;
-    private Zombie _enemy;
+    private Enemy _enemy;
 
     public float AttackDistance => _attackDistance;
     public bool IsAttacking => _isAttacking;
@@ -22,7 +22,7 @@ public class ZombieAttack : MonoBehaviour
     private void Awake()
     {
         _startDelayBetweenAttack = _delayBetweenAttack;
-        _enemy = GetComponent<Zombie>();
+        _enemy = GetComponent<Enemy>();
     }
 
     public void ActivateAttack()

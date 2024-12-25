@@ -5,9 +5,9 @@ public class CharacterScaning : MonoBehaviour
 {
     [SerializeField] private CharacterShooting _characterShooting;
 
-    private Zombie _currentEnemy;
+    private Enemy _currentEnemy;
 
-    public Zombie Target => _currentEnemy;
+    public Enemy Target => _currentEnemy;
 
     private void Start()
     {
@@ -27,7 +27,7 @@ public class CharacterScaning : MonoBehaviour
 
                 if (rigidbody)
                 {
-                    if (rigidbody.gameObject.TryGetComponent(out Zombie enemy))
+                    if (rigidbody.gameObject.TryGetComponent(out Enemy enemy))
                     {
                         _currentEnemy = enemy;
                         _characterShooting.ActivShooting(_currentEnemy);
