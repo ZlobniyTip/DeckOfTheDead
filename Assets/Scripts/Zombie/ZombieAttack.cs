@@ -42,7 +42,7 @@ public class ZombieAttack : MonoBehaviour
     {
         var delay = new WaitForSeconds(_delayBetweenAttack);
 
-        while (_zombieSearchTarget.Target != null)
+        while (_zombieSearchTarget.Target != null && _zombieSearchTarget.Target.IsDiying == false)
         {
             TurnToTarget();
             var distance = Vector3.Distance(transform.position, _zombieSearchTarget.Target.transform.position);

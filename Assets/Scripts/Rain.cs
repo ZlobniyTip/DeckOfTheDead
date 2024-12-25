@@ -7,6 +7,7 @@ public class Rain : MonoBehaviour
     [SerializeField] private int _damage;
     [SerializeField] private float _radius;
     [SerializeField] private float _delayBetweenDamage;
+    [SerializeField] private AudioSource _source;
 
     private ParticleSystem _currentRain;
     private float _lifeTime = 5;
@@ -14,6 +15,7 @@ public class Rain : MonoBehaviour
 
     private void Start()
     {
+        _source.Play();
         _currentRain = Instantiate(_rainEffect, transform.position, Quaternion.identity);
         StartCoroutine(StartRain());
     }

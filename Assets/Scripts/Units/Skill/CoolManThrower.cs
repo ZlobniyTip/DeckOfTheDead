@@ -6,46 +6,70 @@ public class CoolManThrower : Skill
 {
     [SerializeField] private Molotov _molotov;
     [SerializeField] private Transform _startingPoint;
-    [SerializeField] private float _velocityMult;
+    [SerializeField] private AnimationCurve _flightCurve;
+    [SerializeField] private float _flightDuration = 0.4f;
     [SerializeField] private float _cooldownThrow;
+    [SerializeField] private AudioSource _molotovSource;
 
     private Unit _unit;
-    private Molotov _currentMolotov;
-    private Rigidbody _rbMolotov;
+    private UnitAnimator _animator;
+    private UnitObserver _unitObserver;
 
     private void Awake()
     {
         _unit = GetComponent<Unit>();
+        _animator = GetComponent<UnitAnimator>();
+        _unitObserver = GetComponent<UnitObserver>();
     }
 
-    private void Start()
-    {
-        StartCoroutine(WaitingThrow());
-    }
+    private void OnEnable() => StartCoroutine(ThrowRoutine());
+    private void OnDisable() => StopCoroutine(ThrowRoutine());
 
-    private IEnumerator WaitingThrow()
+    private IEnumerator ThrowRoutine()
     {
-        var delayBetweenThrow = new WaitForSeconds(_cooldownThrow);
+        var delay = new WaitForSeconds(_cooldownThrow);
 
         while (true)
         {
-            if (_unit.Target != null)
-            {
-                Throw(_unit.Target.transform);
-            }
+            yield return delay;
 
-            yield return delayBetweenThrow;
+            if (_unit.Target != null)
+                yield return PerformThrow(_unit.Target.transform);
         }
     }
 
-    private void Throw(Transform target)
+    private IEnumerator PerformThrow(Transform target)
     {
-        _currentMolotov = Instantiate(_molotov, _startingPoint);
-        _rbMolotov = _currentMolotov.GetComponent<Rigidbody>();
+        _unitObserver?.BlockAttack(true);
+        _animator.PlayThrows();
 
-        Vector3 delta = target.position - transform.position;
+        yield return new WaitForSeconds(0.5f);
+        _molotovSource.Play();
+        var molotovInstance = Instantiate(_molotov, _startingPoint.position, Quaternion.identity);
 
-        _currentMolotov.transform.parent = null;
-        _rbMolotov.velocity = delta * _velocityMult;
+        yield return StartCoroutine(PerformArchedFlight(molotovInstance, target.position));
+        _unitObserver?.BlockAttack(false);
+    }
+
+    private IEnumerator PerformArchedFlight(Molotov molotovInstance, Vector3 targetPosition)
+    {
+        Vector3 startPosition = _startingPoint.position;
+        float elapsedTime = 0f;
+
+        while (elapsedTime < _flightDuration)
+        {
+            elapsedTime += Time.deltaTime;
+
+            float progress = Mathf.Clamp01(elapsedTime / _flightDuration);
+            Vector3 horizontalPosition = Vector3.Lerp(startPosition, targetPosition, progress);
+            float verticalOffset = _flightCurve.Evaluate(progress);
+            Vector3 newPosition = horizontalPosition + Vector3.up * verticalOffset;
+
+            molotovInstance.transform.position = newPosition;
+
+            yield return null;
+        }
+
+        molotovInstance.transform.position = targetPosition;
     }
 }

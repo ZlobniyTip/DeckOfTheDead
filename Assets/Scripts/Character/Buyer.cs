@@ -6,7 +6,7 @@ public class Buyer : MonoBehaviour
 {
     [SerializeField] private List<RangeWeapon> _rangeWeapons;
     [SerializeField] private List<MelleWeapon> _melleWeapons;
-    [SerializeField] private List<Card> _cards;
+    [SerializeField] private List<CardData> _cards;
 
     [SerializeField] private CharacterShooting _characterShooting;
     [SerializeField] private CharacterCards _characterCards;

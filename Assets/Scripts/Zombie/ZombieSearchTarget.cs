@@ -34,7 +34,7 @@ public class ZombieSearchTarget : MonoBehaviour
 
                 if (rigidbody && rigidbody.gameObject.TryGetComponent(out Health health))
                 {
-                    if (health is Unit || health is Character)
+                    if (health is Unit unit || health is Character && health.IsDiying == false)
                     {
                         unitTarget = health;
                         break;
@@ -66,12 +66,25 @@ public class ZombieSearchTarget : MonoBehaviour
 
     public void InitializeTarget(Health target)
     {
-        _target = target;
+        if (_target != null)
+            _target.Died -= ClearTarget;
+
+        if (target != null && !target.IsDiying)
+        {
+            _target = target;
+            _target.Died += ClearTarget;
+        }
     }
 
     public void SetStartTarget()
     {
         _target = _startTarget;
+    }
+
+    public void ClearTarget()
+    {
+        _target.Died -= ClearTarget;
+        SetStartTarget();
     }
 
     private void OnDisable()

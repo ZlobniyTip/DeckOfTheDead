@@ -8,6 +8,7 @@ public class UnitObserver : MonoBehaviour
     private Unit _unit;
 
     private Coroutine _currentRoutine;
+    private bool _isAttackBlocked = false;
 
     private void Awake()
     {
@@ -27,12 +28,18 @@ public class UnitObserver : MonoBehaviour
 
     private void Update()
     {
+        if (_isAttackBlocked)
+        {
+            _unitAttack.enabled = false;
+            return;
+        }
+
         if (_unit.Target == null)
         {
             _unitSearchTarget.enabled = true;
             _unitAttack.enabled = false;
         }
-        else if(_unit.Target != null && _unitMovement.CameUp == true)
+        else if (_unit.Target != null && _unitMovement.CameUp == true)
         {
             _unitSearchTarget.enabled = false;
             _unitAttack.enabled = true;
@@ -45,5 +52,13 @@ public class UnitObserver : MonoBehaviour
         _unitAttack.enabled = false;
         _unitMovement.enabled = false;
         enabled = false;
+    }
+
+    public void BlockAttack(bool block)
+    {
+        _isAttackBlocked = block;
+
+        if (block)
+            _unitAttack.enabled = false; 
     }
 }

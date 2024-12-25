@@ -81,7 +81,7 @@ public class DragAndDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
     {
         Vector3 spawnPosition = _spawnPlaceEffect.transform.position;
 
-        _unitSpawner.Spawn(spawnPosition, _cardView.Card.PrefabUnit);
+        _unitSpawner.Spawn(spawnPosition, (_cardView.Card as CardDataUnit).PrefabUnit);
         _deck.RemoveCard(_cardView);
         _deck.TakeAwayPlayerEnergy(_cardView.Card.Energy);
 
@@ -127,7 +127,7 @@ public class DragAndDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
     {
         if (_currentAttackRadiusVisual == null) return;
 
-        float attackDistance = _cardView.Card.UnitConfig.Weapon.AttackDistance;
+        float attackDistance = (_cardView.Card as CardDataUnit).UnitConfig.Weapon.AttackDistance;
         Vector3 newScale = new Vector3(attackDistance * 2, _currentAttackRadiusVisual.transform.localScale.y, attackDistance * 2);
         _currentAttackRadiusVisual.transform.localScale = newScale;
     }

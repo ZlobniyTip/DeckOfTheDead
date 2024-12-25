@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class CharacterCards : MonoBehaviour
 {
-    [SerializeField] private List<Card> _cards;
+    [SerializeField] private List<CardData> _cards;
 
-    public void AddCard(Card card, Action equipmentChanged)
+    public void AddCard(CardData card, Action equipmentChanged)
     {
         _cards.Add(card);
         equipmentChanged?.Invoke();

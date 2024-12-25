@@ -4,6 +4,7 @@ public class BikerRage : Skill
 {
     [SerializeField] private Unit _unit;
     [SerializeField] private ParticleSystem _particleSystem;
+    [SerializeField] private AudioSource _audioSource;
 
     private int _impactCounter = 0;
     private int _criticalAttackCounter = 4;
@@ -21,7 +22,9 @@ public class BikerRage : Skill
 
     public override void UseSkill()
     {
-        Instantiate(_particleSystem, _unit.Attack.CurrentWeapon.transform);
+        //Instantiate(_particleSystem, _unit.Attack.CurrentWeapon.transform);
+        _particleSystem.Play();
+        _audioSource.Play();
         _unit.Target.TakeDamage(_unit.Attack.CurrentWeapon.Damage * _multiplyDamage);
     }
 

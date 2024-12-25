@@ -5,13 +5,14 @@ using UnityEngine;
 public class Deck : MonoBehaviour
 {
     [SerializeField] private Character _character;
-    [SerializeField] private List<Card> _cards;
+    [SerializeField] private List<CardData> _cards;
     [SerializeField] private Transform _ñontainer;
-    [SerializeField] private CardView _cardView;
+    [SerializeField] private CardView _cardViewUnit;
+    [SerializeField] private CardView _cardViewWeapon;
     [SerializeField] private PlayerEnergy _playerEnergy;
 
     private List<CardView> _playerCards;
-    private HashSet<Card> _usedCards;
+    private HashSet<CardData> _usedCards;
     private bool _checksActivity = true;
 
     public Character Character => _character;
@@ -19,11 +20,12 @@ public class Deck : MonoBehaviour
     private void Start()
     {
         _playerCards = new List<CardView>();
-        _usedCards = new HashSet<Card>();
+        _usedCards = new HashSet<CardData>();
 
         while (_playerCards.Count < 5)
         {
             CreateCard();
+
         }
 
         StartCoroutine(ViewActivity());
@@ -69,23 +71,33 @@ public class Deck : MonoBehaviour
 
     private void CreateCard()
     {
-        Card randomCard = GetUniqueCard();
+        CardData randomCardData = GetUniqueCard();
 
-        CardView cardView = Instantiate(_cardView, _ñontainer);
-        cardView.Initialized(randomCard);
-        _playerCards.Add(cardView);
+        if (randomCardData is CardDataUnit)
+        {
+            CardView cardView = Instantiate(_cardViewUnit, _ñontainer);
+            cardView.Initialize(randomCardData);
+            _playerCards.Add(cardView);
+        }
+
+        if(randomCardData is CardDataWeapon)
+        {
+            CardView cardView = Instantiate(_cardViewWeapon, _ñontainer);
+            cardView.Initialize(randomCardData);
+            _playerCards.Add(cardView);
+        }
     }
 
-    private Card GetUniqueCard()
+    private CardData GetUniqueCard()
     {
-        Card randomCard;
+        CardData randomCardUnit;
 
         do
         {
-            randomCard = _cards[Random.Range(0, _cards.Count)];
-        } while (_usedCards.Contains(randomCard));
+            randomCardUnit = _cards[Random.Range(0, _cards.Count)];
+        } while (_usedCards.Contains(randomCardUnit));
 
-        _usedCards.Add(randomCard);
-        return randomCard;
+        _usedCards.Add(randomCardUnit);
+        return randomCardUnit;
     }
 }

@@ -10,8 +10,8 @@ public class ItemView : MonoBehaviour
     [SerializeField] private Button _equipButton;
     [SerializeField] private GameObject _equippedLabel;
 
-    [SerializeField] private TMP_Text _name;
-    [SerializeField] private Image _icon;
+   /* [SerializeField]*/ private TMP_Text _name;
+    /*[SerializeField]*/ private Image _icon;
 
     private IProduct _product;
     private bool _isShopItem = false;

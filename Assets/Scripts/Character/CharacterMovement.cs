@@ -6,10 +6,11 @@ using UnityEngine.AI;
 public class CharacterMovement : MonoBehaviour
 {
     [SerializeField] private List<Transform> _points;
+    [SerializeField] private Spawner _spawner;
 
     private NavMeshAgent _navMesh;
     private int _pointIndex = 0;
-    private float _speed = 5;
+    private float _speed = 4.5f;
 
     public NavMeshAgent NavMeshAgent => _navMesh;
 
@@ -18,26 +19,34 @@ public class CharacterMovement : MonoBehaviour
         _navMesh = GetComponent<NavMeshAgent>();
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void Start()
     {
-        if (other.TryGetComponent(out PlayerMovePoint point))
-        {
-            _navMesh.speed = 0;
-        }
+
+        MoveToPoint();
     }
 
-    private void Update()
+    private void OnEnable()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            MoveToPoint();
-        }
+        _spawner.WaveCleared += MoveToPoint; 
+    }
+
+    private void OnDisable()
+    {
+        _spawner.WaveCleared -= MoveToPoint; 
     }
 
     public void MoveToPoint()
     {
-        _navMesh.speed = _speed;
-        _navMesh.SetDestination(_points[_pointIndex].position);
-        _pointIndex++;
+        if (_pointIndex < _points.Count)
+        {
+            _navMesh.speed = _speed;
+            _navMesh.SetDestination(_points[_pointIndex].position);
+            _pointIndex++;
+        }
+    }
+
+    public void StopMove()
+    {
+        _navMesh.speed = 0;
     }
 }

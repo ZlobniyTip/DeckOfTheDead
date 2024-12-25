@@ -14,8 +14,9 @@ public class SkillEmo : MonoBehaviour
 
             enemyFriend.SetValue(enemy.Value, enemy.MaxValue);
             enemyFriend.SetCharacter(character);
-            timerHandler.StartTimerEmoSkill(enemyFriend, character); 
+            timerHandler.StartTimerEmoSkill(enemyFriend, character);
 
+            enemy.ReportDeath();
             Destroy(enemy.gameObject);
         }
     }

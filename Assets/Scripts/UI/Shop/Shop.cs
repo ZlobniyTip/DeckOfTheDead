@@ -10,7 +10,7 @@ public class Shop : MonoBehaviour
 
     [SerializeField] private List<Weapon> _rangeWeapon;
     [SerializeField] private List<Weapon> _melleWeapon;
-    [SerializeField] private List<Card> _cards;
+    [SerializeField] private List<CardDataUnit> _cards;
 
     [SerializeField] private ItemView _template;
     [SerializeField] private CardView _templateCard;
@@ -60,11 +60,11 @@ public class Shop : MonoBehaviour
         _content.Add(view);
     }
 
-    private void AddCardView(IProduct product, Card card)
+    private void AddCardView(IProduct product, CardDataUnit card)
     {
         var view = Instantiate(_templateCard, _itemContainer.transform);
         view.Init(product, this);
-        view.Initialized(card);
+        view.Initialize(card);
         view.SwitchDragAndDrop(false);
         view.PurchaseButtonPressed += OnPurchaseButtonPressed;
         view.EquipButtonPressed += OnEquipButtonPressed;

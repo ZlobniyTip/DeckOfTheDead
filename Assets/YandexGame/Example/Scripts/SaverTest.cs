@@ -11,7 +11,7 @@ namespace YG.Example
 
         [SerializeField] private List<Weapon> _rangeWeapons;
         [SerializeField] private List<Weapon> _melleWeapons;
-        [SerializeField] private List<Card> _cards;
+        [SerializeField] private List<CardData> _cards;
 
         private Weapon _currentWeapon;
 

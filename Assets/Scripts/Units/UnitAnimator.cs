@@ -17,6 +17,7 @@ public class UnitAnimator : MonoBehaviour
     const string IsIdlingRifle = "IsIdlingRifle";
 
     private const string IsDiying = "IsDiying";
+    private const string Throws = "Throws";
 
     private string _currentAnimationKey = string.Empty;
 
@@ -39,7 +40,7 @@ public class UnitAnimator : MonoBehaviour
                 break;
 
             case WeaponType.Shotgun:
-                SetAnimation(IsShootinShotgun);
+                SetAnimation(IsShootingRifle);
                 break;
 
             case WeaponType.HunterRifle:
@@ -71,6 +72,14 @@ public class UnitAnimator : MonoBehaviour
             case WeaponType.FlameThrower:
                 SetAnimation(IsRunningRifle);
                 break;
+
+            case WeaponType.Shotgun:
+                SetAnimation(IsRunningRifle);
+                break;
+
+            case WeaponType.HunterRifle:
+                SetAnimation(IsRunningRifle);
+                break;
         }
     }
 
@@ -93,12 +102,26 @@ public class UnitAnimator : MonoBehaviour
             case WeaponType.FlameThrower:
                 SetAnimation(IsIdlingRifle);
                 break;
+
+            case WeaponType.Shotgun:
+                SetAnimation(IsIdlingRifle);
+                break;
+
+            case WeaponType.HunterRifle:
+                SetAnimation(IsIdlingRifle);
+
+                break;
         }
     }
 
     public void PlauDiyingAnimation()
     {
         SetAnimation(IsDiying);
+    }
+
+    public void PlayThrows()
+    {
+        SetAnimation(Throws);
     }
 
     private void SetAnimation( string animationName)

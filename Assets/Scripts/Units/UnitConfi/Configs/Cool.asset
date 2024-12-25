@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Cool
   m_EditorClassIdentifier: 
   _health: 140
-  _weapon: {fileID: -5408823278043200555, guid: 8775c006a5395ff488d9315934a2a901, type: 3}
+  _weapon: {fileID: 3369887224761613359, guid: 151fe3144103e1440900697f4b29c68e, type: 3}
   _speed: 2
