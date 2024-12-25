@@ -14,6 +14,7 @@ namespace YG
 
         public int playerMoney = 0;
         public int leaderboardScore = 0;
+        public int currentLevel = 1;
 
         public List<ItemStatus> rangeWeaponStates = new()
         {

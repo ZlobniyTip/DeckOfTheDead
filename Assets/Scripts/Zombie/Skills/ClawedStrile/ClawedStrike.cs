@@ -1,28 +1,20 @@
 using System.Collections;
 using UnityEngine;
 
-[RequireComponent(typeof(Unit))]
-public class GirlWampirism : Skill
+public class ClawedStrike : Skill
 {
-    [SerializeField] private ParticleSystem _particleSystem;
-    [SerializeField] private int _damage;
+    [SerializeField] private Bleeding _bleeding;
     [SerializeField] private float _cooldown;
     [SerializeField] private float _radius;
 
-    private Unit _unit;
-
-    private void Awake()
-    {
-        _unit = GetComponent<Unit>();
-    }
+    private Bleeding _currentBleeding;
 
     private void Start()
     {
-        StartCoroutine(StealingLife());
-        Instantiate(_particleSystem, transform);
+        StartCoroutine(AttackWithClaws());
     }
 
-    private IEnumerator StealingLife()
+    private IEnumerator AttackWithClaws()
     {
         var delay = new WaitForSeconds(_cooldown);
 
@@ -37,10 +29,10 @@ public class GirlWampirism : Skill
 
                 if (rigidbody)
                 {
-                    if (rigidbody.gameObject.TryGetComponent(out Zombie enemy))
+                    if (rigidbody.gameObject.TryGetComponent(out Unit enemy))
                     {
-                        enemy.TakeDamage(_damage);
-                        _unit.TakeHeal(_damage);
+                        _currentBleeding = Instantiate(_bleeding, enemy.transform);
+                        _currentBleeding.GetLinkUnit(enemy);
                     }
                 }
             }

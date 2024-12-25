@@ -6,7 +6,7 @@ public class Spawner : MonoBehaviour
 {
     [SerializeField] private Health _target;
     [SerializeField] private PlayerMovePoint[] _playerMovePoints;
-    [SerializeField] private Enemy[] _prefabEnemies;
+    [SerializeField] private Zombie[] _prefabEnemies;
 
     [SerializeField] private int _delaySpawn = 2;
 
@@ -43,7 +43,7 @@ public class Spawner : MonoBehaviour
 
         while (numberEnemiesInWave > 0)
         {
-            Enemy enemy = Instantiate(_prefabEnemies[Random.Range(0, _prefabEnemies.Length)],
+            Zombie enemy = Instantiate(_prefabEnemies[Random.Range(0, _prefabEnemies.Length)],
                 spawnPoints[Random.Range(0, spawnPoints.Length)].transform.position,
                 Quaternion.identity);
 
