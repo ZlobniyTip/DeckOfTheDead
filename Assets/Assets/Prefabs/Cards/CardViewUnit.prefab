@@ -820,10 +820,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ae173a93fac56c4db00c05d227c5376, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _price: {fileID: 0}
-  _purchaseButton: {fileID: 0}
-  _equipButton: {fileID: 0}
-  _equippedLabel: {fileID: 0}
+  _price: {fileID: 5575831167922109296}
+  _purchaseButton: {fileID: 3878098190908314816}
+  _equipButton: {fileID: 6294409039225468056}
+  _equippedLabel: {fileID: 5770114541918438059}
+  _name: {fileID: 8320021411205515304}
+  _icon: {fileID: 4490216494014467748}
   _activity: {fileID: 7934541689023240800}
   _icon: {fileID: 4490216494014467748}
   _name: {fileID: 8320021411205515304}

@@ -4020,7 +4020,7 @@ MonoBehaviour:
   _maxValue: 60
   _config: {fileID: 11400000, guid: de293c6768fa70d4d83df5539075f6ba, type: 2}
   _soundSpawn: {fileID: -8924743449028031501}
-  _policeArmour: {fileID: 0}
+  _policeArmour: {fileID: 2507271386052868719}
 --- !u!114 &997846981684322831
 MonoBehaviour:
   m_ObjectHideFlags: 0
