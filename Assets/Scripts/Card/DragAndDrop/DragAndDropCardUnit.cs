@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class DragAndDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler
+public class DragAndDropCardUnit : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler
 {
     [SerializeField] private GameObject _cardObject;
     [SerializeField] private ParticleSystem _prefabSpawnPlaceEffect;   
@@ -62,9 +62,7 @@ public class DragAndDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
                 _isSpawnPossible = true;
             }
             else
-            {
                 UpdateSpawnVisuals(spawnPosition);
-            }
         }
         else
         {
@@ -88,10 +86,7 @@ public class DragAndDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
         Destroy(gameObject);
     }
 
-    private void ResetPosition()
-    {
-        transform.position = _originalPosition;
-    }
+    private void ResetPosition() => transform.position = _originalPosition;
 
     private void CreateSpawnVisuals(Vector3 position)
     {

@@ -180,7 +180,7 @@ MonoBehaviour:
   - {fileID: 91729063}
   - {fileID: 368321577}
   _numberEnemiesInWave: 6
-  _zombieSource: {fileID: 0}
+  _zombieSource: {fileID: 946530810}
 --- !u!65 &25629879
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -988,7 +988,7 @@ MonoBehaviour:
   - {fileID: 831533490}
   - {fileID: 608748072}
   _numberEnemiesInWave: 5
-  _zombieSource: {fileID: 0}
+  _zombieSource: {fileID: 946530810}
 --- !u!1 &946530808
 GameObject:
   m_ObjectHideFlags: 0
@@ -1904,7 +1904,7 @@ PrefabInstance:
       objectReference: {fileID: 3279787587145919853, guid: 3a94b3537930ef6489c9982ccec0f22b, type: 3}
     - target: {fileID: 5217668762094637574, guid: 0a74f698bd1807f4389896e3f7bbd78e, type: 3}
       propertyPath: _cards.Array.size
-      value: 11
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 5217668762094637574, guid: 0a74f698bd1807f4389896e3f7bbd78e, type: 3}
       propertyPath: _cards.Array.data[0]
@@ -1950,6 +1950,10 @@ PrefabInstance:
       propertyPath: _cards.Array.data[10]
       value: 
       objectReference: {fileID: 11400000, guid: 779b0eb586ee86043b925f91c17ad312, type: 2}
+    - target: {fileID: 5217668762094637574, guid: 0a74f698bd1807f4389896e3f7bbd78e, type: 3}
+      propertyPath: _cards.Array.data[11]
+      value: 
+      objectReference: {fileID: 11400000, guid: 537b8a678453e7d4daab9ec23265694d, type: 2}
     - target: {fileID: 5385011644717023847, guid: 0a74f698bd1807f4389896e3f7bbd78e, type: 3}
       propertyPath: _playerEnergy
       value: 

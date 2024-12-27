@@ -7,6 +7,7 @@ public class CharacterShooting : MonoBehaviour, IAim
     [SerializeField] private CharacterScaning _characterScaning;
     [SerializeField] private Transform _weaponPoint;
     [SerializeField] private Weapon _defaultWeapon;
+    [SerializeField] private ParticleSystem _weaponSpawn;
 
     private Enemy _currentEnemy;
     private Weapon _currentWeapon;
@@ -18,7 +19,7 @@ public class CharacterShooting : MonoBehaviour, IAim
 
     public Weapon CurrentWeapon => _currentWeapon;
     public int Score => _score;
-
+    public Transform WeaponPoint => _weaponPoint;
     public Enemy Target => _currentEnemy;
 
     private void Awake()
@@ -46,9 +47,13 @@ public class CharacterShooting : MonoBehaviour, IAim
         equipmentChanged?.Invoke();
         ChangedWeapon?.Invoke();
 
-        Destroy(_currentWeapon);
+        if (_currentWeapon != null)
+            Destroy(_currentWeapon.gameObject);
+
         _currentWeapon = Instantiate(weapon, _weaponPoint);
     }
+
+    public void PlayWeaponSpawnEffect() => _weaponSpawn.Play();
 
     private IEnumerator Shooting()
     {

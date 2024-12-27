@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e54859d3e55fc4f40b0c873b7e728be2, type: 3}
   m_Name: M4A1
   m_EditorClassIdentifier: 
-  _icon: {fileID: 0}
-  _name: 
-  _energy: 0
-  _level: 0
-  _type: 0
-  _price: 0
-  _index: 0
-  _prefabWeapon: {fileID: 0}
-  _timeAction: 0
+  _icon: {fileID: 21300000, guid: 843c1756c67dada43b3dd35d1f28972d, type: 3}
+  _name: M4A1
+  _energy: 1
+  _level: 1
+  _type: 2
+  _price: 10000
+  _index: 11
+  _prefabWeapon: {fileID: 7169430731154728294, guid: a3fe0be603767ae42a0d14c81d777c2b, type: 3}
+  _timeAction: 10
