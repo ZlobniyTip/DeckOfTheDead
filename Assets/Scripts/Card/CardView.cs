@@ -1,4 +1,3 @@
-using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -17,7 +16,6 @@ public abstract class CardView : ItemView
     }
 
     public abstract void Initialize(CardData cardData);
-
 
     public void ActivateCard()
     {

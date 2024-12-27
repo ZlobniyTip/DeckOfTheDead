@@ -10,8 +10,8 @@ public class ItemView : MonoBehaviour
     [SerializeField] private Button _equipButton;
     [SerializeField] private GameObject _equippedLabel;
 
-   /* [SerializeField]*/ private TMP_Text _name;
-    /*[SerializeField]*/ private Image _icon;
+    [SerializeField] private TMP_Text _name;
+    [SerializeField] private Image _icon;
 
     private IProduct _product;
     private bool _isShopItem = false;
@@ -24,14 +24,20 @@ public class ItemView : MonoBehaviour
 
     private void OnEnable()
     {
-        _equipButton.onClick.AddListener(OnEquipButtonPressed);
-        _purchaseButton.onClick.AddListener(OnPurchaseButtonPressed);
+        if (_isShopItem)
+        {
+            _equipButton.onClick.AddListener(OnEquipButtonPressed);
+            _purchaseButton.onClick.AddListener(OnPurchaseButtonPressed);
+        }
     }
 
     private void OnDisable()
     {
-        _equipButton.onClick.RemoveListener(OnEquipButtonPressed);
-        _purchaseButton.onClick.RemoveListener(OnPurchaseButtonPressed);
+        if (_isShopItem)
+        {
+            _equipButton.onClick.RemoveListener(OnEquipButtonPressed);
+            _purchaseButton.onClick.RemoveListener(OnPurchaseButtonPressed);
+        }
     }
 
     private void OnDestroy()

@@ -7,9 +7,12 @@ public abstract class Health : MonoBehaviour
 
     protected int _value;
     protected Enemy _lastAttacker;
+    protected bool _isDiying = false;
 
     public event Action<int, int> Changed;
+    public event Action Died;
 
+    public bool IsDiying => _isDiying;
     public int MaxValue => _maxValue;
     public int Value => _value;
 

@@ -18,7 +18,7 @@ MonoBehaviour:
   _level: 1
   _type: 2
   _price: 6000
-  _index: 4
+  _index: 3
   _prefabUnit: {fileID: 4154534539150764249, guid: 3fb61838b5988d7449e3eb369599973c, type: 3}
   _ability: "\u0415\u0441\u0442\u044C \u043D\u0435\u0431\u043E\u043B\u044C\u0448\u043E\u0439
     \u0448\u0430\u043D\u0441 (5%) \u043D\u0430\u043D\u0435\u0441\u0442\u0438 \u043B\u0435\u0442\u0430\u043B\u044C\u043D\u044B\u0439

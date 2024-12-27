@@ -18,6 +18,6 @@ MonoBehaviour:
   _level: 1
   _type: 2
   _price: 2000
-  _index: 0
+  _index: 10
   _prefabWeapon: {fileID: 8882552771575711017, guid: ad49a19d2c4adc94b838606a5d459f85, type: 3}
   _timeAction: 10
