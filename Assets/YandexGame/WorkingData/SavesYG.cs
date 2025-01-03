@@ -50,13 +50,36 @@ namespace YG
             ItemStatus.NotPurchased, ItemStatus.NotPurchased,
             ItemStatus.NotPurchased, ItemStatus.NotPurchased,
             ItemStatus.NotPurchased, ItemStatus.NotPurchased,
+            ItemStatus.NotPurchased, ItemStatus.NotPurchased,
+            ItemStatus.NotPurchased, ItemStatus.NotPurchased,
+            ItemStatus.NotPurchased, ItemStatus.NotPurchased,
+            ItemStatus.NotPurchased, ItemStatus.NotPurchased,
+            ItemStatus.NotPurchased, ItemStatus.NotPurchased,
+            ItemStatus.NotPurchased, ItemStatus.NotPurchased,
+            ItemStatus.NotPurchased, ItemStatus.NotPurchased,
+            ItemStatus.NotPurchased, ItemStatus.NotPurchased,
+            ItemStatus.NotPurchased, ItemStatus.NotPurchased,
+            ItemStatus.NotPurchased, ItemStatus.NotPurchased,
+            ItemStatus.NotPurchased, ItemStatus.NotPurchased,
+            ItemStatus.NotPurchased, ItemStatus.NotPurchased,
+            ItemStatus.NotPurchased, ItemStatus.NotPurchased,
+            ItemStatus.NotPurchased, ItemStatus.NotPurchased,
+            ItemStatus.NotPurchased, ItemStatus.NotPurchased,
+            ItemStatus.NotPurchased, ItemStatus.NotPurchased,
+            ItemStatus.NotPurchased, ItemStatus.NotPurchased,
+            ItemStatus.NotPurchased, ItemStatus.NotPurchased,
+            ItemStatus.NotPurchased, ItemStatus.NotPurchased,
+            ItemStatus.NotPurchased, ItemStatus.NotPurchased,
             ItemStatus.NotPurchased, ItemStatus.NotPurchased
         };
 
         public List<int> cardLevel = new()
         {
-            1, 1, 1, 1, 1,
-            1, 1, 1, 1, 1
+            1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+            1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+            1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+            1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+            1, 1, 1, 1, 1, 1, 1, 1, 1, 1
         };
 
         public SavesYG()

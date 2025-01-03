@@ -20,7 +20,7 @@ public abstract class CardData : ScriptableObject, IProduct
 
     [NonSerialized] private ItemState _state = null;
 
-    private int _damage = 0;
+    private int _bonusDamage = 0;
     private int _bonusHealth = 0;
 
     private int _damageOneLevel = 5;
@@ -34,8 +34,8 @@ public abstract class CardData : ScriptableObject, IProduct
     public Sprite Icon => _icon;
     public string Name => _name;
     public int Energy => _energy;
-    public int Damage => _damage;
-    public int Health => _bonusHealth;
+    public int BonusDamage => _bonusDamage;
+    public int BonusHealth => _bonusHealth;
     public int Level => _level;
     public ItemType Type => _type;
     public int Price => _price;
@@ -71,7 +71,7 @@ public abstract class CardData : ScriptableObject, IProduct
 
     private void SetParameters(int damage, int health)
     {
-        _damage = damage;
+        _bonusDamage = damage;
         _bonusHealth = health;
     }
 }

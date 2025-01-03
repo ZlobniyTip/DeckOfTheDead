@@ -61,6 +61,10 @@ namespace YG.Example
 
         public void GetLoad()
         {
+            Debug.Log($"{_cards.Count} карты");
+            Debug.Log($"{YandexGame.savesData.cardLevel.Count} уровни");
+            Debug.Log($"{YandexGame.savesData.cardStates.Count} состояния");
+
             for (int i = 0; i < _melleWeapons.Count; i++)
             {
                 _melleWeapons[i].Init(YandexGame.savesData.melleWeaponStates[i], _emptyParameter);

@@ -11,16 +11,17 @@ public class CharacterShooting : MonoBehaviour, IAim
     [SerializeField] private ParticleSystem _weaponSpawn;
     [SerializeField] private TMP_Text _tectTime;
 
-    private Enemy _currentEnemy;
+    private Zombie _currentEnemy;
     private Weapon _currentWeapon;
     private Weapon _previousWeapons;
+    private Weapon _removableWeapons;
     private int _score;
     private int _time;
 
     public bool IsShooting { get; private set; } = false;
     public Weapon CurrentWeapon => _currentWeapon;
     public int Score => _score;
-    public Enemy Target => _currentEnemy;
+    public Zombie Target => _currentEnemy;
 
     public event Action ChangedWeapon;
 
@@ -34,7 +35,7 @@ public class CharacterShooting : MonoBehaviour, IAim
         _score = score;
     }
 
-    public void ActivShooting(Enemy enemy)
+    public void ActivShooting(Zombie enemy)
     {
         _currentEnemy = enemy;
         IsShooting = true;
@@ -51,11 +52,22 @@ public class CharacterShooting : MonoBehaviour, IAim
 
         if (_currentWeapon != null)
         {
-            _previousWeapons = _currentWeapon;
-            Destroy(_currentWeapon.gameObject);
+            _removableWeapons = _currentWeapon;
+            _currentWeapon = Instantiate(weapon, _weaponPoint);
+            Destroy(_removableWeapons.gameObject);
+        }
+        else
+        {
+            _currentWeapon = Instantiate(weapon, _weaponPoint);
         }
 
+    }
+
+    public void UseTemporaryWeapons(Weapon weapon)
+    {
+        _previousWeapons = _currentWeapon;
         _currentWeapon = Instantiate(weapon, _weaponPoint);
+        _previousWeapons.gameObject.SetActive(false);
     }
 
     public void StartWeaponTimer(int time)
@@ -75,8 +87,13 @@ public class CharacterShooting : MonoBehaviour, IAim
             _time--;
         }
 
-        Destroy(_currentWeapon.gameObject);
+        _removableWeapons = _currentWeapon;
+        _previousWeapons.gameObject.SetActive(true);
         _currentWeapon = Instantiate(_previousWeapons, _weaponPoint);
+
+        Destroy(_removableWeapons.gameObject);
+        Destroy(_previousWeapons.gameObject);
+
         _tectTime.gameObject.SetActive(false);
     }
 

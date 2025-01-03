@@ -18,7 +18,7 @@ public class CardViewUnit : CardView
         _name.text = cardDataUnit.Name;
         _energy.text = cardDataUnit.Energy.ToString();
         _level.text = cardDataUnit.Level.ToString();
-        _health.text = cardDataUnit.Health.ToString();
+        _health.text = cardDataUnit.UnitHealth.ToString();
         _damage.text = cardDataUnit.Damage.ToString();
         _ability.text = cardDataUnit.Ability;
     }

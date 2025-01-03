@@ -7,7 +7,7 @@ public class CardDataUnit : CardData
     [SerializeField] private string _ability;
 
     public Unit PrefabUnit => _prefabUnit;
-    public int Health => _prefabUnit.UnitConfig.Health;
+    public int UnitHealth => _prefabUnit.UnitConfig.Health;
     public int Damage => _prefabUnit.UnitConfig.Weapon.Damage;
     public UnitConfig UnitConfig => _prefabUnit.UnitConfig;
     public string Ability => _ability;

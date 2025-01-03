@@ -88,9 +88,9 @@ public class Unit : Health, IAim
 
     private void SetParameters()
     {
-        _maxValue += _cardView.Card.Health;
+        _maxValue += _cardView.Card.BonusHealth;
         _value = _maxValue;
-        Attack.SetAdditionalDamage(_cardView.Card.Damage);
+        Attack.SetAdditionalDamage(_cardView.Card.BonusDamage);
     }
 
     private IEnumerator Die()

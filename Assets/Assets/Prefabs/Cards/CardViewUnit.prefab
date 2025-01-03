@@ -827,8 +827,6 @@ MonoBehaviour:
   _name: {fileID: 8320021411205515304}
   _icon: {fileID: 4490216494014467748}
   _activity: {fileID: 7934541689023240800}
-  _icon: {fileID: 4490216494014467748}
-  _name: {fileID: 8320021411205515304}
   _energy: {fileID: 1605734872471934573}
   _level: {fileID: 4753519401886735113}
   _health: {fileID: 5784285601499063229}

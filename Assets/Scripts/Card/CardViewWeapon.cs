@@ -18,7 +18,7 @@ public class CardViewWeapon : CardView
         _name.text = cardDataWeapon.Name;
         _energy.text = cardDataWeapon.Energy.ToString();
         _level.text = cardDataWeapon.Level.ToString();
-        _damage.text = cardDataWeapon.Damage.ToString();
+        _damage.text = cardDataWeapon.WeaponDamage.ToString();
         _delayBetweenShots.text = cardDataWeapon.DelayBetweenShots.ToString();
         _timeAction.text = $"Время действия {cardDataWeapon.TimeAction.ToString()} секунд";
     }
