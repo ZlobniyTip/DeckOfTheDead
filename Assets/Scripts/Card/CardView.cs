@@ -6,13 +6,15 @@ public abstract class CardView : ItemView
     [SerializeField] private Image _activity;
 
     protected CardData _cardData;
-    private DragAndDrop _dragAndDrop;
+    private DragAndDropCardUnit _dragAndDrop;
+    private DragAndDropCardWeapon _dragAndDropWeapon;
 
     public CardData Card => _cardData;
 
     private void Awake()
     {
-        _dragAndDrop = GetComponent<DragAndDrop>();
+        _dragAndDrop = GetComponent<DragAndDropCardUnit>();
+        _dragAndDropWeapon = GetComponent<DragAndDropCardWeapon>();
     }
 
     public abstract void Initialize(CardData cardData);
@@ -31,6 +33,10 @@ public abstract class CardView : ItemView
 
     public void SwitchDragAndDrop(bool isActiv)
     {
-        _dragAndDrop.enabled = isActiv;
+        if (_dragAndDrop != null)
+            _dragAndDrop.enabled = isActiv;
+
+        if (_dragAndDropWeapon != null)
+            _dragAndDropWeapon.enabled = isActiv;
     }
 }

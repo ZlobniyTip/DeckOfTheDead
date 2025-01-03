@@ -180,7 +180,7 @@ MonoBehaviour:
   - {fileID: 91729063}
   - {fileID: 368321577}
   _numberEnemiesInWave: 6
-  _zombieSource: {fileID: 0}
+  _zombieSource: {fileID: 946530810}
 --- !u!65 &25629879
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -842,6 +842,10 @@ PrefabInstance:
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4832717163306357467, guid: 942ce77f01a817140a07fc5c93f24607, type: 3}
+      propertyPath: _tectTime
+      value: 
+      objectReference: {fileID: 1231339630}
+    - target: {fileID: 4832717163306357467, guid: 942ce77f01a817140a07fc5c93f24607, type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
@@ -865,6 +869,14 @@ PrefabInstance:
       propertyPath: _points.Array.data[2]
       value: 
       objectReference: {fileID: 91642180}
+    - target: {fileID: 5445395774054435962, guid: 942ce77f01a817140a07fc5c93f24607, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5445395774054435962, guid: 942ce77f01a817140a07fc5c93f24607, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5605027905101307380, guid: 942ce77f01a817140a07fc5c93f24607, type: 3}
       propertyPath: _maxValue
       value: 100
@@ -988,7 +1000,7 @@ MonoBehaviour:
   - {fileID: 831533490}
   - {fileID: 608748072}
   _numberEnemiesInWave: 5
-  _zombieSource: {fileID: 0}
+  _zombieSource: {fileID: 946530810}
 --- !u!1 &946530808
 GameObject:
   m_ObjectHideFlags: 0
@@ -1514,6 +1526,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 25629877}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1231339630 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5623906760493468549, guid: 942ce77f01a817140a07fc5c93f24607, type: 3}
+  m_PrefabInstance: {fileID: 809396924}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1244870647
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1860,7 +1883,7 @@ PrefabInstance:
       objectReference: {fileID: 3279787587145919853, guid: 3a94b3537930ef6489c9982ccec0f22b, type: 3}
     - target: {fileID: 5217668762094637574, guid: 0a74f698bd1807f4389896e3f7bbd78e, type: 3}
       propertyPath: _cards.Array.size
-      value: 11
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 5217668762094637574, guid: 0a74f698bd1807f4389896e3f7bbd78e, type: 3}
       propertyPath: _cards.Array.data[0]
@@ -1906,6 +1929,26 @@ PrefabInstance:
       propertyPath: _cards.Array.data[10]
       value: 
       objectReference: {fileID: 11400000, guid: 779b0eb586ee86043b925f91c17ad312, type: 2}
+    - target: {fileID: 5217668762094637574, guid: 0a74f698bd1807f4389896e3f7bbd78e, type: 3}
+      propertyPath: _cards.Array.data[11]
+      value: 
+      objectReference: {fileID: 11400000, guid: 537b8a678453e7d4daab9ec23265694d, type: 2}
+    - target: {fileID: 5217668762094637574, guid: 0a74f698bd1807f4389896e3f7bbd78e, type: 3}
+      propertyPath: _cards.Array.data[12]
+      value: 
+      objectReference: {fileID: 11400000, guid: 02a9bf0924d73f04ea35eda8788460f7, type: 2}
+    - target: {fileID: 5217668762094637574, guid: 0a74f698bd1807f4389896e3f7bbd78e, type: 3}
+      propertyPath: _cards.Array.data[13]
+      value: 
+      objectReference: {fileID: 11400000, guid: b566073c4dbf7e64bb432bc1dd559ed2, type: 2}
+    - target: {fileID: 5217668762094637574, guid: 0a74f698bd1807f4389896e3f7bbd78e, type: 3}
+      propertyPath: _cards.Array.data[14]
+      value: 
+      objectReference: {fileID: 11400000, guid: d7f68ad5d9ca80848b4a3e048abc755d, type: 2}
+    - target: {fileID: 5217668762094637574, guid: 0a74f698bd1807f4389896e3f7bbd78e, type: 3}
+      propertyPath: _cards.Array.data[15]
+      value: 
+      objectReference: {fileID: 11400000, guid: 09ddb28ea052a3b4084144b25549c9ea, type: 2}
     - target: {fileID: 5385011644717023847, guid: 0a74f698bd1807f4389896e3f7bbd78e, type: 3}
       propertyPath: _playerEnergy
       value: 

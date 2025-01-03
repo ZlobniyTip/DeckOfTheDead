@@ -6,6 +6,7 @@ public class CardDataWeapon : CardData
     [SerializeField] private Weapon _prefabWeapon;
     [SerializeField] private int _timeAction;
 
+    public Weapon PrefabWeapon => _prefabWeapon;
     public float Damage => _prefabWeapon.Damage;
     public float DelayBetweenShots => _prefabWeapon.DelayBetweenShots;
     public int TimeAction => _timeAction;
