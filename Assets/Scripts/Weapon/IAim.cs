@@ -1,4 +1,4 @@
 public interface IAim
 {
-    public Enemy Target { get; }
+    public Zombie Target { get; }
 }

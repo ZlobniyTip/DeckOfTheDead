@@ -11,6 +11,8 @@ public class UnitAttack : MonoBehaviour
     private Weapon _currentWeapon;
     private UnitAnimator _unitAnimator;
     private Coroutine _coroutine;
+    private int _damage = 0;
+
     public float _distance;
 
     public bool IsAttacking { get; private set; } = false;
@@ -42,6 +44,11 @@ public class UnitAttack : MonoBehaviour
         }
     }
 
+    public void SetAdditionalDamage(int damage)
+    {
+        _damage = damage;
+    }
+
     private IEnumerator Attacking()
     {
         if (_currentWeapon == null)
@@ -64,6 +71,7 @@ public class UnitAttack : MonoBehaviour
                     if (_unit.Target != null)
                     {
                         _unit.Target.TakeDamage(_currentWeapon.Shoot());
+                        _unit.Target.TakeDamage(_damage);
                     }
 
                     yield return delay;

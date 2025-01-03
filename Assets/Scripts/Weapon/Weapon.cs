@@ -55,9 +55,10 @@ public abstract class Weapon : MonoBehaviour, IProduct
         _isShooting = false;
     }
 
-    public void Init(ItemStatus state)
+    public void Init(ItemStatus state, int level)
     {
         State.SetStatus(state);
+        State.SetParameters(level);
     }
 
     public void ReportImpact()

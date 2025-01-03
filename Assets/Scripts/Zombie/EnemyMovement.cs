@@ -1,22 +1,22 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-//[RequireComponent(typeof(ZombieSearchTarget))]
-//[RequireComponent(typeof(NavMeshAgent))]
-//[RequireComponent(typeof(Enemy))]
+[RequireComponent(typeof(ZombieSearchTarget))]
+[RequireComponent(typeof(NavMeshAgent))]
+[RequireComponent(typeof(Zombie))]
 public class EnemyMovement : MonoBehaviour
 {
     private ZombieSearchTarget _zombieSearch;
     private NavMeshAgent _navMesh;
     private float _speed = 2;
     private ZombieAttack _zombieAttack;
-    private Enemy _enemy;
+    private Zombie _enemy;
 
     public NavMeshAgent NavMeshAgent => _navMesh;
 
     private void Awake()
     {
-        _enemy = GetComponent<Enemy>();
+        _enemy = GetComponent<Zombie>();
         _zombieSearch = GetComponent<ZombieSearchTarget>();
         _navMesh = GetComponent<NavMeshAgent>();
         _zombieAttack = GetComponent<ZombieAttack>();

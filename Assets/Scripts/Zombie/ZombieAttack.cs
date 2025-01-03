@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ZombieAttack : MonoBehaviour
@@ -12,7 +11,7 @@ public class ZombieAttack : MonoBehaviour
     private bool _isAttacking = false; 
     private Coroutine _attackCoroutine;
     private float _startDelayBetweenAttack;
-    private Enemy _enemy;
+    private Zombie _enemy;
 
     public float AttackDistance => _attackDistance;
     public bool IsAttacking => _isAttacking;
@@ -22,7 +21,7 @@ public class ZombieAttack : MonoBehaviour
     private void Awake()
     {
         _startDelayBetweenAttack = _delayBetweenAttack;
-        _enemy = GetComponent<Enemy>();
+        _enemy = GetComponent<Zombie>();
     }
 
     public void ActivateAttack()
@@ -37,6 +36,11 @@ public class ZombieAttack : MonoBehaviour
     public void SlowingDownAttack(float speed) => _delayBetweenAttack *= speed;
     public void RestoreAttackSpeed() => _delayBetweenAttack = _startDelayBetweenAttack;
 
+    public void BuffAttack(int multiplyAttackSpeed, int multiplyDamage)
+    {
+        _delayBetweenAttack *= multiplyAttackSpeed;
+        _damage *= multiplyDamage;
+    }
 
     private IEnumerator Attacking()
     {

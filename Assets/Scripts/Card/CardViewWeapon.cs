@@ -1,11 +1,8 @@
 ﻿using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class CardViewWeapon : CardView
 {
-    [SerializeField] private Image _icon;
-    [SerializeField] private TMP_Text _name;
     [SerializeField] private TMP_Text _energy;
     [SerializeField] private TMP_Text _level;
     [SerializeField] private TMP_Text _damage;
@@ -14,7 +11,6 @@ public class CardViewWeapon : CardView
 
     public override void Initialize(CardData cardData)
     {
-
         _cardData = cardData;
         CardDataWeapon cardDataWeapon = _cardData as CardDataWeapon;
 

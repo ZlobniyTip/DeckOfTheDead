@@ -6,7 +6,7 @@ public class ZombieSearchTarget : MonoBehaviour
     [SerializeField] private ZombieAttack _zombieAttack;
     [SerializeField] private float _radius;
 
-    private Enemy _enemy;
+    private Zombie _enemy;
 
     private Health _target;
     private Health _startTarget;
@@ -17,7 +17,7 @@ public class ZombieSearchTarget : MonoBehaviour
 
     private void Awake()
     {
-        _enemy = GetComponent<Enemy>();
+        _enemy = GetComponent<Zombie>();
     }
 
     private void Start()

@@ -9,5 +9,5 @@ public interface IProduct
     public int Index { get; }
     public ItemState State { get; }
 
-    public void Init(ItemStatus state);
+    public void Init(ItemStatus state, int level);
 }

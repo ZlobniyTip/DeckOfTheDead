@@ -6,13 +6,13 @@ public abstract class Health : MonoBehaviour
     [SerializeField] protected int _maxValue;
 
     protected int _value;
-    protected Enemy _lastAttacker;
+    protected Zombie _lastAttacker;
     protected bool _isDiying = false;
 
     public event Action<int, int> Changed;
     public event Action Died;
 
-    public bool IsDiying => _isDiying;
+    public bool IsDiying { get; private set; }
     public int MaxValue => _maxValue;
     public int Value => _value;
 
@@ -31,11 +31,10 @@ public abstract class Health : MonoBehaviour
         {
             _value += healValue;
             Changed?.Invoke(_value, _maxValue);
-            Debug.Log(_value);
         }
     }
 
-    public void TakeDamageFromEnemy(int damage, Enemy attacker)
+    public void TakeDamageFromEnemy(int damage, Zombie attacker)
     {
         _lastAttacker = attacker;
         TakeDamage(damage);
@@ -46,5 +45,15 @@ public abstract class Health : MonoBehaviour
         _value = value;
         _maxValue = maxValue;
         Changed?.Invoke(_value, _maxValue);
+    }
+
+    public void SetDiyingStatus(bool isDiying)
+    {
+        _isDiying = isDiying;
+    }
+
+    public void DeclareDeath()
+    {
+        Died?.Invoke();
     }
 }

@@ -10,8 +10,8 @@ public class ItemView : MonoBehaviour
     [SerializeField] private Button _equipButton;
     [SerializeField] private GameObject _equippedLabel;
 
-    [SerializeField] private TMP_Text _name;
-    [SerializeField] private Image _icon;
+    [SerializeField] protected TMP_Text _name;
+    [SerializeField] protected Image _icon;
 
     private IProduct _product;
     private bool _isShopItem = false;
@@ -21,15 +21,6 @@ public class ItemView : MonoBehaviour
     public event UnityAction<ItemView> EquipButtonPressed;
 
     public IProduct Product => _product;
-
-    private void OnEnable()
-    {
-        if (_isShopItem)
-        {
-            _equipButton.onClick.AddListener(OnEquipButtonPressed);
-            _purchaseButton.onClick.AddListener(OnPurchaseButtonPressed);
-        }
-    }
 
     private void OnDisable()
     {
@@ -58,6 +49,8 @@ public class ItemView : MonoBehaviour
         if (_isShopItem)
         {
             _product.State.Changed += OnWeaponStateChanged;
+            _equipButton.onClick.AddListener(OnEquipButtonPressed);
+            _purchaseButton.onClick.AddListener(OnPurchaseButtonPressed);
         }
 
         UpdateView();

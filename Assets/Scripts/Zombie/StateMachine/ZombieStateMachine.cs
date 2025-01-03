@@ -6,7 +6,7 @@ public class ZombieStateMachine : IStateSwitcher
     private List<IState> _states;
     private IState _currentState;
 
-    public ZombieStateMachine(Enemy enemy)
+    public ZombieStateMachine(Zombie enemy)
     {
         _states = new List<IState>()
         {

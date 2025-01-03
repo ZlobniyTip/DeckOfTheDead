@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class ZombieView : CreatureView
@@ -7,7 +6,7 @@ public class ZombieView : CreatureView
 
     private float _startSpeedAnimation;
 
-    private void Awake()
+    private void Start()
     {
         _startSpeedAnimation = _animator.speed;
     }

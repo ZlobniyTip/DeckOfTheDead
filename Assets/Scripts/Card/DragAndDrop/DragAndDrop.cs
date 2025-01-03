@@ -81,7 +81,7 @@ public class DragAndDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, ID
     {
         Vector3 spawnPosition = _spawnPlaceEffect.transform.position;
 
-        _unitSpawner.Spawn(spawnPosition, (_cardView.Card as CardDataUnit).PrefabUnit);
+        _unitSpawner.Spawn(spawnPosition, (_cardView.Card as CardDataUnit).PrefabUnit, _cardView);
         _deck.RemoveCard(_cardView);
         _deck.TakeAwayPlayerEnergy(_cardView.Card.Energy);
 

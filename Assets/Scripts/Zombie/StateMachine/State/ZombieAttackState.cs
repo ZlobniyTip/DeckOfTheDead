@@ -5,8 +5,9 @@ using UnityEngine;
 public class ZombieAttackState : ZombieMovementState
 {
     private const string IsAttackingZombie = "IsAttacking";
+    private const string IsJump = "IsJump";
 
-    public ZombieAttackState(IStateSwitcher stateSwitcher, Enemy enemy) : base(stateSwitcher, enemy)
+    public ZombieAttackState(IStateSwitcher stateSwitcher, Zombie enemy) : base(stateSwitcher, enemy)
     {
     }
 

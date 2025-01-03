@@ -3,11 +3,16 @@ using UnityEngine;
 
 public abstract class CardData : ScriptableObject, IProduct
 {
+    private const int LevelOne = 1;
+    private const int LevelTwo = 2;
+    private const int LevelThree = 3;
+
     [SerializeField] private Sprite _icon;
 
     [SerializeField] private string _name;
-    [SerializeField] private int _energy;
     [SerializeField] private int _level;
+
+    [SerializeField] private int _energy;
 
     [SerializeField] private ItemType _type;
     [SerializeField] private int _price;
@@ -15,17 +20,58 @@ public abstract class CardData : ScriptableObject, IProduct
 
     [NonSerialized] private ItemState _state = null;
 
+    private int _damage = 0;
+    private int _bonusHealth = 0;
+
+    private int _damageOneLevel = 5;
+    private int _damageTwoLevel = 10;
+    private int _damageThreeLevel = 20;
+
+    private int _healthOneLevel = 20;
+    private int _healthTwoLevel = 40;
+    private int _healthThreeLevel = 80;
+
     public Sprite Icon => _icon;
     public string Name => _name;
     public int Energy => _energy;
+    public int Damage => _damage;
+    public int Health => _bonusHealth;
     public int Level => _level;
     public ItemType Type => _type;
     public int Price => _price;
     public int Index => _index;
     public ItemState State => _state ??= new ItemState(ItemStatus.NotPurchased);
 
-    public void Init(ItemStatus state)
+    public void Init(ItemStatus state, int level)
     {
         State.SetStatus(state);
+        State.SetParameters(level);
+
+        _level = State.Level;
+        SetParametersFromLevel();
+    }
+
+    public void SetParametersFromLevel()
+    {
+        switch (_level)
+        {
+            case LevelOne:
+                SetParameters(_damageOneLevel, _healthOneLevel);
+                break;
+
+            case LevelTwo:
+                SetParameters(_damageTwoLevel, _healthTwoLevel);
+                break;
+
+            case LevelThree:
+                SetParameters(_damageThreeLevel, _healthThreeLevel);
+                break;
+        }
+    }
+
+    private void SetParameters(int damage, int health)
+    {
+        _damage = damage;
+        _bonusHealth = health;
     }
 }
