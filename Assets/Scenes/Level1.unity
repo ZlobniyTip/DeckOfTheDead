@@ -355,7 +355,7 @@ MonoBehaviour:
   - {fileID: 943731423}
   - {fileID: 25629878}
   _prefabEnemies:
-  - {fileID: 5101115309210582976, guid: a7b454baef06c944b8d046fd654e97d6, type: 3}
+  - {fileID: 6449221251005342339, guid: fd70d037c8729274899b72967d6d07f7, type: 3}
   _delaySpawn: 2
 --- !u!4 &278653929
 Transform:
@@ -1646,50 +1646,6 @@ PrefabInstance:
       propertyPath: _buyer
       value: 
       objectReference: {fileID: 1131675957}
-    - target: {fileID: 1727743069829256103, guid: 0a74f698bd1807f4389896e3f7bbd78e, type: 3}
-      propertyPath: _cards.Array.size
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 1727743069829256103, guid: 0a74f698bd1807f4389896e3f7bbd78e, type: 3}
-      propertyPath: _cards.Array.data[0]
-      value: 
-      objectReference: {fileID: 11400000, guid: c0b588634c271954da409e2a7bbd3ed8, type: 2}
-    - target: {fileID: 1727743069829256103, guid: 0a74f698bd1807f4389896e3f7bbd78e, type: 3}
-      propertyPath: _cards.Array.data[1]
-      value: 
-      objectReference: {fileID: 11400000, guid: 9abe5ea3fa1411d4fa3605c5a32b627d, type: 2}
-    - target: {fileID: 1727743069829256103, guid: 0a74f698bd1807f4389896e3f7bbd78e, type: 3}
-      propertyPath: _cards.Array.data[2]
-      value: 
-      objectReference: {fileID: 11400000, guid: 25d0a4f71b50f534cb727d709dfe6b95, type: 2}
-    - target: {fileID: 1727743069829256103, guid: 0a74f698bd1807f4389896e3f7bbd78e, type: 3}
-      propertyPath: _cards.Array.data[3]
-      value: 
-      objectReference: {fileID: 11400000, guid: fcd458c9fbdfb0743ace10e51ad075ec, type: 2}
-    - target: {fileID: 1727743069829256103, guid: 0a74f698bd1807f4389896e3f7bbd78e, type: 3}
-      propertyPath: _cards.Array.data[4]
-      value: 
-      objectReference: {fileID: 11400000, guid: 6338aa4794e4a2643b6ecca4bd5a0892, type: 2}
-    - target: {fileID: 1727743069829256103, guid: 0a74f698bd1807f4389896e3f7bbd78e, type: 3}
-      propertyPath: _cards.Array.data[5]
-      value: 
-      objectReference: {fileID: 11400000, guid: 22c8c744623b29248b3e27a12a13877c, type: 2}
-    - target: {fileID: 1727743069829256103, guid: 0a74f698bd1807f4389896e3f7bbd78e, type: 3}
-      propertyPath: _cards.Array.data[6]
-      value: 
-      objectReference: {fileID: 11400000, guid: 1217ac733556c1748848d70e4e5fb690, type: 2}
-    - target: {fileID: 1727743069829256103, guid: 0a74f698bd1807f4389896e3f7bbd78e, type: 3}
-      propertyPath: _cards.Array.data[7]
-      value: 
-      objectReference: {fileID: 11400000, guid: a4a049845f65b9444939de557a062e14, type: 2}
-    - target: {fileID: 1727743069829256103, guid: 0a74f698bd1807f4389896e3f7bbd78e, type: 3}
-      propertyPath: _cards.Array.data[8]
-      value: 
-      objectReference: {fileID: 11400000, guid: 603ed02193da71b408621ece90b33e35, type: 2}
-    - target: {fileID: 1727743069829256103, guid: 0a74f698bd1807f4389896e3f7bbd78e, type: 3}
-      propertyPath: _cards.Array.data[9]
-      value: 
-      objectReference: {fileID: 11400000, guid: e997771030d14d84f8f7e65d963412c3, type: 2}
     - target: {fileID: 1957441728426563497, guid: 0a74f698bd1807f4389896e3f7bbd78e, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 1.1943359
@@ -2505,7 +2461,8 @@ PrefabInstance:
       value: Street
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 9155965929663751736, guid: 1392f31a06732bf4f8a8585704ee3dad, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1392f31a06732bf4f8a8585704ee3dad, type: 3}

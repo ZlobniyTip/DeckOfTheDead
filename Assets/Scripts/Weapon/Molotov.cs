@@ -49,7 +49,7 @@ public class Molotov : MonoBehaviour
 
                 if (rigidbody)
                 {
-                    if (rigidbody.gameObject.TryGetComponent(out Enemy enemy))
+                    if (rigidbody.gameObject.TryGetComponent(out Zombie enemy))
                     {
                         enemy.TakeDamage(_damage);
 

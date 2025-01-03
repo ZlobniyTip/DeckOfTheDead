@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SkillsHomeless : Skill
 {
-    private HashSet<Enemy> _slowedZombies = new HashSet<Enemy>();
+    private HashSet<Zombie> _slowedZombies = new HashSet<Zombie>();
 
     private float _detectionRadius = 2f;
     private float _decelerationFactor = 2f;
@@ -27,11 +27,11 @@ public class SkillsHomeless : Skill
         while (true)
         {
             Collider[] enemyes = Physics.OverlapSphere(transform.position, _detectionRadius);
-            HashSet<Enemy> currentDetectedEnemies = new HashSet<Enemy>();
+            HashSet<Zombie> currentDetectedEnemies = new HashSet<Zombie>();
 
             for (int i = 0; i < enemyes.Length; i++)
             {
-                if (enemyes[i].TryGetComponent(out Enemy enemy))
+                if (enemyes[i].TryGetComponent(out Zombie enemy))
                 {
                     currentDetectedEnemies.Add(enemy);
 
@@ -48,7 +48,7 @@ public class SkillsHomeless : Skill
                 }
             }
 
-            foreach (var enemy in new List<Enemy>(_slowedZombies))
+            foreach (var enemy in new List<Zombie>(_slowedZombies))
             { 
                 if (currentDetectedEnemies.Contains(enemy) == false)
                 {
@@ -61,7 +61,7 @@ public class SkillsHomeless : Skill
         }
     }
 
-    private void RestoreCharacteristics(Enemy enemy)
+    private void RestoreCharacteristics(Zombie enemy)
     {
         if (enemy != null) 
         {

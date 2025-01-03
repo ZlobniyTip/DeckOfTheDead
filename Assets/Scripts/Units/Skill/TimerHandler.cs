@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class TimerHandler : MonoBehaviour
 {
-    [SerializeField] private Enemy _prefabEnemy;
+    [SerializeField] private Zombie _prefabEnemy;
 
     private int _timerEmoSrill = 15;
     private TMP_Text _timer;
-    private Enemy _enemy;
+    private Zombie _enemy;
 
     public void StartTimerEmoSkill(Unit enemyFriend, Character character)
     {
@@ -25,7 +25,7 @@ public class TimerHandler : MonoBehaviour
             _timerEmoSrill--;
         }
 
-        Enemy enemy = Instantiate(_prefabEnemy, enemyFriend.transform.position, enemyFriend.transform.rotation);
+        Zombie enemy = Instantiate(_prefabEnemy, enemyFriend.transform.position, enemyFriend.transform.rotation);
         enemy.SetValue(enemyFriend.Value, enemyFriend.MaxValue);
         enemy.ZombieSearch.InitializeStartTarget(character);
 

@@ -48,7 +48,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &9196325558573282086
 Transform:
   m_ObjectHideFlags: 0
@@ -2746,15 +2746,15 @@ GameObject:
   - component: {fileID: 3108597298360471425}
   - component: {fileID: 1599638409683996520}
   - component: {fileID: 4501426137532954801}
-  - component: {fileID: 5101115309210582976}
   - component: {fileID: 611869122152438859}
   - component: {fileID: 1899850828463226743}
   - component: {fileID: 6525182960791149322}
   - component: {fileID: 5713849658351355620}
   - component: {fileID: 387848531293012637}
-  - component: {fileID: -6542239192473180469}
+  - component: {fileID: 6449221251005342339}
+  - component: {fileID: -1983961249097115832}
   m_Layer: 0
-  m_Name: Zombie
+  m_Name: ClawedZombie
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2847,20 +2847,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 84
   m_CollisionDetection: 0
---- !u!114 &5101115309210582976
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3159962360857455571}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d24e9ba970207214aaf74eee8dce37c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _maxValue: 150
-  _zombieView: {fileID: 6525182960791149322}
 --- !u!114 &611869122152438859
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2938,7 +2924,7 @@ CapsuleCollider:
   m_Height: 2.0041304
   m_Direction: 1
   m_Center: {x: 0, y: -0.13588664, z: 0}
---- !u!114 &-6542239192473180469
+--- !u!114 &6449221251005342339
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2947,10 +2933,29 @@ MonoBehaviour:
   m_GameObject: {fileID: 3159962360857455571}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce20dca17bd9b354d99bfa39022e497d, type: 3}
+  m_Script: {fileID: 11500000, guid: 9b5249729f9271c4fa5a58dd5c29d097, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _maxValue: 50
+  _zombieView: {fileID: 6525182960791149322}
   _effectCamp: {fileID: 1832883286374874784}
+--- !u!114 &-1983961249097115832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3159962360857455571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ea2d52b0eb377242aa903f2bcdd1739, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _name: Bleeding
+  _hitEffect: {fileID: 1379504315796101638, guid: 43ee3e910dc21444a81c222c52e6e9d2, type: 3}
+  _bleeding: {fileID: -1442267900838464502, guid: 80ba14a15720d7f4a8c4b4a516300cc7, type: 3}
+  _cooldown: 15
+  _radius: 1
 --- !u!1 &3195926567155812397
 GameObject:
   m_ObjectHideFlags: 0
@@ -4794,7 +4799,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _barFilling: {fileID: 3059854809474339690}
-  _health: {fileID: 5101115309210582976}
+  _health: {fileID: 6449221251005342339}
 --- !u!1 &4779605779729758768
 GameObject:
   m_ObjectHideFlags: 0
@@ -5280,7 +5285,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &272176434845669209
 Transform:
   m_ObjectHideFlags: 0

@@ -9,6 +9,18 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 6395355275349542903, guid: 8ad04eb070e95e246bfff25b0f26e343, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.35969287
+      objectReference: {fileID: 0}
+    - target: {fileID: 6395355275349542903, guid: 8ad04eb070e95e246bfff25b0f26e343, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6395355275349542903, guid: 8ad04eb070e95e246bfff25b0f26e343, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.35969287
+      objectReference: {fileID: 0}
+    - target: {fileID: 6395355275349542903, guid: 8ad04eb070e95e246bfff25b0f26e343, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -51,6 +63,14 @@ PrefabInstance:
     - target: {fileID: 6457216588963305026, guid: 8ad04eb070e95e246bfff25b0f26e343, type: 3}
       propertyPath: m_Name
       value: Healing circle
+      objectReference: {fileID: 0}
+    - target: {fileID: 7024275531142198371, guid: 8ad04eb070e95e246bfff25b0f26e343, type: 3}
+      propertyPath: looping
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7024275531142198371, guid: 8ad04eb070e95e246bfff25b0f26e343, type: 3}
+      propertyPath: scalingMode
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

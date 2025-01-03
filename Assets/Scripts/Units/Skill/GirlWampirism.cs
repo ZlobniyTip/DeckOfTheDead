@@ -37,7 +37,7 @@ public class GirlWampirism : Skill
 
                 if (rigidbody)
                 {
-                    if (rigidbody.gameObject.TryGetComponent(out Enemy enemy))
+                    if (rigidbody.gameObject.TryGetComponent(out Zombie enemy))
                     {
                         enemy.TakeDamage(_damage);
                         _unit.TakeHeal(_damage);

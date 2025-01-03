@@ -1,11 +1,8 @@
 ﻿using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class CardViewUnit : CardView
 {
-    [SerializeField] private Image _icon;
-    [SerializeField] private TMP_Text _name;
     [SerializeField] private TMP_Text _energy;
     [SerializeField] private TMP_Text _level;
     [SerializeField] private TMP_Text _health;

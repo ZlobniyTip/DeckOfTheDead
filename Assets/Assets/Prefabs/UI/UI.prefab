@@ -1233,19 +1233,11 @@ MonoBehaviour:
   _type: 2
   _rangeWeapon: []
   _melleWeapon: []
-  _cards:
-  - {fileID: 11400000, guid: 4a8768024bb92e842a2b7f17b36d6b27, type: 2}
-  - {fileID: 11400000, guid: 24244fff6fe4d1f43807555f0d376ebc, type: 2}
-  - {fileID: 11400000, guid: 2cff5e3e57672b24fb56bc86575fece5, type: 2}
-  - {fileID: 11400000, guid: f4f1faaf9a2eab24fbb79aee608361c6, type: 2}
-  - {fileID: 11400000, guid: b3d1a708c28c4c744bba77b363753c2e, type: 2}
-  - {fileID: 11400000, guid: 7c954f3535082304fa6b104fe423c786, type: 2}
-  - {fileID: 11400000, guid: 6e8fcfc57bda7b148991f284a1a013db, type: 2}
-  - {fileID: 11400000, guid: 630ffe9d964b7cf4184f8056bf959e0f, type: 2}
-  - {fileID: 11400000, guid: 6c239535019938c4b8400ceaab0c47e7, type: 2}
-  - {fileID: 11400000, guid: 60ebe122ae807cc4985e1a6a11d93b62, type: 2}
+  _cardsUnit: []
+  _cardsWeapon: []
   _template: {fileID: 3530719818403780061, guid: 3aa5dba47e6b4cb489d7477b4f3884c0, type: 3}
-  _templateCard: {fileID: 3530719818403780061, guid: 3aa5dba47e6b4cb489d7477b4f3884c0, type: 3}
+  _templateCardWeapon: {fileID: 0}
+  _templateCardUnit: {fileID: 0}
   _itemContainer: {fileID: 961862329623177455}
 --- !u!1 &3230887292226326592
 GameObject:
@@ -2856,9 +2848,11 @@ MonoBehaviour:
   - {fileID: 4105591834877352078, guid: e465d39263959404582f9fdf69f40c53, type: 3}
   - {fileID: 473291411766604811, guid: 69b6ae1bb36dc814c9445c523810fe43, type: 3}
   _melleWeapon: []
-  _cards: []
+  _cardsUnit: []
+  _cardsWeapon: []
   _template: {fileID: 4656483928018431134, guid: 93aa1de9c88548840800c11f0383c12f, type: 3}
-  _templateCard: {fileID: 0}
+  _templateCardWeapon: {fileID: 0}
+  _templateCardUnit: {fileID: 0}
   _itemContainer: {fileID: 4403349043263447297}
 --- !u!1 &6815347796458812965
 GameObject:
@@ -3227,7 +3221,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 630ffe9d964b7cf4184f8056bf959e0f, type: 2}
   - {fileID: 11400000, guid: 6c239535019938c4b8400ceaab0c47e7, type: 2}
   "_\u0441ontainer": {fileID: 4917683033418956774}
-  _cardView: {fileID: 3530719818403780061, guid: 3aa5dba47e6b4cb489d7477b4f3884c0, type: 3}
+  _cardViewUnit: {fileID: 0}
+  _cardViewWeapon: {fileID: 0}
   _playerEnergy: {fileID: 0}
 --- !u!114 &6514275886122739476
 MonoBehaviour:
@@ -3758,9 +3753,11 @@ MonoBehaviour:
   - {fileID: 2535391598434979823, guid: 58a3f3f478bd0374aa7b5d42880672f5, type: 3}
   - {fileID: 4651898108335724637, guid: 14b9097cb10b27d40a35dc944853603d, type: 3}
   - {fileID: 2181833529061203859, guid: 92d0d7425658b7548bb550389b91dc28, type: 3}
-  _cards: []
+  _cardsUnit: []
+  _cardsWeapon: []
   _template: {fileID: 4656483928018431134, guid: 93aa1de9c88548840800c11f0383c12f, type: 3}
-  _templateCard: {fileID: 0}
+  _templateCardWeapon: {fileID: 0}
+  _templateCardUnit: {fileID: 0}
   _itemContainer: {fileID: 6400817614229613207}
 --- !u!1 &7880621332397885610
 GameObject:
@@ -4279,16 +4276,17 @@ MonoBehaviour:
   - {fileID: 4651898108335724637, guid: 14b9097cb10b27d40a35dc944853603d, type: 3}
   - {fileID: 2181833529061203859, guid: 92d0d7425658b7548bb550389b91dc28, type: 3}
   _cards:
-  - {fileID: 11400000, guid: 4a8768024bb92e842a2b7f17b36d6b27, type: 2}
-  - {fileID: 11400000, guid: 24244fff6fe4d1f43807555f0d376ebc, type: 2}
-  - {fileID: 11400000, guid: 2cff5e3e57672b24fb56bc86575fece5, type: 2}
-  - {fileID: 11400000, guid: f4f1faaf9a2eab24fbb79aee608361c6, type: 2}
-  - {fileID: 11400000, guid: b3d1a708c28c4c744bba77b363753c2e, type: 2}
-  - {fileID: 11400000, guid: 7c954f3535082304fa6b104fe423c786, type: 2}
-  - {fileID: 11400000, guid: 6e8fcfc57bda7b148991f284a1a013db, type: 2}
-  - {fileID: 11400000, guid: 630ffe9d964b7cf4184f8056bf959e0f, type: 2}
-  - {fileID: 11400000, guid: 6c239535019938c4b8400ceaab0c47e7, type: 2}
-  - {fileID: 11400000, guid: 60ebe122ae807cc4985e1a6a11d93b62, type: 2}
+  - {fileID: 11400000, guid: c0b588634c271954da409e2a7bbd3ed8, type: 2}
+  - {fileID: 11400000, guid: 9abe5ea3fa1411d4fa3605c5a32b627d, type: 2}
+  - {fileID: 11400000, guid: 25d0a4f71b50f534cb727d709dfe6b95, type: 2}
+  - {fileID: 11400000, guid: fcd458c9fbdfb0743ace10e51ad075ec, type: 2}
+  - {fileID: 11400000, guid: 6338aa4794e4a2643b6ecca4bd5a0892, type: 2}
+  - {fileID: 11400000, guid: 22c8c744623b29248b3e27a12a13877c, type: 2}
+  - {fileID: 11400000, guid: 1217ac733556c1748848d70e4e5fb690, type: 2}
+  - {fileID: 11400000, guid: a4a049845f65b9444939de557a062e14, type: 2}
+  - {fileID: 11400000, guid: 603ed02193da71b408621ece90b33e35, type: 2}
+  - {fileID: 11400000, guid: e997771030d14d84f8f7e65d963412c3, type: 2}
+  - {fileID: 11400000, guid: 779b0eb586ee86043b925f91c17ad312, type: 2}
 --- !u!114 &4173143106835999500
 MonoBehaviour:
   m_ObjectHideFlags: 0

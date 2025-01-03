@@ -2,7 +2,7 @@ public class ZombieRunningState : ZombieMovementState
 {
     private const string IsRunning = "IsRunning";
 
-    public ZombieRunningState(IStateSwitcher stateSwitcher, Enemy enemy) : base(stateSwitcher, enemy)
+    public ZombieRunningState(IStateSwitcher stateSwitcher, Zombie enemy) : base(stateSwitcher, enemy)
     {
     }
 

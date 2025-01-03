@@ -13,19 +13,20 @@ public class UnitSpawner : MonoBehaviour
         _deck = GetComponent<Deck>();
     }
 
-    public void Spawn(Vector3 point, Unit prefabUnit)
+    public void Spawn(Vector3 point, Unit prefabUnit, CardView cardView)
     {
         _soundSpawn.Play();
         Instantiate(_prefabSpawnEffect, point + Vector3.up * 0.5f, Quaternion.identity);
-        StartCoroutine(SetDelaySpawning(point, prefabUnit));
+        StartCoroutine(SetDelaySpawning(point, prefabUnit, cardView));
     }
 
-    private IEnumerator SetDelaySpawning(Vector3 spawnPosition, Unit prefabUnit)
+    private IEnumerator SetDelaySpawning(Vector3 spawnPosition, Unit prefabUnit, CardView cardView)
     {
         float amountDelayBeforeSpawning = 1f;
 
         yield return new WaitForSeconds(amountDelayBeforeSpawning);
         Unit unit = Instantiate(prefabUnit, spawnPosition, Quaternion.identity);
+        unit.GetCardView(cardView);
         unit.SetCharacter(_deck.Character);
     }
 }

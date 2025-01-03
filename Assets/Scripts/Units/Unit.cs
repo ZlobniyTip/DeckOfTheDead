@@ -9,21 +9,21 @@ public class Unit : Health, IAim
     [SerializeField] private PoliceAmmunition _policeArmour;
 
     private Character _character;
-    private Enemy _target;
+    private Zombie _target;
     private UnitMovement _movement;
     private UnitAttack _attack;
-    private UnitSearchTarget _searchTarget;
     private UnitAnimator _unitAnimator;
     private UnitObserver _controller;
     private FXUnit _fxUnit;
+    private CardView _cardView;
     private float _delayBetweenDeath = 2.7f;
 
-    public event Action Died;
+    public event Action<Unit> TurnIntoZombie;
 
     public UnitMovement Movement => _movement;
     public UnitAttack Attack => _attack;
     public UnitConfig UnitConfig => _config;
-    public Enemy Target => _target;
+    public Zombie Target => _target;
     public Character Character => _character;
     public FXUnit FXUnit => _fxUnit;
 
@@ -35,7 +35,6 @@ public class Unit : Health, IAim
         _movement = GetComponent<UnitMovement>();
         _attack = GetComponent<UnitAttack>();
         _unitAnimator = GetComponent<UnitAnimator>();
-        _searchTarget = GetComponent<UnitSearchTarget>();
         _controller = GetComponent<UnitObserver>();
         _fxUnit = GetComponent<FXUnit>();
     }
@@ -46,9 +45,16 @@ public class Unit : Health, IAim
             _soundSpawn.Play();
     }
 
+    public void GetCardView(CardView cardView)
+    {
+        _cardView = cardView;
+
+        SetParameters();
+    }
+
     public void ClearTarget() => _target = null;
 
-    public void SetTarget(Enemy target)
+    public void SetTarget(Zombie target)
     {
         if (_target != null)
             _target.Diying -= ClearTarget;
@@ -64,7 +70,6 @@ public class Unit : Health, IAim
 
     public override void TakeDamage(int damage)
     {
-
         if (_policeArmour != null)
         {
             BlockDamageWithArmour(damage);
@@ -81,9 +86,16 @@ public class Unit : Health, IAim
         }
     }
 
+    private void SetParameters()
+    {
+        _maxValue += _cardView.Card.Health;
+        _value = _maxValue;
+        Attack.SetAdditionalDamage(_cardView.Card.Damage);
+    }
+
     private IEnumerator Die()
     {
-        Died?.Invoke();
+        DeclareDeath();
         var delay = new WaitForSeconds(_delayBetweenDeath);
 
         var zombieConverter = GetComponent<SkillEmo>();
@@ -96,6 +108,8 @@ public class Unit : Health, IAim
         _controller.DisableStates();
         _unitAnimator.PlauDiyingAnimation();
         yield return delay;
+
+        TurnIntoZombie?.Invoke(this);
 
         Destroy(gameObject);
     }

@@ -2,9 +2,9 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-//[RequireComponent(typeof(ZombieSearchTarget))]
-//[RequireComponent(typeof(EnemyMovement))]
-public class Enemy : Health
+[RequireComponent(typeof(ZombieSearchTarget))]
+[RequireComponent(typeof(EnemyMovement))]
+public class Zombie : Health
 {
     [SerializeField] private ZombieView _zombieView;
     [SerializeField] private ParticleSystem _effectCamp;
@@ -18,7 +18,6 @@ public class Enemy : Health
 
     public event Action Diying;
 
-    public bool IsDiying { get; private set; } = false;
     public bool IsUnderCamp => _isUnderCamp;
     public ZombieSearchTarget ZombieSearch => _zombieSearch;
     public EnemyMovement Movement => _movement;
@@ -60,6 +59,12 @@ public class Enemy : Health
         _isUnderCamp = false;
     }
 
+    public override void TakeHeal(int healValue)
+    {
+        if (IsDiying == false)
+        base.TakeHeal(healValue);
+    }
+
     public override void TakeDamage(int damage)
     {
         base.TakeDamage(damage);
@@ -74,7 +79,7 @@ public class Enemy : Health
     {
         if (IsDiying) yield break;
 
-        IsDiying = true;
+        SetDiyingStatus(true);
         ReportDeath();
         _movement.StopMovement();
 

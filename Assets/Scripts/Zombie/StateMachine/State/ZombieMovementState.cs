@@ -2,16 +2,16 @@ public class ZombieMovementState : IState
 {
     protected readonly IStateSwitcher StateSwitcher;
 
-    private readonly Enemy _enemy;
+    private readonly Zombie _enemy;
 
-    public ZombieMovementState(IStateSwitcher stateSwitcher, Enemy enemy)
+    public ZombieMovementState(IStateSwitcher stateSwitcher, Zombie enemy)
     {
         StateSwitcher = stateSwitcher;
         _enemy = enemy;
     }
 
     protected ZombieView ZombieView => _enemy.ZombieView;
-    protected Enemy Enemy => _enemy;
+    protected Zombie Enemy => _enemy;
 
     public virtual void Enter()
     {

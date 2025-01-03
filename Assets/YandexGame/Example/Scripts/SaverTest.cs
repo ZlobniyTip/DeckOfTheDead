@@ -13,6 +13,7 @@ namespace YG.Example
         [SerializeField] private List<CardData> _cards;
 
         private Weapon _currentWeapon;
+        private int _emptyParameter = 0;
 
         public event Action<int> LoadedData;
 
@@ -49,6 +50,7 @@ namespace YG.Example
             for (int i = 0; i < _cards.Count; i++)
             {
                 YandexGame.savesData.cardStates[i] = _cards[i].State.Status;
+                YandexGame.savesData.cardLevel[i] = _cards[i].State.Level;
             }
 
             YandexGame.savesData.playerMoney = _buyer.Money;
@@ -61,7 +63,7 @@ namespace YG.Example
         {
             for (int i = 0; i < _melleWeapons.Count; i++)
             {
-                _melleWeapons[i].Init(YandexGame.savesData.melleWeaponStates[i]);
+                _melleWeapons[i].Init(YandexGame.savesData.melleWeaponStates[i], _emptyParameter);
 
                 if (_melleWeapons[i].State.Status == ItemStatus.Equipped)
                     _currentWeapon = _melleWeapons[i];
@@ -69,7 +71,7 @@ namespace YG.Example
 
             for (int i = 0; i < _rangeWeapons.Count; i++)
             {
-                _rangeWeapons[i].Init(YandexGame.savesData.rangeWeaponStates[i]);
+                _rangeWeapons[i].Init(YandexGame.savesData.rangeWeaponStates[i], _emptyParameter);
 
                 if (_rangeWeapons[i].State.Status == ItemStatus.Equipped)
                     _currentWeapon = _rangeWeapons[i];
@@ -77,7 +79,7 @@ namespace YG.Example
 
             for (int i = 0; i < _cards.Count; i++)
             {
-                _cards[i].Init(YandexGame.savesData.cardStates[i]);
+                _cards[i].Init(YandexGame.savesData.cardStates[i], YandexGame.savesData.cardLevel[i]);
             }
 
             _buyer.LoadMoney(YandexGame.savesData.playerMoney);

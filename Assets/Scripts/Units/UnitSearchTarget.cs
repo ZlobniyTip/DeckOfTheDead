@@ -46,7 +46,7 @@ public class UnitSearchTarget : MonoBehaviour
 
                 if (rigidbody)
                 {
-                    if (rigidbody.gameObject.TryGetComponent(out Enemy enemy) && enemy.IsDiying == false)
+                    if (rigidbody.gameObject.TryGetComponent(out Zombie enemy) && enemy.IsDiying == false)
                     {
                         _unit.SetTarget(enemy);
                     }
