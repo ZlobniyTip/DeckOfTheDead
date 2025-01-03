@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e54859d3e55fc4f40b0c873b7e728be2, type: 3}
+  m_Name: FireAxe
+  m_EditorClassIdentifier: 
+  _icon: {fileID: 21300000, guid: fc41c6c09397b30449f1359a37120c92, type: 3}
+  _name: Fire axe
+  _energy: 1
+  _level: 1
+  _type: 2
+  _price: 5000
+  _index: 37
+  _prefabWeapon: {fileID: 7173047789023210633, guid: cec5944b3fba5e643b7558cbd3366cd4, type: 3}
+  _timeAction: 10

@@ -7,6 +7,7 @@ public class DragAndDropCardWeapon : MonoBehaviour, IBeginDragHandler, IEndDragH
     [SerializeField] private GameObject _cardObject;
     [SerializeField] private AudioSource _soundCard;
     [SerializeField] private Image _indikator;
+    [SerializeField] private AudioSource _spawnSound;
 
     private RectTransform _rectTransform;
     private Vector3 _originalPosition;
@@ -66,10 +67,12 @@ public class DragAndDropCardWeapon : MonoBehaviour, IBeginDragHandler, IEndDragH
     private void PerformSpawn()
     {
         _deck.Character.CharacterShooting.EquipWeapon((_cardView.Card as CardDataWeapon).PrefabWeapon, null);
+        _deck.Character.CharacterShooting.StartWeaponTimer((_cardView.Card as CardDataWeapon).TimeAction);
         _deck.RemoveCard(_cardView);
         _deck.TakeAwayPlayerEnergy(_cardView.Card.Energy);
-
         _deck.Character.CharacterShooting.PlayWeaponSpawnEffect();
+
+        _spawnSound.Play();
         Destroy(gameObject);
     }
 
