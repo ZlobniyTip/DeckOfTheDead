@@ -1,20 +1,30 @@
 using System.Collections;
 using UnityEngine;
 
-public class CharacterScaning : MonoBehaviour 
+public class CharacterScaning : MonoBehaviour
 {
     [SerializeField] private CharacterShooting _characterShooting;
 
     private Zombie _currentEnemy;
-
-    public Zombie Target => _currentEnemy;
 
     private void Start()
     {
         StartCoroutine(SearchEnemy());
     }
 
-    public IEnumerator SearchEnemy()
+    public void ActivSearch()
+    {
+        _characterShooting.StopShooting();
+        _currentEnemy = null;
+        StartCoroutine(SearchEnemy());
+    }
+
+    public void StopSearch()
+    {
+        StopCoroutine(SearchEnemy());
+    }
+
+    private IEnumerator SearchEnemy()
     {
         while (_currentEnemy == null)
         {
@@ -29,10 +39,12 @@ public class CharacterScaning : MonoBehaviour
                 {
                     if (rigidbody.gameObject.TryGetComponent(out Zombie enemy))
                     {
-                        _currentEnemy = enemy;
-                        _characterShooting.ActivShooting(_currentEnemy);
-
-                        yield break;
+                        if (enemy.IsDiying == false)
+                        {
+                            _currentEnemy = enemy;
+                            _characterShooting.ActivShooting(_currentEnemy);
+                            yield break;
+                        }
                     }
                 }
             }

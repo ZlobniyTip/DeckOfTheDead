@@ -35,7 +35,7 @@ public class CharacterShooting : MonoBehaviour, IAim
     {
         _currentEnemy = enemy;
         IsShooting = true;
-        StopCoroutine(_characterScaning.SearchEnemy());
+        _characterScaning.StopSearch();
         StartCoroutine(Shooting());
     }
 
@@ -95,11 +95,16 @@ public class CharacterShooting : MonoBehaviour, IAim
 
     public void PlayWeaponSpawnEffect() => _weaponSpawn.Play();
 
+    public void StopShooting()
+    {
+        StopCoroutine(Shooting());
+    }
+
     private IEnumerator Shooting()
     {
         var delay = new WaitForSeconds(_currentWeapon.DelayBetweenShots);
 
-        while (_currentEnemy != null)
+        while (_currentEnemy.IsDiying == false)
         {
             TurnToTarget();
             _currentEnemy.TakeDamage(_currentWeapon.Shoot());
@@ -115,9 +120,9 @@ public class CharacterShooting : MonoBehaviour, IAim
         }
 
         KilledTarget?.Invoke();
-        _character.GetLeaderboardScore(_currentEnemy.Reward);
         IsShooting = false;
-        StartCoroutine(_characterScaning.SearchEnemy());
+        _character.GetLeaderboardScore(_currentEnemy.Reward);
+        _characterScaning.ActivSearch();
     }
 
     private void TurnToTarget()
