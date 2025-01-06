@@ -1287,6 +1287,7 @@ MonoBehaviour:
   _maxValue: 100
   _zombieView: {fileID: -3013227326340185696}
   _effectCamp: {fileID: 5186316800584830977}
+  _rewardLeaderboardPoints: 800
 --- !u!114 &3877038961622020851
 MonoBehaviour:
   m_ObjectHideFlags: 0

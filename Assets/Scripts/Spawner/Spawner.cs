@@ -14,7 +14,8 @@ public class Spawner : MonoBehaviour
     private int _activeEnemies = 0;
 
     public event UnityAction<int, int> ReachedPoint;
-    public event UnityAction WaveCleared; 
+    public event UnityAction WaveCleared;
+    public event UnityAction ZombieDie;
 
     private void OnEnable()
     {
@@ -51,7 +52,7 @@ public class Spawner : MonoBehaviour
                 Quaternion.identity);
 
             enemy.ZombieSearch.InitializeStartTarget(_target);
-            enemy.Diying += HandleEnemyDeath; 
+            enemy.Died += HandleEnemyDeath;
             numberEnemiesInWave--;
 
             yield return delay;
@@ -61,6 +62,7 @@ public class Spawner : MonoBehaviour
     private void HandleEnemyDeath()
     {
         _activeEnemies--;
+        ZombieDie?.Invoke();
 
         if (_activeEnemies <= 0)
             WaveCleared?.Invoke(); 

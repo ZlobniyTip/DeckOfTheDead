@@ -423,7 +423,7 @@ MonoBehaviour:
   - {fileID: 25629878}
   - {fileID: 91642183}
   _prefabEnemies:
-  - {fileID: 6449221251005342339, guid: fd70d037c8729274899b72967d6d07f7, type: 3}
+  - {fileID: 6449221251005342339, guid: a7b454baef06c944b8d046fd654e97d6, type: 3}
   _delaySpawn: 2
 --- !u!4 &278653929
 Transform:
@@ -1990,6 +1990,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3815496694419442033, guid: 0a74f698bd1807f4389896e3f7bbd78e, type: 3}
+      propertyPath: _spawner
+      value: 
+      objectReference: {fileID: 278653928}
     - target: {fileID: 3815496694419442033, guid: 0a74f698bd1807f4389896e3f7bbd78e, type: 3}
       propertyPath: _character
       value: 

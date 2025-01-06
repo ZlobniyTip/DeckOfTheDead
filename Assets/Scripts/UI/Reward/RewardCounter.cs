@@ -5,6 +5,7 @@ public class RewardCounter : MonoBehaviour
     [SerializeField] private UnitSpawner _cardUnit;
     [SerializeField] private Character _character;
     [SerializeField] private CharacterShooting _characterShooting;
+    [SerializeField] private Spawner _spawner;
 
     public int UnitsUsed { get; private set; }
     public int HeroDamage { get; private set; }
@@ -17,6 +18,7 @@ public class RewardCounter : MonoBehaviour
         _characterShooting.CausedDamage += AddHeroDamage;
         _character.ChangedLeaderboardScore += AddLeaderboardScore;
         _characterShooting.KilledTarget += AddKilledZombie;
+        _spawner.ZombieDie += AddKilledZombie;
     }
 
     private void OnDisable()
@@ -25,6 +27,7 @@ public class RewardCounter : MonoBehaviour
         _characterShooting.CausedDamage -= AddHeroDamage;
         _character.ChangedLeaderboardScore -= AddLeaderboardScore;
         _characterShooting.KilledTarget -= AddKilledZombie;
+        _spawner.ZombieDie -= AddKilledZombie;
     }
 
     private void AddCardUsed() => UnitsUsed++;

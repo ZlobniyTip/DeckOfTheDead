@@ -5,8 +5,6 @@ public class UnitAttack : MonoBehaviour
 {
     [SerializeField] private Transform _weaponPoint;
 
-    private UnitSearchTarget _searchTarget;
-    private UnitMovement _unitMovement;
     private Unit _unit;
     private Weapon _currentWeapon;
     private UnitAnimator _unitAnimator;
@@ -21,8 +19,6 @@ public class UnitAttack : MonoBehaviour
     private void Awake()
     {
         _unit = GetComponent<Unit>();
-        _unitMovement = GetComponent<UnitMovement>();
-        _searchTarget = GetComponent<UnitSearchTarget>();
         _unitAnimator = GetComponent<UnitAnimator>();
         InstallWeapon();
     }
@@ -70,8 +66,7 @@ public class UnitAttack : MonoBehaviour
 
                     if (_unit.Target != null)
                     {
-                        _unit.Target.TakeDamage(_currentWeapon.Shoot());
-                        _unit.Target.TakeDamage(_damage);
+                        _unit.Target.TakeDamage(_currentWeapon.Shoot() + _damage);
                     }
 
                     yield return delay;

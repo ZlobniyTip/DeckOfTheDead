@@ -56,10 +56,4 @@ public class UnitSearchTarget : MonoBehaviour
             yield return 0.1f;
         }
     }
-
-    //private void OnDrawGizmos()
-    //{
-    //    Gizmos.color = Color.blue;
-    //    Gizmos.DrawWireSphere(transform.position, _radius);
-    //}
 }

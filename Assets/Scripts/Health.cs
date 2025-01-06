@@ -7,12 +7,11 @@ public abstract class Health : MonoBehaviour
 
     protected int _value;
     protected Zombie _lastAttacker;
-    protected bool _isDiying = false;
 
     public event Action<int, int> Changed;
     public event Action Died;
 
-    public bool IsDiying { get; private set; }
+    public bool IsDiying { get; private set; } = false;
     public int MaxValue => _maxValue;
     public int Value => _value;
 
@@ -49,7 +48,7 @@ public abstract class Health : MonoBehaviour
 
     public void SetDiyingStatus(bool isDiying)
     {
-        _isDiying = isDiying;
+        IsDiying = isDiying;
     }
 
     public void DeclareDeath()

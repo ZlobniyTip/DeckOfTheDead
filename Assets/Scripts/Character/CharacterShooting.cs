@@ -104,7 +104,6 @@ public class CharacterShooting : MonoBehaviour, IAim
             TurnToTarget();
             _currentEnemy.TakeDamage(_currentWeapon.Shoot());
 
-            _character.GetLeaderboardScore(_currentWeapon.Shoot());
             CausedDamage?.Invoke(_currentWeapon.Shoot());
 
             yield return delay;
@@ -116,6 +115,7 @@ public class CharacterShooting : MonoBehaviour, IAim
         }
 
         KilledTarget?.Invoke();
+        _character.GetLeaderboardScore(_currentEnemy.Reward);
         IsShooting = false;
         StartCoroutine(_characterScaning.SearchEnemy());
     }

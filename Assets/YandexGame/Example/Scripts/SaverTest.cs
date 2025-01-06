@@ -76,6 +76,11 @@ namespace YG.Example
                 _rangeWeapons[i].Init(YandexGame.savesData.rangeWeaponStates[i], _emptyParameter);
 
                 if (_rangeWeapons[i].State.Status == ItemStatus.Equipped)
+                    if (_currentWeapon != null)
+                    {
+                        _currentWeapon.State.SetStatus(ItemStatus.Purchased);
+                    }
+
                     _currentWeapon = _rangeWeapons[i];
             }
 

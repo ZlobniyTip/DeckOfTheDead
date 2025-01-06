@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using UnityEngine;
 
@@ -8,6 +7,7 @@ public class Zombie : Health
 {
     [SerializeField] private ZombieView _zombieView;
     [SerializeField] private ParticleSystem _effectCamp;
+    [SerializeField] private int _rewardLeaderboardPoints;
 
     private ZombieAttack _zombieAttack;
     private EnemyMovement _movement;
@@ -16,8 +16,7 @@ public class Zombie : Health
     private bool _isUnderCamp = false;
     private float _delayBetweenDeath = 2.5f;
 
-    public event Action Diying;
-
+    public int Reward => _rewardLeaderboardPoints;
     public bool IsUnderCamp => _isUnderCamp;
     public ZombieSearchTarget ZombieSearch => _zombieSearch;
     public EnemyMovement Movement => _movement;
@@ -67,20 +66,21 @@ public class Zombie : Health
 
     public override void TakeDamage(int damage)
     {
+        if (IsDiying)
+            return;
+
         base.TakeDamage(damage);
 
         if (_value <= 0)
             StartCoroutine(Die());
     }
 
-    public void ReportDeath() => Diying?.Invoke();
-
     private IEnumerator Die()
     {
         if (IsDiying) yield break;
 
+        DeclareDeath();
         SetDiyingStatus(true);
-        ReportDeath();
         _movement.StopMovement();
 
         var delay = new WaitForSeconds(_delayBetweenDeath);

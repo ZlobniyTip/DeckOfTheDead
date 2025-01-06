@@ -1,11 +1,11 @@
 {
-    "idSave": 601,
+    "idSave": 643,
     "isFirstSession": false,
     "language": "ru",
     "promptDone": false,
     "sound": 0.4604605734348297,
-    "playerMoney": 3074400,
-    "leaderboardScore": 85,
+    "playerMoney": 3974400,
+    "leaderboardScore": 875,
     "rangeWeaponStates": [
         2,
         1,
@@ -26,12 +26,12 @@
         0,
         0,
         0,
-        0,
-        0
+        1,
+        2
     ],
     "melleWeaponStates": [
         1,
-        2,
+        1,
         1,
         0,
         0,

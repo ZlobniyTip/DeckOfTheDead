@@ -16,7 +16,7 @@ public class SkillEmo : MonoBehaviour
             enemyFriend.SetCharacter(character);
             timerHandler.StartTimerEmoSkill(enemyFriend, character);
 
-            enemy.ReportDeath();
+            enemy.DeclareDeath();
             Destroy(enemy.gameObject);
         }
     }

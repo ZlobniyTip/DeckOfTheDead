@@ -57,10 +57,10 @@ public class Unit : Health, IAim
     public void SetTarget(Zombie target)
     {
         if (_target != null)
-            _target.Diying -= ClearTarget;
+            _target.Died -= ClearTarget;
 
         _target = target;
-        _target.Diying += ClearTarget;
+        _target.Died += ClearTarget;
     }
 
     public void SetCharacter(Character character)

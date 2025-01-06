@@ -1,5 +1,9 @@
 using UnityEngine;
 
+[RequireComponent(typeof(UnitAttack))]
+[RequireComponent(typeof(UnitSearchTarget))]
+[RequireComponent(typeof(UnitMovement))]
+[RequireComponent(typeof(Unit))]
 public class UnitObserver : MonoBehaviour
 {
     private UnitSearchTarget _unitSearchTarget;
