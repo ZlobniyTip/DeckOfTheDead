@@ -25,7 +25,6 @@ public class Deck : MonoBehaviour
         while (_playerCards.Count < 5)
         {
             CreateCard();
-
         }
 
         StartCoroutine(ViewActivity());

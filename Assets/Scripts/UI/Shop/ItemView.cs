@@ -7,8 +7,9 @@ public class ItemView : MonoBehaviour
 {
     [SerializeField] private TMP_Text _price;
     [SerializeField] private Button _purchaseButton;
-    [SerializeField] private Button _equipButton;
     [SerializeField] private GameObject _equippedLabel;
+
+    [SerializeField] protected Button _equipButton;
 
     [SerializeField] protected TMP_Text _name;
     [SerializeField] protected Image _icon;

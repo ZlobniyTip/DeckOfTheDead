@@ -15,9 +15,11 @@ MonoBehaviour:
   _icon: {fileID: 21300000, guid: 21f3a6dcc1129ca4e8957e6bd4aefa3e, type: 3}
   _name: Shotgun
   _energy: 1
-  _level: 1
   _type: 2
-  _price: 1000
   _index: 25
+  _price: 1000
+  _priceLevel1: 1200
+  _priceLevel2: 1800
+  _priceLevel3: 2500
   _prefabWeapon: {fileID: 260374932984932369, guid: a2458a3a2318bb64ea864a87f6558170, type: 3}
   _timeAction: 10

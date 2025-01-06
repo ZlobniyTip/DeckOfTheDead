@@ -65,4 +65,9 @@ public abstract class Weapon : MonoBehaviour, IProduct
     {
         Shooting?.Invoke();
     }
+
+    public void ApplyGain(CardView view)
+    {
+        _damage += view.Card.BonusDamage;
+    }
 }

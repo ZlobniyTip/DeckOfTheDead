@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -8,6 +9,8 @@ public class UnitSpawner : MonoBehaviour
 
     private Deck _deck;
 
+    public event Action UsedCard;
+
     private void Awake()
     {
         _deck = GetComponent<Deck>();
@@ -15,6 +18,7 @@ public class UnitSpawner : MonoBehaviour
 
     public void Spawn(Vector3 point, Unit prefabUnit, CardView cardView)
     {
+        UsedCard?.Invoke();
         _soundSpawn.Play();
         Instantiate(_prefabSpawnEffect, point + Vector3.up * 0.5f, Quaternion.identity);
         StartCoroutine(SetDelaySpawning(point, prefabUnit, cardView));

@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class CharacterShooting : MonoBehaviour, IAim
 {
+    [SerializeField] private Character _character;
     [SerializeField] private CharacterScaning _characterScaning;
     [SerializeField] private Transform _weaponPoint;
     [SerializeField] private Weapon _defaultWeapon;
@@ -15,24 +16,19 @@ public class CharacterShooting : MonoBehaviour, IAim
     private Weapon _currentWeapon;
     private Weapon _previousWeapons;
     private Weapon _removableWeapons;
-    private int _score;
     private int _time;
 
     public bool IsShooting { get; private set; } = false;
     public Weapon CurrentWeapon => _currentWeapon;
-    public int Score => _score;
     public Zombie Target => _currentEnemy;
 
     public event Action ChangedWeapon;
+    public event Action KilledTarget;
+    public event Action<int> CausedDamage;
 
     private void Awake()
     {
         EquipWeapon(_defaultWeapon, null);
-    }
-
-    public void LoadScore(int score)
-    {
-        _score = score;
     }
 
     public void ActivShooting(Zombie enemy)
@@ -60,13 +56,13 @@ public class CharacterShooting : MonoBehaviour, IAim
         {
             _currentWeapon = Instantiate(weapon, _weaponPoint);
         }
-
     }
 
-    public void UseTemporaryWeapons(Weapon weapon)
+    public void UseTemporaryWeapons(Weapon weapon, CardView view)
     {
         _previousWeapons = _currentWeapon;
         _currentWeapon = Instantiate(weapon, _weaponPoint);
+        _currentWeapon.ApplyGain(view);
         _previousWeapons.gameObject.SetActive(false);
     }
 
@@ -108,6 +104,9 @@ public class CharacterShooting : MonoBehaviour, IAim
             TurnToTarget();
             _currentEnemy.TakeDamage(_currentWeapon.Shoot());
 
+            _character.GetLeaderboardScore(_currentWeapon.Shoot());
+            CausedDamage?.Invoke(_currentWeapon.Shoot());
+
             yield return delay;
         }
 
@@ -116,11 +115,10 @@ public class CharacterShooting : MonoBehaviour, IAim
             _currentWeapon.StopShooting();
         }
 
+        KilledTarget?.Invoke();
         IsShooting = false;
         StartCoroutine(_characterScaning.SearchEnemy());
     }
-
-
 
     private void TurnToTarget()
     {

@@ -8,7 +8,7 @@ public class EnemyMovement : MonoBehaviour
 {
     private ZombieSearchTarget _zombieSearch;
     private NavMeshAgent _navMesh;
-    private float _speed = 2;
+    private float _speed = 5;
     private ZombieAttack _zombieAttack;
     private Zombie _enemy;
 

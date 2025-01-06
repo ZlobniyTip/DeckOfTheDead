@@ -15,9 +15,11 @@ MonoBehaviour:
   _icon: {fileID: 21300000, guid: 7d8e3cb962399094f802f95abb6fa00f, type: 3}
   _name: Pipe wrench
   _energy: 1
-  _level: 1
   _type: 2
-  _price: 5000
   _index: 44
+  _price: 5000
+  _priceLevel1: 100
+  _priceLevel2: 200
+  _priceLevel3: 300
   _prefabWeapon: {fileID: 5156931599230239379, guid: 67dc5c17caf2cce4b85e75244a2d8ce1, type: 3}
   _timeAction: 10

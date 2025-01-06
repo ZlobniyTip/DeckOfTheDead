@@ -66,7 +66,7 @@ public class DragAndDropCardWeapon : MonoBehaviour, IBeginDragHandler, IEndDragH
 
     private void PerformSpawn()
     {
-        _deck.Character.CharacterShooting.UseTemporaryWeapons((_cardView.Card as CardDataWeapon).PrefabWeapon);
+        _deck.Character.CharacterShooting.UseTemporaryWeapons((_cardView.Card as CardDataWeapon).PrefabWeapon, _cardView);
         _deck.Character.CharacterShooting.StartWeaponTimer((_cardView.Card as CardDataWeapon).TimeAction);
         _deck.RemoveCard(_cardView);
         _deck.TakeAwayPlayerEnergy(_cardView.Card.Energy);

@@ -15,9 +15,11 @@ MonoBehaviour:
   _icon: {fileID: 21300000, guid: eb1a4edc7949be64dae37c0f9fe6a504, type: 3}
   _name: MP9
   _energy: 1
-  _level: 1
   _type: 2
-  _price: 1000
   _index: 30
+  _price: 1000
+  _priceLevel1: 500
+  _priceLevel2: 700
+  _priceLevel3: 1000
   _prefabWeapon: {fileID: 473291411766604811, guid: 69b6ae1bb36dc814c9445c523810fe43, type: 3}
   _timeAction: 10

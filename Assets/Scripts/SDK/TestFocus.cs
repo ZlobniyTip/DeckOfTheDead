@@ -1,8 +1,11 @@
+using UI;
 using UnityEngine;
 using YG;
 
 public class TestFocus : MonoBehaviour
 {
+    [SerializeField] private Menu _menu;
+
     private void OnEnable()
     {
         YandexGame.onVisibilityWindowGame += OnVisibilityWindowGame;
@@ -23,13 +26,7 @@ public class TestFocus : MonoBehaviour
     {
         if (value == false)
         {
-            if (PlayerPrefs.HasKey("currentVolume"))
-            {
-                AudioListener.volume = PlayerPrefs.GetFloat("currentVolume");
-                return;
-            }
-
-            AudioListener.volume = 1;
+            AudioListener.volume = YandexGame.savesData.sound;
         }
 
         if (value == true)
@@ -40,6 +37,9 @@ public class TestFocus : MonoBehaviour
 
     private void PauseGame(bool value)
     {
+        if (_menu.IsPaused)
+            return;
+
         Time.timeScale = value ? 0 : 1;
     }
 }

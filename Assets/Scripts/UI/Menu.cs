@@ -4,15 +4,17 @@ namespace UI
 {
     public class Menu : MonoBehaviour
     {
+        public bool IsPaused { get; private set; } = false;
+
         public void OpenMenu(GameObject panel)
         {
-            Time.timeScale = 0;
+            IsPaused = true;
             panel.SetActive(true);
         }
 
         public void CloseMenu(GameObject panel)
         {
-            Time.timeScale = 1;
+            IsPaused = false;
             panel.SetActive(false);
         }
     }

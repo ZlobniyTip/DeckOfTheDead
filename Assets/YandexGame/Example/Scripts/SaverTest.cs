@@ -15,7 +15,8 @@ namespace YG.Example
         private Weapon _currentWeapon;
         private int _emptyParameter = 0;
 
-        public event Action<int> LoadedData;
+        public event Action<int> LoadedLeaderboardScore;
+        public event Action<int> SavedLeaderboardScore;
 
         private void OnEnable()
         {
@@ -54,17 +55,14 @@ namespace YG.Example
             }
 
             YandexGame.savesData.playerMoney = _buyer.Money;
-            YandexGame.savesData.leaderboardScore = _buyer.CharacterShooting.Score;
+            YandexGame.savesData.leaderboardScore = _buyer.Character.LeaderboardScore;
+            SavedLeaderboardScore?.Invoke(YandexGame.savesData.leaderboardScore);
 
             YandexGame.SaveProgress();
         }
 
         public void GetLoad()
         {
-            Debug.Log($"{_cards.Count} карты");
-            Debug.Log($"{YandexGame.savesData.cardLevel.Count} уровни");
-            Debug.Log($"{YandexGame.savesData.cardStates.Count} состояния");
-
             for (int i = 0; i < _melleWeapons.Count; i++)
             {
                 _melleWeapons[i].Init(YandexGame.savesData.melleWeaponStates[i], _emptyParameter);
@@ -87,12 +85,14 @@ namespace YG.Example
             }
 
             _buyer.LoadMoney(YandexGame.savesData.playerMoney);
-            _buyer.CharacterShooting.LoadScore(YandexGame.savesData.leaderboardScore);
+            _buyer.Character.LoadScore(YandexGame.savesData.leaderboardScore);
+
+            AudioListener.volume = YandexGame.savesData.sound;
 
             if (_currentWeapon != null)
             _buyer.EquipItem(_currentWeapon);
 
-            LoadedData?.Invoke(_buyer.CharacterShooting.Score);
+            LoadedLeaderboardScore?.Invoke(_buyer.Character.LeaderboardScore);
         }
     }
 }

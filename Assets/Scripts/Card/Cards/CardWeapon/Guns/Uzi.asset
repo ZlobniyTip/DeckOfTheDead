@@ -15,9 +15,11 @@ MonoBehaviour:
   _icon: {fileID: 21300000, guid: 39a62c6685cc19d47949c726a834b707, type: 3}
   _name: Uzi
   _energy: 1
-  _level: 1
   _type: 2
-  _price: 1000
   _index: 28
+  _price: 1000
+  _priceLevel1: 800
+  _priceLevel2: 1500
+  _priceLevel3: 2000
   _prefabWeapon: {fileID: 6074864951784468394, guid: e22ad038422a02c49b86a09ff69dedfc, type: 3}
   _timeAction: 10

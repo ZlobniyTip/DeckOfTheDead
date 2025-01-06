@@ -15,9 +15,11 @@ MonoBehaviour:
   _icon: {fileID: 21300000, guid: d2fe43a843b173c42a42e2f36fa4d1ee, type: 3}
   _name: Rifle
   _energy: 1
-  _level: 1
   _type: 2
-  _price: 1000
   _index: 21
+  _price: 1000
+  _priceLevel1: 1000
+  _priceLevel2: 1200
+  _priceLevel3: 1500
   _prefabWeapon: {fileID: 8582406574941914621, guid: ac46653d56756124eb294a6b8c58d2d3, type: 3}
   _timeAction: 10

@@ -8,17 +8,19 @@ public abstract class CardData : ScriptableObject, IProduct
     private const int LevelThree = 3;
 
     [SerializeField] private Sprite _icon;
-
     [SerializeField] private string _name;
-    [SerializeField] private int _level;
-
     [SerializeField] private int _energy;
 
     [SerializeField] private ItemType _type;
-    [SerializeField] private int _price;
     [SerializeField] private int _index;
+    [SerializeField] private int _price;
+    [SerializeField] private int _priceLevel1;
+    [SerializeField] private int _priceLevel2;
+    [SerializeField] private int _priceLevel3;
 
     [NonSerialized] private ItemState _state = null;
+
+    private int _level = 0;
 
     private int _bonusDamage = 0;
     private int _bonusHealth = 0;
@@ -30,6 +32,10 @@ public abstract class CardData : ScriptableObject, IProduct
     private int _healthOneLevel = 20;
     private int _healthTwoLevel = 40;
     private int _healthThreeLevel = 80;
+
+    public int PriceLevel1 => _priceLevel1;
+    public int PriceLevel2 => _priceLevel2;
+    public int PriceLevel3 => _priceLevel3;
 
     public Sprite Icon => _icon;
     public string Name => _name;

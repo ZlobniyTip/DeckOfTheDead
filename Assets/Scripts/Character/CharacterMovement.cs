@@ -21,7 +21,6 @@ public class CharacterMovement : MonoBehaviour
 
     private void Start()
     {
-
         MoveToPoint();
     }
 
@@ -35,7 +34,7 @@ public class CharacterMovement : MonoBehaviour
         _spawner.WaveCleared -= MoveToPoint; 
     }
 
-    public void MoveToPoint()
+    private void MoveToPoint()
     {
         if (_pointIndex < _points.Count)
         {

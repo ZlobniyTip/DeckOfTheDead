@@ -15,9 +15,11 @@ MonoBehaviour:
   _icon: {fileID: 21300000, guid: d6afa08dcbc3bfc4188c4103c61c0ccc, type: 3}
   _name: Flame thrower
   _energy: 1
-  _level: 1
   _type: 2
-  _price: 1000
   _index: 13
+  _price: 1000
+  _priceLevel1: 500
+  _priceLevel2: 1000
+  _priceLevel3: 1500
   _prefabWeapon: {fileID: -5512371652571814412, guid: aef0a5fd18f8fc745b48fb751ebcf18b, type: 3}
   _timeAction: 10

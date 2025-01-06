@@ -12,6 +12,8 @@ namespace YG
         public string language = "ru";
         public bool promptDone;
 
+        public float sound = 1;
+
         public int playerMoney = 0;
         public int leaderboardScore = 0;
 
@@ -75,11 +77,11 @@ namespace YG
 
         public List<int> cardLevel = new()
         {
-            1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-            1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-            1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-            1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-            1, 1, 1, 1, 1, 1, 1, 1, 1, 1
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 0, 0
         };
 
         public SavesYG()

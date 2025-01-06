@@ -1,9 +1,12 @@
+using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public abstract class CardView : ItemView
 {
     [SerializeField] private Image _activity;
+    [SerializeField] private TMP_Text _levelPrice;
 
     protected CardData _cardData;
     private DragAndDropCardUnit _dragAndDrop;
@@ -11,10 +14,14 @@ public abstract class CardView : ItemView
 
     public CardData Card => _cardData;
 
+    public event Action<CardView> LevelUpButtonPressed;
+
     private void Awake()
     {
         _dragAndDrop = GetComponent<DragAndDropCardUnit>();
         _dragAndDropWeapon = GetComponent<DragAndDropCardWeapon>();
+
+        _equipButton.onClick.AddListener(OnLevelUpPressed);
     }
 
     public abstract void Initialize(CardData cardData);
@@ -38,5 +45,32 @@ public abstract class CardView : ItemView
 
         if (_dragAndDropWeapon != null)
             _dragAndDropWeapon.enabled = isActiv;
+    }
+
+    public void DeterminPriceLevelUp()
+    {
+        switch (_cardData.Level)
+        {
+            case 0:
+                _levelPrice.text = _cardData.PriceLevel1.ToString();
+                break;
+
+            case 1:
+                _levelPrice.text = _cardData.PriceLevel2.ToString();
+                break;
+
+            case 2:
+                _levelPrice.text = _cardData.PriceLevel3.ToString();
+                break;
+
+            default:
+                _levelPrice.text = "Max Level";
+                break;
+        }
+    }
+
+    private void OnLevelUpPressed()
+    {
+        LevelUpButtonPressed?.Invoke(this);
     }
 }

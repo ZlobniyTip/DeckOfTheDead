@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Buyer : MonoBehaviour
 {
+    [SerializeField] private Character _character;
     [SerializeField] private List<RangeWeapon> _rangeWeapons;
     [SerializeField] private List<MelleWeapon> _melleWeapons;
     [SerializeField] private List<CardData> _cards;
@@ -18,6 +19,7 @@ public class Buyer : MonoBehaviour
 
     public int Money => _money;
     public CharacterShooting CharacterShooting => _characterShooting;
+    public Character Character => _character;
 
 #if UNITY_EDITOR
     private void Start()
@@ -41,6 +43,18 @@ public class Buyer : MonoBehaviour
         _money -= product.Price;
         product.State.SetStatus(ItemStatus.Purchased);
 
+        MoneyChanged?.Invoke(_money);
+        EquipmentChanged?.Invoke();
+
+        return true;
+    }
+
+    public bool TryLevelUpCard(int price)
+    {
+        if (_money < price)
+            return false;
+
+        _money -= price;
         MoneyChanged?.Invoke(_money);
         EquipmentChanged?.Invoke();
 

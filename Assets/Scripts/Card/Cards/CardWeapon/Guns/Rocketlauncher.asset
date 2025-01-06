@@ -15,9 +15,11 @@ MonoBehaviour:
   _icon: {fileID: 21300000, guid: 943c2b12e160a334f9716e1a105afc2e, type: 3}
   _name: Rocket launcher
   _energy: 1
-  _level: 1
   _type: 2
-  _price: 1000
   _index: 24
+  _price: 1000
+  _priceLevel1: 1000
+  _priceLevel2: 2000
+  _priceLevel3: 5000
   _prefabWeapon: {fileID: 4028818248477452516, guid: 5f73668964f88164aae003225d1f933f, type: 3}
   _timeAction: 10

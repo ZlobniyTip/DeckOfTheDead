@@ -15,9 +15,11 @@ MonoBehaviour:
   _icon: {fileID: 21300000, guid: 5fbce77b82e56484f9c71752605ea32c, type: 3}
   _name: Butcher knife
   _energy: 1
-  _level: 1
   _type: 2
-  _price: 5000
   _index: 35
+  _price: 5000
+  _priceLevel1: 100
+  _priceLevel2: 200
+  _priceLevel3: 300
   _prefabWeapon: {fileID: 5582312703991870276, guid: 9f7c41ee6908ddc4f89559758aae9548, type: 3}
   _timeAction: 10

@@ -15,9 +15,11 @@ MonoBehaviour:
   _icon: {fileID: 21300000, guid: ccd049de8701f0b44a199c9d01f037b4, type: 3}
   _name: Crossbow
   _energy: 1
-  _level: 1
   _type: 2
-  _price: 1000
   _index: 12
+  _price: 1000
+  _priceLevel1: 500
+  _priceLevel2: 1000
+  _priceLevel3: 1500
   _prefabWeapon: {fileID: 3115095377988841637, guid: ccd191fcb9ab4364c8eac9e2dc2b3bf1, type: 3}
   _timeAction: 15

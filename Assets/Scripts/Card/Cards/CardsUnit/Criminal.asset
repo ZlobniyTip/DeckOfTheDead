@@ -15,10 +15,12 @@ MonoBehaviour:
   _icon: {fileID: 21300000, guid: 2213608bb32a2cd499c98388f993df4c, type: 3}
   _name: "\u041F\u0440\u0435\u0441\u0442\u0443\u043F\u043D\u0438\u043A"
   _energy: 1
-  _level: 1
   _type: 2
-  _price: 6000
   _index: 3
+  _price: 6000
+  _priceLevel1: 300
+  _priceLevel2: 500
+  _priceLevel3: 800
   _prefabUnit: {fileID: 4154534539150764249, guid: 3fb61838b5988d7449e3eb369599973c, type: 3}
   _ability: "\u0415\u0441\u0442\u044C \u043D\u0435\u0431\u043E\u043B\u044C\u0448\u043E\u0439
     \u0448\u0430\u043D\u0441 (5%) \u043D\u0430\u043D\u0435\u0441\u0442\u0438 \u043B\u0435\u0442\u0430\u043B\u044C\u043D\u044B\u0439

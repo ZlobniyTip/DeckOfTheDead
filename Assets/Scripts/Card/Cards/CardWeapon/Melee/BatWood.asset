@@ -15,9 +15,11 @@ MonoBehaviour:
   _icon: {fileID: 21300000, guid: 9c9c91ab8e8e88246b9323e0b387b159, type: 3}
   _name: Bat wood
   _energy: 1
-  _level: 1
   _type: 2
-  _price: 5000
   _index: 32
+  _price: 5000
+  _priceLevel1: 100
+  _priceLevel2: 200
+  _priceLevel3: 300
   _prefabWeapon: {fileID: -6136854924940047355, guid: d855c6cd18605f34dbfdca25cb40d71c, type: 3}
   _timeAction: 10

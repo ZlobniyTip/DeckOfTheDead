@@ -100,8 +100,9 @@ public class Shop : MonoBehaviour
             view.Initialize(card);
             view.SwitchDragAndDrop(false);
             view.PurchaseButtonPressed += OnPurchaseButtonPressed;
-            view.EquipButtonPressed += OnEquipButtonPressed;
+            view.LevelUpButtonPressed += OnLevelUpPressed;
             _content.Add(view);
+            view.DeterminPriceLevelUp();
         }
     }
 
@@ -114,5 +115,45 @@ public class Shop : MonoBehaviour
     {
         PlayerEquippedItem?.Invoke();
         _buyer.EquipItem(view.Product);
+    }
+
+    private void OnLevelUpPressed(CardView view)
+    {
+        _buyer.TryLevelUpCard(DeterminePriceImprovement(view));
+
+        switch (view.Card.Level)
+        {
+            case 0:
+                view.Card.Init(ItemStatus.Purchased, 1);
+                break;
+
+            case 1:
+                view.Card.Init(ItemStatus.Purchased, 2);
+                break;
+
+            case 2:
+                view.Card.Init(ItemStatus.Purchased, 3);
+                break;
+        }
+
+        view.DeterminPriceLevelUp();
+    }
+
+    private int DeterminePriceImprovement(CardView card)
+    {
+        switch (card.Card.Level)
+        {
+            case 0:
+                return card.Card.PriceLevel1;
+
+            case 1:
+                return card.Card.PriceLevel2;
+
+            case 2:
+                return card.Card.PriceLevel3;
+
+            default:
+                return 0;
+        }
     }
 }

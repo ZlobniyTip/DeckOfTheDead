@@ -15,9 +15,11 @@ MonoBehaviour:
   _icon: {fileID: 21300000, guid: 7cca5a3b4f6451845bf4cea4f855e9fd, type: 3}
   _name: Minigun
   _energy: 1
-  _level: 1
   _type: 2
-  _price: 1000
   _index: 18
+  _price: 1000
+  _priceLevel1: 3000
+  _priceLevel2: 5000
+  _priceLevel3: 8000
   _prefabWeapon: {fileID: 3640421154895809645, guid: a807abad9d573264b96019ffcfcae869, type: 3}
   _timeAction: 10

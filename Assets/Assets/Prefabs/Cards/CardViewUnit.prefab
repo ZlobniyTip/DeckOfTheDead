@@ -822,11 +822,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _price: {fileID: 5575831167922109296}
   _purchaseButton: {fileID: 3878098190908314816}
-  _equipButton: {fileID: 6294409039225468056}
   _equippedLabel: {fileID: 5770114541918438059}
+  _equipButton: {fileID: 6294409039225468056}
   _name: {fileID: 8320021411205515304}
   _icon: {fileID: 4490216494014467748}
   _activity: {fileID: 7934541689023240800}
+  _levelPrice: {fileID: 5381065038796398989}
   _energy: {fileID: 1605734872471934573}
   _level: {fileID: 4753519401886735113}
   _health: {fileID: 5784285601499063229}
@@ -1404,7 +1405,7 @@ GameObject:
   - component: {fileID: 1478117236886356750}
   - component: {fileID: 6294409039225468056}
   m_Layer: 0
-  m_Name: EquipButton
+  m_Name: LevelUpButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

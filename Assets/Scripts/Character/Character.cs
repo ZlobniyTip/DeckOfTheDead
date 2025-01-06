@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 [RequireComponent(typeof(CharacterMovement))]
@@ -11,15 +12,19 @@ public class Character : Health
     private CharacterMovement _movement;
     private CharacterCards _characterCards;
     private PlayerEnergy _playerEnergy;
+    private int _leaderboardScore;
 
     private CharacterStateMachine _stateMachine;
 
+    public event Action<int> ChangedLeaderboardScore;
+
+    public int LeaderboardScore => _leaderboardScore;
     public PlayerEnergy Energy => _playerEnergy;
     public CharacterMovement Movement => _movement;
     public CharacterView CharacterView => _characterView;
     public CharacterShooting CharacterShooting => _characterShooting;
 
-    private void Awake()
+    private void Start()
     {
         _playerEnergy = GetComponent<PlayerEnergy>();
         _characterShooting = GetComponent<CharacterShooting>();
@@ -43,5 +48,16 @@ public class Character : Health
         {
             Destroy(gameObject);
         }
+    }
+
+    public void GetLeaderboardScore(int score)
+    {
+        _leaderboardScore += score;
+        ChangedLeaderboardScore?.Invoke(_leaderboardScore);
+    }
+
+    public void LoadScore(int score)
+    {
+        _leaderboardScore = score;
     }
 }

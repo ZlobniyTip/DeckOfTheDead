@@ -15,9 +15,11 @@ MonoBehaviour:
   _icon: {fileID: 21300000, guid: 7eff0671d7add054f87b779fddcf9e5e, type: 3}
   _name: MP5
   _energy: 1
-  _level: 1
   _type: 2
-  _price: 1000
   _index: 29
+  _price: 1000
+  _priceLevel1: 500
+  _priceLevel2: 800
+  _priceLevel3: 1000
   _prefabWeapon: {fileID: 4105591834877352078, guid: e465d39263959404582f9fdf69f40c53, type: 3}
   _timeAction: 10
