@@ -1,11 +1,16 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace UI
 {
     public class RewardView : MonoBehaviour
     {
+        [SerializeField] private GameObject _gamePanel;
+        [SerializeField] private GameObject _buttonsPanel;
+        [SerializeField] private Button _activPanelButton;
+
         [SerializeField] private RewardCounter _rewardCounter;
         [SerializeField] private TMP_Text _heroDamage;
         [SerializeField] private TMP_Text _leaderboardScore;
@@ -21,10 +26,17 @@ namespace UI
 
         private void Start()
         {
+            _gamePanel.SetActive(false);
+            _activPanelButton.onClick.AddListener(OnActivPanel);
             StartCoroutine(ChangeValue(_rewardCounter.HeroDamage, _heroDamage));
             StartCoroutine(ChangeValue(_rewardCounter.LeaderboardScore, _leaderboardScore));
             StartCoroutine(ChangeValue(_rewardCounter.UnitsUsed, _unitsUsed));
             StartCoroutine(ChangeValue(_rewardCounter.KilledEnemies, _killedEnemies));
+        }
+
+        private void OnEnable()
+        {
+            _activPanelButton.onClick.RemoveListener(OnActivPanel);
         }
 
         private IEnumerator ChangeValue(int value, TMP_Text text)
@@ -48,6 +60,12 @@ namespace UI
 
             if (_completedCoroutines == 4)
                 StartCoroutine(ChangeValue(_countReward, _reward));
+        }
+
+        private void OnActivPanel()
+        {
+            _buttonsPanel.SetActive(true);
+            gameObject.SetActive(false);
         }
     }
 }
