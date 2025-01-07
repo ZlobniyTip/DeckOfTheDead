@@ -107,6 +107,7 @@ public class Unit : Health, IAim
 
         _controller.DisableStates();
         _unitAnimator.PlauDiyingAnimation();
+        SetDiyingStatus(true);
         yield return delay;
 
         TurnIntoZombie?.Invoke(this);

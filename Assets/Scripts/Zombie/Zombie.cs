@@ -43,18 +43,16 @@ public class Zombie : Health
     public void EnterCamp()
     {
         if (_effectCamp != null)
-        {
             _effectCamp.Play();
-        }
+
         _isUnderCamp = true;
     }
 
     public void ExitCamp()
     {
         if (_effectCamp != null)
-        {
             _effectCamp.Stop();
-        }
+
         _isUnderCamp = false;
     }
 
