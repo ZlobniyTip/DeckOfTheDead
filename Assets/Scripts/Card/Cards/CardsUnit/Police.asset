@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Police
   m_EditorClassIdentifier: 
   _icon: {fileID: 21300000, guid: 976e822bf34bb264d873e0d1288d76f3, type: 3}
-  _name: "\u041F\u043E\u043B\u0438\u0446\u0435\u0439\u0441\u043A\u0438\u0439"
+  _name: Police
   _energy: 1
   _type: 2
   _index: 9
@@ -22,6 +22,5 @@ MonoBehaviour:
   _priceLevel2: 1000
   _priceLevel3: 1500
   _prefabUnit: {fileID: 4808868463496544598, guid: 3de6bf881dae348409091af0d4ff90f8, type: 3}
-  _ability: "\u041E\u0434\u0435\u0442 \u0432 \u0431\u0440\u043E\u043D\u0435\u0436\u0438\u043B\u0435\u0442,
-    \u043F\u043E\u044D\u0442\u043E\u043C\u0443 \u0443\u0431\u0438\u0442\u044C \u0435\u0433\u043E
-    \u043A\u0440\u0430\u0439\u043D\u0435 \u0441\u043B\u043E\u0436\u043D\u043E"
+  _ability: He's wearing a bulletproof vest, so it's extremely difficult to kill
+    him.

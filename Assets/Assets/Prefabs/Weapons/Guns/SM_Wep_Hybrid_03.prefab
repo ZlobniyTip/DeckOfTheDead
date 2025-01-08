@@ -110,7 +110,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _weaponType: 3
   _type: 0
-  _icon: {fileID: 21300000, guid: 07e15889013d9604791f95dbcf24feb0, type: 3}
+  _icon: {fileID: 21300000, guid: 8b6b921cfcd718e48a9efdc5558d8262, type: 3}
   _name: Shotgun
   _price: 4000
   _index: 6

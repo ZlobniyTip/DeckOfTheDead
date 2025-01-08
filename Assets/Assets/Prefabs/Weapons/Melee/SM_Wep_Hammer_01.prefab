@@ -99,7 +99,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _weaponType: 0
   _type: 1
-  _icon: {fileID: 21300000, guid: adb51e3db54330a4cb7689499f5397e4, type: 3}
+  _icon: {fileID: 21300000, guid: 7ce4ccaf87b551b4f8b5e0624d9eea55, type: 3}
   _name: Hammer
   _price: 300
   _index: 7

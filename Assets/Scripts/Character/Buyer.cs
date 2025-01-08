@@ -24,10 +24,15 @@ public class Buyer : MonoBehaviour
 #if UNITY_EDITOR
     private void Start()
     {
-        _money += 100000;
+        _money = 100000;
         MoneyChanged?.Invoke(_money);
     }
 #endif
+
+    public void GetMoney(int money)
+    {
+        _money += money;
+    }
 
     public void LoadMoney(int money)
     {

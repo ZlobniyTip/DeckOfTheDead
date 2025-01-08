@@ -190,7 +190,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _weaponType: 4
   _type: 0
-  _icon: {fileID: 21300000, guid: 0e1af1db780126f4ba6cd6c6f802ae1f, type: 3}
+  _icon: {fileID: 21300000, guid: c87aa6e795e2dda4b9b23f94d68e0232, type: 3}
   _name: Sniper rifle
   _price: 14000
   _index: 17

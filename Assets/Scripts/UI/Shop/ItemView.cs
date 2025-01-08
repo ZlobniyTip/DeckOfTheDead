@@ -1,7 +1,9 @@
+using Lean.Localization;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
+using YG;
 
 public class ItemView : MonoBehaviour
 {
@@ -59,7 +61,11 @@ public class ItemView : MonoBehaviour
 
     private void UpdateView()
     {
-        _name.text = _product.Name;
+        _name.text = LeanLocalization.GetTranslationText(_product.Name);
+
+        if (_name.text == null)
+            _name.text = _product.Name;
+
         _price.text = _product.Price.ToString();
         _icon.sprite = _product.Icon;
 

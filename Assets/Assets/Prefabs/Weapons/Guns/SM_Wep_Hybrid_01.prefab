@@ -523,7 +523,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _weaponType: 2
   _type: 0
-  _icon: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 8a432efc6b0c4aa4a9b0162f05e6e456, type: 3}
   _name: Hybrid
   _price: 4000
   _index: 5

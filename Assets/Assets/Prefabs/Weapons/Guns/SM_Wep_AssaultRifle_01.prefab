@@ -355,7 +355,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _weaponType: 2
   _type: 0
-  _icon: {fileID: 21300000, guid: 8a1d5c60915e682498ccc6618da10e7c, type: 3}
+  _icon: {fileID: 21300000, guid: fd7f46aae7238b0448d7160119114561, type: 3}
   _name: AK74U
   _price: 10000
   _index: 0

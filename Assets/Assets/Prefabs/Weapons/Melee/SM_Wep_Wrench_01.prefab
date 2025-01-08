@@ -99,7 +99,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _weaponType: 0
   _type: 1
-  _icon: {fileID: 0}
+  _icon: {fileID: 21300000, guid: da59b7c39b0357945841e9f1a92dd873, type: 3}
   _name: Wrench
   _price: 500
   _index: 18

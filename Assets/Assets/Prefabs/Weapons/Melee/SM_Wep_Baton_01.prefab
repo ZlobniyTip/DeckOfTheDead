@@ -99,7 +99,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _weaponType: 0
   _type: 1
-  _icon: {fileID: 21300000, guid: 4d25fa3b205ab474d875934301c5c8ff, type: 3}
+  _icon: {fileID: 21300000, guid: e442872b8476b8245a2affcf8e1b343e, type: 3}
   _name: Police baton
   _price: 300
   _index: 3

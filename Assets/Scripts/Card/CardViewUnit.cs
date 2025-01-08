@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using Lean.Localization;
+using TMPro;
 using UnityEngine;
 
 public class CardViewUnit : CardView
@@ -15,11 +16,11 @@ public class CardViewUnit : CardView
         CardDataUnit cardDataUnit = _cardData as CardDataUnit;
 
         _icon.sprite = cardDataUnit.Icon;
-        _name.text = cardDataUnit.Name;
+        _name.text = LeanLocalization.GetTranslationText(cardDataUnit.Name);
         _energy.text = cardDataUnit.Energy.ToString();
         _level.text = cardDataUnit.Level.ToString();
         _health.text = cardDataUnit.UnitHealth.ToString();
         _damage.text = cardDataUnit.Damage.ToString();
-        _ability.text = cardDataUnit.Ability;
+        _ability.text = LeanLocalization.GetTranslationText(cardDataUnit.Ability);
     }
 }

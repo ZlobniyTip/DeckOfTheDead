@@ -99,7 +99,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _weaponType: 0
   _type: 1
-  _icon: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 0c97802a1e2ff83439893edd4f3c0db1, type: 3}
   _name: Hunting knife
   _price: 700
   _index: 10

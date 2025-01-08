@@ -608,7 +608,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _weaponType: 4
   _type: 0
-  _icon: {fileID: 21300000, guid: 5edaad556835f05498b9ab14c7a1f455, type: 3}
+  _icon: {fileID: 21300000, guid: ccd049de8701f0b44a199c9d01f037b4, type: 3}
   _name: Crossbow
   _price: 2000
   _index: 2
@@ -616,6 +616,7 @@ MonoBehaviour:
   _damage: 40
   _delayBetweenShots: 2
   _shotEffect: {fileID: 7131191009260842342}
+  _shotEffect2: {fileID: 0}
   _bullet: {fileID: 2779122238377238336, guid: 7af0025c87c32d548bd8331f3955239a, type: 3}
   _bulletPoints:
   - {fileID: 1164146295302026109}

@@ -99,7 +99,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _weaponType: 0
   _type: 1
-  _icon: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 37017cdcbc209604aa90e5a1d9eb1015, type: 3}
   _name: Pipe
   _price: 600
   _index: 12

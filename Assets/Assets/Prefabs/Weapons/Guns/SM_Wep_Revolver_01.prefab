@@ -190,7 +190,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _weaponType: 1
   _type: 0
-  _icon: {fileID: 21300000, guid: a125ffabc2da7d64a83686cde142a8d3, type: 3}
+  _icon: {fileID: 21300000, guid: 1e489887d707a1548ac69ce8e23d36ec, type: 3}
   _name: Revolver
   _price: 3000
   _index: 10

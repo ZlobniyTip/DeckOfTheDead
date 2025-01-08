@@ -106,8 +106,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _weaponType: 1
   _type: 0
-  _icon: {fileID: 0}
-  _name: Uzi
+  _icon: {fileID: 21300000, guid: 39a62c6685cc19d47949c726a834b707, type: 3}
+  _name: UZI
   _price: 4000
   _index: 18
   _attackDistance: 5

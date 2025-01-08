@@ -99,7 +99,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _weaponType: 0
   _type: 1
-  _icon: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 50843cc84b7943e4db7a71426c1ba679, type: 3}
   _name: Katana
   _price: 1500
   _index: 8

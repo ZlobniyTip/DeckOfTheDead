@@ -99,7 +99,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _weaponType: 0
   _type: 1
-  _icon: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 5fbce77b82e56484f9c71752605ea32c, type: 3}
   _name: Butcher knife
   _price: 400
   _index: 4

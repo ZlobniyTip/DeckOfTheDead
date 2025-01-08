@@ -189,7 +189,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _weaponType: 4
   _type: 0
-  _icon: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 943c2b12e160a334f9716e1a105afc2e, type: 3}
   _name: Rocket launcher
   _price: 18000
   _index: 14
@@ -197,6 +197,7 @@ MonoBehaviour:
   _damage: 200
   _delayBetweenShots: 5
   _shotEffect: {fileID: 5022263297201313718}
+  _shotEffect2: {fileID: 0}
   _bullet: {fileID: 8913779870085971220, guid: a8c1a0a294f053e4f83314349709c9eb, type: 3}
   _bulletPoints:
   - {fileID: 2559394999660238119}

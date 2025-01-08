@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -23,6 +24,8 @@ namespace UI
         private int _completedCoroutines = 0;
 
         private int _countReward = 0;
+
+        public event Action<int> RewardCounted;
 
         private void Start()
         {
@@ -64,6 +67,7 @@ namespace UI
 
         private void OnActivPanel()
         {
+            RewardCounted?.Invoke(_countReward);
             _buttonsPanel.SetActive(true);
             gameObject.SetActive(false);
         }

@@ -439,7 +439,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _weaponType: 2
   _type: 0
-  _icon: {fileID: 0}
+  _icon: {fileID: 21300000, guid: cda4fabaf99aa404989b9ed58d942099, type: 3}
   _name: Rifle
   _price: 5000
   _index: 12

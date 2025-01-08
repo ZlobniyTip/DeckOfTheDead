@@ -2,8 +2,6 @@ using UnityEngine;
 
 public class ZombieView : CreatureView
 {
-    public Animator Animator => _animator;
-
     private float _startSpeedAnimation;
 
     private void Start()

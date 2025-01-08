@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using Lean.Localization;
+using TMPro;
 using UnityEngine;
 
 public class CardViewWeapon : CardView
@@ -15,11 +16,16 @@ public class CardViewWeapon : CardView
         CardDataWeapon cardDataWeapon = _cardData as CardDataWeapon;
 
         _icon.sprite = cardDataWeapon.Icon;
-        _name.text = cardDataWeapon.Name;
+        _name.text = LeanLocalization.GetTranslationText(cardDataWeapon.Name);
+
+        if (_name.text == null)
+            _name.text = cardDataWeapon.Name;
+
         _energy.text = cardDataWeapon.Energy.ToString();
         _level.text = cardDataWeapon.Level.ToString();
         _damage.text = cardDataWeapon.WeaponDamage.ToString();
         _delayBetweenShots.text = cardDataWeapon.DelayBetweenShots.ToString();
-        _timeAction.text = $"Время действия {cardDataWeapon.TimeAction.ToString()} секунд";
+        _timeAction.text = LeanLocalization.GetTranslationText("Time of action") + 
+            ($" {cardDataWeapon.TimeAction.ToString()} ") + (LeanLocalization.GetTranslationText("seconds"));
     }
 }

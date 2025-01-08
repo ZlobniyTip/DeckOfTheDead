@@ -99,7 +99,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _weaponType: 0
   _type: 1
-  _icon: {fileID: 0}
+  _icon: {fileID: 21300000, guid: c73219551ace1cf4694034d4aff0082e, type: 3}
   _name: Rebar club
   _price: 600
   _index: 15

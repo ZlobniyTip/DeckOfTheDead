@@ -273,7 +273,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _weaponType: 2
   _type: 0
-  _icon: {fileID: 0}
+  _icon: {fileID: 21300000, guid: eb1a4edc7949be64dae37c0f9fe6a504, type: 3}
   _name: MP9
   _price: 7000
   _index: 20

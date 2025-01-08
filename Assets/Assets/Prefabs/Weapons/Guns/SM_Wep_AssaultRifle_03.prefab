@@ -356,7 +356,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _weaponType: 2
   _type: 0
-  _icon: {fileID: 21300000, guid: e713fa6769be8884781c361a06c7bc7c, type: 3}
+  _icon: {fileID: 21300000, guid: d2fe43a843b173c42a42e2f36fa4d1ee, type: 3}
   _name: M4A1
   _price: 8000
   _index: 1

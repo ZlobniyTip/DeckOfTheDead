@@ -52,7 +52,9 @@ public class ZombieAttack : MonoBehaviour
             var distance = Vector3.Distance(transform.position, _zombieSearchTarget.Target.transform.position);
 
             if (distance <= _attackDistance)
+            {
                 _zombieSearchTarget.Target.TakeDamageFromEnemy(_damage, _enemy);
+            }
             else
                 break; 
 

@@ -146,6 +146,7 @@ GameObject:
   - component: {fileID: 7328729385979640908}
   - component: {fileID: 3898525289998977603}
   - component: {fileID: 5779851182470435921}
+  - component: {fileID: 7492178774273140345}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -271,6 +272,58 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &7492178774273140345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3112261964266409638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f34f36451b093ee4c83ad4aa5459d2ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textMPComponent: {fileID: 5779851182470435921}
+  uniqueFontTMP: {fileID: 0}
+  textLComponent: {fileID: 0}
+  infoYG: {fileID: 11400000, guid: 162644796a8b0d044bce3d6fda0641e3, type: 2}
+  text: 
+  ru: "\u041E\u0431\u043E\u0440\u0443\u0434\u043E\u0432\u0430\u0442\u044C"
+  en: Equip
+  tr: Donatmak
+  az: 
+  be: 
+  he: 
+  hy: 
+  ka: 
+  et: 
+  fr: 
+  kk: 
+  ky: 
+  lt: 
+  lv: 
+  ro: 
+  tg: 
+  tk: 
+  uk: 
+  uz: 
+  es: 
+  pt: 
+  ar: 
+  id: 
+  ja: 
+  it: 
+  de: 
+  hi: 
+  changeOnlyFont: 0
+  fontNumber: 0
+  uniqueFont: {fileID: 0}
+  additionalText: {fileID: 0}
+  textHeight: 20
+  processTranslateLabel: 3/3 completed
+  componentTextField: 1
+  countLang: 3
 --- !u!1 &3543652670711556398
 GameObject:
   m_ObjectHideFlags: 0
@@ -558,8 +611,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _price: {fileID: 7899703331238001515}
   _purchaseButton: {fileID: 1315244237543069282}
-  _equipButton: {fileID: 6466051740945365861}
   _equippedLabel: {fileID: 4017818837848294131}
+  _equipButton: {fileID: 6466051740945365861}
   _name: {fileID: 3590856195461741485}
   _icon: {fileID: 1765758487756249032}
 --- !u!1 &4017818837848294131
@@ -769,6 +822,7 @@ GameObject:
   - component: {fileID: 4417266770204497972}
   - component: {fileID: 3238789088911748405}
   - component: {fileID: 7899703331238001515}
+  - component: {fileID: 539756235192437634}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -892,6 +946,58 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &539756235192437634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7467218759873695648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f34f36451b093ee4c83ad4aa5459d2ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textMPComponent: {fileID: 7899703331238001515}
+  uniqueFontTMP: {fileID: 11400000, guid: 02fea1fb776e0ad43a5e684a1ab0ce9e, type: 2}
+  textLComponent: {fileID: 0}
+  infoYG: {fileID: 11400000, guid: 162644796a8b0d044bce3d6fda0641e3, type: 2}
+  text: 
+  ru: "\u041F\u043E\u043A\u0443\u043F\u043A\u0430"
+  en: Purchase
+  tr: "Sat\u0131n almak"
+  az: 
+  be: 
+  he: 
+  hy: 
+  ka: 
+  et: 
+  fr: 
+  kk: 
+  ky: 
+  lt: 
+  lv: 
+  ro: 
+  tg: 
+  tk: 
+  uk: 
+  uz: 
+  es: 
+  pt: 
+  ar: 
+  id: 
+  ja: 
+  it: 
+  de: 
+  hi: 
+  changeOnlyFont: 0
+  fontNumber: 0
+  uniqueFont: {fileID: 0}
+  additionalText: {fileID: 0}
+  textHeight: 20
+  processTranslateLabel: 3/3 completed
+  componentTextField: 1
+  countLang: 3
 --- !u!1 &7609738558968255361
 GameObject:
   m_ObjectHideFlags: 0
@@ -978,6 +1084,7 @@ GameObject:
   - component: {fileID: 6031330539657134744}
   - component: {fileID: 396891385907415941}
   - component: {fileID: 1777044490124540739}
+  - component: {fileID: 1192579774456940286}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -1101,6 +1208,58 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &1192579774456940286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7658805342219017492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f34f36451b093ee4c83ad4aa5459d2ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textMPComponent: {fileID: 1777044490124540739}
+  uniqueFontTMP: {fileID: 0}
+  textLComponent: {fileID: 0}
+  infoYG: {fileID: 11400000, guid: 162644796a8b0d044bce3d6fda0641e3, type: 2}
+  text: 
+  ru: "\u041E\u0431\u043E\u0440\u0443\u0434\u043E\u0432\u0430\u043D\u043E"
+  en: Equipped
+  tr: "Donan\u0131ml\u0131"
+  az: 
+  be: 
+  he: 
+  hy: 
+  ka: 
+  et: 
+  fr: 
+  kk: 
+  ky: 
+  lt: 
+  lv: 
+  ro: 
+  tg: 
+  tk: 
+  uk: 
+  uz: 
+  es: 
+  pt: 
+  ar: 
+  id: 
+  ja: 
+  it: 
+  de: 
+  hi: 
+  changeOnlyFont: 0
+  fontNumber: 0
+  uniqueFont: {fileID: 0}
+  additionalText: {fileID: 0}
+  textHeight: 20
+  processTranslateLabel: 3/3 completed
+  componentTextField: 1
+  countLang: 3
 --- !u!1 &8400047235815760312
 GameObject:
   m_ObjectHideFlags: 0
@@ -1244,12 +1403,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1990594193549166204, guid: 289e34102b96a4515a667a4f636007c0, type: 3}
       propertyPath: m_fontSize
-      value: 63.5
+      value: 72
       objectReference: {fileID: 0}
     - target: {fileID: 1990594193549166204, guid: 289e34102b96a4515a667a4f636007c0, type: 3}
       propertyPath: m_fontAsset
       value: 
-      objectReference: {fileID: 11400000, guid: 5ad3bd70008689c418483dba1db4c2c2, type: 2}
+      objectReference: {fileID: 11400000, guid: 02fea1fb776e0ad43a5e684a1ab0ce9e, type: 2}
     - target: {fileID: 1990594193549166204, guid: 289e34102b96a4515a667a4f636007c0, type: 3}
       propertyPath: m_fontStyle
       value: 16
@@ -1261,7 +1420,7 @@ PrefabInstance:
     - target: {fileID: 1990594193549166204, guid: 289e34102b96a4515a667a4f636007c0, type: 3}
       propertyPath: m_sharedMaterial
       value: 
-      objectReference: {fileID: 2100000, guid: 18cad136db3aec84580cd0f6bfaebc01, type: 2}
+      objectReference: {fileID: 942589445191879500, guid: 02fea1fb776e0ad43a5e684a1ab0ce9e, type: 2}
     - target: {fileID: 1990594193549166204, guid: 289e34102b96a4515a667a4f636007c0, type: 3}
       propertyPath: m_characterSpacing
       value: 2

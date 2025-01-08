@@ -183,7 +183,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _weaponType: 0
   _type: 1
-  _icon: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 7d8e3cb962399094f802f95abb6fa00f, type: 3}
   _name: Pipe wrench
   _price: 500
   _index: 13
