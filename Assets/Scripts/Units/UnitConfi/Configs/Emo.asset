@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _health: 50
   _weapon: {fileID: 6074864951784468394, guid: e22ad038422a02c49b86a09ff69dedfc, type: 3}
-  _speed: 1.5
+  _speed: 3.2

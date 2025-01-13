@@ -1260,7 +1260,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _zombieAttack: {fileID: 3877038961622020851}
-  _radius: 3
+  _radius: 5
 --- !u!114 &3878132907162087073
 MonoBehaviour:
   m_ObjectHideFlags: 0
