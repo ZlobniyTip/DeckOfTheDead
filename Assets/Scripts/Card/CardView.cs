@@ -1,3 +1,4 @@
+using Lean.Localization;
 using System;
 using TMPro;
 using UnityEngine;
@@ -64,7 +65,7 @@ public abstract class CardView : ItemView
                 break;
 
             default:
-                _levelPrice.text = "Max Level";
+                _levelPrice.text = LeanLocalization.GetTranslationText("MaxLevel");
                 break;
         }
     }

@@ -10,7 +10,6 @@ public class Character : Health
 
     private CharacterShooting _characterShooting;
     private CharacterMovement _movement;
-    private CharacterCards _characterCards;
     private PlayerEnergy _playerEnergy;
     private int _leaderboardScore;
 
@@ -46,6 +45,7 @@ public class Character : Health
 
         if (_value <= 0)
         {
+            DeclareDeath();
             Destroy(gameObject);
         }
     }

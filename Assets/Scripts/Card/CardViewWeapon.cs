@@ -10,10 +10,13 @@ public class CardViewWeapon : CardView
     [SerializeField] private TMP_Text _timeAction;
     [SerializeField] private TMP_Text _delayBetweenShots;
 
+    private CardDataWeapon _cardDataWeapon;
+
     public override void Initialize(CardData cardData)
     {
         _cardData = cardData;
         CardDataWeapon cardDataWeapon = _cardData as CardDataWeapon;
+        _cardDataWeapon = cardDataWeapon;
 
         _icon.sprite = cardDataWeapon.Icon;
         _name.text = LeanLocalization.GetTranslationText(cardDataWeapon.Name);
@@ -27,5 +30,12 @@ public class CardViewWeapon : CardView
         _delayBetweenShots.text = cardDataWeapon.DelayBetweenShots.ToString();
         _timeAction.text = LeanLocalization.GetTranslationText("Time of action") + 
             ($" {cardDataWeapon.TimeAction.ToString()} ") + (LeanLocalization.GetTranslationText("seconds"));
+    }
+
+    public void TransferData()
+    {
+        _name.text = LeanLocalization.GetTranslationText(_cardDataWeapon.Name);
+        _timeAction.text = LeanLocalization.GetTranslationText("Time of action") +
+            ($" {_cardDataWeapon.TimeAction.ToString()} ") + (LeanLocalization.GetTranslationText("seconds"));
     }
 }

@@ -1,5 +1,4 @@
-﻿
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace YG
 {
@@ -19,22 +18,33 @@ namespace YG
 
         public List<ItemStatus> rangeWeaponStates = new()
         {
-            ItemStatus.NotPurchased, ItemStatus.NotPurchased,
-            ItemStatus.NotPurchased, ItemStatus.NotPurchased,
-            ItemStatus.NotPurchased, ItemStatus.NotPurchased,
-            ItemStatus.NotPurchased, ItemStatus.NotPurchased,
-            ItemStatus.NotPurchased, ItemStatus.NotPurchased,
-            ItemStatus.NotPurchased, ItemStatus.NotPurchased,
-            ItemStatus.NotPurchased, ItemStatus.NotPurchased,
-            ItemStatus.NotPurchased, ItemStatus.NotPurchased,
-            ItemStatus.NotPurchased, ItemStatus.NotPurchased,
-            ItemStatus.NotPurchased, ItemStatus.NotPurchased,
+            ItemStatus.NotPurchased,
+            ItemStatus.NotPurchased,
+            ItemStatus.NotPurchased,
+            ItemStatus.NotPurchased,
+            ItemStatus.NotPurchased,
+            ItemStatus.NotPurchased,
+            ItemStatus.NotPurchased,
+            ItemStatus.NotPurchased,
+            ItemStatus.NotPurchased,
+            ItemStatus.NotPurchased,
+            ItemStatus.NotPurchased,
+            ItemStatus.NotPurchased,
+            ItemStatus.NotPurchased,
+            ItemStatus.NotPurchased,
+            ItemStatus.NotPurchased,
+            ItemStatus.NotPurchased,
+            ItemStatus.NotPurchased,
+            ItemStatus.NotPurchased,
+            ItemStatus.NotPurchased,
+            ItemStatus.NotPurchased,
             ItemStatus.NotPurchased
         };
 
+
         public List<ItemStatus> melleWeaponStates = new()
         {
-            ItemStatus.NotPurchased, ItemStatus.NotPurchased,
+            ItemStatus.Purchased, ItemStatus.NotPurchased,
             ItemStatus.NotPurchased, ItemStatus.NotPurchased,
             ItemStatus.NotPurchased, ItemStatus.NotPurchased,
             ItemStatus.NotPurchased, ItemStatus.NotPurchased,
@@ -87,6 +97,7 @@ namespace YG
         public SavesYG()
         {
             // Допустим, задать значения по умолчанию для отдельных элементов массива
+            
         }
     }
 }

@@ -1,4 +1,5 @@
 using Lean.Localization;
+using System;
 using UnityEngine;
 using YG;
 
@@ -7,6 +8,8 @@ namespace UI
     public class LeanHelper : MonoBehaviour
     {
         [SerializeField] private LeanLocalization _leanLocalization;
+
+        public event Action ChangedLanguage;
 
         private void Start()
         {
@@ -33,6 +36,8 @@ namespace UI
                     _leanLocalization.SetCurrentLanguage("English");
                     break;
             }
+
+            ChangedLanguage?.Invoke();
         }
     }
 }

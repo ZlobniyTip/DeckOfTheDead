@@ -13,6 +13,7 @@ namespace YG.Example
         [SerializeField] private List<CardData> _cards;
 
         private Weapon _currentWeapon;
+        private Weapon _currentMelleWeapon;
         private int _emptyParameter = 0;
 
         public event Action<int> LoadedLeaderboardScore;
@@ -68,7 +69,7 @@ namespace YG.Example
                 _melleWeapons[i].Init(YandexGame.savesData.melleWeaponStates[i], _emptyParameter);
 
                 if (_melleWeapons[i].State.Status == ItemStatus.Equipped)
-                    _currentWeapon = _melleWeapons[i];
+                    _currentMelleWeapon = _melleWeapons[i];
             }
 
             for (int i = 0; i < _rangeWeapons.Count; i++)
@@ -76,12 +77,12 @@ namespace YG.Example
                 _rangeWeapons[i].Init(YandexGame.savesData.rangeWeaponStates[i], _emptyParameter);
 
                 if (_rangeWeapons[i].State.Status == ItemStatus.Equipped)
-                    if (_currentWeapon != null)
-                    {
-                        _currentWeapon.State.SetStatus(ItemStatus.Purchased);
-                    }
-
+                {
                     _currentWeapon = _rangeWeapons[i];
+
+                    if (_currentMelleWeapon != null)
+                        _currentMelleWeapon.State.SetStatus(ItemStatus.Purchased);
+                }
             }
 
             for (int i = 0; i < _cards.Count; i++)
@@ -95,7 +96,13 @@ namespace YG.Example
             AudioListener.volume = YandexGame.savesData.sound;
 
             if (_currentWeapon != null)
-            _buyer.EquipItem(_currentWeapon);
+            {
+                _buyer.EquipItem(_currentWeapon);
+            }
+            else if (_currentMelleWeapon != null)
+            {
+                _buyer.EquipItem(_currentMelleWeapon);
+            }
 
             LoadedLeaderboardScore?.Invoke(_buyer.Character.LeaderboardScore);
         }

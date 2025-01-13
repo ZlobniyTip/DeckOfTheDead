@@ -285,7 +285,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textMPComponent: {fileID: 5779851182470435921}
-  uniqueFontTMP: {fileID: 0}
+  uniqueFontTMP: {fileID: 11400000, guid: 02fea1fb776e0ad43a5e684a1ab0ce9e, type: 2}
   textLComponent: {fileID: 0}
   infoYG: {fileID: 11400000, guid: 162644796a8b0d044bce3d6fda0641e3, type: 2}
   text: 
@@ -1221,7 +1221,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textMPComponent: {fileID: 1777044490124540739}
-  uniqueFontTMP: {fileID: 0}
+  uniqueFontTMP: {fileID: 11400000, guid: 02fea1fb776e0ad43a5e684a1ab0ce9e, type: 2}
   textLComponent: {fileID: 0}
   infoYG: {fileID: 11400000, guid: 162644796a8b0d044bce3d6fda0641e3, type: 2}
   text: 

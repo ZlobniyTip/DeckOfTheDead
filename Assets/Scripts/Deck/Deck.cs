@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UI;
 using UnityEngine;
 
 public class Deck : MonoBehaviour
@@ -10,6 +11,7 @@ public class Deck : MonoBehaviour
     [SerializeField] private CardView _cardViewUnit;
     [SerializeField] private CardView _cardViewWeapon;
     [SerializeField] private PlayerEnergy _playerEnergy;
+    [SerializeField] private LeanHelper _leanHelper;
 
     private List<CardView> _playerCards;
     private HashSet<CardData> _usedCards;
@@ -77,6 +79,9 @@ public class Deck : MonoBehaviour
             CardView cardView = Instantiate(_cardViewUnit, _ñontainer);
             cardView.Initialize(randomCardData);
             _playerCards.Add(cardView);
+
+            CardViewUnit cardViewUnit = cardView as CardViewUnit;
+            _leanHelper.ChangedLanguage += cardViewUnit.TransferData;
         }
 
         if(randomCardData is CardDataWeapon)
@@ -84,6 +89,9 @@ public class Deck : MonoBehaviour
             CardView cardView = Instantiate(_cardViewWeapon, _ñontainer);
             cardView.Initialize(randomCardData);
             _playerCards.Add(cardView);
+
+            CardViewWeapon cardViewWeapon = cardView as CardViewWeapon;
+            _leanHelper.ChangedLanguage += cardViewWeapon.TransferData;
         }
     }
 

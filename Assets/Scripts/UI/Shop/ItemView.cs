@@ -3,7 +3,6 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
-using YG;
 
 public class ItemView : MonoBehaviour
 {
