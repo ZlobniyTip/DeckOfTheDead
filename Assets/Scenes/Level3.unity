@@ -19947,6 +19947,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1325039819}
     - target: {fileID: 5249754845734030960, guid: 7e628cf75ef966342a9383c37ca1e4f2, type: 3}
+      propertyPath: _prefabEnemies.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5249754845734030960, guid: 7e628cf75ef966342a9383c37ca1e4f2, type: 3}
       propertyPath: _playerMovePoints.Array.size
       value: 4
       objectReference: {fileID: 0}

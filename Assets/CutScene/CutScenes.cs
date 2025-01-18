@@ -13,7 +13,6 @@ public class CutScenes : MonoBehaviour
 
     private void Awake()
     {
-        // Отключаем все камеры и тексты
         for (int i = 0; i < _camers.Length; i++)
             _camers[i].gameObject.SetActive(false);
 
