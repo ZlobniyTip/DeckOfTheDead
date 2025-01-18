@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/CutScene/CutScene.unity
+    guid: 454640dc8cae03d4a92c9bae004365bf
+  - enabled: 1
     path: Assets/Scenes/Level1.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
@@ -14,4 +17,28 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level3.unity
     guid: 270e5c83b04eab44e8bbdecd2bfe8291
+  - enabled: 1
+    path: Assets/Scenes/Level4.unity
+    guid: 699db267483ea654781678e4ade60f2a
+  - enabled: 1
+    path: Assets/Scenes/Level5.unity
+    guid: b42ede5f081d02d498e3c2334da24309
+  - enabled: 1
+    path: Assets/Scenes/Level6.unity
+    guid: 1e4177acf5d28db4fa4e7ed8e0fed995
+  - enabled: 1
+    path: Assets/Scenes/Level7.unity
+    guid: ad2e4d4f5ad8fae48a6084a737d3bd4a
+  - enabled: 1
+    path: Assets/Scenes/Level8.unity
+    guid: dbf5f3828fcd15b41ba11dec2a23b522
+  - enabled: 1
+    path: Assets/Scenes/Level9.unity
+    guid: f4238174227f03e45aae4c7ee335c3ca
+  - enabled: 1
+    path: Assets/Scenes/Level10.unity
+    guid: 9c519702ecc1e4742a1b05cb568cc6ec
+  - enabled: 1
+    path: Assets/CutScene/CutScene2.unity
+    guid: 9559b6d2b6b4a8c4ca4bfcc8daad86b2
   m_configObjects: {}
