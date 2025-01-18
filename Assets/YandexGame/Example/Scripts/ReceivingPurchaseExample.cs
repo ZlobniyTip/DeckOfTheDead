@@ -8,6 +8,7 @@ namespace YG.Example
     {
         [SerializeField] UnityEvent successPurchased;
         [SerializeField] UnityEvent failedPurchased;
+        [SerializeField] private Buyer _buyer;
 
         private void OnEnable()
         {
@@ -25,14 +26,22 @@ namespace YG.Example
         {
             successPurchased?.Invoke();
 
-            // Ваш код для обработки покупки. Например:
-            //if (id == "50")
-            //    YandexGame.savesData.money += 50;
-            //else if (id == "250")
-            //    YandexGame.savesData.money += 250;
-            //else if (id == "1500")
-            //    YandexGame.savesData.money += 1500;
-            //YandexGame.SaveProgress();
+            switch (id)
+            {
+                case "Box":
+
+                    break;
+
+                case "Money":
+                    _buyer.GetMoney(20000);
+                    break;
+
+                case "Money2":
+                    _buyer.GetMoney(50000);
+                    break;
+            }
+
+            YandexGame.SaveProgress();
         }
 
         void FailedPurchased(string id)

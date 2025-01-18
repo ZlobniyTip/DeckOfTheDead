@@ -32,6 +32,7 @@ public class Buyer : MonoBehaviour
     public void GetMoney(int money)
     {
         _money += money;
+        MoneyChanged?.Invoke(_money);
     }
 
     public void LoadMoney(int money)
