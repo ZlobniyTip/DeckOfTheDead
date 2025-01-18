@@ -1,10 +1,5 @@
-using UnityEngine;
-
-public class FlameThrower : Weapon
+public class FlameThrower : RangeWeapon
 {
-    [SerializeField] private ParticleSystem _shotEffect;
-    [SerializeField] private Transform _bulletPoint;
-
     public override int Shoot()
     {
         if (_isShooting == false)

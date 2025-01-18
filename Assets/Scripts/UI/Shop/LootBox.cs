@@ -10,8 +10,8 @@ public class LootBox : MonoBehaviour
 
     private List<Weapon> _choosedWeapons = new();
     private List<CardData> _choosedCards = new();
-    private int _countWeapons = 4;
-    private int _countCards = 9;
+    private int _countWeapons = 5;
+    private int _countCards = 10;
 
     public List<Weapon> Weapons => _choosedWeapons;
     public List<CardData> Cards => _choosedCards;
@@ -66,7 +66,7 @@ public class LootBox : MonoBehaviour
         cards[cardIndex].State.SetStatus(ItemStatus.Purchased);
         _choosedCards.Add(cards[cardIndex]);
 
-        if (_choosedCards.Count == 15)
+        if (_choosedCards.Count == 10)
             _prizesPanel.SetActive(true);
     }
 }

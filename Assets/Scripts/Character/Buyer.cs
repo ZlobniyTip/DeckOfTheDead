@@ -18,7 +18,6 @@ public class Buyer : MonoBehaviour
     public event Action EquipmentChanged;
 
     public int Money => _money;
-    public CharacterShooting CharacterShooting => _characterShooting;
     public Character Character => _character;
 
 #if UNITY_EDITOR

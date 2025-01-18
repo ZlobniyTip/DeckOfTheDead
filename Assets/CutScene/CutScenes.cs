@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System;
 
 public class CutScenes : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class CutScenes : MonoBehaviour
     [SerializeField] private TMP_Text[] _texts; 
     [SerializeField] private Image _blackout; 
     [SerializeField] private float _fadeDuration = 1.5f; 
+
+    public event Action EndCutScene;
 
     private void Awake()
     {
@@ -79,5 +82,6 @@ public class CutScenes : MonoBehaviour
         }
 
         _blackout.color = endColor;
+        EndCutScene?.Invoke();
     }
 }

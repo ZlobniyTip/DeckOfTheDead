@@ -208,7 +208,10 @@ MonoBehaviour:
   _damage: 5
   _delayBetweenShots: 0.5
   _shotEffect: {fileID: 9114176803207630635}
-  _bulletPoint: {fileID: 3155832188610308625}
+  _shotEffect2: {fileID: 0}
+  _bullet: {fileID: 0}
+  _bulletPoints:
+  - {fileID: 3155832188610308625}
 --- !u!114 &-2260080006141017435
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -472,7 +475,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 19801364, guid: f12e7b5c70fbeac4b99a545b6993f9b9, type: 3}
       propertyPath: looping
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 19801364, guid: f12e7b5c70fbeac4b99a545b6993f9b9, type: 3}
       propertyPath: playOnAwake

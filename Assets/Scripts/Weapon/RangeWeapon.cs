@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class RangeWeapon : Weapon
 {
-    [SerializeField] private ParticleSystem _shotEffect;
+    [SerializeField] protected ParticleSystem _shotEffect;
     [SerializeField] private ParticleSystem _shotEffect2;
     [SerializeField] private Bullet _bullet;
     [SerializeField] private List<Transform> _bulletPoints;

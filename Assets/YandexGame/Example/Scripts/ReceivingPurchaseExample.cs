@@ -9,6 +9,7 @@ namespace YG.Example
         [SerializeField] UnityEvent successPurchased;
         [SerializeField] UnityEvent failedPurchased;
         [SerializeField] private Buyer _buyer;
+        [SerializeField] private LootBox _lootBox;
 
         private void OnEnable()
         {
@@ -29,7 +30,7 @@ namespace YG.Example
             switch (id)
             {
                 case "Box":
-
+                    _lootBox.OpenLootBox();
                     break;
 
                 case "Money":

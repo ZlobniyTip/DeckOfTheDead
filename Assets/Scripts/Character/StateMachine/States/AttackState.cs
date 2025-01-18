@@ -3,6 +3,7 @@ public class AttackState : MovementState
     const string IsAttackingMelle = "IsMelleAttack";
     const string IsShootingPistol = "IsShootingPistol";
     const string IsShootingRifle = "IsShootingRifle";
+    const string IsShootingFlameThrower = "IsShootingFlameThrower";
     const string IsShootinShotgun = "IsShootinShotgun";
     const string IsShootingHunterRifle = "IsShootingHunterRifle";
 
@@ -30,6 +31,10 @@ public class AttackState : MovementState
 
             case WeaponType.Shotgun:
                 CharacterView.StartState(IsShootinShotgun);
+                break;
+
+            case WeaponType.FlameThrower:
+                CharacterView.StartState(IsShootingFlameThrower);
                 break;
 
             default:

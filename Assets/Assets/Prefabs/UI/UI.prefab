@@ -7318,6 +7318,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   _buyer: {fileID: 0}
+  _lootBox: {fileID: 4226429445104290777}
 --- !u!1 &8810970461940980509
 GameObject:
   m_ObjectHideFlags: 0
@@ -12574,7 +12575,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1072245816911568765, guid: 85a12be5ffc39d349bf6dccb22596603, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1072245816911568765, guid: 85a12be5ffc39d349bf6dccb22596603, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode

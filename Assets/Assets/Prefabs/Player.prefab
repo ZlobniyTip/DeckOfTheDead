@@ -3586,7 +3586,7 @@ MonoBehaviour:
   - {fileID: 8882552771575711017, guid: ad49a19d2c4adc94b838606a5d459f85, type: 3}
   - {fileID: 7169430731154728294, guid: a3fe0be603767ae42a0d14c81d777c2b, type: 3}
   - {fileID: 3115095377988841637, guid: ccd191fcb9ab4364c8eac9e2dc2b3bf1, type: 3}
-  - {fileID: 5815615100261945197, guid: aef0a5fd18f8fc745b48fb751ebcf18b, type: 3}
+  - {fileID: -5512371652571814412, guid: aef0a5fd18f8fc745b48fb751ebcf18b, type: 3}
   - {fileID: 5762193243520655926, guid: f8ee5a952b0a300448ad8d17e2ab2584, type: 3}
   - {fileID: 1359321557460389555, guid: 8b4c47d9211a9784fb3b35a87af8b353, type: 3}
   - {fileID: 4816849087286706637, guid: 6e2b4b3768b35104ca1726c44266e483, type: 3}
@@ -3624,6 +3624,7 @@ MonoBehaviour:
   - {fileID: 2535391598434979823, guid: 58a3f3f478bd0374aa7b5d42880672f5, type: 3}
   - {fileID: 4651898108335724637, guid: 14b9097cb10b27d40a35dc944853603d, type: 3}
   - {fileID: 2181833529061203859, guid: 92d0d7425658b7548bb550389b91dc28, type: 3}
+  _flameThrower: {fileID: 0}
   _cards:
   - {fileID: 11400000, guid: 4a8768024bb92e842a2b7f17b36d6b27, type: 2}
   - {fileID: 11400000, guid: 24244fff6fe4d1f43807555f0d376ebc, type: 2}
