@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _icon: {fileID: 21300000, guid: 4e3c6571804d5dc4682e94655ac25e81, type: 3}
   _name: Nun
-  _energy: 1
+  _energy: 5
   _type: 2
   _index: 8
   _price: 10000

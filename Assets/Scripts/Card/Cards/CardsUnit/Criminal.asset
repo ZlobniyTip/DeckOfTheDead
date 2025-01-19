@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _icon: {fileID: 21300000, guid: 2213608bb32a2cd499c98388f993df4c, type: 3}
   _name: Criminal
-  _energy: 1
+  _energy: 3
   _type: 2
   _index: 3
   _price: 6000

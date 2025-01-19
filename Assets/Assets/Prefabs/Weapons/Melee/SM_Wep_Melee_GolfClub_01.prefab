@@ -106,7 +106,7 @@ MonoBehaviour:
   _price: 800
   _index: 9
   _attackDistance: 1.7
-  _damage: 5
+  _damage: 20
   _delayBetweenShots: 1.2
 --- !u!82 &2404029684234780009
 AudioSource:

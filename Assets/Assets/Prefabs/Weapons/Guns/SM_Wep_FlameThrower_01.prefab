@@ -204,7 +204,7 @@ MonoBehaviour:
   _name: Flame thrower
   _price: 20000
   _index: 3
-  _attackDistance: 12
+  _attackDistance: 10
   _damage: 5
   _delayBetweenShots: 0.5
   _shotEffect: {fileID: 9114176803207630635}

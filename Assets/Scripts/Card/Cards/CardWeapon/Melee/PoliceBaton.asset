@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _icon: {fileID: 21300000, guid: e442872b8476b8245a2affcf8e1b343e, type: 3}
   _name: Police baton
-  _energy: 1
+  _energy: 2
   _type: 2
   _index: 34
   _price: 5000

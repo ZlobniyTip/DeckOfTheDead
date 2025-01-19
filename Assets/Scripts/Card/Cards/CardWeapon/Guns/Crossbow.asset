@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _icon: {fileID: 21300000, guid: ccd049de8701f0b44a199c9d01f037b4, type: 3}
   _name: Crossbow
-  _energy: 1
+  _energy: 3
   _type: 2
   _index: 12
   _price: 1000

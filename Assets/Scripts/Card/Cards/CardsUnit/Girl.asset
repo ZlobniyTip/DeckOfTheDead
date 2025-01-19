@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _icon: {fileID: 21300000, guid: 88e82adebae7ca249ab52540552576b2, type: 3}
   _name: Girl
-  _energy: 1
+  _energy: 3
   _type: 2
   _index: 5
   _price: 8000

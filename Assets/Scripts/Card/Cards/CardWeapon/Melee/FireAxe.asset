@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _icon: {fileID: 21300000, guid: fc41c6c09397b30449f1359a37120c92, type: 3}
   _name: Fire axe
-  _energy: 1
+  _energy: 2
   _type: 2
   _index: 37
   _price: 5000

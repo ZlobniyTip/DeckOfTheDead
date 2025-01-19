@@ -2935,7 +2935,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b5249729f9271c4fa5a58dd5c29d097, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxValue: 50
+  _maxValue: 80
   _zombieView: {fileID: 6525182960791149322}
   _effectCamp: {fileID: 1832883286374874784}
   _rewardLeaderboardPoints: 50
