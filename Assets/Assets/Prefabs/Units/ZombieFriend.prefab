@@ -4464,6 +4464,7 @@ MonoBehaviour:
   _maxValue: 60
   _config: {fileID: 11400000, guid: b144d3339b5576346864c1bb17bfd26e, type: 2}
   _soundSpawn: {fileID: 3500976125106443175}
+  _policeArmour: {fileID: 0}
 --- !u!114 &7937656246449264775
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4501,7 +4502,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _weaponPoint: {fileID: 4767870904457078047}
-  _distance: 0
+  _distance: 2
 --- !u!195 &7573131917804285384
 NavMeshAgent:
   m_ObjectHideFlags: 0

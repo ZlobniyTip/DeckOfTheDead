@@ -5853,7 +5853,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _name: Posthumous support
-  _energy: {fileID: 0}
   _unit: {fileID: 5566368325892015085}
 --- !u!1 &8531912780678533994
 GameObject:

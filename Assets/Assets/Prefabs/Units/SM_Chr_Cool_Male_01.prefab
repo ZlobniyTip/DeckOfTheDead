@@ -399,7 +399,6 @@ MonoBehaviour:
   _flightDuration: 1
   _cooldownThrow: 5
   _molotovSource: {fileID: -2264645629181643422}
-  _throwAnimationDuration: 2
 --- !u!82 &-2264645629181643422
 AudioSource:
   m_ObjectHideFlags: 0

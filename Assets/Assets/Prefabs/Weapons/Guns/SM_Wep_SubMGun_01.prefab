@@ -111,7 +111,7 @@ MonoBehaviour:
   _price: 4000
   _index: 18
   _attackDistance: 5
-  _damage: 1
+  _damage: 3
   _delayBetweenShots: 0.15
   _shotEffect: {fileID: 8156285155660743186}
   _shotEffect2: {fileID: 906470987876412529}
