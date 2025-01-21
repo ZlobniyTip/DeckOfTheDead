@@ -11,4 +11,9 @@ public class FlameThrower : RangeWeapon
 
         return _damage;
     }
+
+    public void StopEffect()
+    {
+        _shotEffect.Stop();
+    }
 }

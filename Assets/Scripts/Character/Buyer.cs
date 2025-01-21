@@ -9,8 +9,8 @@ public class Buyer : MonoBehaviour
     [SerializeField] private List<MelleWeapon> _melleWeapons;
     [SerializeField] private List<CardData> _cards;
 
-    [SerializeField] private CharacterShooting _characterShooting;
-    [SerializeField] private CharacterCards _characterCards;
+    private CharacterShooting _characterShooting;
+    private CharacterCards _characterCards;
 
     private int _money;
 
@@ -19,6 +19,12 @@ public class Buyer : MonoBehaviour
 
     public int Money => _money;
     public Character Character => _character;
+
+    private void Awake()
+    {
+        _characterCards = GetComponent<CharacterCards>();
+        _characterShooting = GetComponent<CharacterShooting>();
+    }
 
 #if UNITY_EDITOR
     private void Start()

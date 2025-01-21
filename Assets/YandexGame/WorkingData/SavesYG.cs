@@ -12,6 +12,7 @@ namespace YG
         public bool promptDone;
 
         public float sound = 1;
+        public int indexCurrentScene = 0;
 
         public int playerMoney = 0;
         public int leaderboardScore = 0;
@@ -58,14 +59,14 @@ namespace YG
 
         public List<ItemStatus> cardStates = new()
         {
+            ItemStatus.Purchased, ItemStatus.NotPurchased,
+            ItemStatus.NotPurchased, ItemStatus.NotPurchased,
+            ItemStatus.NotPurchased, ItemStatus.Purchased,
             ItemStatus.NotPurchased, ItemStatus.NotPurchased,
             ItemStatus.NotPurchased, ItemStatus.NotPurchased,
             ItemStatus.NotPurchased, ItemStatus.NotPurchased,
-            ItemStatus.NotPurchased, ItemStatus.NotPurchased,
-            ItemStatus.NotPurchased, ItemStatus.NotPurchased,
-            ItemStatus.NotPurchased, ItemStatus.NotPurchased,
-            ItemStatus.NotPurchased, ItemStatus.NotPurchased,
-            ItemStatus.NotPurchased, ItemStatus.NotPurchased,
+            ItemStatus.NotPurchased, ItemStatus.Purchased,
+            ItemStatus.Purchased, ItemStatus.Purchased,
             ItemStatus.NotPurchased, ItemStatus.NotPurchased,
             ItemStatus.NotPurchased, ItemStatus.NotPurchased,
             ItemStatus.NotPurchased, ItemStatus.NotPurchased,

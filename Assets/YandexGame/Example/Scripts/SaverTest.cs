@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace YG.Example
 {
@@ -18,9 +19,12 @@ namespace YG.Example
 
         public event Action<int> LoadedLeaderboardScore;
         public event Action<int> SavedLeaderboardScore;
+        public event Action<List<CardData>> Initialized;
 
         private void OnEnable()
         {
+            YandexGame.savesData.indexCurrentScene = SceneManager.GetActiveScene().buildIndex;
+
             YandexGame.GetDataEvent += GetLoad;
             _buyer.EquipmentChanged += Save;
         }
@@ -105,6 +109,8 @@ namespace YG.Example
             }
 
             LoadedLeaderboardScore?.Invoke(_buyer.Character.LeaderboardScore);
+
+            Initialized?.Invoke(_cards);
         }
     }
 }

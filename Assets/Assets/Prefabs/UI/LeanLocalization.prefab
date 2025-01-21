@@ -475,6 +475,20 @@ Transform:
   - {fileID: 5861743307926541710}
   - {fileID: 6933878496820480546}
   - {fileID: 1991179457058515870}
+  - {fileID: 95263059918047366}
+  - {fileID: 2234943923656629259}
+  - {fileID: 8775770418523132366}
+  - {fileID: 7662458707432535141}
+  - {fileID: 4563441458283652257}
+  - {fileID: 8763955530037181626}
+  - {fileID: 8699015257706707988}
+  - {fileID: 817467492042468196}
+  - {fileID: 7765605262794242093}
+  - {fileID: 5695305622041382754}
+  - {fileID: 1915454078462937728}
+  - {fileID: 8894291200750693568}
+  - {fileID: 1278692415399941391}
+  - {fileID: 5367299545789681549}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8587326938394373029
@@ -489,7 +503,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 806f0696300aeac44a0e17efee222854, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentLanguage: Russian
+  currentLanguage: Turkish
   detectLanguage: 1
   defaultLanguage: 
   saveLoad: 1
@@ -578,6 +592,72 @@ MonoBehaviour:
     Object: {fileID: 0}
   - Language: Turkish
     Text: "\u0130ngiliz anahtar\u0131"
+    Object: {fileID: 0}
+--- !u!1 &1192366702204834305
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5367299545789681549}
+  - component: {fileID: 2057288174072025467}
+  m_Layer: 0
+  m_Name: A new generation of zombies. Extremely tenacious . Even firearms can hardly
+    take him, and his size gives him tremendous physical strength.
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5367299545789681549
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1192366702204834305}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8797047825858162214}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2057288174072025467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1192366702204834305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: English
+    Text: A new generation of zombies. Extremely tenacious . Even firearms can hardly
+      take him, and his size gives him tremendous physical strength.
+    Object: {fileID: 0}
+  - Language: Russian
+    Text: "\u041D\u043E\u0432\u043E\u0435 \u043F\u043E\u043A\u043E\u043B\u0435\u043D\u0438\u0435
+      \u0437\u043E\u043C\u0431\u0438. \u0427\u0440\u0435\u0437\u0432\u044B\u0447\u0430\u0439\u043D\u043E
+      \u0436\u0438\u0432\u0443\u0447. \u0414\u0430\u0436\u0435 \u043E\u0433\u043D\u0435\u0441\u0442\u0440\u0435\u043B\u044C\u043D\u043E\u0435
+      \u043E\u0440\u0443\u0436\u0438\u0435 \u0441 \u0442\u0440\u0443\u0434\u043E\u043C
+      \u0441\u043F\u0440\u0430\u0432\u043B\u044F\u0435\u0442\u0441\u044F \u0441 \u043D\u0438\u043C,
+      \u0430 \u0435\u0433\u043E \u0440\u0430\u0437\u043C\u0435\u0440\u044B \u043F\u0440\u0438\u0434\u0430\u044E\u0442
+      \u0435\u043C\u0443 \u043E\u0433\u0440\u043E\u043C\u043D\u0443\u044E \u0444\u0438\u0437\u0438\u0447\u0435\u0441\u043A\u0443\u044E
+      \u0441\u0438\u043B\u0443"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Yeni nesil zombiler. Son derece inat\xE7\u0131. Ate\u015Fli silahlar bile
+      onu zor alabilir ve b\xFCy\xFCkl\xFC\u011F\xFC ona muazzam bir fiziksel g\xFC\xE7
+      verir"
     Object: {fileID: 0}
 --- !u!1 &1307873361722731879
 GameObject:
@@ -969,6 +1049,61 @@ MonoBehaviour:
   - Language: Turkish
     Text: "Tatar yay\u0131"
     Object: {fileID: 0}
+--- !u!1 &1990302219496139308
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8763955530037181626}
+  - component: {fileID: 8005009680315591264}
+  m_Layer: 0
+  m_Name: Bride
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8763955530037181626
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1990302219496139308}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8797047825858162214}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8005009680315591264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1990302219496139308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: English
+    Text: Bride
+    Object: {fileID: 0}
+  - Language: Russian
+    Text: "\u041D\u0435\u0432\u0435\u0441\u0442\u0430"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: Gelin
+    Object: {fileID: 0}
 --- !u!1 &2221754091104749906
 GameObject:
   m_ObjectHideFlags: 0
@@ -1092,6 +1227,61 @@ MonoBehaviour:
     Text: "K\xFC\xE7\xFCk bir alanda m\xFCttefiklerin sa\u011Fl\u0131\u011F\u0131n\u0131
       s\xFCrekli iyile\u015Ftiriyor"
     Object: {fileID: 0}
+--- !u!1 &2257364380280085093
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2234943923656629259}
+  - component: {fileID: 5155966788097385247}
+  m_Layer: 0
+  m_Name: Bleeding
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2234943923656629259
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2257364380280085093}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8797047825858162214}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5155966788097385247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2257364380280085093}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: English
+    Text: Bleeding
+    Object: {fileID: 0}
+  - Language: Russian
+    Text: "\u041A\u0440\u043E\u0432\u043E\u0442\u0435\u0447\u0435\u043D\u0438\u0435"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: Kanama
+    Object: {fileID: 0}
 --- !u!1 &2687916305652459578
 GameObject:
   m_ObjectHideFlags: 0
@@ -1146,6 +1336,61 @@ MonoBehaviour:
     Object: {fileID: 0}
   - Language: Turkish
     Text: Boru
+    Object: {fileID: 0}
+--- !u!1 &2986973083550642850
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1915454078462937728}
+  - component: {fileID: 5584062964866407873}
+  m_Layer: 0
+  m_Name: Without abilities
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1915454078462937728
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2986973083550642850}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8797047825858162214}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5584062964866407873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2986973083550642850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: English
+    Text: Without abilities
+    Object: {fileID: 0}
+  - Language: Russian
+    Text: "\u0411\u0435\u0437 \u0441\u043F\u043E\u0441\u043E\u0431\u043D\u043E\u0441\u0442\u0435\u0439"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: Yetenekleri olmadan
     Object: {fileID: 0}
 --- !u!1 &3132016473565167810
 GameObject:
@@ -1315,6 +1560,61 @@ MonoBehaviour:
   - Language: Turkish
     Text: "K\u0131z"
     Object: {fileID: 0}
+--- !u!1 &4023093261646229076
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7765605262794242093}
+  - component: {fileID: 2500945412780109014}
+  m_Layer: 0
+  m_Name: Zombie
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7765605262794242093
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4023093261646229076}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8797047825858162214}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2500945412780109014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4023093261646229076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: English
+    Text: Zombie
+    Object: {fileID: 0}
+  - Language: Russian
+    Text: "\u0417\u043E\u043C\u0431\u0438"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: Zombie
+    Object: {fileID: 0}
 --- !u!1 &4128926605602409053
 GameObject:
   m_ObjectHideFlags: 0
@@ -1482,6 +1782,66 @@ MonoBehaviour:
     Object: {fileID: 0}
   - Language: Turkish
     Text: "\xD6l\xFCmc\xFCl hasar verme \u015Fans\u0131 (% 5) d\xFC\u015F\xFCkt\xFCr"
+    Object: {fileID: 0}
+--- !u!1 &4796367477482677413
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4563441458283652257}
+  - component: {fileID: 4642556216136915628}
+  m_Layer: 0
+  m_Name: Dying zombies emit a cloud of infection that can turn the living into zombies.
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4563441458283652257
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4796367477482677413}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8797047825858162214}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4642556216136915628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4796367477482677413}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: English
+    Text: Dying zombies emit a cloud of infection that can turn the living into zombies.
+    Object: {fileID: 0}
+  - Language: Russian
+    Text: "\u0423\u043C\u0438\u0440\u0430\u044E\u0449\u0438\u0439 \u0437\u043E\u043C\u0431\u0438
+      \u0432\u044B\u0434\u0435\u043B\u044F\u0435\u0442 \u043E\u0431\u043B\u0430\u043A\u043E
+      \u0438\u043D\u0444\u0435\u043A\u0446\u0438\u0438, \u043A\u043E\u0442\u043E\u0440\u043E\u0435
+      \u043C\u043E\u0436\u0435\u0442 \u043F\u0440\u0435\u0432\u0440\u0430\u0442\u0438\u0442\u044C
+      \u0436\u0438\u0432\u044B\u0445 \u0432 \u0437\u043E\u043C\u0431\u0438."
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "\xD6lmekte olan zombiler, ya\u015Fayanlar\u0131 zombilere d\xF6n\xFC\u015Ft\xFCrebilecek
+      bir enfeksiyon bulutu yayar."
     Object: {fileID: 0}
 --- !u!1 &4836454056191041950
 GameObject:
@@ -1703,6 +2063,61 @@ MonoBehaviour:
   - Language: Turkish
     Text: "\xC7eki\xE7"
     Object: {fileID: 0}
+--- !u!1 &5372755663473721330
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1278692415399941391}
+  - component: {fileID: 2935111075773423410}
+  m_Layer: 0
+  m_Name: Physical strength
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1278692415399941391
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5372755663473721330}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8797047825858162214}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2935111075773423410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5372755663473721330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: English
+    Text: Physical strength
+    Object: {fileID: 0}
+  - Language: Russian
+    Text: "\u0424\u0438\u0437\u0438\u0447\u0435\u0441\u043A\u0430\u044F \u0441\u0438\u043B\u0430"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Fiziksel g\xFC\xE7"
+    Object: {fileID: 0}
 --- !u!1 &5526357785475787420
 GameObject:
   m_ObjectHideFlags: 0
@@ -1812,6 +2227,64 @@ MonoBehaviour:
     Object: {fileID: 0}
   - Language: Turkish
     Text: Tahta
+    Object: {fileID: 0}
+--- !u!1 &5879178981102406879
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8775770418523132366}
+  - component: {fileID: 8348563993917284264}
+  m_Layer: 0
+  m_Name: A claw strike leaves open wounds causing bleeding
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8775770418523132366
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5879178981102406879}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8797047825858162214}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8348563993917284264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5879178981102406879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: English
+    Text: A claw strike leaves open wounds causing bleeding
+    Object: {fileID: 0}
+  - Language: Russian
+    Text: "\u0423\u0434\u0430\u0440 \u043A\u043E\u0433\u0442\u044F\u043C\u0438 \u043E\u0441\u0442\u0430\u0432\u043B\u044F\u0435\u0442
+      \u043E\u0442\u043A\u0440\u044B\u0442\u044B\u0435 \u0440\u0430\u043D\u044B \u0432\u044B\u0437\u044B\u0432\u0430\u044E\u0449\u0438\u0435
+      \u043A\u0440\u043E\u0432\u043E\u0442\u0435\u0447\u0435\u043D\u0438\u0435"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Kanama pen\xE7esi \xE7arpmas\u0131 kanamaya neden olan a\xE7\u0131k yaralar
+      b\u0131rak\u0131r"
     Object: {fileID: 0}
 --- !u!1 &5905795065682351902
 GameObject:
@@ -1923,6 +2396,61 @@ MonoBehaviour:
   - Language: Turkish
     Text: Polis copu
     Object: {fileID: 0}
+--- !u!1 &6180640785020657762
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8699015257706707988}
+  - component: {fileID: 9118774521825049374}
+  m_Layer: 0
+  m_Name: Regeneration
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8699015257706707988
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6180640785020657762}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8797047825858162214}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9118774521825049374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6180640785020657762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: English
+    Text: Regeneration
+    Object: {fileID: 0}
+  - Language: Russian
+    Text: "\u0420\u0435\u0433\u0435\u043D\u0435\u0440\u0430\u0446\u0438\u044F"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: Rejenerasyon
+    Object: {fileID: 0}
 --- !u!1 &6181249501507218456
 GameObject:
   m_ObjectHideFlags: 0
@@ -1977,6 +2505,61 @@ MonoBehaviour:
     Object: {fileID: 0}
   - Language: Turkish
     Text: Balta
+    Object: {fileID: 0}
+--- !u!1 &6515161265833293567
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 95263059918047366}
+  - component: {fileID: 54058921771042788}
+  m_Layer: 0
+  m_Name: Hunter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &95263059918047366
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6515161265833293567}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8797047825858162214}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &54058921771042788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6515161265833293567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: English
+    Text: Hunter
+    Object: {fileID: 0}
+  - Language: Russian
+    Text: "\u041E\u0445\u043E\u0442\u043D\u0438\u043A"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Avc\u0131"
     Object: {fileID: 0}
 --- !u!1 &6571320568202171610
 GameObject:
@@ -2199,6 +2782,61 @@ MonoBehaviour:
     Object: {fileID: 0}
   - Language: Turkish
     Text: Gazeteci
+    Object: {fileID: 0}
+--- !u!1 &7069419119098250930
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8894291200750693568}
+  - component: {fileID: 2556929719108458883}
+  m_Layer: 0
+  m_Name: Tyrant
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8894291200750693568
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7069419119098250930}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8797047825858162214}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2556929719108458883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7069419119098250930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: English
+    Text: Tyrant
+    Object: {fileID: 0}
+  - Language: Russian
+    Text: "\u0422\u0438\u0440\u0430\u043D"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: Zorba
     Object: {fileID: 0}
 --- !u!1 &7079206511709771759
 GameObject:
@@ -2751,6 +3389,67 @@ MonoBehaviour:
   - Language: Turkish
     Text: "Av t\xFCfe\u011Fi"
     Object: {fileID: 0}
+--- !u!1 &8081916289269956870
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 817467492042468196}
+  - component: {fileID: 7161793614544410883}
+  m_Layer: 0
+  m_Name: The body of this zombie is able to heal wounds and heal completely over
+    time.
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &817467492042468196
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8081916289269956870}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8797047825858162214}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7161793614544410883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8081916289269956870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: English
+    Text: The body of this zombie is able to heal wounds and heal completely over
+      time.
+    Object: {fileID: 0}
+  - Language: Russian
+    Text: "\u0422\u0435\u043B\u043E \u044D\u0442\u043E\u0433\u043E \u0437\u043E\u043C\u0431\u0438
+      \u0441\u043F\u043E\u0441\u043E\u0431\u043D\u043E \u0437\u0430\u0436\u0438\u0432\u043B\u044F\u0442\u044C
+      \u0440\u0430\u043D\u044B \u0438 \u0441\u043E \u0432\u0440\u0435\u043C\u0435\u043D\u0435\u043C
+      \u043F\u043E\u043B\u043D\u043E\u0441\u0442\u044C\u044E \u0438\u0441\u0446\u0435\u043B\u044F\u0435\u0442\u0441\u044F"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Bu zombinin v\xFCcudu yaralar\u0131 iyile\u015Ftirebilir ve zamanla tamamen
+      iyile\u015Febilir."
+    Object: {fileID: 0}
 --- !u!1 &8157198847574699203
 GameObject:
   m_ObjectHideFlags: 0
@@ -2971,6 +3670,61 @@ MonoBehaviour:
   - Language: Turkish
     Text: Katana
     Object: {fileID: 0}
+--- !u!1 &9013301606441872835
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7662458707432535141}
+  - component: {fileID: 191638170611495557}
+  m_Layer: 0
+  m_Name: Infection
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7662458707432535141
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9013301606441872835}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8797047825858162214}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &191638170611495557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9013301606441872835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: English
+    Text: Infection
+    Object: {fileID: 0}
+  - Language: Russian
+    Text: "\u0418\u043D\u0444\u0435\u043A\u0446\u0438\u044F"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: Enfeksiyon
+    Object: {fileID: 0}
 --- !u!1 &9019137493948398256
 GameObject:
   m_ObjectHideFlags: 0
@@ -3086,6 +3840,61 @@ MonoBehaviour:
     Object: {fileID: 0}
   - Language: Turkish
     Text: Melez
+    Object: {fileID: 0}
+--- !u!1 &9198857520017549221
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5695305622041382754}
+  - component: {fileID: 8169177805849432303}
+  m_Layer: 0
+  m_Name: An ordinary zombie
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5695305622041382754
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9198857520017549221}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8797047825858162214}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8169177805849432303
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9198857520017549221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: English
+    Text: An ordinary zombie
+    Object: {fileID: 0}
+  - Language: Russian
+    Text: "\u041E\u0431\u044B\u0447\u043D\u044B\u0439 \u0437\u043E\u043C\u0431\u0438"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "S\u0131radan bir zombi"
     Object: {fileID: 0}
 --- !u!1001 &1488049694677012353
 PrefabInstance:

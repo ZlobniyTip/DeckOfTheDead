@@ -2,28 +2,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UI;
 using UnityEngine;
+using YG.Example;
 
 public class Deck : MonoBehaviour
 {
     [SerializeField] private Character _character;
-    [SerializeField] private List<CardData> _cards;
+    [SerializeField] private CharacterCards _characterCards;
     [SerializeField] private Transform _ñontainer;
     [SerializeField] private CardView _cardViewUnit;
     [SerializeField] private CardView _cardViewWeapon;
     [SerializeField] private PlayerEnergy _playerEnergy;
     [SerializeField] private LeanHelper _leanHelper;
 
-    private List<CardView> _playerCards;
-    private HashSet<CardData> _usedCards;
+    private List<CardView> _playerCards = new();
+    private HashSet<CardData> _usedCards = new();
     private bool _checksActivity = true;
 
     public Character Character => _character;
 
-    private void Start()
+    private void Awake()
     {
-        _playerCards = new List<CardView>();
-        _usedCards = new HashSet<CardData>();
+        _characterCards.Initialized += TakeCards;
+    }
 
+    private void TakeCards()
+    {
         while (_playerCards.Count < 5)
         {
             CreateCard();
@@ -101,7 +104,7 @@ public class Deck : MonoBehaviour
 
         do
         {
-            randomCardUnit = _cards[Random.Range(0, _cards.Count)];
+            randomCardUnit = _characterCards.Cards[Random.Range(0, _characterCards.Cards.Count)];
         } while (_usedCards.Contains(randomCardUnit));
 
         _usedCards.Add(randomCardUnit);

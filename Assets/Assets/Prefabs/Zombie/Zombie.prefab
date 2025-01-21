@@ -2752,6 +2752,7 @@ GameObject:
   - component: {fileID: 5713849658351355620}
   - component: {fileID: 387848531293012637}
   - component: {fileID: 6449221251005342339}
+  - component: {fileID: 173167277874183140}
   m_Layer: 0
   m_Name: Zombie
   m_TagString: Enemy
@@ -2939,6 +2940,22 @@ MonoBehaviour:
   _zombieView: {fileID: 6525182960791149322}
   _effectCamp: {fileID: 1832883286374874784}
   _rewardLeaderboardPoints: 50
+--- !u!114 &173167277874183140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3159962360857455571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3647e7b17b76f3841b0309f5ceb17a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _name: Zombie
+  _skillName: An ordinary zombie
+  _skillDescription: Without abilities
+  _image: {fileID: 21300000, guid: 75b9d84ad9975084b9b680f2b63a0b7c, type: 3}
 --- !u!1 &3195926567155812397
 GameObject:
   m_ObjectHideFlags: 0

@@ -137,6 +137,18 @@ public class Shop : MonoBehaviour
         }
 
         view.DeterminPriceLevelUp();
+
+        if (view as CardViewUnit)
+        {
+            CardViewUnit cardView = (CardViewUnit)view;
+            cardView.UpdateLevelText(view.Card.Level);
+        }
+
+        if (view as CardViewWeapon)
+        {
+            CardViewWeapon cardView = (CardViewWeapon)view;
+            cardView.UpdateLevelText(view.Card.Level);
+        }
     }
 
     private int DeterminePriceImprovement(CardView card)

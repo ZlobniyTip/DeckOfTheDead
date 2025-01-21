@@ -35,7 +35,16 @@ public class CardViewWeapon : CardView
     public void TransferData()
     {
         _name.text = LeanLocalization.GetTranslationText(_cardDataWeapon.Name);
+
+        if (_name.text == null)
+            _name.text = _cardDataWeapon.Name;
+
         _timeAction.text = LeanLocalization.GetTranslationText("Time of action") +
             ($" {_cardDataWeapon.TimeAction.ToString()} ") + (LeanLocalization.GetTranslationText("seconds"));
+    }
+
+    public void UpdateLevelText(int level)
+    {
+        _level.text = level.ToString();
     }
 }

@@ -1126,6 +1126,7 @@ GameObject:
   - component: {fileID: 3877038961622020851}
   - component: {fileID: -3013227326340185696}
   - component: {fileID: 7515199832265399253}
+  - component: {fileID: -8116804203535666044}
   m_Layer: 0
   m_Name: ZombieBigBoss
   m_TagString: Untagged
@@ -1332,6 +1333,23 @@ MonoBehaviour:
   _health: 200
   _damage: 3
   _attackSpeed: 2
+--- !u!114 &-8116804203535666044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1397897947513670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3647e7b17b76f3841b0309f5ceb17a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _name: Tyrant
+  _skillName: Physical strength
+  _skillDescription: A new generation of zombies. Extremely tenacious . Even firearms
+    can hardly take him, and his size gives him tremendous physical strength.
+  _image: {fileID: 21300000, guid: 91f3412d958f85b4c839df1c3cbed0fa, type: 3}
 --- !u!1 &1407548066537998
 GameObject:
   m_ObjectHideFlags: 0

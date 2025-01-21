@@ -6,8 +6,8 @@ using UnityEngine;
 [RequireComponent(typeof(PlayerEnergy))]
 public class Character : Health
 {
-    [SerializeField] private CharacterView _characterView;
-
+    private CharacterCards _characterCards;
+    private CharacterView _characterView;
     private CharacterShooting _characterShooting;
     private CharacterMovement _movement;
     private PlayerEnergy _playerEnergy;
@@ -22,9 +22,12 @@ public class Character : Health
     public CharacterMovement Movement => _movement;
     public CharacterView CharacterView => _characterView;
     public CharacterShooting CharacterShooting => _characterShooting;
+    public CharacterCards CharacterCards => _characterCards;
 
     private void Start()
     {
+        _characterCards = GetComponent<CharacterCards>();
+        _characterView = GetComponent<CharacterView>();
         _playerEnergy = GetComponent<PlayerEnergy>();
         _characterShooting = GetComponent<CharacterShooting>();
         _characterView.Initialize();

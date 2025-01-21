@@ -2,6 +2,7 @@ using Advertisement;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using YG;
 using YG.Example;
 
 public class SceneSwitcher : MonoBehaviour
@@ -23,7 +24,7 @@ public class SceneSwitcher : MonoBehaviour
             _nextLevelButton.onClick.AddListener(_videoAd.Show);
 
             if (_saver != null)
-            _nextLevelButton.onClick.AddListener(_saver.Save);
+                _nextLevelButton.onClick.AddListener(_saver.Save);
         }
         else
         {
@@ -39,11 +40,23 @@ public class SceneSwitcher : MonoBehaviour
             _nextLevelButton.onClick.RemoveListener(_videoAd.Show);
 
             if (_saver != null)
-            _nextLevelButton.onClick.RemoveListener(_saver.Save);
+                _nextLevelButton.onClick.RemoveListener(_saver.Save);
         }
         else
         {
             _repeatLevelButton.onClick.RemoveListener(RepeatLevel);
+        }
+    }
+
+    public void EnableCurrentScene()
+    {
+        if (YandexGame.savesData.indexCurrentScene == 0)
+        {
+            SceneManager.LoadScene(YandexGame.savesData.indexCurrentScene + 1);
+        }
+        else
+        {
+            SceneManager.LoadScene(YandexGame.savesData.indexCurrentScene);
         }
     }
 

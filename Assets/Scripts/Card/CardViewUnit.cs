@@ -32,4 +32,9 @@ public class CardViewUnit : CardView
         _name.text = LeanLocalization.GetTranslationText(_cardDataUnit.Name);
         _ability.text = LeanLocalization.GetTranslationText(_cardDataUnit.Ability);
     }
+
+    public void UpdateLevelText(int level)
+    {
+        _level.text = level.ToString();
+    }
 }
