@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _icon: {fileID: 21300000, guid: 60037c2e26ab06c4c9af0980bbd8ae11, type: 3}
   _name: Chemist
-  _energy: 1
+  _energy: 5
   _type: 2
   _index: 1
   _price: 5000

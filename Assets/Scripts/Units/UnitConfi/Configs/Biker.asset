@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58f98b24b1d414f4e8f2f3adf8db43f8, type: 3}
   m_Name: Biker
   m_EditorClassIdentifier: 
-  _health: 170
+  _health: 250
   _weapon: {fileID: 902368604842541317, guid: c6cc2d6819c0e0747bb86f4244ba73b2, type: 3}
   _speed: 3.2

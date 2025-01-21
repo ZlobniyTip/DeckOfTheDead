@@ -194,8 +194,8 @@ MonoBehaviour:
   _name: Sniper rifle
   _price: 14000
   _index: 17
-  _attackDistance: 15
-  _damage: 150
+  _attackDistance: 10
+  _damage: 50
   _delayBetweenShots: 2
   _shotEffect: {fileID: 760465559433781181}
   _shotEffect2: {fileID: 1335799980801279382}

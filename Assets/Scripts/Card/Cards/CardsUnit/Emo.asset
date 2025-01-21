@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _icon: {fileID: 21300000, guid: f814d325762e83941bc78e9be4102c81, type: 3}
   _name: Emo
-  _energy: 1
+  _energy: 4
   _type: 2
   _index: 4
   _price: 7000

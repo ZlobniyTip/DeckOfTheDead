@@ -18079,7 +18079,7 @@ MonoBehaviour:
   - {fileID: 1595190936}
   - {fileID: 1689172022}
   - {fileID: 1366394636}
-  _numberEnemiesInWave: 1
+  _numberEnemiesInWave: 16
   _zombieSource: {fileID: 2009733354}
 --- !u!65 &619531608
 BoxCollider:
@@ -27963,7 +27963,7 @@ MonoBehaviour:
   - {fileID: 1518137746}
   - {fileID: 1854260337}
   - {fileID: 1788750867}
-  _numberEnemiesInWave: 1
+  _numberEnemiesInWave: 10
   _zombieSource: {fileID: 2009733354}
 --- !u!65 &922415766
 BoxCollider:
@@ -41337,7 +41337,7 @@ MonoBehaviour:
   - {fileID: 983249801}
   - {fileID: 753071951}
   - {fileID: 188186021}
-  _numberEnemiesInWave: 1
+  _numberEnemiesInWave: 15
   _zombieSource: {fileID: 2009733354}
 --- !u!65 &1352498722
 BoxCollider:
@@ -47327,6 +47327,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 5.2
       objectReference: {fileID: 0}
+    - target: {fileID: 1612871082067286176, guid: abe8929daad6a074fa8a260544167f1e, type: 3}
+      propertyPath: _numberEnemiesInWave
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 2244292434283924162, guid: abe8929daad6a074fa8a260544167f1e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 109.27
@@ -47357,7 +47361,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5826490340205220819, guid: abe8929daad6a074fa8a260544167f1e, type: 3}
       propertyPath: _numberEnemiesInWave
-      value: 1
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 6146662163579495246, guid: abe8929daad6a074fa8a260544167f1e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -53682,7 +53686,7 @@ MonoBehaviour:
   - {fileID: 1460917622}
   - {fileID: 1234609051}
   - {fileID: 863572216}
-  _numberEnemiesInWave: 1
+  _numberEnemiesInWave: 6
   _zombieSource: {fileID: 2009733354}
 --- !u!65 &1798739163
 BoxCollider:
@@ -54012,7 +54016,7 @@ MonoBehaviour:
   - {fileID: 667206676}
   - {fileID: 190698655}
   - {fileID: 1584873290}
-  _numberEnemiesInWave: 1
+  _numberEnemiesInWave: 15
   _zombieSource: {fileID: 2009733354}
 --- !u!65 &1811650853
 BoxCollider:

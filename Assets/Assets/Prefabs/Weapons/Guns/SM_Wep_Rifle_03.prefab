@@ -276,7 +276,7 @@ MonoBehaviour:
   _name: Rifle
   _price: 4000
   _index: 13
-  _attackDistance: 15
+  _attackDistance: 10
   _damage: 60
   _delayBetweenShots: 2
   _shotEffect: {fileID: 6313384633825605670}

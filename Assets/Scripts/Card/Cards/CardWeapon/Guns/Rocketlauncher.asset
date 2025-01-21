@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _icon: {fileID: 21300000, guid: 943c2b12e160a334f9716e1a105afc2e, type: 3}
   _name: Rocket launcher
-  _energy: 1
+  _energy: 2
   _type: 2
   _index: 24
   _price: 1000

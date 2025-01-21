@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58f98b24b1d414f4e8f2f3adf8db43f8, type: 3}
   m_Name: Girl
   m_EditorClassIdentifier: 
-  _health: 50
+  _health: 80
   _weapon: {fileID: -6748323176418583494, guid: bef05be41376b52498b91573c3ff5a3b, type: 3}
   _speed: 3.2

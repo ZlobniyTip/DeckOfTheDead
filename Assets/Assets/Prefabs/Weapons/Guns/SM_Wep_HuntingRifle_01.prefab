@@ -359,7 +359,7 @@ MonoBehaviour:
   _name: Hunting rifle
   _price: 7000
   _index: 4
-  _attackDistance: 15
+  _attackDistance: 10
   _damage: 80
   _delayBetweenShots: 2
   _shotEffect: {fileID: 6758864419164151641}

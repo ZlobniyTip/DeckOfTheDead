@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58f98b24b1d414f4e8f2f3adf8db43f8, type: 3}
   m_Name: Chemist
   m_EditorClassIdentifier: 
-  _health: 50
+  _health: 100
   _weapon: {fileID: -5512371652571814412, guid: aef0a5fd18f8fc745b48fb751ebcf18b, type: 3}
   _speed: 3.2

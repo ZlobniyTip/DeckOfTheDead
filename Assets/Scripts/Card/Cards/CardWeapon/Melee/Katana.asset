@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _icon: {fileID: 21300000, guid: 50843cc84b7943e4db7a71426c1ba679, type: 3}
   _name: Katana
-  _energy: 1
+  _energy: 2
   _type: 2
   _index: 39
   _price: 5000

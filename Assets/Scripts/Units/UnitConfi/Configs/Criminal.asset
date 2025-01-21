@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58f98b24b1d414f4e8f2f3adf8db43f8, type: 3}
   m_Name: Criminal
   m_EditorClassIdentifier: 
-  _health: 50
+  _health: 200
   _weapon: {fileID: -6281267757293088145, guid: 4deca74d46c275b40b3255680aa23aff, type: 3}
   _speed: 3.2
