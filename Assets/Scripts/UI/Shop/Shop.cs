@@ -95,7 +95,7 @@ public class Shop : MonoBehaviour
 
         void Init(CardView view)
         {
-            view.gameObject.transform.localScale = new Vector3(1.2f, 1.2f, 1.2f);
+            view.gameObject.transform.localScale = new Vector3(1.6f, 1.6f, 1.6f);
             view.Init(product, this);
             view.Initialize(card);
             view.SwitchDragAndDrop(false);

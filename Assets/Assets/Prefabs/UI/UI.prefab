@@ -844,12 +844,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
-    m_Left: 100
+    m_Left: 150
     m_Right: 0
-    m_Top: 800
+    m_Top: 750
     m_Bottom: 400
   m_ChildAlignment: 4
-  m_Spacing: 100
+  m_Spacing: 200
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0
@@ -6006,7 +6006,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b159f1227a8bb7946ae8236a0fe9904b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _saver: {fileID: 1727743069829256103}
   _character: {fileID: 0}
   _characterCards: {fileID: 0}
   "_\u0441ontainer": {fileID: 4917683033418956774}
@@ -7794,7 +7793,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _buyer: {fileID: 0}
-  _characterCards: {fileID: 0}
   _rangeWeapons:
   - {fileID: 8882552771575711017, guid: ad49a19d2c4adc94b838606a5d459f85, type: 3}
   - {fileID: 7169430731154728294, guid: a3fe0be603767ae42a0d14c81d777c2b, type: 3}

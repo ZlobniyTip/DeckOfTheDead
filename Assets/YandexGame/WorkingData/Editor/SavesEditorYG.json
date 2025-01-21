@@ -1,9 +1,10 @@
 {
-    "idSave": 1239,
+    "idSave": 1287,
     "isFirstSession": false,
-    "language": "ru",
+    "language": "en",
     "promptDone": false,
     "sound": 1.0,
+    "indexCurrentScene": 2,
     "playerMoney": 100000,
     "leaderboardScore": 2575,
     "rangeWeaponStates": [
@@ -2131,11 +2132,11 @@
         0
     ],
     "cardStates": [
-        0,
-        0,
-        0,
-        0,
-        0,
+        1,
+        1,
+        1,
+        1,
+        1,
         1,
         0,
         0,
@@ -4783,11 +4784,11 @@
         0
     ],
     "cardLevel": [
-        0,
-        0,
-        0,
-        0,
-        0,
+        3,
+        3,
+        3,
+        3,
+        3,
         3,
         0,
         0,
