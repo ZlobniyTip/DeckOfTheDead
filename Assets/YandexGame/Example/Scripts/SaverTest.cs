@@ -113,5 +113,11 @@ namespace YG.Example
 
             _characterCards.InitializeCard(_cards);
         }
+
+        public void ResetSave()
+        {
+            YandexGame.ResetSaveProgress();
+            YandexGame.SaveProgress();
+        }
     }
 }
