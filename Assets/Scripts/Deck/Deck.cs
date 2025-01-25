@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UI;
 using UnityEngine;
-using YG.Example;
 
 public class Deck : MonoBehaviour
 {
@@ -25,8 +24,14 @@ public class Deck : MonoBehaviour
         _characterCards.Initialized += TakeCards;
     }
 
+    private void OnDisable()
+    {
+        _characterCards.Initialized -= TakeCards;
+    }
+
     private void TakeCards()
     {
+        Debug.Log("1");
         while (_playerCards.Count < 5)
         {
             CreateCard();

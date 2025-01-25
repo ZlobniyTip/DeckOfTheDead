@@ -21941,6 +21941,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2158486756480371071, guid: 942ce77f01a817140a07fc5c93f24607, type: 3}
+      propertyPath: _saver
+      value: 
+      objectReference: {fileID: 1795038355}
     - target: {fileID: 3544764252731362293, guid: 942ce77f01a817140a07fc5c93f24607, type: 3}
       propertyPath: _energyProduction
       value: 
@@ -36174,6 +36178,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!114 &1529612061 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2158486756480371071, guid: 942ce77f01a817140a07fc5c93f24607, type: 3}
+  m_PrefabInstance: {fileID: 929480791}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38be36743c214084c857237a6abc31c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1529773423
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -41329,6 +41344,10 @@ PrefabInstance:
       propertyPath: _playerEnergy
       value: 
       objectReference: {fileID: 929480795}
+    - target: {fileID: 5217668762094637574, guid: 0a74f698bd1807f4389896e3f7bbd78e, type: 3}
+      propertyPath: _characterCards
+      value: 
+      objectReference: {fileID: 1529612061}
     - target: {fileID: 5385011644717023847, guid: 0a74f698bd1807f4389896e3f7bbd78e, type: 3}
       propertyPath: _playerEnergy
       value: 
@@ -41396,6 +41415,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f9c5a76631de8fb4184596b85fdb805f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1795038355 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1727743069829256103, guid: 0a74f698bd1807f4389896e3f7bbd78e, type: 3}
+  m_PrefabInstance: {fileID: 1795038348}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92f7f975d78c4f74f8d4ebb4c4d715fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1797793989

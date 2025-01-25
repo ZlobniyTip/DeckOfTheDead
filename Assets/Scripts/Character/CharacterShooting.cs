@@ -99,7 +99,7 @@ public class CharacterShooting : MonoBehaviour, IAim
     {
         StopCoroutine(Shooting());
 
-        if (_currentWeapon as FlameThrower)
+        if (_currentWeapon.WeaponType == WeaponType.FlameThrower)
         {
             FlameThrower flame = _currentWeapon as FlameThrower;
             flame.StopEffect();

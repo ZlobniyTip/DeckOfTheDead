@@ -61134,6 +61134,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 49700726022544197, guid: 0a74f698bd1807f4389896e3f7bbd78e, type: 3}
+      propertyPath: _buyer
+      value: 
+      objectReference: {fileID: 1517829234}
     - target: {fileID: 1727743069829256103, guid: 0a74f698bd1807f4389896e3f7bbd78e, type: 3}
       propertyPath: _buyer
       value: 
@@ -61143,6 +61147,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1517829233}
     - target: {fileID: 2179259750420357505, guid: 0a74f698bd1807f4389896e3f7bbd78e, type: 3}
+      propertyPath: _buyer
+      value: 
+      objectReference: {fileID: 1517829234}
+    - target: {fileID: 3218918090368764659, guid: 0a74f698bd1807f4389896e3f7bbd78e, type: 3}
       propertyPath: _buyer
       value: 
       objectReference: {fileID: 1517829234}
@@ -61254,6 +61262,10 @@ PrefabInstance:
       propertyPath: _playerEnergy
       value: 
       objectReference: {fileID: 1517829231}
+    - target: {fileID: 5217668762094637574, guid: 0a74f698bd1807f4389896e3f7bbd78e, type: 3}
+      propertyPath: _characterCards
+      value: 
+      objectReference: {fileID: 2061119217}
     - target: {fileID: 5385011644717023847, guid: 0a74f698bd1807f4389896e3f7bbd78e, type: 3}
       propertyPath: _playerEnergy
       value: 
@@ -61286,6 +61298,10 @@ PrefabInstance:
       propertyPath: _health
       value: 
       objectReference: {fileID: 1517829233}
+    - target: {fileID: 8655833695854881584, guid: 0a74f698bd1807f4389896e3f7bbd78e, type: 3}
+      propertyPath: _buyer
+      value: 
+      objectReference: {fileID: 1517829234}
     - target: {fileID: 8800120629529984185, guid: 0a74f698bd1807f4389896e3f7bbd78e, type: 3}
       propertyPath: m_Name
       value: UI
@@ -61304,6 +61320,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f9c5a76631de8fb4184596b85fdb805f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1286191897 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1727743069829256103, guid: 0a74f698bd1807f4389896e3f7bbd78e, type: 3}
+  m_PrefabInstance: {fileID: 1286191895}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92f7f975d78c4f74f8d4ebb4c4d715fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1286608393
@@ -72375,6 +72402,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2158486756480371071, guid: 942ce77f01a817140a07fc5c93f24607, type: 3}
+      propertyPath: _saver
+      value: 
+      objectReference: {fileID: 1286191897}
     - target: {fileID: 3544764252731362293, guid: 942ce77f01a817140a07fc5c93f24607, type: 3}
       propertyPath: _energyProduction
       value: 
@@ -97676,6 +97707,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1822397106307092263, guid: 942ce77f01a817140a07fc5c93f24607, type: 3}
   m_PrefabInstance: {fileID: 1517829230}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2061119217 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2158486756480371071, guid: 942ce77f01a817140a07fc5c93f24607, type: 3}
+  m_PrefabInstance: {fileID: 1517829230}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38be36743c214084c857237a6abc31c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2063751005
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -15,5 +15,6 @@ public class FlameThrower : RangeWeapon
     public void StopEffect()
     {
         _shotEffect.Stop();
+        _audio.Stop();
     }
 }
