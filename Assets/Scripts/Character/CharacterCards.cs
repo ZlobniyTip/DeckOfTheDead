@@ -13,18 +13,13 @@ public class CharacterCards : MonoBehaviour
 
     public List<CardData> Cards => _cards;
 
-    private void Awake()
-    {
-        _saver.Initialized += InitializeCard;
-    }
-
     public void AddCard(CardData card, Action equipmentChanged)
     {
         _cards.Add(card);
         equipmentChanged?.Invoke();
     }
 
-    private void InitializeCard(List<CardData> cards)
+    public void InitializeCard(List<CardData> cards)
     {
         for (int i = 0; i < cards.Count; i++)
         {

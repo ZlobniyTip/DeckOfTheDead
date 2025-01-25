@@ -21,6 +21,7 @@ public class Deck : MonoBehaviour
 
     private void Awake()
     {
+        Debug.Log("Awake deck");
         _characterCards.Initialized += TakeCards;
     }
 
@@ -31,7 +32,6 @@ public class Deck : MonoBehaviour
 
     private void TakeCards()
     {
-        Debug.Log("1");
         while (_playerCards.Count < 5)
         {
             CreateCard();

@@ -12,6 +12,7 @@ namespace YG.Example
         [SerializeField] private List<Weapon> _rangeWeapons;
         [SerializeField] private List<Weapon> _melleWeapons;
         [SerializeField] private List<CardData> _cards;
+        [SerializeField] private CharacterCards _characterCards;
 
         private Weapon _currentWeapon;
         private Weapon _currentMelleWeapon;
@@ -110,7 +111,7 @@ namespace YG.Example
 
             LoadedLeaderboardScore?.Invoke(_buyer.Character.LeaderboardScore);
 
-            Initialized?.Invoke(_cards);
+            _characterCards.InitializeCard(_cards);
         }
     }
 }
