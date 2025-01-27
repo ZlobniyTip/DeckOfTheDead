@@ -28,6 +28,7 @@ public class SceneSwitcher : MonoBehaviour
         }
         else
         {
+            if (_repeatLevelButton != null)
             _repeatLevelButton.onClick.AddListener(RepeatLevel);
         }
     }
@@ -44,6 +45,7 @@ public class SceneSwitcher : MonoBehaviour
         }
         else
         {
+            if (_repeatLevelButton != null)
             _repeatLevelButton.onClick.RemoveListener(RepeatLevel);
         }
     }
