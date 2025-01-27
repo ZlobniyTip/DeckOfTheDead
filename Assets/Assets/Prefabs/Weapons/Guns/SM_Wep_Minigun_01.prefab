@@ -366,8 +366,8 @@ MonoBehaviour:
   _price: 25000
   _index: 8
   _attackDistance: 10
-  _damage: 10
-  _delayBetweenShots: 0.2
+  _damage: 15
+  _delayBetweenShots: 0.1
   _shotEffect: {fileID: 4164696410616898486}
   _shotEffect2: {fileID: 2223685275172843493}
   _bullet: {fileID: 2779122238377238336, guid: 7af0025c87c32d548bd8331f3955239a, type: 3}
@@ -390,7 +390,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: e66b7aa2b28d1b94a8882bdc4b33e442, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.599
   m_Pitch: 1
   Loop: 0
   Mute: 0

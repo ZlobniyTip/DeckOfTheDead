@@ -5243,7 +5243,7 @@ MonoBehaviour:
   - {fileID: 1349569404}
   - {fileID: 1115891899}
   - {fileID: 427463858}
-  _numberEnemiesInWave: 8
+  _numberEnemiesInWave: 19
   _zombieSource: {fileID: 1557222810}
 --- !u!65 &119241004
 BoxCollider:
@@ -13694,7 +13694,7 @@ Transform:
   m_GameObject: {fileID: 294948212}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 21.82, y: 4.97, z: -7.65}
+  m_LocalPosition: {x: 32.37, y: 0.75, z: -4.02}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -20888,7 +20888,7 @@ Transform:
   m_GameObject: {fileID: 427463857}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 27.56, y: 0, z: 5.74}
+  m_LocalPosition: {x: 31.66, y: 0, z: 5.16}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -40105,7 +40105,7 @@ MonoBehaviour:
   - {fileID: 1427080771}
   - {fileID: 1542384567}
   - {fileID: 975501428}
-  _numberEnemiesInWave: 17
+  _numberEnemiesInWave: 20
   _zombieSource: {fileID: 1557222810}
 --- !u!65 &812525931
 BoxCollider:
@@ -45178,7 +45178,7 @@ MonoBehaviour:
   - {fileID: 170094766}
   - {fileID: 1680640456}
   - {fileID: 1374044579}
-  _numberEnemiesInWave: 8
+  _numberEnemiesInWave: 18
   _zombieSource: {fileID: 1557222810}
 --- !u!65 &902293272
 BoxCollider:
@@ -69120,7 +69120,7 @@ Transform:
   m_GameObject: {fileID: 1349569403}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 16.62, y: 0, z: 24.42}
+  m_LocalPosition: {x: 41.31, y: 0, z: 21.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -78393,7 +78393,7 @@ Transform:
   m_GameObject: {fileID: 1543920875}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 33.4, y: 0, z: -0.3}
+  m_LocalPosition: {x: 33.97, y: 0, z: -2.22}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -79210,7 +79210,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5826490340205220819, guid: abe8929daad6a074fa8a260544167f1e, type: 3}
       propertyPath: _numberEnemiesInWave
-      value: 15
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 5826490340205220819, guid: abe8929daad6a074fa8a260544167f1e, type: 3}
       propertyPath: _spawnPoints.Array.size
@@ -81809,6 +81809,10 @@ PrefabInstance:
       propertyPath: _target
       value: 
       objectReference: {fileID: 998957726}
+    - target: {fileID: 5249754845734030960, guid: 7e628cf75ef966342a9383c37ca1e4f2, type: 3}
+      propertyPath: _delaySpawn
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5249754845734030960, guid: 7e628cf75ef966342a9383c37ca1e4f2, type: 3}
       propertyPath: _playerMovePoints.Array.size
       value: 7

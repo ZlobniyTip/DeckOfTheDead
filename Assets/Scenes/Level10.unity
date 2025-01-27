@@ -4438,15 +4438,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4228315601439626, guid: 5a255a12ee34f3b4d979b7662aa64608, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 35.875412
+      value: 26.4
       objectReference: {fileID: 0}
     - target: {fileID: 4228315601439626, guid: 5a255a12ee34f3b4d979b7662aa64608, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -8.8061905
+      value: -8.7
       objectReference: {fileID: 0}
     - target: {fileID: 4228315601439626, guid: 5a255a12ee34f3b4d979b7662aa64608, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -78.17332
+      value: -76.9
       objectReference: {fileID: 0}
     - target: {fileID: 4228315601439626, guid: 5a255a12ee34f3b4d979b7662aa64608, type: 3}
       propertyPath: m_LocalRotation.w
@@ -15008,7 +15008,7 @@ MonoBehaviour:
   - {fileID: 163761771}
   - {fileID: 1305676600}
   - {fileID: 1575378458}
-  _numberEnemiesInWave: 20
+  _numberEnemiesInWave: 25
   _zombieSource: {fileID: 515505493}
 --- !u!65 &323512080
 BoxCollider:
@@ -23548,7 +23548,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1612871082067286176, guid: abe8929daad6a074fa8a260544167f1e, type: 3}
       propertyPath: _numberEnemiesInWave
-      value: 6
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 2244292434283924162, guid: abe8929daad6a074fa8a260544167f1e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -23596,7 +23596,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5826490340205220819, guid: abe8929daad6a074fa8a260544167f1e, type: 3}
       propertyPath: _numberEnemiesInWave
-      value: 10
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 6146662163579495246, guid: abe8929daad6a074fa8a260544167f1e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -24384,6 +24384,10 @@ PrefabInstance:
       propertyPath: _target
       value: 
       objectReference: {fileID: 1517829233}
+    - target: {fileID: 5249754845734030960, guid: 7e628cf75ef966342a9383c37ca1e4f2, type: 3}
+      propertyPath: _delaySpawn
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5249754845734030960, guid: 7e628cf75ef966342a9383c37ca1e4f2, type: 3}
       propertyPath: _playerMovePoints.Array.size
       value: 7
@@ -70822,7 +70826,7 @@ MonoBehaviour:
   - {fileID: 798032083}
   - {fileID: 1397272943}
   - {fileID: 208030353}
-  _numberEnemiesInWave: 17
+  _numberEnemiesInWave: 21
   _zombieSource: {fileID: 515505493}
 --- !u!65 &1466472201
 BoxCollider:
@@ -86929,7 +86933,7 @@ MonoBehaviour:
   - {fileID: 699408897}
   - {fileID: 80514795}
   - {fileID: 1884854954}
-  _numberEnemiesInWave: 17
+  _numberEnemiesInWave: 20
   _zombieSource: {fileID: 515505493}
 --- !u!65 &1846635602
 BoxCollider:

@@ -13708,6 +13708,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 596414009}
     - target: {fileID: 5249754845734030960, guid: 7e628cf75ef966342a9383c37ca1e4f2, type: 3}
+      propertyPath: _delaySpawn
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5249754845734030960, guid: 7e628cf75ef966342a9383c37ca1e4f2, type: 3}
       propertyPath: _prefabEnemies.Array.size
       value: 4
       objectReference: {fileID: 0}
@@ -25398,11 +25402,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1612871082067286176, guid: abe8929daad6a074fa8a260544167f1e, type: 3}
       propertyPath: _numberEnemiesInWave
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5826490340205220819, guid: abe8929daad6a074fa8a260544167f1e, type: 3}
       propertyPath: _numberEnemiesInWave
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6146662163579495246, guid: abe8929daad6a074fa8a260544167f1e, type: 3}
       propertyPath: m_LocalPosition.x
