@@ -47,4 +47,4 @@ MonoBehaviour:
   _effect: {fileID: 7551388611195229131, guid: 2c6f4e03958650f4b8491512add53d16, type: 3}
   _duration: 5
   _cooldown: 0.5
-  _damage: 1
+  _damage: 2

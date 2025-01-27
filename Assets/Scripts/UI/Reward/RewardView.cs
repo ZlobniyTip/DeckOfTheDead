@@ -20,7 +20,7 @@ namespace UI
         [SerializeField] private TMP_Text _reward;
 
         private float _delayCouner = 0.005f;
-        private int _counterStep = 10;
+        private int _counterStep = 50;
         private int _completedCoroutines = 0;
 
         private int _countReward = 0;
@@ -62,7 +62,7 @@ namespace UI
                 text.text = value.ToString();
 
             if (_completedCoroutines == 4)
-                StartCoroutine(ChangeValue(_countReward, _reward));
+                StartCoroutine(ChangeValue(_countReward / 2, _reward));
         }
 
         private void OnActivPanel()

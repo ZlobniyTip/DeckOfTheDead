@@ -21,7 +21,6 @@ public class Deck : MonoBehaviour
 
     private void Awake()
     {
-        Debug.Log("Awake deck");
         _characterCards.Initialized += TakeCards;
     }
 

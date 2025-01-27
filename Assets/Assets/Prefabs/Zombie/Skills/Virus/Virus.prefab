@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _virusEffect: {fileID: 198261741210295434, guid: 19381d84ec9e0fb4d921c0cf1fb9efe3, type: 3}
   _zombiePrefab: {fileID: 6449221251005342339, guid: a7b454baef06c944b8d046fd654e97d6, type: 3}
-  _damage: 5
+  _damage: 7
   _cooldown: 1
   _radius: 3
   _duration: 5

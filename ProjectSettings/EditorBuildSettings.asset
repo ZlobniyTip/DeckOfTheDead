@@ -44,4 +44,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/CutScene/CutScene2.unity
     guid: 9559b6d2b6b4a8c4ca4bfcc8daad86b2
+  - enabled: 1
+    path: Assets/Scenes/Repeat.unity
+    guid: b11e0e2b764dc79469242f542fe8d71f
   m_configObjects: {}

@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(CharacterShooting))]
+[RequireComponent(typeof(CharacterCards))]
 public class Buyer : MonoBehaviour
 {
     [SerializeField] private Character _character;
