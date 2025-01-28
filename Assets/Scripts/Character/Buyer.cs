@@ -25,6 +25,7 @@ public class Buyer : MonoBehaviour
     private void Awake()
     {
         _characterCards = GetComponent<CharacterCards>();
+       Debug.Log($"гет {_characterShooting = GetComponent<CharacterShooting>()}");
         _characterShooting = GetComponent<CharacterShooting>();
     }
 
