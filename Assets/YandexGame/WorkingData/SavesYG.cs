@@ -37,8 +37,6 @@ namespace YG
             ItemStatus.NotPurchased,
             ItemStatus.NotPurchased,
             ItemStatus.NotPurchased,
-            ItemStatus.NotPurchased,
-            ItemStatus.NotPurchased,
             ItemStatus.NotPurchased
         };
 
@@ -62,7 +60,6 @@ namespace YG
             ItemStatus.Purchased, ItemStatus.NotPurchased,
             ItemStatus.NotPurchased, ItemStatus.NotPurchased,
             ItemStatus.NotPurchased, ItemStatus.Purchased,
-            ItemStatus.NotPurchased, ItemStatus.NotPurchased,
             ItemStatus.NotPurchased, ItemStatus.NotPurchased,
             ItemStatus.NotPurchased, ItemStatus.NotPurchased,
             ItemStatus.NotPurchased, ItemStatus.Purchased,
@@ -92,7 +89,7 @@ namespace YG
             0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
             0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
             0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-            0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+            0, 0, 0, 0, 0, 0, 0, 0
         };
 
         public SavesYG()
