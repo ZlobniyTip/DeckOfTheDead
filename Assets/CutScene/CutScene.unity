@@ -367,6 +367,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f34f36451b093ee4c83ad4aa5459d2ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  textMPComponent: {fileID: 0}
+  uniqueFontTMP: {fileID: 0}
   textLComponent: {fileID: 0}
   infoYG: {fileID: 11400000, guid: 162644796a8b0d044bce3d6fda0641e3, type: 2}
   text: 
@@ -501,8 +503,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -861.72, y: -535.97}
-  m_SizeDelta: {x: 147.0823, y: 124.2885}
+  m_AnchoredPosition: {x: -862.2343, y: -537.2558}
+  m_SizeDelta: {x: 202.6296, y: 136.118}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &278332484
 MonoBehaviour:
@@ -743,7 +745,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 535306644}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.055248838, y: -0.051003978, z: -0.0028259219, w: 0.9971651}
+  m_LocalRotation: {x: -0.038798638, y: -0.057612758, z: -0.0022407137, w: 0.9975823}
   m_LocalPosition: {x: 121.67, y: -21.72, z: -38.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -961,7 +963,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 869917779}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.055248838, y: -0.051003978, z: -0.0028259219, w: 0.9971651}
+  m_LocalRotation: {x: -0.038798638, y: -0.057612758, z: -0.0022407137, w: 0.9975823}
   m_LocalPosition: {x: 121.67, y: -21.72, z: -38.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1686,6 +1688,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f34f36451b093ee4c83ad4aa5459d2ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  textMPComponent: {fileID: 0}
+  uniqueFontTMP: {fileID: 0}
   textLComponent: {fileID: 0}
   infoYG: {fileID: 11400000, guid: 162644796a8b0d044bce3d6fda0641e3, type: 2}
   text: 
@@ -1967,6 +1971,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f34f36451b093ee4c83ad4aa5459d2ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  textMPComponent: {fileID: 0}
+  uniqueFontTMP: {fileID: 0}
   textLComponent: {fileID: 0}
   infoYG: {fileID: 11400000, guid: 162644796a8b0d044bce3d6fda0641e3, type: 2}
   text: 
