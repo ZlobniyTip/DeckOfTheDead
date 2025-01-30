@@ -14,7 +14,7 @@ public class MaimMenuImage : MonoBehaviour
 
     private void GetMainMenuSprite()
     {
-        int random = Random.RandomRange(0 , _sprites.Count + 1);
+        int random = Random.RandomRange(0 , _sprites.Count);
 
         _image.sprite = _sprites[random];
     }
