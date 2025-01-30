@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Chemist
   m_EditorClassIdentifier: 
   _health: 100
-  _weapon: {fileID: -5512371652571814412, guid: aef0a5fd18f8fc745b48fb751ebcf18b, type: 3}
+  _weapon: {fileID: 4816849087286706637, guid: 6e2b4b3768b35104ca1726c44266e483, type: 3}
   _speed: 3.2

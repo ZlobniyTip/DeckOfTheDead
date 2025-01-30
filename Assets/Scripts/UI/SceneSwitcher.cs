@@ -26,7 +26,7 @@ public class SceneSwitcher : MonoBehaviour
         else
         {
             if (_repeatLevelButton != null)
-            _repeatLevelButton.onClick.AddListener(RepeatLevel);
+                _repeatLevelButton.onClick.AddListener(RepeatLevel);
         }
     }
 
@@ -40,7 +40,7 @@ public class SceneSwitcher : MonoBehaviour
         else
         {
             if (_repeatLevelButton != null)
-            _repeatLevelButton.onClick.RemoveListener(RepeatLevel);
+                _repeatLevelButton.onClick.RemoveListener(RepeatLevel);
         }
     }
 
@@ -58,7 +58,11 @@ public class SceneSwitcher : MonoBehaviour
 
     private void EnableNextLevel()
     {
-        _saver.Save();
+        if (_saver != null)
+        {
+            _saver.Save();
+        }
+
         SceneManager.LoadScene(_indexCurrentScene + 1);
     }
 
