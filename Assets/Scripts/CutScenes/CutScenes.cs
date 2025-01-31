@@ -49,6 +49,8 @@ public class CutScenes : MonoBehaviour
                 _texts[i].gameObject.SetActive(false);
         }
 
+        //EndCutScene?.Invoke();
+
         yield return StartCoroutine(FadeInBlackout());
     }
 
