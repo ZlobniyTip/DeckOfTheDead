@@ -16,7 +16,7 @@ MonoBehaviour:
   _name: Butcher knife
   _energy: 1
   _type: 2
-  _index: 35
+  _index: 13
   _price: 5000
   _priceLevel1: 100
   _priceLevel2: 200

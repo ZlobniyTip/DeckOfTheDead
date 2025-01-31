@@ -16,7 +16,7 @@ MonoBehaviour:
   _name: Hammer
   _energy: 2
   _type: 2
-  _index: 57
+  _index: 17
   _price: 5000
   _priceLevel1: 100
   _priceLevel2: 200

@@ -16,7 +16,7 @@ MonoBehaviour:
   _name: Crowbar
   _energy: 1
   _type: 2
-  _index: 36
+  _index: 14
   _price: 5000
   _priceLevel1: 100
   _priceLevel2: 200

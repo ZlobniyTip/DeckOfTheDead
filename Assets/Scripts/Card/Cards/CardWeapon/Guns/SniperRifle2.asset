@@ -16,7 +16,7 @@ MonoBehaviour:
   _name: Sniper rifle
   _energy: 3
   _type: 2
-  _index: 27
+  _index: 46
   _price: 1000
   _priceLevel1: 1000
   _priceLevel2: 1500

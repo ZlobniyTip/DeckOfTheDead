@@ -16,7 +16,7 @@ MonoBehaviour:
   _name: Rifle
   _energy: 2
   _type: 2
-  _index: 22
+  _index: 41
   _price: 1000
   _priceLevel1: 1000
   _priceLevel2: 1200

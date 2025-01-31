@@ -16,7 +16,7 @@ MonoBehaviour:
   _name: Bat wood
   _energy: 1
   _type: 2
-  _index: 33
+  _index: 12
   _price: 5000
   _priceLevel1: 100
   _priceLevel2: 200

@@ -58,11 +58,7 @@ public class SceneSwitcher : MonoBehaviour
 
     private void EnableNextLevel()
     {
-        if (_saver != null)
-        {
-            _saver.Save();
-        }
-
+        YandexGame.SaveProgress();
         SceneManager.LoadScene(_indexCurrentScene + 1);
     }
 

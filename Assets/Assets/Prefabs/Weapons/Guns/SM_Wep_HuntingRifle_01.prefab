@@ -358,7 +358,7 @@ MonoBehaviour:
   _icon: {fileID: 21300000, guid: 5e484e72bf50a4e42bf6502a48b8e363, type: 3}
   _name: Hunting rifle
   _price: 7000
-  _index: 4
+  _index: 3
   _attackDistance: 10
   _damage: 80
   _delayBetweenShots: 2

@@ -112,7 +112,7 @@ MonoBehaviour:
   _icon: {fileID: 21300000, guid: 21f3a6dcc1129ca4e8957e6bd4aefa3e, type: 3}
   _name: Shotgun
   _price: 5000
-  _index: 15
+  _index: 13
   _attackDistance: 5
   _damage: 35
   _delayBetweenShots: 1

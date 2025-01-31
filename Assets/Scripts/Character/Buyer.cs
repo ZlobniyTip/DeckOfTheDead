@@ -4,13 +4,14 @@ using UnityEngine;
 
 [RequireComponent(typeof(CharacterShooting))]
 [RequireComponent(typeof(CharacterCards))]
+[RequireComponent(typeof(Character))]
 public class Buyer : MonoBehaviour
 {
-    [SerializeField] private Character _character;
     [SerializeField] private List<RangeWeapon> _rangeWeapons;
     [SerializeField] private List<MelleWeapon> _melleWeapons;
     [SerializeField] private List<CardData> _cards;
 
+    private Character _character;
     private CharacterShooting _characterShooting;
     private CharacterCards _characterCards;
 
@@ -24,6 +25,7 @@ public class Buyer : MonoBehaviour
 
     private void Awake()
     {
+        _character = GetComponent<Character>();
         _characterCards = GetComponent<CharacterCards>();
         _characterShooting = GetComponent<CharacterShooting>();
     }
@@ -76,6 +78,10 @@ public class Buyer : MonoBehaviour
 
     public void EquipItem(IProduct product)
     {
+        Debug.Log(product.Type);
+        Debug.Log(_characterShooting);
+        Debug.Log(_characterCards);
+
         switch (product.Type)
         {
             case ItemType.RangeWeapon:

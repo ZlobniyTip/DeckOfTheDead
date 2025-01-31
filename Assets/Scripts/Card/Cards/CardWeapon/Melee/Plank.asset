@@ -16,7 +16,7 @@ MonoBehaviour:
   _name: Plank
   _energy: 2
   _type: 2
-  _index: 45
+  _index: 23
   _price: 5000
   _priceLevel1: 100
   _priceLevel2: 200

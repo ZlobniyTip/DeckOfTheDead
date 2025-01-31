@@ -16,7 +16,7 @@ MonoBehaviour:
   _name: Hybrid
   _energy: 2
   _type: 2
-  _index: 15
+  _index: 31
   _price: 1000
   _priceLevel1: 500
   _priceLevel2: 1000

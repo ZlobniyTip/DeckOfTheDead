@@ -16,7 +16,7 @@ MonoBehaviour:
   _name: UZI
   _energy: 1
   _type: 2
-  _index: 28
+  _index: 47
   _price: 1000
   _priceLevel1: 800
   _priceLevel2: 1500

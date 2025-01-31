@@ -16,7 +16,7 @@ MonoBehaviour:
   _name: Wood axe
   _energy: 1
   _type: 2
-  _index: 47
+  _index: 27
   _price: 5000
   _priceLevel1: 100
   _priceLevel2: 200

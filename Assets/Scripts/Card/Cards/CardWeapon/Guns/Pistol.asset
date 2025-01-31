@@ -16,7 +16,7 @@ MonoBehaviour:
   _name: Pistol
   _energy: 1
   _type: 2
-  _index: 19
+  _index: 38
   _price: 1000
   _priceLevel1: 500
   _priceLevel2: 700

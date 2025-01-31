@@ -193,7 +193,7 @@ MonoBehaviour:
   _icon: {fileID: 21300000, guid: c87aa6e795e2dda4b9b23f94d68e0232, type: 3}
   _name: Sniper rifle
   _price: 14000
-  _index: 17
+  _index: 15
   _attackDistance: 10
   _damage: 50
   _delayBetweenShots: 2

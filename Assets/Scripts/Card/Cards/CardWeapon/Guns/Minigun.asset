@@ -16,7 +16,7 @@ MonoBehaviour:
   _name: Minigun
   _energy: 3
   _type: 2
-  _index: 18
+  _index: 35
   _price: 1000
   _priceLevel1: 3000
   _priceLevel2: 5000

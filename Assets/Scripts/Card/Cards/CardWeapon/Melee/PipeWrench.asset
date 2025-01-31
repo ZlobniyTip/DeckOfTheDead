@@ -16,7 +16,7 @@ MonoBehaviour:
   _name: Pipe wrench
   _energy: 1
   _type: 2
-  _index: 44
+  _index: 22
   _price: 5000
   _priceLevel1: 100
   _priceLevel2: 200

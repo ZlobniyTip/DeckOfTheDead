@@ -16,7 +16,7 @@ MonoBehaviour:
   _name: MP9
   _energy: 2
   _type: 2
-  _index: 30
+  _index: 37
   _price: 1000
   _priceLevel1: 500
   _priceLevel2: 700

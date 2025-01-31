@@ -16,7 +16,7 @@ MonoBehaviour:
   _name: Police baton
   _energy: 2
   _type: 2
-  _index: 34
+  _index: 24
   _price: 5000
   _priceLevel1: 100
   _priceLevel2: 200

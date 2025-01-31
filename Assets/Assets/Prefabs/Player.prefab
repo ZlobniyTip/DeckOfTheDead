@@ -3670,6 +3670,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: fc9598e2014684d49bb665398514480b, type: 2}
   - {fileID: 11400000, guid: 7a5efec13b9ab1b4da845e13fd204843, type: 2}
   - {fileID: 11400000, guid: f8de54bf59424ca49a8c08e93f5ca39c, type: 2}
+  _characterShooting: {fileID: 4832717163306357467}
 --- !u!114 &2158486756480371071
 MonoBehaviour:
   m_ObjectHideFlags: 0

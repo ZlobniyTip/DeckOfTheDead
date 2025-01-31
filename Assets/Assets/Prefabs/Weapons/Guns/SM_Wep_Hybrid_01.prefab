@@ -526,7 +526,7 @@ MonoBehaviour:
   _icon: {fileID: 21300000, guid: 8a432efc6b0c4aa4a9b0162f05e6e456, type: 3}
   _name: Hybrid
   _price: 4000
-  _index: 5
+  _index: 4
   _attackDistance: 7
   _damage: 5
   _delayBetweenShots: 0.2

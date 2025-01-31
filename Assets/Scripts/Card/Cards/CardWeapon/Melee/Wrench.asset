@@ -16,7 +16,7 @@ MonoBehaviour:
   _name: Wrench
   _energy: 2
   _type: 2
-  _index: 48
+  _index: 28
   _price: 5000
   _priceLevel1: 100
   _priceLevel2: 200

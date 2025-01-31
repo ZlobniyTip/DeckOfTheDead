@@ -16,7 +16,7 @@ MonoBehaviour:
   _name: Shotgun
   _energy: 4
   _type: 2
-  _index: 16
+  _index: 43
   _price: 1000
   _priceLevel1: 1200
   _priceLevel2: 1800

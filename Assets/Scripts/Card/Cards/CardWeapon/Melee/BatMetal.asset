@@ -16,7 +16,7 @@ MonoBehaviour:
   _name: Bat metal
   _energy: 1
   _type: 2
-  _index: 30
+  _index: 10
   _price: 500
   _priceLevel1: 100
   _priceLevel2: 200

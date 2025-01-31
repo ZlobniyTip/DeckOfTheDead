@@ -16,7 +16,7 @@ MonoBehaviour:
   _name: Pipe
   _energy: 1
   _type: 2
-  _index: 43
+  _index: 21
   _price: 5000
   _priceLevel1: 100
   _priceLevel2: 200

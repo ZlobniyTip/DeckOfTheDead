@@ -20,7 +20,6 @@ namespace YG.Example
 
         public event Action<int> LoadedLeaderboardScore;
         public event Action<int> SavedLeaderboardScore;
-        public event Action<List<CardData>> Initialized;
 
         private void OnEnable()
         {
@@ -69,6 +68,9 @@ namespace YG.Example
 
         public void GetLoad()
         {
+            Debug.Log("Enter Get Load");
+            Debug.Log(_buyer);
+
             for (int i = 0; i < _melleWeapons.Count; i++)
             {
                 _melleWeapons[i].Init(YandexGame.savesData.melleWeaponStates[i], _emptyParameter);
