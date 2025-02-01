@@ -95,6 +95,8 @@ namespace YG.Example
             for (int i = 0; i < _cards.Count; i++)
             {
                 _cards[i].Init(YandexGame.savesData.cardStates[i], YandexGame.savesData.cardLevel[i]);
+
+                _characterCards.InitializeCard(_cards);
             }
 
             _buyer.LoadMoney(YandexGame.savesData.playerMoney);
@@ -112,8 +114,6 @@ namespace YG.Example
             }
 
             LoadedLeaderboardScore?.Invoke(_buyer.Character.LeaderboardScore);
-
-            _characterCards.InitializeCard(_cards);
         }
 
         public void ResetSave()
