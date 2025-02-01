@@ -19,7 +19,7 @@ public class Buyer : MonoBehaviour
 
     public event Action<int> MoneyChanged;
     public event Action EquipmentChanged;
-    public event Action Initialize;
+    public event Action Initialized;
 
     public int Money => _money;
     public Character Character => _character;
@@ -33,7 +33,7 @@ public class Buyer : MonoBehaviour
 
     private void Start()
     {
-        Initialize?.Invoke();
+        Initialized?.Invoke();
     }
 
     public void GetMoney(int money)

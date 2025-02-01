@@ -35,14 +35,14 @@ namespace YG.Example
             _buyer.EquipmentChanged -= Save;
         }
 
-        private void Awake()
-        {
-            _buyer.Initialize += GetLoad;
-        }
-
         private void OnDestroy()
         {
-            _buyer.Initialize -= GetLoad;
+            _buyer.Initialized -= GetLoad;
+        }
+
+        private void Awake()
+        {
+            _buyer.Initialized += GetLoad;
         }
 
         public void Save()
