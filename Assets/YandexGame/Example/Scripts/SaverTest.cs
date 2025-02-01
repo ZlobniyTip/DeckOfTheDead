@@ -37,8 +37,12 @@ namespace YG.Example
 
         private void Awake()
         {
-            if (YandexGame.SDKEnabled)
-                GetLoad();
+            _buyer.Initialize += GetLoad;
+        }
+
+        private void OnDestroy()
+        {
+            _buyer.Initialize -= GetLoad;
         }
 
         public void Save()

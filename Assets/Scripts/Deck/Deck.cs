@@ -21,6 +21,11 @@ public class Deck : MonoBehaviour
 
     private void Awake()
     {
+        if (_characterCards == null)
+        {
+            Debug.LogError("Карт нету");
+        }
+
         _characterCards.Initialized += TakeCards;
     }
 
@@ -31,6 +36,8 @@ public class Deck : MonoBehaviour
 
     private void TakeCards()
     {
+        Debug.Log("Колода появилась");
+
         while (_playerCards.Count < 5)
         {
             CreateCard();
