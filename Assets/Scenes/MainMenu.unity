@@ -1004,6 +1004,7 @@ PrefabInstance:
     - {fileID: 1072245816350100587, guid: 85a12be5ffc39d349bf6dccb22596603, type: 3}
     - {fileID: 1072245816626803406, guid: 85a12be5ffc39d349bf6dccb22596603, type: 3}
     - {fileID: 1072245817233832496, guid: 85a12be5ffc39d349bf6dccb22596603, type: 3}
+    - {fileID: 1072245816457178339, guid: 85a12be5ffc39d349bf6dccb22596603, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -1013,6 +1014,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1072245816626803404, guid: 85a12be5ffc39d349bf6dccb22596603, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1588382103}
+    - targetCorrespondingSourceObject: {fileID: 1072245816457178337, guid: 85a12be5ffc39d349bf6dccb22596603, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 99140174}
+    - targetCorrespondingSourceObject: {fileID: 1072245816457178337, guid: 85a12be5ffc39d349bf6dccb22596603, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 99140173}
     - targetCorrespondingSourceObject: {fileID: 1072245816350100585, guid: 85a12be5ffc39d349bf6dccb22596603, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2120596605}
@@ -1023,6 +1030,152 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1403982949}
   m_SourcePrefab: {fileID: 100100000, guid: 85a12be5ffc39d349bf6dccb22596603, type: 3}
+--- !u!1 &99140172 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1072245816457178337, guid: 85a12be5ffc39d349bf6dccb22596603, type: 3}
+  m_PrefabInstance: {fileID: 99140171}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &99140173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 99140172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: "\u041F\u043E\u043B\u0443\u0447\u0438\u0442\u044C 50,000 \u0437\u043E\u043C\u0431\u0430\u043A\u0441\u043E\u0432"
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 02fea1fb776e0ad43a5e684a1ab0ce9e, type: 2}
+  m_sharedMaterial: {fileID: 0}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: 0
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 8
+  m_fontSizeBase: 8
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 0
+  m_fontSizeMax: 0
+  m_fontStyle: 0
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 256
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 0
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 0
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 0
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 1
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &99140174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 99140172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f34f36451b093ee4c83ad4aa5459d2ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textMPComponent: {fileID: 99140173}
+  uniqueFontTMP: {fileID: 11400000, guid: 02fea1fb776e0ad43a5e684a1ab0ce9e, type: 2}
+  textLComponent: {fileID: 0}
+  infoYG: {fileID: 11400000, guid: 162644796a8b0d044bce3d6fda0641e3, type: 2}
+  text: 
+  ru: "\u041F\u043E\u043B\u0443\u0447\u0438\u0442\u044C 50,000 \u0437\u043E\u043C\u0431\u0430\u043A\u0441\u043E\u0432"
+  en: Get 50,000 zombaks
+  tr: "50.000 zombak al\u0131n"
+  az: 
+  be: 
+  he: 
+  hy: 
+  ka: 
+  et: 
+  fr: 
+  kk: 
+  ky: 
+  lt: 
+  lv: 
+  ro: 
+  tg: 
+  tk: 
+  uk: 
+  uz: 
+  es: 
+  pt: 
+  ar: 
+  id: 
+  ja: 
+  it: 
+  de: 
+  hi: 
+  changeOnlyFont: 0
+  fontNumber: 0
+  uniqueFont: {fileID: 0}
+  additionalText: {fileID: 0}
+  textHeight: 20
+  processTranslateLabel: 3/3 completed
+  componentTextField: 1
+  countLang: 3
 --- !u!1 &103698957
 GameObject:
   m_ObjectHideFlags: 0
@@ -4621,7 +4774,6 @@ MonoBehaviour:
   - {fileID: 8882552771575711017, guid: ad49a19d2c4adc94b838606a5d459f85, type: 3}
   - {fileID: 7169430731154728294, guid: a3fe0be603767ae42a0d14c81d777c2b, type: 3}
   - {fileID: 3115095377988841637, guid: ccd191fcb9ab4364c8eac9e2dc2b3bf1, type: 3}
-  - {fileID: -5512371652571814412, guid: aef0a5fd18f8fc745b48fb751ebcf18b, type: 3}
   - {fileID: 5762193243520655926, guid: f8ee5a952b0a300448ad8d17e2ab2584, type: 3}
   - {fileID: 1359321557460389555, guid: 8b4c47d9211a9784fb3b35a87af8b353, type: 3}
   - {fileID: 4816849087286706637, guid: 6e2b4b3768b35104ca1726c44266e483, type: 3}
@@ -4632,7 +4784,6 @@ MonoBehaviour:
   - {fileID: 8582406574941914621, guid: ac46653d56756124eb294a6b8c58d2d3, type: 3}
   - {fileID: 2112554058698600627, guid: 9281ea4fb86d62a4882324b916876584, type: 3}
   - {fileID: 4877219440718290585, guid: d6c28b427b8bce649b57606441c2061d, type: 3}
-  - {fileID: 4028818248477452516, guid: 5f73668964f88164aae003225d1f933f, type: 3}
   - {fileID: 260374932984932369, guid: a2458a3a2318bb64ea864a87f6558170, type: 3}
   - {fileID: 7277841580929271180, guid: adc01ffa88b3d6744a5eb21a731f6c23, type: 3}
   - {fileID: 1269814916776815631, guid: dd5e78229ec4a3f4eb3b2ace8c44e70e, type: 3}
@@ -5033,7 +5184,7 @@ MonoBehaviour:
     m_Top: 800
     m_Bottom: 400
   m_ChildAlignment: 4
-  m_Spacing: 100
+  m_Spacing: 200
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0
@@ -8919,6 +9070,7 @@ PrefabInstance:
     - {fileID: 1072245817233832496, guid: 85a12be5ffc39d349bf6dccb22596603, type: 3}
     - {fileID: 1072245816350100587, guid: 85a12be5ffc39d349bf6dccb22596603, type: 3}
     - {fileID: 1072245816626803406, guid: 85a12be5ffc39d349bf6dccb22596603, type: 3}
+    - {fileID: 1072245816457178339, guid: 85a12be5ffc39d349bf6dccb22596603, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -8928,6 +9080,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1072245816626803404, guid: 85a12be5ffc39d349bf6dccb22596603, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1420873236}
+    - targetCorrespondingSourceObject: {fileID: 1072245816457178337, guid: 85a12be5ffc39d349bf6dccb22596603, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1608052651}
+    - targetCorrespondingSourceObject: {fileID: 1072245816457178337, guid: 85a12be5ffc39d349bf6dccb22596603, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1608052650}
     - targetCorrespondingSourceObject: {fileID: 1072245816350100585, guid: 85a12be5ffc39d349bf6dccb22596603, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1762630868}
@@ -8938,6 +9096,152 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1362727163}
   m_SourcePrefab: {fileID: 100100000, guid: 85a12be5ffc39d349bf6dccb22596603, type: 3}
+--- !u!1 &1608052649 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1072245816457178337, guid: 85a12be5ffc39d349bf6dccb22596603, type: 3}
+  m_PrefabInstance: {fileID: 1608052648}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1608052650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1608052649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f34f36451b093ee4c83ad4aa5459d2ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textMPComponent: {fileID: 1608052651}
+  uniqueFontTMP: {fileID: 11400000, guid: 02fea1fb776e0ad43a5e684a1ab0ce9e, type: 2}
+  textLComponent: {fileID: 0}
+  infoYG: {fileID: 11400000, guid: 162644796a8b0d044bce3d6fda0641e3, type: 2}
+  text: 
+  ru: "\u041F\u043E\u043B\u0443\u0447\u0438\u0442\u044C 20,000 \u0437\u043E\u043C\u0431\u0430\u043A\u0441\u043E\u0432"
+  en: Get 20,000 zombaks
+  tr: 20.000 zombak al
+  az: 
+  be: 
+  he: 
+  hy: 
+  ka: 
+  et: 
+  fr: 
+  kk: 
+  ky: 
+  lt: 
+  lv: 
+  ro: 
+  tg: 
+  tk: 
+  uk: 
+  uz: 
+  es: 
+  pt: 
+  ar: 
+  id: 
+  ja: 
+  it: 
+  de: 
+  hi: 
+  changeOnlyFont: 0
+  fontNumber: 0
+  uniqueFont: {fileID: 0}
+  additionalText: {fileID: 0}
+  textHeight: 20
+  processTranslateLabel: 3/3 completed
+  componentTextField: 1
+  countLang: 3
+--- !u!114 &1608052651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1608052649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: "\u041F\u043E\u043B\u0443\u0447\u0438\u0442\u044C 20,000 \u0437\u043E\u043C\u0431\u0430\u043A\u0441\u043E\u0432"
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 0}
+  m_sharedMaterial: {fileID: 0}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: 0
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 8
+  m_fontSizeBase: 8
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 0
+  m_fontSizeMax: 0
+  m_fontStyle: 0
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 256
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 0
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 0
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 0
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &1614245183
 GameObject:
   m_ObjectHideFlags: 0
@@ -11807,7 +12111,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3f52925b44c82c84f83d4176756a35ba, type: 2}
   - {fileID: 11400000, guid: 662aaf5d839cd6546a4cde7ceab97cd4, type: 2}
   - {fileID: 11400000, guid: 02a9bf0924d73f04ea35eda8788460f7, type: 2}
-  - {fileID: 11400000, guid: b566073c4dbf7e64bb432bc1dd559ed2, type: 2}
   - {fileID: 11400000, guid: d7f68ad5d9ca80848b4a3e048abc755d, type: 2}
   - {fileID: 11400000, guid: 09ddb28ea052a3b4084144b25549c9ea, type: 2}
   - {fileID: 11400000, guid: 779b0eb586ee86043b925f91c17ad312, type: 2}
@@ -11821,7 +12124,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 925b8f11feaa67246adde6ddee9c7ce4, type: 2}
   - {fileID: 11400000, guid: 89ffca8e05e189d4292231875184f080, type: 2}
   - {fileID: 11400000, guid: c6e4e5c5b24faa24dbeaec15eb2264f5, type: 2}
-  - {fileID: 11400000, guid: 359bb851a6a9f0042942f1ab1a4556b4, type: 2}
   - {fileID: 11400000, guid: f726c3c1ee1c50b468601a4f61c6853e, type: 2}
   - {fileID: 11400000, guid: 8ca6612087c06b546afd85e88e2adc88, type: 2}
   - {fileID: 11400000, guid: fc9598e2014684d49bb665398514480b, type: 2}
