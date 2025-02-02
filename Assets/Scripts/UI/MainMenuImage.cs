@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MaimMenuImage : MonoBehaviour
+public class MainMenuImage : MonoBehaviour
 {
     [SerializeField] private List<Sprite> _sprites;
     [SerializeField] private Image _image;

@@ -5017,7 +5017,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0.000059143575, y: -0.000016210119}
-  m_SizeDelta: {x: 1175.6975, y: 150}
+  m_SizeDelta: {x: 1175.6975, y: 100}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &6933513004658451783
 MonoBehaviour:
@@ -5048,10 +5048,10 @@ MonoBehaviour:
   m_Padding:
     m_Left: 0
     m_Right: 400
-    m_Top: 150
+    m_Top: 100
     m_Bottom: 0
   m_ChildAlignment: 4
-  m_Spacing: 250
+  m_Spacing: 200
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0
@@ -7280,8 +7280,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Content: {fileID: 8508319687993025970}
-  m_Horizontal: 1
-  m_Vertical: 0
+  m_Horizontal: 0
+  m_Vertical: 1
   m_MovementType: 2
   m_Elasticity: 0.1
   m_Inertia: 1

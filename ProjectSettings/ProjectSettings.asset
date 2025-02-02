@@ -12,7 +12,7 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: DefaultCompany
+  companyName: Cucumber creatures
   productName: The Deck of the Dead
   defaultCursor: {fileID: 2800000, guid: 6d82ec86ce55e9a44a88fdb50f58927d, type: 3}
   cursorHotspot: {x: 0, y: 0}
@@ -805,7 +805,7 @@ PlayerSettings:
   blurSplashScreenBackground: 1
   spritePackerPolicy: 
   webGLMemorySize: 16
-  webGLExceptionSupport: 3
+  webGLExceptionSupport: 1
   webGLNameFilesAsHashes: 0
   webGLShowDiagnostics: 0
   webGLDataCaching: 1

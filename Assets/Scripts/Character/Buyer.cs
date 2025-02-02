@@ -33,7 +33,6 @@ public class Buyer : MonoBehaviour
 
     private void Start()
     {
-        _money = 1000;
         Initialized?.Invoke();
     }
 
