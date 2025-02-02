@@ -33,6 +33,7 @@ public class Buyer : MonoBehaviour
 
     private void Start()
     {
+        _money = 1000;
         Initialized?.Invoke();
     }
 
@@ -76,10 +77,6 @@ public class Buyer : MonoBehaviour
 
     public void EquipItem(IProduct product)
     {
-        Debug.Log(product.Type);
-        Debug.Log(_characterShooting);
-        Debug.Log(_characterCards);
-
         switch (product.Type)
         {
             case ItemType.RangeWeapon:

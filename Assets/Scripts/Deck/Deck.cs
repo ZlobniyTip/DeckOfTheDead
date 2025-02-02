@@ -36,8 +36,6 @@ public class Deck : MonoBehaviour
 
     private void TakeCards()
     {
-        Debug.Log("Колода появилась");
-
         while (_playerCards.Count < 5)
         {
             CreateCard();

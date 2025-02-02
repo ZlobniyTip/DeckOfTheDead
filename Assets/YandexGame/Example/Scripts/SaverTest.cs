@@ -23,7 +23,10 @@ namespace YG.Example
 
         private void OnEnable()
         {
-            YandexGame.savesData.indexCurrentScene = SceneManager.GetActiveScene().buildIndex;
+            if (SceneManager.GetActiveScene().buildIndex > 1)
+            {
+                YandexGame.savesData.indexCurrentScene = SceneManager.GetActiveScene().buildIndex;
+            }
 
             YandexGame.GetDataEvent += GetLoad;
             _buyer.EquipmentChanged += Save;
@@ -72,9 +75,6 @@ namespace YG.Example
 
         public void GetLoad()
         {
-            Debug.Log("Enter Get Load");
-            Debug.Log(_buyer);
-
             for (int i = 0; i < _melleWeapons.Count; i++)
             {
                 _melleWeapons[i].Init(YandexGame.savesData.melleWeaponStates[i], _emptyParameter);

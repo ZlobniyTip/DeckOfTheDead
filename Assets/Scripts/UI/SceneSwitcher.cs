@@ -48,7 +48,7 @@ public class SceneSwitcher : MonoBehaviour
     {
         if (YandexGame.savesData.indexCurrentScene == 0)
         {
-            SceneManager.LoadScene(YandexGame.savesData.indexCurrentScene + 1);
+            SceneManager.LoadScene(1);
         }
         else
         {
