@@ -6,7 +6,7 @@ public class MoneyCounter : MonoBehaviour
     [SerializeField] private Buyer _buyer;
     [SerializeField] private TMP_Text _money;
 
-    private void Start()
+    private void Awake()
     {
         _buyer.MoneyChanged += ChangeMoney;
     }
