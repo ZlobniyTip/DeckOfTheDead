@@ -19,19 +19,14 @@ public class Deck : MonoBehaviour
 
     public Character Character => _character;
 
-    private void Awake()
+    public void TakeSelectedCards(List<CardView> cardViews)
     {
-        if (_characterCards == null)
+        foreach (var card in cardViews)
         {
-            Debug.LogError("Карт нету");
+            _playerCards.Add(card);
         }
 
-        _characterCards.Initialized += TakeCards;
-    }
-
-    private void OnDisable()
-    {
-        _characterCards.Initialized -= TakeCards;
+        TakeCards();
     }
 
     private void TakeCards()

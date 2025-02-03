@@ -9,7 +9,7 @@ public class CharacterCards : MonoBehaviour
 
     private List<CardData> _cards = new();
 
-    public event Action Initialized;
+    public event Action<List<CardData>> InitializedCards;
 
     public List<CardData> Cards => _cards;
 
@@ -27,6 +27,6 @@ public class CharacterCards : MonoBehaviour
                 _cards.Add(cards[i]);
         }
 
-        Initialized?.Invoke();
+        InitializedCards?.Invoke(_cards);
     }
 }

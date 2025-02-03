@@ -9,6 +9,8 @@ public abstract class CardView : ItemView
     [SerializeField] private Image _activity;
     [SerializeField] private TMP_Text _levelPrice;
 
+    [SerializeField] private Button _selectedButton;
+
     protected CardData _cardData;
     private DragAndDropCardUnit _dragAndDrop;
     private DragAndDropCardWeapon _dragAndDropWeapon;
@@ -16,6 +18,7 @@ public abstract class CardView : ItemView
     public CardData Card => _cardData;
 
     public event Action<CardView> LevelUpButtonPressed;
+    public event Action<CardView> SelectedCard;
 
     private void Awake()
     {
@@ -23,9 +26,20 @@ public abstract class CardView : ItemView
         _dragAndDropWeapon = GetComponent<DragAndDropCardWeapon>();
 
         _equipButton.onClick.AddListener(OnLevelUpPressed);
+        _selectedButton.onClick.AddListener(OnSelectedCard);
     }
 
     public abstract void Initialize(CardData cardData);
+
+    public void SelectedButtonLock()
+    {
+        _selectedButton.interactable = false;
+    }
+
+    public void ActivateSelectedButton()
+    {
+        _selectedButton.gameObject.SetActive(true);
+    }
 
     public void ActivateCard()
     {
@@ -70,8 +84,18 @@ public abstract class CardView : ItemView
         }
     }
 
+    private void ShowSelectedButtonText()
+    {
+        
+    }
+
     private void OnLevelUpPressed()
     {
         LevelUpButtonPressed?.Invoke(this);
+    }
+
+    private void OnSelectedCard()
+    {
+        SelectedCard?.Invoke(this);
     }
 }

@@ -99,10 +99,9 @@ namespace YG.Example
             for (int i = 0; i < _cards.Count; i++)
             {
                 _cards[i].Init(YandexGame.savesData.cardStates[i], YandexGame.savesData.cardLevel[i]);
-
-                _characterCards.InitializeCard(_cards);
             }
 
+            _characterCards.InitializeCard(_cards);
             _buyer.LoadMoney(YandexGame.savesData.playerMoney);
             _buyer.Character.LoadScore(YandexGame.savesData.leaderboardScore);
 
