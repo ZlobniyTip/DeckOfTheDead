@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace UI
@@ -22,7 +20,6 @@ namespace UI
         private void RewardPlayer(int money)
         {
             _buyer.GetMoney(money);
-            Debug.Log("GetMoney");
         }
     }
 }

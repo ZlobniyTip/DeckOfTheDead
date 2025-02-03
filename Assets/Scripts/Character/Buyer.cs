@@ -19,6 +19,7 @@ public class Buyer : MonoBehaviour
 
     public event Action<int> MoneyChanged;
     public event Action EquipmentChanged;
+    public event Action Initialized;
 
     public int Money => _money;
     public Character Character => _character;
@@ -30,13 +31,10 @@ public class Buyer : MonoBehaviour
         _characterShooting = GetComponent<CharacterShooting>();
     }
 
-#if UNITY_EDITOR
     private void Start()
     {
-        _money = 100000;
-        MoneyChanged?.Invoke(_money);
+        Initialized?.Invoke();
     }
-#endif
 
     public void GetMoney(int money)
     {
@@ -78,10 +76,6 @@ public class Buyer : MonoBehaviour
 
     public void EquipItem(IProduct product)
     {
-        Debug.Log(product.Type);
-        Debug.Log(_characterShooting);
-        Debug.Log(_characterCards);
-
         switch (product.Type)
         {
             case ItemType.RangeWeapon:

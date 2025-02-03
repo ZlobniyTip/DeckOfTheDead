@@ -21,6 +21,11 @@ public class Deck : MonoBehaviour
 
     private void Awake()
     {
+        if (_characterCards == null)
+        {
+            Debug.LogError("Карт нету");
+        }
+
         _characterCards.Initialized += TakeCards;
     }
 

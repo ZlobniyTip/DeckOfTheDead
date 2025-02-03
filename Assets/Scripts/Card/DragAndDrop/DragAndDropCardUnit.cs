@@ -134,6 +134,15 @@ public class DragAndDropCardUnit : MonoBehaviour, IBeginDragHandler, IEndDragHan
 
         foreach (var hit in hits)
         {
+            if (hit.collider.GetComponent<Arm>() != null)
+            {
+                spawnPosition = _originalPosition;
+                return false;
+            }
+        }
+
+        foreach (var hit in hits)
+        {
             if (hit.collider.GetComponent<Road>() != null)
             {
                 spawnPosition = hit.point;

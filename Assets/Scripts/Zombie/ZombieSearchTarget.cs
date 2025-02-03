@@ -34,6 +34,7 @@ public class ZombieSearchTarget : MonoBehaviour
             Collider[] overlappedColliders = Physics.OverlapSphere(transform.position, _radius);
             Rigidbody rigidbody;
             Health unitTarget = null;
+            Health characterTarget = null;
 
             foreach (var collider in overlappedColliders)
             {
@@ -41,10 +42,17 @@ public class ZombieSearchTarget : MonoBehaviour
 
                 if (rigidbody && rigidbody.gameObject.TryGetComponent(out Health health))
                 {
-                    if (health is Unit unit || health is Character && health.IsDiying == false)
+                    if (health.IsDiying == false)
                     {
-                        unitTarget = health;
-                        break;
+                        if (health is Unit)
+                        {
+                            unitTarget = health;
+                            break; 
+                        }
+                        else if (health is Character)
+                        {
+                            characterTarget = health; 
+                        }
                     }
                 }
             }
@@ -54,11 +62,15 @@ public class ZombieSearchTarget : MonoBehaviour
                 InitializeTarget(unitTarget);
                 _zombieAttack.ActivateAttack();
             }
+            else if (characterTarget != null)
+            {
+                InitializeTarget(characterTarget);
+                _zombieAttack.ActivateAttack();
+            }
             else if (Target == null)
             {
                 SetStartTarget();
             }
-
 
             yield return new WaitForSeconds(0.5f);
         }

@@ -119,7 +119,8 @@ public class Shop : MonoBehaviour
 
     private void OnLevelUpPressed(CardView view)
     {
-        _buyer.TryLevelUpCard(DeterminePriceImprovement(view));
+        if (_buyer.TryLevelUpCard(DeterminePriceImprovement(view)) == false)
+            return;
 
         switch (view.Card.Level)
         {
