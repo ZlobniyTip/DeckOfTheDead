@@ -14,6 +14,7 @@ public class Deck : MonoBehaviour
     [SerializeField] private LeanHelper _leanHelper;
 
     private List<CardView> _playerCards = new();
+    private List<CardView> _selectedCards = new(); 
     private HashSet<CardData> _usedCards = new();
     private bool _checksActivity = true;
 
@@ -21,11 +22,7 @@ public class Deck : MonoBehaviour
 
     public void TakeSelectedCards(List<CardView> cardViews)
     {
-        foreach (var card in cardViews)
-        {
-            _playerCards.Add(card);
-        }
-
+        _selectedCards = new List<CardView>(cardViews); 
         TakeCards();
     }
 
@@ -104,14 +101,17 @@ public class Deck : MonoBehaviour
 
     private CardData GetUniqueCard()
     {
-        CardData randomCardUnit;
+        if (_playerCards.Count >= _selectedCards.Count)
+            return null;
+
+        CardData randomCard;
 
         do
         {
-            randomCardUnit = _characterCards.Cards[Random.Range(0, _characterCards.Cards.Count)];
-        } while (_usedCards.Contains(randomCardUnit));
+            randomCard = _selectedCards[Random.Range(0, _selectedCards.Count)].Card;
+        } while (_usedCards.Contains(randomCard));
 
-        _usedCards.Add(randomCardUnit);
-        return randomCardUnit;
+        _usedCards.Add(randomCard);
+        return randomCard;
     }
 }
