@@ -672,6 +672,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 278653928}
     - target: {fileID: 5142152912606087712, guid: 942ce77f01a817140a07fc5c93f24607, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5142152912606087712, guid: 942ce77f01a817140a07fc5c93f24607, type: 3}
       propertyPath: _points.Array.data[0]
       value: 
       objectReference: {fileID: 943731419}
