@@ -19,13 +19,9 @@ public class CharacterMovement : MonoBehaviour
         _navMesh = GetComponent<NavMeshAgent>();
     }
 
-    private void Start()
-    {
-        MoveToPoint();
-    }
-
     private void OnEnable()
     {
+        MoveToPoint();
         _spawner.WaveCleared += MoveToPoint; 
     }
 

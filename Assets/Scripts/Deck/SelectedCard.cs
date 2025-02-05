@@ -36,6 +36,7 @@ public class SelectedCard : MonoBehaviour
     {
         _deck.TakeSelectedCards(_selectedCards);
         _panel.SetActive(false);
+        Time.timeScale = 1;
     }
 
     public void AutomaticallySelectCards()
@@ -50,6 +51,8 @@ public class SelectedCard : MonoBehaviour
 
     private void FillDeck(List<CardData> cards)
     {
+        Time.timeScale = 0;
+
         foreach (var card in cards)
         {
             if (card is CardDataUnit)

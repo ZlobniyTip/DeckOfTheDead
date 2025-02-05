@@ -15454,6 +15454,10 @@ PrefabInstance:
       propertyPath: _buyer
       value: 
       objectReference: {fileID: 570542168}
+    - target: {fileID: 2696389327168500119, guid: 0a74f698bd1807f4389896e3f7bbd78e, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3218918090368764659, guid: 0a74f698bd1807f4389896e3f7bbd78e, type: 3}
       propertyPath: _buyer
       value: 
@@ -15474,6 +15478,10 @@ PrefabInstance:
       propertyPath: _characterShooting
       value: 
       objectReference: {fileID: 570542163}
+    - target: {fileID: 3930534055006635210, guid: 0a74f698bd1807f4389896e3f7bbd78e, type: 3}
+      propertyPath: _cards
+      value: 
+      objectReference: {fileID: 895885099}
     - target: {fileID: 4296168641763256422, guid: 0a74f698bd1807f4389896e3f7bbd78e, type: 3}
       propertyPath: m_Pivot.x
       value: 0

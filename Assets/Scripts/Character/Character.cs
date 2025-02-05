@@ -3,10 +3,10 @@ using UnityEngine;
 
 [RequireComponent(typeof(CharacterMovement))]
 [RequireComponent(typeof(CharacterShooting))]
+[RequireComponent(typeof(CharacterCards))]
 [RequireComponent(typeof(PlayerEnergy))]
 public class Character : Health
 {
-    private CharacterCards _characterCards;
     private CharacterView _characterView;
     private CharacterShooting _characterShooting;
     private CharacterMovement _movement;
@@ -22,11 +22,9 @@ public class Character : Health
     public CharacterMovement Movement => _movement;
     public CharacterView CharacterView => _characterView;
     public CharacterShooting CharacterShooting => _characterShooting;
-    public CharacterCards CharacterCards => _characterCards;
 
     private void Start()
     {
-        _characterCards = GetComponent<CharacterCards>();
         _characterView = GetComponent<CharacterView>();
         _playerEnergy = GetComponent<PlayerEnergy>();
         _characterShooting = GetComponent<CharacterShooting>();
@@ -62,5 +60,10 @@ public class Character : Health
     public void LoadScore(int score)
     {
         _leaderboardScore = score;
+    }
+
+    private void EnableMovementPlayer()
+    {
+        _movement.enabled = true;
     }
 }

@@ -11,8 +11,6 @@ public class CharacterCards : MonoBehaviour
 
     public event Action<List<CardData>> InitializedCards;
 
-    public List<CardData> Cards => _cards;
-
     public void AddCard(CardData card, Action equipmentChanged)
     {
         _cards.Add(card);
