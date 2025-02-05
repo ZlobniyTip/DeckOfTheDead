@@ -28,13 +28,11 @@ namespace YG.Example
                 YandexGame.savesData.indexCurrentScene = SceneManager.GetActiveScene().buildIndex;
             }
 
-            YandexGame.GetDataEvent += GetLoad;
             _buyer.EquipmentChanged += Save;
         }
 
         private void OnDisable()
         {
-            YandexGame.GetDataEvent -= GetLoad;
             _buyer.EquipmentChanged -= Save;
         }
 

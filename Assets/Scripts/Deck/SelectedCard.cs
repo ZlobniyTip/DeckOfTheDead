@@ -11,6 +11,7 @@ public class SelectedCard : MonoBehaviour
     [SerializeField] private CardViewUnit _templateCardUnit;
     [SerializeField] private CardViewWeapon _templateCardWeapon;
 
+    [SerializeField] private GameObject _autoChoiceButton;
     [SerializeField] private GameObject _selectedButton;
     [SerializeField] private Button _startGameButton;
     [SerializeField] private GameObject _panel;
@@ -37,6 +38,16 @@ public class SelectedCard : MonoBehaviour
         _panel.SetActive(false);
     }
 
+    public void AutomaticallySelectCards()
+    {
+        int maxCountCards = 10;
+
+        for (int i = 0; i < maxCountCards; i++)
+        {
+            OnSelectedCard(_content[i]);
+        }
+    }
+
     private void FillDeck(List<CardData> cards)
     {
         foreach (var card in cards)
@@ -54,11 +65,12 @@ public class SelectedCard : MonoBehaviour
 
             void Init(CardView view)
             {
-                view.gameObject.transform.localScale = new Vector3(1.6f, 1.6f, 1.6f);
+                view.gameObject.transform.localScale = new Vector3(1.3f, 1.3f, 1.3f);
                 view.Initialize(card);
                 view.SwitchDragAndDrop(false);
                 view.ActivateSelectedButton();
                 view.SelectedCard += OnSelectedCard;
+                view.ShowSelectedButtonText();
                 _content.Add(view);
             }
         }
@@ -78,5 +90,7 @@ public class SelectedCard : MonoBehaviour
                 button.SelectedButtonLock();
             }
         }
+
+        _autoChoiceButton.SetActive(false);
     }
 }

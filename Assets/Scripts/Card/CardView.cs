@@ -10,6 +10,7 @@ public abstract class CardView : ItemView
     [SerializeField] private TMP_Text _levelPrice;
 
     [SerializeField] private Button _selectedButton;
+    [SerializeField] private TMP_Text _selectButtonText;
 
     protected CardData _cardData;
     private DragAndDropCardUnit _dragAndDrop;
@@ -34,6 +35,7 @@ public abstract class CardView : ItemView
     public void SelectedButtonLock()
     {
         _selectedButton.interactable = false;
+        _selectButtonText.text = LeanLocalization.GetTranslationText("Selected");
     }
 
     public void ActivateSelectedButton()
@@ -84,9 +86,9 @@ public abstract class CardView : ItemView
         }
     }
 
-    private void ShowSelectedButtonText()
+    public void ShowSelectedButtonText()
     {
-        
+        _selectButtonText.text = LeanLocalization.GetTranslationText("Select");
     }
 
     private void OnLevelUpPressed()
