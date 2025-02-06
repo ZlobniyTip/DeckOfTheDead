@@ -101,7 +101,7 @@ MonoBehaviour:
   _type: 1
   _icon: {fileID: 21300000, guid: fc41c6c09397b30449f1359a37120c92, type: 3}
   _name: Fire axe
-  _price: 1000
+  _price: 700
   _index: 6
   _attackDistance: 1.7
   _damage: 30

@@ -102,7 +102,7 @@ MonoBehaviour:
   _type: 1
   _icon: {fileID: 21300000, guid: 60df2fe0aff1fc940935087fc0e9b1c4, type: 3}
   _name: Bat metal
-  _price: 1000
+  _price: 0
   _index: 0
   _attackDistance: 1.7
   _damage: 10

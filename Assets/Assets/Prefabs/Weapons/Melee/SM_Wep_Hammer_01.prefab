@@ -101,7 +101,7 @@ MonoBehaviour:
   _type: 1
   _icon: {fileID: 21300000, guid: 7ce4ccaf87b551b4f8b5e0624d9eea55, type: 3}
   _name: Hammer
-  _price: 300
+  _price: 700
   _index: 7
   _attackDistance: 1.7
   _damage: 22

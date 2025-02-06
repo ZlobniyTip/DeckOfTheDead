@@ -10,7 +10,6 @@ public class SceneSwitcher : MonoBehaviour
     [SerializeField] private Button _nextLevelButton;
     [SerializeField] private Button _repeatLevelButton;
     [SerializeField] private SaverTest _saver;
-    [SerializeField] private VideoAd _videoAd;
 
     private int _indexCurrentScene;
 
@@ -21,13 +20,15 @@ public class SceneSwitcher : MonoBehaviour
         if (_nextLevelButton != null)
         {
             _nextLevelButton.onClick.AddListener(EnableNextLevel);
-            _nextLevelButton.onClick.AddListener(_videoAd.Show);
         }
         else
         {
             if (_repeatLevelButton != null)
                 _repeatLevelButton.onClick.AddListener(RepeatLevel);
         }
+
+        if (_indexCurrentScene > 1)
+        YandexGame.FullscreenShow();
     }
 
     private void OnDisable()
@@ -35,7 +36,6 @@ public class SceneSwitcher : MonoBehaviour
         if (_nextLevelButton != null)
         {
             _nextLevelButton.onClick.RemoveListener(EnableNextLevel);
-            _nextLevelButton.onClick.RemoveListener(_videoAd.Show);
         }
         else
         {
