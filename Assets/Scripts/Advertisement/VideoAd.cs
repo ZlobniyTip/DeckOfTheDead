@@ -35,7 +35,8 @@ namespace Advertisement
 
         private void OnCloseCallback()
         {
-            Time.timeScale = 1;
+            Time.timeScale = 0;
+            //Time.timeScale = 1;
             AudioListener.volume = 1f;
         }
 

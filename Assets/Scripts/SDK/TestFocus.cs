@@ -35,7 +35,7 @@ public class TestFocus : MonoBehaviour
         }
     }
 
-    private void PauseGame(bool value)
+    public void PauseGame(bool value)
     {
         if (_menu.IsPaused)
             return;
