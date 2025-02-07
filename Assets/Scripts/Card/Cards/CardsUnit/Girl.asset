@@ -20,6 +20,6 @@ MonoBehaviour:
   _price: 8000
   _priceLevel1: 300
   _priceLevel2: 600
-  _priceLevel3: 800
+  _priceLevel3: 1000
   _prefabUnit: {fileID: 1164588023244912773, guid: 6c5b6403fa721f84dbbb451964f70d38, type: 3}
   _ability: Vampirism - constantly drains the health of zombies

@@ -20,6 +20,6 @@ MonoBehaviour:
   _price: 10000
   _priceLevel1: 300
   _priceLevel2: 500
-  _priceLevel3: 800
+  _priceLevel3: 1000
   _prefabUnit: {fileID: 975895071384281986, guid: 74412ce9064ddb742bb16e15c377a55b, type: 3}
   _ability: Constantly restores the health of allies in a small area
