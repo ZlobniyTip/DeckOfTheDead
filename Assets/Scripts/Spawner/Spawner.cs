@@ -5,6 +5,7 @@ using UnityEngine.Events;
 public class Spawner : MonoBehaviour
 {
     [SerializeField] private Health _target;
+    [SerializeField] private Character _character;
     [SerializeField] private PlayerMovePoint[] _playerMovePoints;
     [SerializeField] private Zombie[] _prefabEnemies;
 
@@ -16,6 +17,7 @@ public class Spawner : MonoBehaviour
     public event UnityAction<int, int> ReachedPoint;
     public event UnityAction WaveCleared;
     public event UnityAction ZombieDie;
+    public event UnityAction<int> ZombieDieRewardLbScore;
 
     private void OnEnable()
     {
@@ -53,10 +55,16 @@ public class Spawner : MonoBehaviour
 
             enemy.ZombieSearch.InitializeStartTarget(_target);
             enemy.Died += HandleEnemyDeath;
+            enemy.DieRewarder += GetLbScore;
             numberEnemiesInWave--;
 
             yield return delay;
         }
+    }
+
+    private void GetLbScore(int reward)
+    {
+        _character.GetLeaderboardScore(reward);
     }
 
     private void HandleEnemyDeath()

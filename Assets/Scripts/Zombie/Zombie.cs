@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -15,6 +16,8 @@ public class Zombie : Health
     private ZombieSearchTarget _zombieSearch;
     private bool _isUnderCamp = false;
     private float _delayBetweenDeath = 2.5f;
+
+    public event Action<int> DieRewarder;
 
     public int Reward => _rewardLeaderboardPoints;
     public bool IsUnderCamp => _isUnderCamp;
@@ -77,6 +80,7 @@ public class Zombie : Health
     {
         if (IsDiying) yield break;
 
+        DieRewarder?.Invoke(_rewardLeaderboardPoints);
         DeclareDeath();
         SetDiyingStatus(true);
         _movement.StopMovement();

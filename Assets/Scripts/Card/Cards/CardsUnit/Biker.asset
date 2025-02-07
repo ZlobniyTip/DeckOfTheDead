@@ -19,7 +19,7 @@ MonoBehaviour:
   _index: 0
   _price: 1000
   _priceLevel1: 200
-  _priceLevel2: 700
-  _priceLevel3: 1000
+  _priceLevel2: 500
+  _priceLevel3: 700
   _prefabUnit: {fileID: 1996216045227106140, guid: 0c1e9340579710248beb857263cfcd51, type: 3}
   _ability: Every fifth hit deals twice as much damage.

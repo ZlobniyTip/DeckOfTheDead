@@ -12,6 +12,7 @@ public class Character : Health
     private CharacterMovement _movement;
     private PlayerEnergy _playerEnergy;
     private int _leaderboardScore;
+    private int _currentLevelLeaderboardScore;
 
     private CharacterStateMachine _stateMachine;
 
@@ -54,16 +55,12 @@ public class Character : Health
     public void GetLeaderboardScore(int score)
     {
         _leaderboardScore += score;
-        ChangedLeaderboardScore?.Invoke(_leaderboardScore);
+        ChangedLeaderboardScore?.Invoke(_leaderboardScore - _currentLevelLeaderboardScore);
     }
 
     public void LoadScore(int score)
     {
         _leaderboardScore = score;
-    }
-
-    private void EnableMovementPlayer()
-    {
-        _movement.enabled = true;
+        _currentLevelLeaderboardScore = score;
     }
 }

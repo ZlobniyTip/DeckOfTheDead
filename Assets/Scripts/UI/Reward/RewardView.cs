@@ -23,18 +23,23 @@ namespace UI
         private int _counterStep = 50;
         private int _completedCoroutines = 0;
 
-        private int _countReward = 0;
+        private float _countRewardHeroDamage = 0;
+        private float _countRewardLbScore = 0;
+        private float _countRewardUnitsUsed = 0;
+        private float _countRewardKilledEnemies = 0;
 
-        public event Action<int> RewardCounted;
+        public event Action<float> RewardCounted;
+
+        public float CountReward { get; private set; } = 0;
 
         private void Start()
         {
             _gamePanel.SetActive(false);
             _activPanelButton.onClick.AddListener(OnActivPanel);
-            StartCoroutine(ChangeValue(_rewardCounter.HeroDamage, _heroDamage));
-            StartCoroutine(ChangeValue(_rewardCounter.LeaderboardScore, _leaderboardScore));
-            StartCoroutine(ChangeValue(_rewardCounter.UnitsUsed, _unitsUsed));
-            StartCoroutine(ChangeValue(_rewardCounter.KilledEnemies, _killedEnemies));
+            StartCoroutine(ChangeValue(_rewardCounter.HeroDamage, _heroDamage, 5, _countRewardHeroDamage));
+            StartCoroutine(ChangeValue(_rewardCounter.LeaderboardScore, _leaderboardScore, 0.1f, _countRewardLbScore));
+            StartCoroutine(ChangeValue(_rewardCounter.UnitsUsed, _unitsUsed, 200, _countRewardUnitsUsed));
+            StartCoroutine(ChangeValue(_rewardCounter.KilledEnemies, _killedEnemies, 200, _countRewardKilledEnemies));
         }
 
         private void OnEnable()
@@ -42,7 +47,7 @@ namespace UI
             _activPanelButton.onClick.RemoveListener(OnActivPanel);
         }
 
-        private IEnumerator ChangeValue(int value, TMP_Text text)
+        private IEnumerator ChangeValue(float value, TMP_Text text, float multiply, float countReward)
         {
             var delay = new WaitForSeconds(_delayCouner);
             int counter = 0;
@@ -56,18 +61,25 @@ namespace UI
             }
 
             _completedCoroutines++;
-            _countReward += value;
+
+            if (_completedCoroutines != 5)
+            {
+                countReward += value * multiply;
+                CountReward += countReward;
+            }
 
             if (counter > value)
                 text.text = value.ToString();
 
             if (_completedCoroutines == 4)
-                StartCoroutine(ChangeValue(_countReward / 2, _reward));
+            {
+                StartCoroutine(ChangeValue(CountReward, _reward, 0.3f, CountReward));
+            }
         }
 
         private void OnActivPanel()
         {
-            RewardCounted?.Invoke(_countReward);
+            RewardCounted?.Invoke(CountReward);
             _buttonsPanel.SetActive(true);
             gameObject.SetActive(false);
         }

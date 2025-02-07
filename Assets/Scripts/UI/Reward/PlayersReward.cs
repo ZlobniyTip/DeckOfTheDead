@@ -17,9 +17,9 @@ namespace UI
             _rewardView.RewardCounted -= RewardPlayer;
         }
 
-        private void RewardPlayer(int money)
+        private void RewardPlayer(float money)
         {
-            _buyer.GetMoney(money);
+            _buyer.GetMoney((int)money);
         }
     }
 }

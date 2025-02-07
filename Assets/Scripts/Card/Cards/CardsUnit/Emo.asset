@@ -18,9 +18,9 @@ MonoBehaviour:
   _type: 2
   _index: 4
   _price: 7000
-  _priceLevel1: 400
+  _priceLevel1: 500
   _priceLevel2: 700
-  _priceLevel3: 1200
+  _priceLevel3: 1000
   _prefabUnit: {fileID: 1333587927668394566, guid: 42e6d2f46be68ed4bb0a62df4665795a, type: 3}
   _ability: After death, he forces the zombie who killed him to fight against other
     zombies.

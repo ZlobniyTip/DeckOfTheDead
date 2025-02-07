@@ -21,7 +21,7 @@ public class SelectedCard : MonoBehaviour
 
     private void Awake()
     {
-        Time.timeScale = 0;
+        //Time.timeScale = 0;
         _cards.InitializedCards += FillDeck;
     }
 
