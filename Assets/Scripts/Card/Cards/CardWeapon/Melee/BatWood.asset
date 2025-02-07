@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _icon: {fileID: 21300000, guid: 9c9c91ab8e8e88246b9323e0b387b159, type: 3}
   _name: A bat with nails
-  _energy: 2
+  _energy: 1
   _type: 2
   _index: 11
   _price: 5000

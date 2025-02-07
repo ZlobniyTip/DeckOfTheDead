@@ -362,7 +362,7 @@ MonoBehaviour:
   _index: 1
   _attackDistance: 8
   _damage: 7
-  _delayBetweenShots: 0.2
+  _delayBetweenShots: 0.4
   _shotEffect: {fileID: 2706735378959260050}
   _shotEffect2: {fileID: 5511174318314172816}
   _bullet: {fileID: 2779122238377238336, guid: 7af0025c87c32d548bd8331f3955239a, type: 3}

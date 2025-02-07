@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _icon: {fileID: 21300000, guid: eb1a4edc7949be64dae37c0f9fe6a504, type: 3}
   _name: MP9
-  _energy: 2
+  _energy: 3
   _type: 2
   _index: 37
   _price: 1000

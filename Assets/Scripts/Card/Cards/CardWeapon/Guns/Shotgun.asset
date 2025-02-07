@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _icon: {fileID: 21300000, guid: 8b6b921cfcd718e48a9efdc5558d8262, type: 3}
   _name: Shotgun
-  _energy: 4
+  _energy: 2
   _type: 2
   _index: 43
   _price: 1000
