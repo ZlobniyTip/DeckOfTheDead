@@ -101,7 +101,7 @@ MonoBehaviour:
   _type: 1
   _icon: {fileID: 21300000, guid: 37017cdcbc209604aa90e5a1d9eb1015, type: 3}
   _name: Pipe
-  _price: 600
+  _price: 230
   _index: 12
   _attackDistance: 1.7
   _damage: 35

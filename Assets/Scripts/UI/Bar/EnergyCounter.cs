@@ -13,7 +13,7 @@ namespace UI
         [SerializeField] private TMP_Text _energyCount;
 
         private Coroutine _changeValue;
-        private float _recoveryRate = 0.17f;
+        private float _recoveryRate = 0.18f;
 
         private void OnEnable()
         {

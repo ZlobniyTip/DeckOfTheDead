@@ -101,7 +101,7 @@ MonoBehaviour:
   _type: 1
   _icon: {fileID: 21300000, guid: 1909c9d2ac6a0e8419d3251c639b8377, type: 3}
   _name: Crowbar
-  _price: 600
+  _price: 220
   _index: 5
   _attackDistance: 1.7
   _damage: 40

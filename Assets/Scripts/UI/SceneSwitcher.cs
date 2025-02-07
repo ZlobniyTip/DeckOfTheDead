@@ -54,17 +54,21 @@ public class SceneSwitcher : MonoBehaviour
         {
             SceneManager.LoadScene(YandexGame.savesData.indexCurrentScene);
         }
+
+        Time.timeScale = 0;
     }
 
     private void EnableNextLevel()
     {
         _saver.Save();
         SceneManager.LoadScene(_indexCurrentScene + 1);
+        Time.timeScale = 0;
     }
 
     private void RepeatLevel()
     {
         _saver.Save();
         SceneManager.LoadScene(_indexCurrentScene);
+        Time.timeScale = 0;
     }
 }

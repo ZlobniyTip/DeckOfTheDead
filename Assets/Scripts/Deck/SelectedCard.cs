@@ -21,7 +21,13 @@ public class SelectedCard : MonoBehaviour
 
     private void Awake()
     {
+        Time.timeScale = 1;
         _cards.InitializedCards += FillDeck;
+    }
+
+    private void Start()
+    {
+        Time.timeScale = 1;
     }
 
     private void OnDestroy()
