@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _icon: {fileID: 21300000, guid: 60df2fe0aff1fc940935087fc0e9b1c4, type: 3}
   _name: Bat metal
-  _energy: 1
+  _energy: 2
   _type: 2
   _index: 10
   _price: 500

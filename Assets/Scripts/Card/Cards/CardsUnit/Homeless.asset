@@ -17,9 +17,9 @@ MonoBehaviour:
   _energy: 3
   _type: 2
   _index: 6
-  _price: 8000
+  _price: 7000
   _priceLevel1: 300
   _priceLevel2: 500
-  _priceLevel3: 800
+  _priceLevel3: 1000
   _prefabUnit: {fileID: -5402624693092834403, guid: 586b932ec054ea14ea95b5a70295910c, type: 3}
   _ability: It stinks, and all the zombies nearby slow down twice.

@@ -54,7 +54,7 @@ public class SceneSwitcher : MonoBehaviour
         {
             SceneManager.LoadScene(YandexGame.savesData.indexCurrentScene);
         }
-    }
+   }
 
     private void EnableNextLevel()
     {

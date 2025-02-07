@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _icon: {fileID: 21300000, guid: f50a190fd47964f4081e3e61a5e42253, type: 3}
   _name: Pistol
-  _energy: 1
+  _energy: 2
   _type: 2
   _index: 38
   _price: 1000

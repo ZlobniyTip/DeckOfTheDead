@@ -21,7 +21,13 @@ public class SelectedCard : MonoBehaviour
 
     private void Awake()
     {
+        Time.timeScale = 0;
         _cards.InitializedCards += FillDeck;
+    }
+
+    private void Start()
+    {
+        Time.timeScale = 0;
     }
 
     private void OnDestroy()
@@ -36,6 +42,7 @@ public class SelectedCard : MonoBehaviour
     {
         _deck.TakeSelectedCards(_selectedCards);
         _panel.SetActive(false);
+
         Time.timeScale = 1;
     }
 
@@ -46,6 +53,7 @@ public class SelectedCard : MonoBehaviour
         for (int i = 0; i < maxCountCards; i++)
         {
             OnSelectedCard(_content[i]);
+
         }
     }
 

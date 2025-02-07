@@ -101,10 +101,10 @@ MonoBehaviour:
   _type: 1
   _icon: {fileID: 21300000, guid: e442872b8476b8245a2affcf8e1b343e, type: 3}
   _name: Police baton
-  _price: 400
+  _price: 200
   _index: 3
   _attackDistance: 1.7
-  _damage: 8
+  _damage: 20
   _delayBetweenShots: 0.8
 --- !u!82 &-4643628864643963664
 AudioSource:

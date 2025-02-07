@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _icon: {fileID: 21300000, guid: 7cca5a3b4f6451845bf4cea4f855e9fd, type: 3}
   _name: Minigun
-  _energy: 3
+  _energy: 5
   _type: 2
   _index: 35
   _price: 1000

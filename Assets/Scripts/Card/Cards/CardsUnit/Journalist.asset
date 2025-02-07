@@ -17,9 +17,9 @@ MonoBehaviour:
   _energy: 2
   _type: 2
   _index: 7
-  _price: 9000
+  _price: 8000
   _priceLevel1: 200
   _priceLevel2: 400
-  _priceLevel3: 800
+  _priceLevel3: 1000
   _prefabUnit: {fileID: 5566368325892015085, guid: 9f03b6aba731bdd4a9e26425ce2a7ae5, type: 3}
   _ability: After his death, he gives one unit of energy.
