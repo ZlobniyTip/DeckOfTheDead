@@ -10,7 +10,9 @@ public class RangeWeapon : Weapon
 
     public override int Shoot()
     {
-        _audio.Play();
+        if (_audio != null)
+            _audio.Play();
+
         _shotEffect.Play();
         _shotEffect2.Play();
 

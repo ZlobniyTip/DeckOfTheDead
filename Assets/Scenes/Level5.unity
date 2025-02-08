@@ -32275,7 +32275,7 @@ MonoBehaviour:
   - {fileID: 1360437802}
   - {fileID: 701151353}
   - {fileID: 1839005945}
-  _numberEnemiesInWave: 15
+  _numberEnemiesInWave: 8
   _zombieSource: {fileID: 973994259}
 --- !u!65 &1189064140
 BoxCollider:
@@ -34168,7 +34168,7 @@ MonoBehaviour:
   - {fileID: 595635710}
   - {fileID: 1386644932}
   - {fileID: 33458753}
-  _numberEnemiesInWave: 15
+  _numberEnemiesInWave: 10
   _zombieSource: {fileID: 973994259}
 --- !u!65 &1272230717
 BoxCollider:

@@ -457,7 +457,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4088713910717576
 Transform:
   m_ObjectHideFlags: 0
@@ -1128,7 +1128,7 @@ GameObject:
   - component: {fileID: 7515199832265399253}
   - component: {fileID: -8116804203535666044}
   m_Layer: 0
-  m_Name: ZombieBigBoss
+  m_Name: ZombieBigBoss 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1286,7 +1286,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b5249729f9271c4fa5a58dd5c29d097, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxValue: 1100
+  _maxValue: 2500
   _zombieView: {fileID: -3013227326340185696}
   _effectCamp: {fileID: 5186316800584830977}
   _rewardLeaderboardPoints: 800
@@ -1303,7 +1303,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _zombieSearchTarget: {fileID: -6198374356795628537}
-  _damage: 20
+  _damage: 30
   _delayBetweenAttack: 1
   _attackDistance: 2
 --- !u!114 &-3013227326340185696
