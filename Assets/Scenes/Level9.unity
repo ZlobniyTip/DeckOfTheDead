@@ -15643,6 +15643,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8949364514349750976, guid: 0a74f698bd1807f4389896e3f7bbd78e, type: 3}
   m_PrefabInstance: {fileID: 333443623}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &333443626 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3930534055006635210, guid: 0a74f698bd1807f4389896e3f7bbd78e, type: 3}
+  m_PrefabInstance: {fileID: 333443623}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d4a97d0c4beaa443b34467805ba5390, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &336360077 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2799666313935431001, guid: abe8929daad6a074fa8a260544167f1e, type: 3}
@@ -40980,6 +40991,10 @@ PrefabInstance:
       propertyPath: _menu
       value: 
       objectReference: {fileID: 333443624}
+    - target: {fileID: 368170382135233618, guid: 2be2f02fa708e3b44912801991247621, type: 3}
+      propertyPath: _selectedCard
+      value: 
+      objectReference: {fileID: 333443626}
     - target: {fileID: 3373400816208997610, guid: 2be2f02fa708e3b44912801991247621, type: 3}
       propertyPath: m_LocalPosition.x
       value: 960

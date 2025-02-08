@@ -358,6 +358,7 @@ MonoBehaviour:
   _selectedButton: {fileID: 5534856619778105309}
   _startGameButton: {fileID: 4988049416390126256}
   _panel: {fileID: 114719014951205927}
+  IsPaused: 0
 --- !u!1 &292097919456053511
 GameObject:
   m_ObjectHideFlags: 0
@@ -7145,7 +7146,6 @@ GameObject:
   - component: {fileID: 8090665597383617641}
   - component: {fileID: 3256124484752353021}
   - component: {fileID: 6097690145046905727}
-  - component: {fileID: 7523772930534450720}
   m_Layer: 5
   m_Name: Help
   m_TagString: Untagged
@@ -7215,27 +7215,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &7523772930534450720
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6249694591604886038}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d4a97d0c4beaa443b34467805ba5390, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _cards: {fileID: 0}
-  _deck: {fileID: 5217668762094637574}
-  _itemContainer: {fileID: 0}
-  _templateCardUnit: {fileID: 1453442143205344714, guid: 3aa5dba47e6b4cb489d7477b4f3884c0, type: 3}
-  _templateCardWeapon: {fileID: 3279787587145919853, guid: 3a94b3537930ef6489c9982ccec0f22b, type: 3}
-  _autoChoiceButton: {fileID: 0}
-  _selectedButton: {fileID: 0}
-  _startGameButton: {fileID: 0}
-  _panel: {fileID: 6249694591604886038}
 --- !u!1 &6307923497836744101
 GameObject:
   m_ObjectHideFlags: 0

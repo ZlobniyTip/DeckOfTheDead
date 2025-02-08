@@ -19,6 +19,8 @@ public class SelectedCard : MonoBehaviour
     private List<CardView> _content = new();
     private List<CardView> _selectedCards = new();
 
+    public bool IsPaused = false;
+
     private void Awake()
     {
         _cards.InitializedCards += FillDeck;
@@ -27,6 +29,7 @@ public class SelectedCard : MonoBehaviour
     private void Start()
     {
         Time.timeScale = 0;
+        IsPaused = true;
     }
 
     private void OnDestroy()
@@ -43,6 +46,7 @@ public class SelectedCard : MonoBehaviour
         _panel.SetActive(false);
 
         Time.timeScale = 1;
+        IsPaused = false;
     }
 
     public void AutomaticallySelectCards()

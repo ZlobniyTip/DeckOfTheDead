@@ -44954,6 +44954,10 @@ PrefabInstance:
       propertyPath: _menu
       value: 
       objectReference: {fileID: 2117519279}
+    - target: {fileID: 368170382135233618, guid: 2be2f02fa708e3b44912801991247621, type: 3}
+      propertyPath: _selectedCard
+      value: 
+      objectReference: {fileID: 2117519281}
     - target: {fileID: 3373400816208997610, guid: 2be2f02fa708e3b44912801991247621, type: 3}
       propertyPath: m_LocalPosition.x
       value: 960
@@ -59525,6 +59529,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 92f7f975d78c4f74f8d4ebb4c4d715fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2117519281 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3930534055006635210, guid: 0a74f698bd1807f4389896e3f7bbd78e, type: 3}
+  m_PrefabInstance: {fileID: 2117519278}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d4a97d0c4beaa443b34467805ba5390, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &2121796301
