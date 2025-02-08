@@ -363,7 +363,7 @@ MonoBehaviour:
   _type: 0
   _icon: {fileID: 21300000, guid: 7cca5a3b4f6451845bf4cea4f855e9fd, type: 3}
   _name: Minigun
-  _price: 25000
+  _price: 15000
   _index: 7
   _attackDistance: 10
   _damage: 15

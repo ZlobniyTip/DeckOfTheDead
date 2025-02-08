@@ -21,7 +21,6 @@ public class SelectedCard : MonoBehaviour
 
     private void Awake()
     {
-        //Time.timeScale = 0;
         _cards.InitializedCards += FillDeck;
     }
 
@@ -53,7 +52,6 @@ public class SelectedCard : MonoBehaviour
         for (int i = 0; i < maxCountCards; i++)
         {
             OnSelectedCard(_content[i]);
-
         }
     }
 
@@ -90,6 +88,7 @@ public class SelectedCard : MonoBehaviour
     private void OnSelectedCard(CardView card)
     {
         _selectedCards.Add(card);
+        card.SetSelectedStatus(true);
         card.SelectedButtonLock();
 
         if (_selectedCards.Count >= 10)

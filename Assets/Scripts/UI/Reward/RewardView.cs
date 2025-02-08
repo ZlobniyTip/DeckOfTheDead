@@ -20,7 +20,7 @@ namespace UI
         [SerializeField] private TMP_Text _reward;
 
         private float _delayCouner = 0.005f;
-        private int _counterStep = 50;
+        private int _counterStep = 100;
         private int _completedCoroutines = 0;
 
         private float _countRewardHeroDamage = 0;
@@ -36,10 +36,10 @@ namespace UI
         {
             _gamePanel.SetActive(false);
             _activPanelButton.onClick.AddListener(OnActivPanel);
-            StartCoroutine(ChangeValue(_rewardCounter.HeroDamage, _heroDamage, 5, _countRewardHeroDamage));
-            StartCoroutine(ChangeValue(_rewardCounter.LeaderboardScore, _leaderboardScore, 0.1f, _countRewardLbScore));
-            StartCoroutine(ChangeValue(_rewardCounter.UnitsUsed, _unitsUsed, 200, _countRewardUnitsUsed));
-            StartCoroutine(ChangeValue(_rewardCounter.KilledEnemies, _killedEnemies, 200, _countRewardKilledEnemies));
+            StartCoroutine(ChangeValue(_rewardCounter.HeroDamage, _heroDamage, 10, _countRewardHeroDamage));
+            StartCoroutine(ChangeValue(_rewardCounter.LeaderboardScore, _leaderboardScore, 0.05f, _countRewardLbScore));
+            StartCoroutine(ChangeValue(_rewardCounter.UnitsUsed, _unitsUsed, 100, _countRewardUnitsUsed));
+            StartCoroutine(ChangeValue(_rewardCounter.KilledEnemies, _killedEnemies, 100, _countRewardKilledEnemies));
         }
 
         private void OnEnable()

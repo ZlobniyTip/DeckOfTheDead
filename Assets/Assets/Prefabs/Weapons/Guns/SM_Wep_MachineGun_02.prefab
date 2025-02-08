@@ -110,7 +110,7 @@ MonoBehaviour:
   _type: 0
   _icon: {fileID: 21300000, guid: 2df07184729d14747a840aa60656a91d, type: 3}
   _name: Machinegun
-  _price: 9000
+  _price: 10000
   _index: 6
   _attackDistance: 10
   _damage: 9

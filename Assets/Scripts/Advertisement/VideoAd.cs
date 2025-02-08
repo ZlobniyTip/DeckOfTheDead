@@ -28,16 +28,25 @@ namespace Advertisement
             YandexGame.RewardVideoEvent -= Rewarded;
         }
 
-        public void Show()
+        public void GivePlayerMoneyX2()
         {
             YandexGame.RewVideoShow(0);
         }
 
+        public void GivePlayerMoney()
+        {
+            YandexGame.RewVideoShow(1);
+        }
+
         public void Rewarded(int id)
         {
-            if (id == 1)
+            if (id == 0)
             {
                 _buyer.GetMoney((int)_rewardView.CountReward);
+            }
+            else if (id == 1)
+            {
+                _buyer.GetMoney(5000);
             }
         }
 
