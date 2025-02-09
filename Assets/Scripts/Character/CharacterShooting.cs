@@ -11,6 +11,7 @@ public class CharacterShooting : MonoBehaviour, IAim
     [SerializeField] private Weapon _defaultWeapon;
     [SerializeField] private ParticleSystem _weaponSpawn;
     [SerializeField] private TMP_Text _tectTime;
+    [SerializeField] private AudioSource _audioSource;
 
     private Zombie _currentEnemy;
     private Weapon _currentWeapon;
@@ -85,16 +86,15 @@ public class CharacterShooting : MonoBehaviour, IAim
         }
 
         _removableWeapons = _currentWeapon;
-        _previousWeapons.gameObject.SetActive(true);
-        _currentWeapon = Instantiate(_previousWeapons, _weaponPoint);
-
         Destroy(_removableWeapons.gameObject);
-        Destroy(_previousWeapons.gameObject);
+
+        EquipWeapon(_defaultWeapon, null);
 
         _tectTime.gameObject.SetActive(false);
     }
 
     public void PlayWeaponSpawnEffect() => _weaponSpawn.Play();
+    public void PlaySoundEffect() => _audioSource.Play();
 
     public void StopShooting()
     {

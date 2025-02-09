@@ -71,6 +71,7 @@ public class DragAndDropCardWeapon : MonoBehaviour, IBeginDragHandler, IEndDragH
         _deck.RemoveCard(_cardView);
         _deck.TakeAwayPlayerEnergy(_cardView.Card.Energy);
         _deck.Character.CharacterShooting.PlayWeaponSpawnEffect();
+        _deck.Character.CharacterShooting.PlaySoundEffect();
 
         _spawnSound.Play();
         Destroy(gameObject);
@@ -86,6 +87,15 @@ public class DragAndDropCardWeapon : MonoBehaviour, IBeginDragHandler, IEndDragH
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit[] hits = Physics.RaycastAll(ray);
+
+        foreach (var hit in hits)
+        {
+            if (hit.collider.GetComponent<Arm>() != null)
+            {
+                spawnPosition = _originalPosition;
+                return false;
+            }
+        }
 
         foreach (var hit in hits)
         {
