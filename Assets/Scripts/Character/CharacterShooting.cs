@@ -63,10 +63,10 @@ public class CharacterShooting : MonoBehaviour, IAim
 
     public void UseTemporaryWeapons(Weapon weapon, CardView view)
     {
-        ChangedWeapon?.Invoke();
         _previousWeapons = _currentWeapon;
         _currentWeapon = Instantiate(weapon, _weaponPoint);
         _currentWeapon.ApplyGain(view);
+        ChangedWeapon?.Invoke();
         _previousWeapons.gameObject.SetActive(false);
     }
 

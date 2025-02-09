@@ -26,9 +26,6 @@ public class SceneSwitcher : MonoBehaviour
             if (_repeatLevelButton != null)
                 _repeatLevelButton.onClick.AddListener(RepeatLevel);
         }
-
-        if (_indexCurrentScene > 1)
-        YandexGame.FullscreenShow();
     }
 
     private void OnDisable()
@@ -60,11 +57,13 @@ public class SceneSwitcher : MonoBehaviour
     {
         _saver.Save();
         SceneManager.LoadScene(_indexCurrentScene + 1);
+        YandexGame.FullscreenShow();
     }
 
     private void RepeatLevel()
     {
         _saver.Save();
         SceneManager.LoadScene(_indexCurrentScene);
+        YandexGame.FullscreenShow();
     }
 }
