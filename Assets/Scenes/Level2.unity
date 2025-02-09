@@ -21912,6 +21912,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1701460574267000154, guid: 942ce77f01a817140a07fc5c93f24607, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: c8521dcc2b4e71a4aa3287e0670fecb1, type: 3}
     - target: {fileID: 1820013058228350869, guid: 942ce77f01a817140a07fc5c93f24607, type: 3}
       propertyPath: m_Name
       value: Player
@@ -21968,6 +21972,10 @@ PrefabInstance:
       propertyPath: _energyProduction
       value: 
       objectReference: {fileID: 1875850136}
+    - target: {fileID: 4832717163306357467, guid: 942ce77f01a817140a07fc5c93f24607, type: 3}
+      propertyPath: _audioSource
+      value: 
+      objectReference: {fileID: 929480796}
     - target: {fileID: 5142152912606087712, guid: 942ce77f01a817140a07fc5c93f24607, type: 3}
       propertyPath: _spawner
       value: 
@@ -22027,6 +22035,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f80c9a327cb2c5640b61b3451c204c09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!82 &929480796 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 1701460574267000154, guid: 942ce77f01a817140a07fc5c93f24607, type: 3}
+  m_PrefabInstance: {fileID: 929480791}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &929480797 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4832717163306357467, guid: 942ce77f01a817140a07fc5c93f24607, type: 3}

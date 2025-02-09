@@ -16400,6 +16400,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1701460574267000154, guid: 942ce77f01a817140a07fc5c93f24607, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: c8521dcc2b4e71a4aa3287e0670fecb1, type: 3}
     - target: {fileID: 1820013058228350869, guid: 942ce77f01a817140a07fc5c93f24607, type: 3}
       propertyPath: m_Name
       value: Player
@@ -16456,6 +16460,10 @@ PrefabInstance:
       propertyPath: _energyProduction
       value: 
       objectReference: {fileID: 2046815123}
+    - target: {fileID: 4832717163306357467, guid: 942ce77f01a817140a07fc5c93f24607, type: 3}
+      propertyPath: _audioSource
+      value: 
+      objectReference: {fileID: 707412281}
     - target: {fileID: 5142152912606087712, guid: 942ce77f01a817140a07fc5c93f24607, type: 3}
       propertyPath: _spawner
       value: 
@@ -16485,6 +16493,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 942ce77f01a817140a07fc5c93f24607, type: 3}
+--- !u!82 &707412281 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 1701460574267000154, guid: 942ce77f01a817140a07fc5c93f24607, type: 3}
+  m_PrefabInstance: {fileID: 707412280}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &708010690
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -32050,7 +32063,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5826490340205220819, guid: abe8929daad6a074fa8a260544167f1e, type: 3}
       propertyPath: _numberEnemiesInWave
-      value: 15
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5904929458484188280, guid: abe8929daad6a074fa8a260544167f1e, type: 3}
       propertyPath: m_LocalPosition.x

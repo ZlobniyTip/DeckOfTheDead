@@ -8051,6 +8051,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4162688951050138, guid: c4d38cd33f6ee9f45bc5a1d4821fec12, type: 3}
   m_PrefabInstance: {fileID: 220915323}
   m_PrefabAsset: {fileID: 0}
+--- !u!82 &220970617 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 1701460574267000154, guid: 942ce77f01a817140a07fc5c93f24607, type: 3}
+  m_PrefabInstance: {fileID: 674962657}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &221364853
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15557,7 +15562,7 @@ MonoBehaviour:
   - {fileID: 1070264256}
   - {fileID: 1291717259}
   - {fileID: 794004575}
-  _numberEnemiesInWave: 16
+  _numberEnemiesInWave: 10
   _zombieSource: {fileID: 1111837893}
 --- !u!65 &431485991
 BoxCollider:
@@ -19821,7 +19826,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4176410186140992, guid: e6ad818f73011bb42ac5c5e629434bcc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 79.62092
+      value: 83.05
       objectReference: {fileID: 0}
     - target: {fileID: 4176410186140992, guid: e6ad818f73011bb42ac5c5e629434bcc, type: 3}
       propertyPath: m_LocalPosition.y
@@ -19829,7 +19834,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4176410186140992, guid: e6ad818f73011bb42ac5c5e629434bcc, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -216.25217
+      value: -213.93
       objectReference: {fileID: 0}
     - target: {fileID: 4176410186140992, guid: e6ad818f73011bb42ac5c5e629434bcc, type: 3}
       propertyPath: m_LocalRotation.w
@@ -25979,6 +25984,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1701460574267000154, guid: 942ce77f01a817140a07fc5c93f24607, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: c8521dcc2b4e71a4aa3287e0670fecb1, type: 3}
     - target: {fileID: 1820013058228350869, guid: 942ce77f01a817140a07fc5c93f24607, type: 3}
       propertyPath: m_Name
       value: Player
@@ -26035,6 +26044,10 @@ PrefabInstance:
       propertyPath: _energyProduction
       value: 
       objectReference: {fileID: 1525288150}
+    - target: {fileID: 4832717163306357467, guid: 942ce77f01a817140a07fc5c93f24607, type: 3}
+      propertyPath: _audioSource
+      value: 
+      objectReference: {fileID: 220970617}
     - target: {fileID: 5142152912606087712, guid: 942ce77f01a817140a07fc5c93f24607, type: 3}
       propertyPath: _spawner
       value: 
@@ -43383,7 +43396,7 @@ Transform:
   m_GameObject: {fileID: 1164071074}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -15, y: 0, z: -33.6}
+  m_LocalPosition: {x: -18.17, y: 0, z: -39.45}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -48455,7 +48468,7 @@ PrefabInstance:
       objectReference: {fileID: 674962661}
     - target: {fileID: 5249754845734030960, guid: 7e628cf75ef966342a9383c37ca1e4f2, type: 3}
       propertyPath: _delaySpawn
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5249754845734030960, guid: 7e628cf75ef966342a9383c37ca1e4f2, type: 3}
       propertyPath: _playerMovePoints.Array.size
@@ -53510,7 +53523,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1612871082067286176, guid: abe8929daad6a074fa8a260544167f1e, type: 3}
       propertyPath: _numberEnemiesInWave
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1612871082067286176, guid: abe8929daad6a074fa8a260544167f1e, type: 3}
       propertyPath: _spawnPoints.Array.size
@@ -69469,7 +69482,7 @@ MonoBehaviour:
   - {fileID: 1345639610}
   - {fileID: 2109401183}
   - {fileID: 1902663611}
-  _numberEnemiesInWave: 15
+  _numberEnemiesInWave: 10
   _zombieSource: {fileID: 1111837893}
 --- !u!65 &1865463883
 BoxCollider:
@@ -70565,7 +70578,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4176410186140992, guid: e6ad818f73011bb42ac5c5e629434bcc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 97.24093
+      value: 91.55
       objectReference: {fileID: 0}
     - target: {fileID: 4176410186140992, guid: e6ad818f73011bb42ac5c5e629434bcc, type: 3}
       propertyPath: m_LocalPosition.y
@@ -70573,7 +70586,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4176410186140992, guid: e6ad818f73011bb42ac5c5e629434bcc, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -194.98218
+      value: -206.1
       objectReference: {fileID: 0}
     - target: {fileID: 4176410186140992, guid: e6ad818f73011bb42ac5c5e629434bcc, type: 3}
       propertyPath: m_LocalRotation.w
@@ -73443,7 +73456,7 @@ Transform:
   m_GameObject: {fileID: 1988365391}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -18.4, y: 0, z: -12.9}
+  m_LocalPosition: {x: -29.6, y: 0, z: -11.37}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

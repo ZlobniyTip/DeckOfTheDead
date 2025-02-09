@@ -109,11 +109,11 @@ MonoBehaviour:
   _type: 0
   _icon: {fileID: 21300000, guid: cda4fabaf99aa404989b9ed58d942099, type: 3}
   _name: Rifle
-  _price: 7000
+  _price: 10000
   _index: 10
   _attackDistance: 7
   _damage: 10
-  _delayBetweenShots: 0.4
+  _delayBetweenShots: 0.2
   _shotEffect: {fileID: 4328440416982302776}
   _shotEffect2: {fileID: 690905486916982478}
   _bullet: {fileID: 2779122238377238336, guid: 7af0025c87c32d548bd8331f3955239a, type: 3}

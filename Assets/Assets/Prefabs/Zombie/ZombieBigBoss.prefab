@@ -1286,7 +1286,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b5249729f9271c4fa5a58dd5c29d097, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxValue: 1100
+  _maxValue: 300
   _zombieView: {fileID: -3013227326340185696}
   _effectCamp: {fileID: 5186316800584830977}
   _rewardLeaderboardPoints: 800
@@ -1303,8 +1303,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _zombieSearchTarget: {fileID: -6198374356795628537}
-  _damage: 20
-  _delayBetweenAttack: 1
+  _damage: 25
+  _delayBetweenAttack: 2
   _attackDistance: 2
 --- !u!114 &-3013227326340185696
 MonoBehaviour:
@@ -1330,8 +1330,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d20b3b6dcadd16248bc4a4cf3cf2ffd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 200
-  _damage: 3
+  _health: 400
+  _damage: 4
   _attackSpeed: 2
 --- !u!114 &-8116804203535666044
 MonoBehaviour:

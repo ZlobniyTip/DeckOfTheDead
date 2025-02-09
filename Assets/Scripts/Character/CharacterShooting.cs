@@ -57,6 +57,8 @@ public class CharacterShooting : MonoBehaviour, IAim
         {
             _currentWeapon = Instantiate(weapon, _weaponPoint);
         }
+
+        _defaultWeapon = weapon;
     }
 
     public void UseTemporaryWeapons(Weapon weapon, CardView view)

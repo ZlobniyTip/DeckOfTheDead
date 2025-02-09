@@ -58413,6 +58413,7 @@ Transform:
   - {fileID: 993369415}
   - {fileID: 951770990}
   - {fileID: 1421733137}
+  - {fileID: 1563303014}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!114 &1346359747
@@ -62403,7 +62404,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1346359746}
     m_Modifications:
     - target: {fileID: 1842198354992312, guid: 90e9c22f9f7741d41b7b76fd1edb1d43, type: 3}
       propertyPath: m_Name
@@ -62411,31 +62412,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4890833758786328, guid: 90e9c22f9f7741d41b7b76fd1edb1d43, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -187.28
+      value: 4.6601567
       objectReference: {fileID: 0}
     - target: {fileID: 4890833758786328, guid: 90e9c22f9f7741d41b7b76fd1edb1d43, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.32
+      value: -17.612005
       objectReference: {fileID: 0}
     - target: {fileID: 4890833758786328, guid: 90e9c22f9f7741d41b7b76fd1edb1d43, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -188.19
+      value: 218.85309
       objectReference: {fileID: 0}
     - target: {fileID: 4890833758786328, guid: 90e9c22f9f7741d41b7b76fd1edb1d43, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 4890833758786328, guid: 90e9c22f9f7741d41b7b76fd1edb1d43, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4890833758786328, guid: 90e9c22f9f7741d41b7b76fd1edb1d43, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 4890833758786328, guid: 90e9c22f9f7741d41b7b76fd1edb1d43, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4890833758786328, guid: 90e9c22f9f7741d41b7b76fd1edb1d43, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -69323,6 +69324,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4626928688417078, guid: 7da3e520bf69604438cdb89fd39b3ba5, type: 3}
   m_PrefabInstance: {fileID: 1561058377}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &1563303014 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4890833758786328, guid: 90e9c22f9f7741d41b7b76fd1edb1d43, type: 3}
+  m_PrefabInstance: {fileID: 1427374106}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1564521518
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -73847,6 +73853,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1701460574267000154, guid: 942ce77f01a817140a07fc5c93f24607, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: c8521dcc2b4e71a4aa3287e0670fecb1, type: 3}
     - target: {fileID: 1820013058228350869, guid: 942ce77f01a817140a07fc5c93f24607, type: 3}
       propertyPath: m_Name
       value: Player
@@ -73899,6 +73909,10 @@ PrefabInstance:
       propertyPath: _energyProduction
       value: 
       objectReference: {fileID: 437508936}
+    - target: {fileID: 4832717163306357467, guid: 942ce77f01a817140a07fc5c93f24607, type: 3}
+      propertyPath: _audioSource
+      value: 
+      objectReference: {fileID: 1689442883}
     - target: {fileID: 5142152912606087712, guid: 942ce77f01a817140a07fc5c93f24607, type: 3}
       propertyPath: _spawner
       value: 
@@ -73982,6 +73996,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fbaa0b2a7fc39a4c95a540a27fe5860, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!82 &1689442883 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 1701460574267000154, guid: 942ce77f01a817140a07fc5c93f24607, type: 3}
+  m_PrefabInstance: {fileID: 1689442878}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1689442884 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5605027905101307380, guid: 942ce77f01a817140a07fc5c93f24607, type: 3}
@@ -93702,4 +93721,3 @@ SceneRoots:
   - {fileID: 707901515}
   - {fileID: 2107405699}
   - {fileID: 1264057471}
-  - {fileID: 1427374106}
