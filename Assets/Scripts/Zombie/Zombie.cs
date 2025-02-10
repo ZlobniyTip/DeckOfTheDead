@@ -16,8 +16,8 @@ public class Zombie : Health
     private ZombieSearchTarget _zombieSearch;
     private bool _isUnderCamp = false;
     private float _delayBetweenDeath = 2.5f;
-
-    public event Action<int> DieRewarder;
+    private bool _isIgnored = false;
+    public bool IsIgnored => _isIgnored;
 
     public int Reward => _rewardLeaderboardPoints;
     public bool IsUnderCamp => _isUnderCamp;
@@ -25,6 +25,8 @@ public class Zombie : Health
     public EnemyMovement Movement => _movement;
     public ZombieView ZombieView => _zombieView;
     public ZombieAttack ZombieAttack => _zombieAttack;
+
+    public event Action<int> DieRewarder;
 
     private void Awake()
     {
@@ -41,6 +43,11 @@ public class Zombie : Health
     private void Update()
     {
         _zombieStateMachine.Update();
+    }
+
+    public void SetIgnoredStatus(bool ignored)
+    {
+        _isIgnored = ignored;
     }
 
     public void EnterCamp()
@@ -62,7 +69,7 @@ public class Zombie : Health
     public override void TakeHeal(int healValue)
     {
         if (IsDiying == false)
-        base.TakeHeal(healValue);
+            base.TakeHeal(healValue);
     }
 
     public override void TakeDamage(int damage)

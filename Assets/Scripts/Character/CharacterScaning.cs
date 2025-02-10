@@ -7,6 +7,8 @@ public class CharacterScaning : MonoBehaviour
 
     private Zombie _currentEnemy;
 
+    public Zombie CurrentEnemy => _currentEnemy;
+
     private void Start()
     {
         StartCoroutine(SearchEnemy());
@@ -16,6 +18,7 @@ public class CharacterScaning : MonoBehaviour
     {
         _characterShooting.StopShooting();
         _currentEnemy = null;
+
         StartCoroutine(SearchEnemy());
     }
 
@@ -26,6 +29,8 @@ public class CharacterScaning : MonoBehaviour
 
     private IEnumerator SearchEnemy()
     {
+        yield return new WaitForSeconds(0.1f);
+
         while (_currentEnemy == null)
         {
             Collider[] overlappedColliders = Physics.OverlapSphere(transform.position, _characterShooting.CurrentWeapon.AttackDistance);
@@ -41,6 +46,9 @@ public class CharacterScaning : MonoBehaviour
                     {
                         if (enemy.IsDiying == false)
                         {
+                            if (enemy.IsIgnored == true)
+                                enemy.SetIgnoredStatus(false);
+
                             _currentEnemy = enemy;
                             _characterShooting.ActivShooting(_currentEnemy);
                             yield break;

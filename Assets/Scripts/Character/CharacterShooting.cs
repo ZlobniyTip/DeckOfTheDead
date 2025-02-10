@@ -18,6 +18,10 @@ public class CharacterShooting : MonoBehaviour, IAim
     private Weapon _previousWeapons;
     private Weapon _removableWeapons;
     private int _time;
+    private Coroutine _weaponTimerCoroutine;
+
+    private bool _isIgnored = false;
+    public bool IsIgnored => _isIgnored;
 
     public bool IsShooting { get; private set; } = false;
     public Weapon CurrentWeapon => _currentWeapon;
@@ -68,11 +72,19 @@ public class CharacterShooting : MonoBehaviour, IAim
         _currentWeapon.ApplyGain(view);
         ChangedWeapon?.Invoke();
         _previousWeapons.gameObject.SetActive(false);
+
+        _characterScaning.ActivSearch();
+
+        if (_currentEnemy != null)
+            _currentEnemy.SetIgnoredStatus(true);  // Временно игнорируем зомби
     }
 
     public void StartWeaponTimer(int time)
     {
-        StartCoroutine(WeaponTimer(time));
+        if (_weaponTimerCoroutine != null)
+            StopCoroutine(_weaponTimerCoroutine);
+
+        _weaponTimerCoroutine = StartCoroutine(WeaponTimer(time));
     }
 
     private IEnumerator WeaponTimer(int time)
@@ -87,10 +99,18 @@ public class CharacterShooting : MonoBehaviour, IAim
             _time--;
         }
 
-        _removableWeapons = _currentWeapon;
-        Destroy(_removableWeapons.gameObject);
+        // Удаляем временное оружие
+        Destroy(_currentWeapon.gameObject);
 
-        EquipWeapon(_defaultWeapon, null);
+        // Возвращаем дефолтное оружие вместо предыдущего
+        _currentWeapon = Instantiate(_defaultWeapon, _weaponPoint);
+
+        // Включаем дефолтное оружие, если оно было скрыто
+        _currentWeapon.gameObject.SetActive(true);
+        ChangedWeapon?.Invoke();
+
+        if (_currentEnemy != null)
+            _currentEnemy.SetIgnoredStatus(true);
 
         _tectTime.gameObject.SetActive(false);
     }
@@ -113,10 +133,11 @@ public class CharacterShooting : MonoBehaviour, IAim
     {
         var delay = new WaitForSeconds(_currentWeapon.DelayBetweenShots);
 
-        while (_currentEnemy.IsDiying == false)
+        while (_currentEnemy.IsDiying == false && _currentEnemy.IsIgnored == false)
         {
             TurnToTarget();
             _currentEnemy.TakeDamage(_currentWeapon.Shoot());
+
 
             CausedDamage?.Invoke(_currentWeapon.Shoot());
 
