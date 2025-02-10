@@ -2993,6 +2993,7 @@ Transform:
   - {fileID: 244746966}
   - {fileID: 1282928704}
   - {fileID: 883022863}
+  - {fileID: 437743440}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: -0.011, y: 90, z: 0.089}
 --- !u!4 &25629877 stripped
@@ -10890,7 +10891,7 @@ MonoBehaviour:
   - {fileID: 93670899}
   - {fileID: 1084280136}
   - {fileID: 167508032}
-  _numberEnemiesInWave: 21
+  _numberEnemiesInWave: 14
   _zombieSource: {fileID: 4156366970034181836}
 --- !u!65 &194163527
 BoxCollider:
@@ -17507,7 +17508,7 @@ MonoBehaviour:
   - {fileID: 1713262477}
   - {fileID: 1986947529}
   - {fileID: 1246156323}
-  _numberEnemiesInWave: 15
+  _numberEnemiesInWave: 10
   _zombieSource: {fileID: 4156366970034181836}
 --- !u!65 &343959432
 BoxCollider:
@@ -21943,6 +21944,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 4834257298755560, guid: f8a48f8be2524674799f72b2d14af8e9, type: 3}
   m_PrefabInstance: {fileID: 437369513}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &437743440 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4733120389353900, guid: d368169865e447d4eb38c5700ff9856e, type: 3}
+  m_PrefabInstance: {fileID: 852132187}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &437862217
 PrefabInstance:
@@ -41366,7 +41372,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 24361177}
     m_Modifications:
     - target: {fileID: 1023308068024276, guid: d368169865e447d4eb38c5700ff9856e, type: 3}
       propertyPath: m_Name
@@ -41374,31 +41380,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4733120389353900, guid: d368169865e447d4eb38c5700ff9856e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 322.81
+      value: -12.587269
       objectReference: {fileID: 0}
     - target: {fileID: 4733120389353900, guid: d368169865e447d4eb38c5700ff9856e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.31
+      value: -4.6693764
       objectReference: {fileID: 0}
     - target: {fileID: 4733120389353900, guid: d368169865e447d4eb38c5700ff9856e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3.14
+      value: -5.610919
       objectReference: {fileID: 0}
     - target: {fileID: 4733120389353900, guid: d368169865e447d4eb38c5700ff9856e, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.70710653
       objectReference: {fileID: 0}
     - target: {fileID: 4733120389353900, guid: d368169865e447d4eb38c5700ff9856e, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0.00048123766
       objectReference: {fileID: 0}
     - target: {fileID: 4733120389353900, guid: d368169865e447d4eb38c5700ff9856e, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0.70710665
       objectReference: {fileID: 0}
     - target: {fileID: 4733120389353900, guid: d368169865e447d4eb38c5700ff9856e, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0.00061708846
       objectReference: {fileID: 0}
     - target: {fileID: 4733120389353900, guid: d368169865e447d4eb38c5700ff9856e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -78325,7 +78331,7 @@ MonoBehaviour:
   - {fileID: 332796715}
   - {fileID: 719032202}
   - {fileID: 608671002}
-  _numberEnemiesInWave: 20
+  _numberEnemiesInWave: 12
   _zombieSource: {fileID: 4156366970034181836}
 --- !u!65 &1667648406
 BoxCollider:
@@ -100343,7 +100349,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1612871082067286176, guid: abe8929daad6a074fa8a260544167f1e, type: 3}
       propertyPath: _numberEnemiesInWave
-      value: 12
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2244292434283924162, guid: abe8929daad6a074fa8a260544167f1e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -100391,7 +100397,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5826490340205220819, guid: abe8929daad6a074fa8a260544167f1e, type: 3}
       propertyPath: _numberEnemiesInWave
-      value: 15
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6146662163579495246, guid: abe8929daad6a074fa8a260544167f1e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -100549,4 +100555,3 @@ SceneRoots:
   - {fileID: 1432683431}
   - {fileID: 24361177}
   - {fileID: 1381475061}
-  - {fileID: 852132187}

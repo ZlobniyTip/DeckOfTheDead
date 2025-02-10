@@ -53,7 +53,7 @@ public class ZombieVirus : MonoBehaviour
                         if (!_subscribedObjects.Contains(enemy))
                         {
                             _subscribedObjects.Add(enemy);
-                            enemy.TurnIntoZombie += RiseZombie;
+                            //enemy.TurnIntoZombie += RiseZombie;
                         }
 
                         enemy.TakeDamage(_damage);
@@ -77,8 +77,13 @@ public class ZombieVirus : MonoBehaviour
             _subscribedObjects.Remove(unit);
         }
 
-        Zombie zombie = Instantiate(_zombiePrefab, unit.transform.position, Quaternion.identity);
-        zombie.ZombieSearch.InitializeStartTarget(unit);
+        if (!unit.IsZombie)
+        {
+            Zombie zombie = Instantiate(_zombiePrefab, unit.transform.position, Quaternion.identity);
+            zombie.ZombieSearch.InitializeStartTarget(unit);
+
+            unit.IsZombie = true; 
+        }
     }
 
     private void UnsubscribeAll()

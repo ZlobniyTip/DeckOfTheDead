@@ -18189,7 +18189,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1612871082067286176, guid: abe8929daad6a074fa8a260544167f1e, type: 3}
       propertyPath: _numberEnemiesInWave
-      value: 7
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2244292434283924162, guid: abe8929daad6a074fa8a260544167f1e, type: 3}
       propertyPath: m_LocalPosition.z
@@ -18205,11 +18205,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4398403525157878280, guid: abe8929daad6a074fa8a260544167f1e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 23.73
+      value: 31.1
       objectReference: {fileID: 0}
     - target: {fileID: 4398403525157878280, guid: abe8929daad6a074fa8a260544167f1e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -7.47
+      value: -7.3
       objectReference: {fileID: 0}
     - target: {fileID: 4608710678966701156, guid: abe8929daad6a074fa8a260544167f1e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -18229,7 +18229,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5826490340205220819, guid: abe8929daad6a074fa8a260544167f1e, type: 3}
       propertyPath: _numberEnemiesInWave
-      value: 8
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6146662163579495246, guid: abe8929daad6a074fa8a260544167f1e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -18317,19 +18317,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8866572930728214743, guid: abe8929daad6a074fa8a260544167f1e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 23.01
+      value: 31.5
       objectReference: {fileID: 0}
     - target: {fileID: 8866572930728214743, guid: abe8929daad6a074fa8a260544167f1e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3.34
+      value: 3.9
       objectReference: {fileID: 0}
     - target: {fileID: 9148572609565701527, guid: abe8929daad6a074fa8a260544167f1e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 29.55
+      value: 34
       objectReference: {fileID: 0}
     - target: {fileID: 9148572609565701527, guid: abe8929daad6a074fa8a260544167f1e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 9.59
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -32,7 +32,9 @@ public class PlayerEnergy : MonoBehaviour
     public IEnumerator IncreaseEnergyJournalist()
     {
         yield return new WaitForSeconds(0.5f);
-        _audioSource.Play();
+
+        if (_audioSource != null)
+            _audioSource.Play();
 
         _energyProduction.Play();
         IncreaseEnergy();

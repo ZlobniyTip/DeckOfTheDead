@@ -17,7 +17,7 @@ MonoBehaviour:
   _energy: 3
   _type: 2
   _index: 32
-  _price: 5000
+  _price: 1500
   _priceLevel1: 1000
   _priceLevel2: 1500
   _priceLevel3: 2000

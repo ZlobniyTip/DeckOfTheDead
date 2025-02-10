@@ -29902,7 +29902,7 @@ MonoBehaviour:
   - {fileID: 793942537}
   - {fileID: 1669855002}
   - {fileID: 2032432726}
-  _numberEnemiesInWave: 18
+  _numberEnemiesInWave: 16
   _zombieSource: {fileID: 1805240042}
 --- !u!65 &631666668
 BoxCollider:
@@ -40317,7 +40317,7 @@ MonoBehaviour:
   - {fileID: 1269835046}
   - {fileID: 2071569446}
   - {fileID: 1742491759}
-  _numberEnemiesInWave: 20
+  _numberEnemiesInWave: 18
   _zombieSource: {fileID: 1805240042}
 --- !u!65 &871887878
 BoxCollider:
@@ -45584,7 +45584,7 @@ MonoBehaviour:
   - {fileID: 1529724291}
   - {fileID: 910276539}
   - {fileID: 1735632306}
-  _numberEnemiesInWave: 13
+  _numberEnemiesInWave: 10
   _zombieSource: {fileID: 1805240042}
 --- !u!65 &974260792
 BoxCollider:
@@ -51611,7 +51611,7 @@ MonoBehaviour:
   - {fileID: 638325042}
   - {fileID: 1960598814}
   - {fileID: 513747856}
-  _numberEnemiesInWave: 15
+  _numberEnemiesInWave: 11
   _zombieSource: {fileID: 1805240042}
 --- !u!65 &1099247273
 BoxCollider:

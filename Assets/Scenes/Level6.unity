@@ -12295,7 +12295,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1612871082067286176, guid: abe8929daad6a074fa8a260544167f1e, type: 3}
       propertyPath: _numberEnemiesInWave
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1612871082067286176, guid: abe8929daad6a074fa8a260544167f1e, type: 3}
       propertyPath: _spawnPoints.Array.size
@@ -12363,7 +12363,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5826490340205220819, guid: abe8929daad6a074fa8a260544167f1e, type: 3}
       propertyPath: _numberEnemiesInWave
-      value: 15
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 5826490340205220819, guid: abe8929daad6a074fa8a260544167f1e, type: 3}
       propertyPath: _spawnPoints.Array.size
@@ -12995,7 +12995,7 @@ MonoBehaviour:
   - {fileID: 1113377146}
   - {fileID: 299386267}
   - {fileID: 629982875}
-  _numberEnemiesInWave: 15
+  _numberEnemiesInWave: 11
   _zombieSource: {fileID: 1049470260}
 --- !u!65 &313218352
 BoxCollider:
@@ -26154,7 +26154,7 @@ MonoBehaviour:
   - {fileID: 680256824}
   - {fileID: 138886169}
   - {fileID: 915947777}
-  _numberEnemiesInWave: 14
+  _numberEnemiesInWave: 8
   _zombieSource: {fileID: 1049470260}
 --- !u!65 &632511266
 BoxCollider:
@@ -29956,7 +29956,7 @@ MonoBehaviour:
   - {fileID: 1821133921}
   - {fileID: 936523858}
   - {fileID: 199791705}
-  _numberEnemiesInWave: 16
+  _numberEnemiesInWave: 15
   _zombieSource: {fileID: 1049470260}
 --- !u!65 &736981198
 BoxCollider:
@@ -91515,7 +91515,7 @@ PrefabInstance:
     - target: {fileID: 7107304827704845151, guid: 0a74f698bd1807f4389896e3f7bbd78e, type: 3}
       propertyPath: _buyer
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1689442886}
     - target: {fileID: 7815013061263579833, guid: 0a74f698bd1807f4389896e3f7bbd78e, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0

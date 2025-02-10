@@ -17,7 +17,9 @@ public class MelleWeapon : Weapon
     public override int Shoot()
     {
         MelleAttack?.Invoke();
-        _audio.Play();
+
+        if (_audio != null)
+            _audio.Play();
 
         return _damage;
     }

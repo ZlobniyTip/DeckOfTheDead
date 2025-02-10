@@ -26,6 +26,7 @@ public class Unit : Health, IAim
     public Zombie Target => _target;
     public Character Character => _character;
     public FXUnit FXUnit => _fxUnit;
+    public bool IsZombie { get; set; } = false;
 
     private void Awake()
     {

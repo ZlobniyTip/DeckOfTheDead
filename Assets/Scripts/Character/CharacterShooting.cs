@@ -76,7 +76,7 @@ public class CharacterShooting : MonoBehaviour, IAim
         _characterScaning.ActivSearch();
 
         if (_currentEnemy != null)
-            _currentEnemy.SetIgnoredStatus(true);  // Временно игнорируем зомби
+            _currentEnemy.SetIgnoredStatus(true);  
     }
 
     public void StartWeaponTimer(int time)
@@ -99,13 +99,9 @@ public class CharacterShooting : MonoBehaviour, IAim
             _time--;
         }
 
-        // Удаляем временное оружие
         Destroy(_currentWeapon.gameObject);
 
-        // Возвращаем дефолтное оружие вместо предыдущего
         _currentWeapon = Instantiate(_defaultWeapon, _weaponPoint);
-
-        // Включаем дефолтное оружие, если оно было скрыто
         _currentWeapon.gameObject.SetActive(true);
         ChangedWeapon?.Invoke();
 

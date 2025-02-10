@@ -33820,11 +33820,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6297224622035439795, guid: abe8929daad6a074fa8a260544167f1e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 25.5
+      value: 14.26
       objectReference: {fileID: 0}
     - target: {fileID: 6297224622035439795, guid: abe8929daad6a074fa8a260544167f1e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 17.7
+      value: 34.37
       objectReference: {fileID: 0}
     - target: {fileID: 6761342010393034702, guid: abe8929daad6a074fa8a260544167f1e, type: 3}
       propertyPath: m_Name
@@ -33876,11 +33876,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8866572930728214743, guid: abe8929daad6a074fa8a260544167f1e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 29.7
+      value: 36.09
       objectReference: {fileID: 0}
     - target: {fileID: 8866572930728214743, guid: abe8929daad6a074fa8a260544167f1e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3.11
+      value: -2.65
       objectReference: {fileID: 0}
     - target: {fileID: 9148572609565701527, guid: abe8929daad6a074fa8a260544167f1e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -40850,7 +40850,7 @@ MonoBehaviour:
   - {fileID: 471421594}
   - {fileID: 27262945}
   - {fileID: 2048574695}
-  _numberEnemiesInWave: 18
+  _numberEnemiesInWave: 12
   _zombieSource: {fileID: 973994259}
 --- !u!65 &1470470074
 BoxCollider:
