@@ -15,6 +15,7 @@ public class ZombieVirus : MonoBehaviour
     private HashSet<Unit> _subscribedObjects = new HashSet<Unit>();
     private ParticleSystem _currentParticle;
     private float _timer = 0;
+    private Zombie _zombie;
 
     private void Start()
     {
@@ -71,7 +72,13 @@ public class ZombieVirus : MonoBehaviour
 
     private void RiseZombie(Unit unit)
     {
-        Instantiate(_zombiePrefab, unit.transform.position, Quaternion.identity);
+        if (_subscribedObjects.Contains(unit))
+        {
+            _subscribedObjects.Remove(unit);
+        }
+
+        Zombie zombie = Instantiate(_zombiePrefab, unit.transform.position, Quaternion.identity);
+        zombie.ZombieSearch.InitializeStartTarget(unit);
     }
 
     private void UnsubscribeAll()

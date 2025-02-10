@@ -6,6 +6,7 @@ public class PressIncreaseEnergy : Skill
 
     private void Start()
     {
+        _unit.Died -= UseSkill;
         _unit.Died += UseSkill;
     }
 
