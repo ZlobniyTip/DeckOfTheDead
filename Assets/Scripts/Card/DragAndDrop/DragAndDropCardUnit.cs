@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -129,6 +130,12 @@ public class DragAndDropCardUnit : MonoBehaviour, IBeginDragHandler, IEndDragHan
 
     private bool FindSpawnLocation(out Vector3 spawnPosition)
     {
+        if (IsPointerOverUI())
+        {
+            spawnPosition = _originalPosition;
+            return false;
+        }
+
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit[] hits = Physics.RaycastAll(ray);
 
@@ -151,6 +158,25 @@ public class DragAndDropCardUnit : MonoBehaviour, IBeginDragHandler, IEndDragHan
         }
 
         spawnPosition = _originalPosition;
+        return false;
+    }
+
+    private bool IsPointerOverUI()
+    {
+        PointerEventData eventData = new PointerEventData(EventSystem.current)
+        {
+            position = Input.mousePosition
+        };
+
+        List<RaycastResult> results = new List<RaycastResult>();
+        EventSystem.current.RaycastAll(eventData, results);
+
+        foreach (var result in results)
+        {
+            if (result.gameObject.GetComponent<Arm>() != null)
+                return true;
+        }
+
         return false;
     }
 }
