@@ -67,6 +67,8 @@ public class LootBox : MonoBehaviour
         _choosedCards.Add(cards[cardIndex]);
 
         if (_choosedCards.Count == 10)
+        {
             _prizesPanel.SetActive(true);
+        }
     }
 }

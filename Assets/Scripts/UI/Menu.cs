@@ -9,7 +9,6 @@ namespace UI
         public void OpenMenu(GameObject panel)
         {
             IsPaused = true;
-            Debug.Log("Menu OpenMenu");
             Time.timeScale = 0;
             panel.SetActive(true);
         }
@@ -18,7 +17,6 @@ namespace UI
         {
             IsPaused = false;
             Time.timeScale = 1;
-            Debug.Log("Menu CloseMenu");
             panel.SetActive(false);
         }
     }

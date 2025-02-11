@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using YG;
 
 public class SelectedCard : MonoBehaviour
 {
@@ -24,12 +25,12 @@ public class SelectedCard : MonoBehaviour
     private void Awake()
     {
         _cards.InitializedCards += FillDeck;
+        YandexGame.CloseFullAdEvent += PauseGame;
     }
 
     private void Start()
     {
-        Time.timeScale = 0;
-        IsPaused = true;
+        PauseGame();
     }
 
     private void OnDestroy()
@@ -57,6 +58,12 @@ public class SelectedCard : MonoBehaviour
         {
             OnSelectedCard(_content[i]);
         }
+    }
+
+    private void PauseGame()
+    {
+        Time.timeScale = 0;
+        IsPaused = true;
     }
 
     private void FillDeck(List<CardData> cards)

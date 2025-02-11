@@ -53,7 +53,7 @@ public class ZombieVirus : MonoBehaviour
                         if (!_subscribedObjects.Contains(enemy))
                         {
                             _subscribedObjects.Add(enemy);
-                            //enemy.TurnIntoZombie += RiseZombie;
+                            enemy.TurnIntoZombie += RiseZombie;
                         }
 
                         enemy.TakeDamage(_damage);
@@ -74,6 +74,7 @@ public class ZombieVirus : MonoBehaviour
     {
         if (_subscribedObjects.Contains(unit))
         {
+            unit.TurnIntoZombie -= RiseZombie;
             _subscribedObjects.Remove(unit);
         }
 

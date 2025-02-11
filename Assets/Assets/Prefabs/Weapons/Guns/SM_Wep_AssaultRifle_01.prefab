@@ -360,7 +360,7 @@ MonoBehaviour:
   _price: 9000
   _index: 0
   _attackDistance: 10
-  _damage: 6
+  _damage: 25
   _delayBetweenShots: 0.3
   _shotEffect: {fileID: 1693253732907318118}
   _shotEffect2: {fileID: 303730926128223554}

@@ -10,7 +10,6 @@ public class Unit : Health, IAim
 
     private Character _character;
     private Zombie _target;
-    private UnitMovement _movement;
     private UnitAttack _attack;
     private UnitAnimator _unitAnimator;
     private UnitObserver _controller;
@@ -20,7 +19,6 @@ public class Unit : Health, IAim
 
     public event Action<Unit> TurnIntoZombie;
 
-    public UnitMovement Movement => _movement;
     public UnitAttack Attack => _attack;
     public UnitConfig UnitConfig => _config;
     public Zombie Target => _target;
@@ -33,7 +31,6 @@ public class Unit : Health, IAim
         _maxValue = _config.Health;
         _value = _maxValue;
 
-        _movement = GetComponent<UnitMovement>();
         _attack = GetComponent<UnitAttack>();
         _unitAnimator = GetComponent<UnitAnimator>();
         _controller = GetComponent<UnitObserver>();

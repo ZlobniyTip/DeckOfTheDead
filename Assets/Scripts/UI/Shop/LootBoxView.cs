@@ -5,7 +5,8 @@ using UnityEngine.UI;
 public class LootBoxView : MonoBehaviour
 {
     [SerializeField] private LootBox _lootBox;
-    [SerializeField] private List<Image> _images;
+    [SerializeField] private List<Image> _imagesCards;
+    [SerializeField] private List<Image> _imagesWeapons;
 
     private void OnEnable()
     {
@@ -16,12 +17,12 @@ public class LootBoxView : MonoBehaviour
     {
         for (int i = 0; i < _lootBox.Weapons.Count; i++)
         {
-            _images[i].sprite = _lootBox.Weapons[i].Icon;
+            _imagesWeapons[i].sprite = _lootBox.Weapons[i].Icon;
         }
 
         for (int i = 0; i < _lootBox.Cards.Count; i++)
         {
-            _images[i].sprite = _lootBox.Cards[i].Icon;
+            _imagesCards[i].sprite = _lootBox.Cards[i].Icon;
         }
     }
 }
