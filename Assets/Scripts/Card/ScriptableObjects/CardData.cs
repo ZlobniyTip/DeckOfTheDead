@@ -57,6 +57,11 @@ public abstract class CardData : ScriptableObject, IProduct
         SetParametersFromLevel();
     }
 
+    public void InitCardStatus(CardStatus cardStatus)
+    {
+        State.SetSelectedStatus(cardStatus);
+    }
+
     public void SetParametersFromLevel()
     {
         switch (_level)

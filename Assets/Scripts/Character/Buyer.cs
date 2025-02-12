@@ -56,6 +56,11 @@ public class Buyer : MonoBehaviour
         _money -= product.Price;
         product.State.SetStatus(ItemStatus.Purchased);
 
+        if (product.Type == ItemType.Card)
+        {
+            EquipItem(product);
+        }
+
         MoneyChanged?.Invoke(_money);
         EquipmentChanged?.Invoke();
 

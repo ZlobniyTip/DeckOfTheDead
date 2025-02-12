@@ -57,30 +57,34 @@ namespace YG
 
         public List<ItemStatus> cardStates = new()
         {
-            ItemStatus.Purchased, ItemStatus.NotPurchased,
-            ItemStatus.NotPurchased, ItemStatus.NotPurchased,
-            ItemStatus.NotPurchased, ItemStatus.Purchased,
-            ItemStatus.NotPurchased, ItemStatus.Purchased,
-            ItemStatus.NotPurchased, ItemStatus.NotPurchased,
-            ItemStatus.NotPurchased, ItemStatus.Purchased,
-            ItemStatus.Purchased, ItemStatus.Purchased,
-            ItemStatus.NotPurchased, ItemStatus.Purchased,
-            ItemStatus.NotPurchased, ItemStatus.Purchased,
-            ItemStatus.NotPurchased, ItemStatus.NotPurchased,
-            ItemStatus.NotPurchased, ItemStatus.NotPurchased,
-            ItemStatus.NotPurchased, ItemStatus.NotPurchased,
-            ItemStatus.Purchased, ItemStatus.NotPurchased,
-            ItemStatus.NotPurchased, ItemStatus.NotPurchased,
-            ItemStatus.NotPurchased, ItemStatus.NotPurchased,
-            ItemStatus.NotPurchased, ItemStatus.NotPurchased,
-            ItemStatus.NotPurchased, ItemStatus.NotPurchased,
-            ItemStatus.NotPurchased, ItemStatus.NotPurchased,
-            ItemStatus.NotPurchased, ItemStatus.NotPurchased,
-            ItemStatus.Purchased, ItemStatus.NotPurchased,
-            ItemStatus.NotPurchased, ItemStatus.NotPurchased,
-            ItemStatus.NotPurchased, ItemStatus.NotPurchased,
-            ItemStatus.NotPurchased, ItemStatus.NotPurchased,
-            ItemStatus.NotPurchased, ItemStatus.NotPurchased
+            ItemStatus.Purchased, ItemStatus.NotPurchased, ItemStatus.NotPurchased, ItemStatus.NotPurchased,
+            ItemStatus.NotPurchased, ItemStatus.Purchased, ItemStatus.NotPurchased, ItemStatus.Purchased,
+            ItemStatus.NotPurchased, ItemStatus.NotPurchased, ItemStatus.NotPurchased, ItemStatus.Purchased,
+            ItemStatus.Purchased, ItemStatus.Purchased, ItemStatus.NotPurchased, ItemStatus.Purchased,
+            ItemStatus.NotPurchased, ItemStatus.Purchased, ItemStatus.NotPurchased, ItemStatus.NotPurchased,
+            ItemStatus.NotPurchased, ItemStatus.NotPurchased, ItemStatus.NotPurchased, ItemStatus.NotPurchased,
+            ItemStatus.Purchased, ItemStatus.NotPurchased, ItemStatus.NotPurchased, ItemStatus.NotPurchased,
+            ItemStatus.NotPurchased, ItemStatus.NotPurchased, ItemStatus.NotPurchased, ItemStatus.NotPurchased,
+            ItemStatus.NotPurchased, ItemStatus.NotPurchased, ItemStatus.NotPurchased, ItemStatus.NotPurchased,
+            ItemStatus.NotPurchased, ItemStatus.NotPurchased, ItemStatus.Purchased, ItemStatus.NotPurchased,
+            ItemStatus.NotPurchased, ItemStatus.NotPurchased, ItemStatus.NotPurchased, ItemStatus.NotPurchased,
+            ItemStatus.NotPurchased, ItemStatus.NotPurchased, ItemStatus.NotPurchased, ItemStatus.NotPurchased
+        };
+
+        public List<CardStatus> cardStatuses = new()
+        {
+            CardStatus.Selected, CardStatus.NotSelected, CardStatus.NotSelected, CardStatus.NotSelected,
+            CardStatus.NotSelected, CardStatus.Selected, CardStatus.NotSelected, CardStatus.Selected,
+            CardStatus.NotSelected, CardStatus.NotSelected, CardStatus.NotSelected, CardStatus.Selected,
+            CardStatus.Selected, CardStatus.Selected, CardStatus.NotSelected, CardStatus.Selected,
+            CardStatus.NotSelected, CardStatus.Selected, CardStatus.NotSelected, CardStatus.NotSelected,
+            CardStatus.NotSelected, CardStatus.NotSelected, CardStatus.NotSelected, CardStatus.NotSelected,
+            CardStatus.Selected, CardStatus.NotSelected, CardStatus.NotSelected, CardStatus.NotSelected,
+            CardStatus.NotSelected, CardStatus.NotSelected, CardStatus.NotSelected, CardStatus.NotSelected,
+            CardStatus.NotSelected, CardStatus.NotSelected, CardStatus.NotSelected, CardStatus.NotSelected,
+            CardStatus.NotSelected, CardStatus.NotSelected, CardStatus.Selected, CardStatus.NotSelected,
+            CardStatus.NotSelected, CardStatus.NotSelected, CardStatus.NotSelected, CardStatus.NotSelected,
+            CardStatus.NotSelected, CardStatus.NotSelected, CardStatus.NotSelected, CardStatus.NotSelected
         };
 
         public List<int> cardLevel = new()

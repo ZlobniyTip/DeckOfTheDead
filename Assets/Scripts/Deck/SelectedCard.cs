@@ -1,75 +1,44 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using YG;
 
 public class SelectedCard : MonoBehaviour
 {
-    [SerializeField] private CharacterCards _cards;
+    [SerializeField] private CharacterCards _character;
     [SerializeField] private Deck _deck;
 
     [SerializeField] private GameObject _itemContainer;
     [SerializeField] private CardViewUnit _templateCardUnit;
     [SerializeField] private CardViewWeapon _templateCardWeapon;
 
-    [SerializeField] private GameObject _autoChoiceButton;
-    [SerializeField] private GameObject _selectedButton;
-    [SerializeField] private Button _startGameButton;
-    [SerializeField] private GameObject _panel;
+    [SerializeField] private Button _selectButton;
 
     private List<CardView> _content = new();
-    private List<CardView> _selectedCards = new();
+    private List<CardData> _selectedCards = new();
 
-    public bool IsPaused = false;
+    public event Action<List<CardData>> SelectedCards;
+    public event Action SelectedCardsSave;
 
-    private void Awake()
+    private void OnEnable()
     {
-        _cards.InitializedCards += FillDeck;
-        YandexGame.CloseFullAdEvent += PauseGame;
+        FillDeck(_character.Cards);
     }
 
-    private void Start()
+    private void OnDisable()
     {
-        PauseGame();
-    }
+        SelectedCards?.Invoke(_selectedCards);
+        SelectedCardsSave?.Invoke();
 
-    private void OnDestroy()
-    {
         foreach (var card in _content)
         {
-            Destroy(card);
+            card.SelectedCard -= OnSelectedCard;
+            Destroy(card.gameObject);
         }
-    }
-
-    public void StartGame()
-    {
-        _deck.TakeSelectedCards(_selectedCards);
-        _panel.SetActive(false);
-
-        Time.timeScale = 1;
-        IsPaused = false;
-    }
-
-    public void AutomaticallySelectCards()
-    {
-        int maxCountCards = 10;
-
-        for (int i = 0; i < maxCountCards; i++)
-        {
-            OnSelectedCard(_content[i]);
-        }
-    }
-
-    private void PauseGame()
-    {
-        Time.timeScale = 0;
-        IsPaused = true;
     }
 
     private void FillDeck(List<CardData> cards)
     {
-        Time.timeScale = 0;
-
         foreach (var card in cards)
         {
             if (card is CardDataUnit)
@@ -91,27 +60,52 @@ public class SelectedCard : MonoBehaviour
                 view.ActivateSelectedButton();
                 view.SelectedCard += OnSelectedCard;
                 view.ShowSelectedButtonText();
+                view.SetSelectedStatus(view.Card.State.SelectedStatus);
                 _content.Add(view);
+
+                if (view.Card.State.SelectedStatus == CardStatus.NotSelected)
+                {
+                    view.SetInteractable(false);
+                }
+                else
+                {
+                    _selectedCards.Add(view.Card);
+                }
             }
         }
     }
 
     private void OnSelectedCard(CardView card)
     {
-        _selectedCards.Add(card);
-        card.SetSelectedStatus(true);
-        card.SelectedButtonLock();
+        if (card.Card.State.SelectedStatus == CardStatus.NotSelected)
+        {
+            card.SelectedButtonLock(CardStatus.Selected);
+            _selectedCards.Add(card.Card);
+        }
+        else
+        {
+            card.SelectedButtonLock(CardStatus.NotSelected);
+            _selectedCards.Remove(card.Card);
+        }
 
         if (_selectedCards.Count >= 10)
         {
-            _selectedButton.SetActive(true);
-
             foreach (var button in _content)
             {
-                button.SelectedButtonLock();
+                if (button.Card.State.SelectedStatus == CardStatus.NotSelected)
+                    button.SetInteractable(false);
             }
-        }
 
-        _autoChoiceButton.SetActive(false);
+            _selectButton.interactable = true;
+        }
+        else
+        {
+            foreach (var button in _content)
+            {
+                button.SetInteractable(true);
+            }
+
+            _selectButton.interactable = false;
+        }
     }
 }

@@ -15,7 +15,6 @@ public abstract class CardView : ItemView
     protected CardData _cardData;
     private DragAndDropCardUnit _dragAndDrop;
     private DragAndDropCardWeapon _dragAndDropWeapon;
-    private bool _isSelected = false;
 
     public CardData Card => _cardData;
 
@@ -33,15 +32,30 @@ public abstract class CardView : ItemView
 
     public abstract void Initialize(CardData cardData);
 
-    public void SetSelectedStatus(bool isSelected)
+    public void SetInteractable(bool isInteractable)
     {
-        _isSelected = isSelected;
-        _selectedButton.GetComponent<Image>().color = Color.green;
+        _selectedButton.interactable = isInteractable;
     }
 
-    public void SelectedButtonLock()
+    public void SetSelectedStatus(CardStatus status)
     {
-        if (_isSelected)
+        if (status == CardStatus.Selected)
+        {
+            _cardData.State.SetSelectedStatus(CardStatus.Selected);
+            _selectedButton.GetComponent<Image>().color = Color.green;
+        }
+        else
+        {
+            _cardData.State.SetSelectedStatus(CardStatus.NotSelected);
+            _selectedButton.GetComponent<Image>().color = Color.black;
+        }
+    }
+
+    public void SelectedButtonLock(CardStatus status)
+    {
+        SetSelectedStatus(status);
+
+        if (status == CardStatus.Selected)
         {
             _selectButtonText.text = LeanLocalization.GetTranslationText("Selected");
         }
@@ -49,8 +63,6 @@ public abstract class CardView : ItemView
         {
             _selectButtonText.text = LeanLocalization.GetTranslationText("Not selected");
         }
-
-        _selectedButton.interactable = false;
     }
 
     public void ActivateSelectedButton()

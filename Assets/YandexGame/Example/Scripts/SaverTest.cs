@@ -13,6 +13,7 @@ namespace YG.Example
         [SerializeField] private List<Weapon> _melleWeapons;
         [SerializeField] private List<CardData> _cards;
         [SerializeField] private CharacterCards _characterCards;
+        [SerializeField] private SelectedCard _selectedCard;
 
         private Weapon _currentWeapon;
         private Weapon _currentMelleWeapon;
@@ -21,6 +22,11 @@ namespace YG.Example
         public event Action<int> LoadedLeaderboardScore;
         public event Action<int> SavedLeaderboardScore;
 
+        private void Awake()
+        {
+            _buyer.Initialized += GetLoad;
+        }
+
         private void OnEnable()
         {
             if (SceneManager.GetActiveScene().buildIndex > 1)
@@ -28,22 +34,15 @@ namespace YG.Example
                 YandexGame.savesData.indexCurrentScene = SceneManager.GetActiveScene().buildIndex;
             }
 
+            _selectedCard.SelectedCardsSave += Save;
             _buyer.EquipmentChanged += Save;
-        }
-
-        private void OnDisable()
-        {
-            _buyer.EquipmentChanged -= Save;
         }
 
         private void OnDestroy()
         {
             _buyer.Initialized -= GetLoad;
-        }
-
-        private void Awake()
-        {
-            _buyer.Initialized += GetLoad;
+            _selectedCard.SelectedCardsSave -= Save;
+            _buyer.EquipmentChanged -= Save;
         }
 
         public void Save()
@@ -62,6 +61,7 @@ namespace YG.Example
             {
                 YandexGame.savesData.cardStates[i] = _cards[i].State.Status;
                 YandexGame.savesData.cardLevel[i] = _cards[i].State.Level;
+                YandexGame.savesData.cardStatuses[i] = _cards[i].State.SelectedStatus;
             }
 
             YandexGame.savesData.playerMoney = _buyer.Money;
@@ -97,6 +97,7 @@ namespace YG.Example
             for (int i = 0; i < _cards.Count; i++)
             {
                 _cards[i].Init(YandexGame.savesData.cardStates[i], YandexGame.savesData.cardLevel[i]);
+                _cards[i].InitCardStatus(YandexGame.savesData.cardStatuses[i]);
             }
 
             _characterCards.InitializeCard(_cards);

@@ -12,17 +12,41 @@ public class Deck : MonoBehaviour
     [SerializeField] private CardView _cardViewWeapon;
     [SerializeField] private PlayerEnergy _playerEnergy;
     [SerializeField] private LeanHelper _leanHelper;
+    [SerializeField] private SelectedCard _selectedCard;
 
     private List<CardView> _playerCards = new();
-    private List<CardView> _selectedCards = new(); 
+    private List<CardData> _selectedCards = new();
     private HashSet<CardData> _usedCards = new();
     private bool _checksActivity = true;
 
     public Character Character => _character;
 
-    public void TakeSelectedCards(List<CardView> cardViews)
+    private void Awake()
     {
-        _selectedCards = new List<CardView>(cardViews); 
+        _selectedCard.SelectedCards += TakeSelectedCards;
+        _characterCards.Initialized += TakeStartCards;
+    }
+
+    private void OnDestroy()
+    {
+        _selectedCard.SelectedCards -= TakeSelectedCards;
+        _characterCards.Initialized -= TakeStartCards;
+    }
+
+    public void TakeStartCards(List<CardData> cards)
+    {
+        foreach (var card in cards)
+        {
+            if (card.State.SelectedStatus == CardStatus.Selected)
+                _selectedCards.Add(card);
+        }
+
+        TakeCards();
+    }
+
+    public void TakeSelectedCards(List<CardData> cards)
+    {
+        _selectedCards = new List<CardData>(cards);
         TakeCards();
     }
 
@@ -88,7 +112,7 @@ public class Deck : MonoBehaviour
             _leanHelper.ChangedLanguage += cardViewUnit.TransferData;
         }
 
-        if(randomCardData is CardDataWeapon)
+        if (randomCardData is CardDataWeapon)
         {
             CardView cardView = Instantiate(_cardViewWeapon, _ñontainer);
             cardView.Initialize(randomCardData);
@@ -108,7 +132,7 @@ public class Deck : MonoBehaviour
 
         do
         {
-            randomCard = _selectedCards[Random.Range(0, _selectedCards.Count)].Card;
+            randomCard = _selectedCards[Random.Range(0, _selectedCards.Count)];
         } while (_usedCards.Contains(randomCard));
 
         _usedCards.Add(randomCard);

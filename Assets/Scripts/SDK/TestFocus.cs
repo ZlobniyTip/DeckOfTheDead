@@ -5,7 +5,6 @@ using YG;
 public class TestFocus : MonoBehaviour
 {
     [SerializeField] private Menu _menu;
-    [SerializeField] private SelectedCard _selectedCard;
 
     private void OnEnable()
     {
@@ -38,7 +37,7 @@ public class TestFocus : MonoBehaviour
 
     public void PauseGame(bool value)
     {
-        if (_menu.IsPaused || _selectedCard.IsPaused)
+        if (_menu.IsPaused)
             return;
 
         Time.timeScale = value ? 0 : 1;
