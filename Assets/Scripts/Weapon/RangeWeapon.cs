@@ -14,6 +14,8 @@ public class RangeWeapon : Weapon
             _audio.Play();
 
         _shotEffect.Play();
+
+        if (_shotEffect2 != null)
         _shotEffect2.Play();
 
         if (_bulletPoints.Count > 1)
