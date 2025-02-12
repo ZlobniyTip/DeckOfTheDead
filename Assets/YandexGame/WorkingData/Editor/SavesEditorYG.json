@@ -1,11 +1,11 @@
 {
-    "idSave": 2706,
+    "idSave": 2712,
     "isFirstSession": false,
     "language": "ru",
     "promptDone": false,
     "sound": 1.0,
     "indexCurrentScene": 2,
-    "playerMoney": 2000,
+    "playerMoney": 1800,
     "leaderboardScore": 0,
     "rangeWeaponStates": [
         0,
@@ -32,7 +32,7 @@
         1,
         0,
         0,
-        0,
+        1,
         0,
         0,
         0,
