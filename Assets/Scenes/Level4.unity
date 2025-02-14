@@ -60330,6 +60330,10 @@ PrefabInstance:
       propertyPath: _cards
       value: 
       objectReference: {fileID: 674962665}
+    - target: {fileID: 3930534055006635210, guid: 0a74f698bd1807f4389896e3f7bbd78e, type: 3}
+      propertyPath: _character
+      value: 
+      objectReference: {fileID: 674962665}
     - target: {fileID: 4110076981174539720, guid: 0a74f698bd1807f4389896e3f7bbd78e, type: 3}
       propertyPath: m_IsActive
       value: 0

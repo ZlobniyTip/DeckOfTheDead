@@ -20,7 +20,7 @@ namespace UI
         [SerializeField] private TMP_Text _reward;
 
         private float _delayCouner = 0.005f;
-        private int _counterStep = 100;
+        private int _counterStep = 1000;
         private int _completedCoroutines = 0;
 
         private float _countRewardHeroDamage = 0;

@@ -38069,6 +38069,10 @@ PrefabInstance:
       propertyPath: _cards
       value: 
       objectReference: {fileID: 1495845691}
+    - target: {fileID: 3930534055006635210, guid: 0a74f698bd1807f4389896e3f7bbd78e, type: 3}
+      propertyPath: _character
+      value: 
+      objectReference: {fileID: 1495845691}
     - target: {fileID: 4296168641763256422, guid: 0a74f698bd1807f4389896e3f7bbd78e, type: 3}
       propertyPath: m_Pivot.x
       value: 0
