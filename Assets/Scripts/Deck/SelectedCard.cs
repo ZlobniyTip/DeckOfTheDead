@@ -22,6 +22,7 @@ public class SelectedCard : MonoBehaviour
 
     private void OnEnable()
     {
+        _selectedCards.Clear();
         FillDeck(_character.Cards);
     }
 
@@ -35,6 +36,8 @@ public class SelectedCard : MonoBehaviour
             card.SelectedCard -= OnSelectedCard;
             Destroy(card.gameObject);
         }
+
+        _content.Clear();
     }
 
     private void FillDeck(List<CardData> cards)

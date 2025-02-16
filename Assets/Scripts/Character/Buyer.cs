@@ -19,7 +19,6 @@ public class Buyer : MonoBehaviour
 
     public event Action<int> MoneyChanged;
     public event Action EquipmentChanged;
-    public event Action Initialized;
 
     public int Money => _money;
     public Character Character => _character;
@@ -29,11 +28,6 @@ public class Buyer : MonoBehaviour
         _character = GetComponent<Character>();
         _characterCards = GetComponent<CharacterCards>();
         _characterShooting = GetComponent<CharacterShooting>();
-    }
-
-    private void Start()
-    {
-        Initialized?.Invoke();
     }
 
     public void GetMoney(int money)

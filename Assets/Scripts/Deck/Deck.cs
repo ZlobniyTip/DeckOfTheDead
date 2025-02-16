@@ -23,30 +23,41 @@ public class Deck : MonoBehaviour
 
     private void Awake()
     {
-        _selectedCard.SelectedCards += TakeSelectedCards;
         _characterCards.Initialized += TakeStartCards;
+        _selectedCard.SelectedCards += TakeSelectedCards;
     }
 
     private void OnDestroy()
     {
-        _selectedCard.SelectedCards -= TakeSelectedCards;
         _characterCards.Initialized -= TakeStartCards;
+        _selectedCard.SelectedCards -= TakeSelectedCards;
     }
 
-    public void TakeStartCards(List<CardData> cards)
+    public void TakeSelectedCards(List<CardData> cards)
     {
+        if (_selectedCards.Count != 0)
+        {
+            foreach (var card in _selectedCards)
+            {
+                Destroy(card);
+            }
+        }
+
+        _selectedCards.Clear();
+        _selectedCards = new List<CardData>(cards);
+        TakeCards();
+    }
+
+    private void TakeStartCards(List<CardData> cards)
+    {
+        _selectedCards.Clear();
+
         foreach (var card in cards)
         {
             if (card.State.SelectedStatus == CardStatus.Selected)
                 _selectedCards.Add(card);
         }
 
-        TakeCards();
-    }
-
-    public void TakeSelectedCards(List<CardData> cards)
-    {
-        _selectedCards = new List<CardData>(cards);
         TakeCards();
     }
 

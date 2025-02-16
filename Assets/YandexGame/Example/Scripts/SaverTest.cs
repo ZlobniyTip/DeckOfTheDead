@@ -22,9 +22,10 @@ namespace YG.Example
         public event Action<int> LoadedLeaderboardScore;
         public event Action<int> SavedLeaderboardScore;
 
-        private void Awake()
+        private void Start()
         {
-            _buyer.Initialized += GetLoad;
+            if (YandexGame.SDKEnabled == true)
+                GetLoad();
         }
 
         private void OnEnable()
@@ -34,13 +35,18 @@ namespace YG.Example
                 YandexGame.savesData.indexCurrentScene = SceneManager.GetActiveScene().buildIndex;
             }
 
+            YandexGame.GetDataEvent += GetLoad;
             _selectedCard.SelectedCardsSave += Save;
             _buyer.EquipmentChanged += Save;
         }
 
+        private void OnDisable()
+        {
+            YandexGame.GetDataEvent += GetLoad;
+        }
+
         private void OnDestroy()
         {
-            _buyer.Initialized -= GetLoad;
             _selectedCard.SelectedCardsSave -= Save;
             _buyer.EquipmentChanged -= Save;
         }
@@ -116,6 +122,8 @@ namespace YG.Example
             }
 
             LoadedLeaderboardScore?.Invoke(_buyer.Character.LeaderboardScore);
+
+            Save();
         }
 
         public void ResetSave()

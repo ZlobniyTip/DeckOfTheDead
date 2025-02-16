@@ -2,6 +2,7 @@ using UI;
 using UnityEngine;
 using UnityEngine.Events;
 using YG;
+using YG.Example;
 
 namespace Advertisement
 {
@@ -9,6 +10,7 @@ namespace Advertisement
     {
         [SerializeField] private Buyer _buyer;
         [SerializeField] private RewardView _rewardView;
+        [SerializeField] private SaverTest _saverTest;
 
         public event UnityAction RewardedCallback;
 
@@ -48,6 +50,9 @@ namespace Advertisement
             {
                 _buyer.GetMoney(5000);
             }
+
+            YandexGame.ConsumePurchases();
+            _saverTest.Save();
         }
 
         private void OnOpenCallback()

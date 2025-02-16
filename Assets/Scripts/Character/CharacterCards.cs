@@ -21,6 +21,8 @@ public class CharacterCards : MonoBehaviour
 
     public void InitializeCard(List<CardData> cards)
     {
+        _cards.Clear();
+
         for (int i = 0; i < cards.Count; i++)
         {
             if (cards[i].State.Status == ItemStatus.Purchased)

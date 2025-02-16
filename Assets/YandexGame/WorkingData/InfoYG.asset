@@ -311,7 +311,7 @@ MonoBehaviour:
     price: 100 YAN
     priceValue: 100
     priceCurrencyCode: YAN
-    currencyImageURL: 
+    currencyImageURL: //yastatic.net/s3/games-static/static-data/images/payments/sdk/currency-icon-s@2x.png
     consumed: 1
   - id: Money
     title: Get 20,000 zombucks
@@ -320,7 +320,7 @@ MonoBehaviour:
     price: 50 YAN
     priceValue: 50
     priceCurrencyCode: YAN
-    currencyImageURL: 
+    currencyImageURL: //yastatic.net/s3/games-static/static-data/images/payments/sdk/currency-icon-s@2x.png
     consumed: 1
   - id: Money2
     title: Get 50,000 zombucks
@@ -329,8 +329,8 @@ MonoBehaviour:
     price: 70 YAN
     priceValue: 70
     priceCurrencyCode: YAN
-    currencyImageURL: 
-    consumed: 0
+    currencyImageURL: //yastatic.net/s3/games-static/static-data/images/payments/sdk/currency-icon-s@2x.png
+    consumed: 1
   metricaEnable: 0
   metricaCounterID: 0
   debug: 1
