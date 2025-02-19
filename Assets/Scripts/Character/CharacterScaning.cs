@@ -1,63 +1,67 @@
+using Enemy;
 using System.Collections;
 using UnityEngine;
 
-public class CharacterScaning : MonoBehaviour
+namespace Character
 {
-    [SerializeField] private CharacterShooting _characterShooting;
-
-    private Zombie _currentEnemy;
-
-    public Zombie CurrentEnemy => _currentEnemy;
-
-    private void Start()
+    public class CharacterScaning : MonoBehaviour
     {
-        StartCoroutine(SearchEnemy());
-    }
+        [SerializeField] private CharacterShooting _characterShooting;
 
-    public void ActivSearch()
-    {
-        _characterShooting.StopShooting();
-        _currentEnemy = null;
+        private Zombie _currentEnemy;
 
-        StartCoroutine(SearchEnemy());
-    }
+        public Zombie CurrentEnemy => _currentEnemy;
 
-    public void StopSearch()
-    {
-        StopCoroutine(SearchEnemy());
-    }
-
-    private IEnumerator SearchEnemy()
-    {
-        yield return new WaitForSeconds(0.1f);
-
-        while (_currentEnemy == null)
+        private void Start()
         {
-            Collider[] overlappedColliders = Physics.OverlapSphere(transform.position, _characterShooting.CurrentWeapon.AttackDistance);
-            Rigidbody rigidbody;
+            StartCoroutine(SearchEnemy());
+        }
 
-            for (int i = 0; i < overlappedColliders.Length; i++)
+        public void ActivSearch()
+        {
+            _characterShooting.StopShooting();
+            _currentEnemy = null;
+
+            StartCoroutine(SearchEnemy());
+        }
+
+        public void StopSearch()
+        {
+            StopCoroutine(SearchEnemy());
+        }
+
+        private IEnumerator SearchEnemy()
+        {
+            yield return new WaitForSeconds(0.1f);
+
+            while (_currentEnemy == null)
             {
-                rigidbody = overlappedColliders[i].attachedRigidbody;
+                Collider[] overlappedColliders = Physics.OverlapSphere(transform.position, _characterShooting.CurrentWeapon.AttackDistance);
+                Rigidbody rigidbody;
 
-                if (rigidbody)
+                for (int i = 0; i < overlappedColliders.Length; i++)
                 {
-                    if (rigidbody.gameObject.TryGetComponent(out Zombie enemy))
-                    {
-                        if (enemy.IsDiying == false)
-                        {
-                            if (enemy.IsIgnored == true)
-                                enemy.SetIgnoredStatus(false);
+                    rigidbody = overlappedColliders[i].attachedRigidbody;
 
-                            _currentEnemy = enemy;
-                            _characterShooting.ActivShooting(_currentEnemy);
-                            yield break;
+                    if (rigidbody)
+                    {
+                        if (rigidbody.gameObject.TryGetComponent(out Zombie enemy))
+                        {
+                            if (enemy.IsDiying == false)
+                            {
+                                if (enemy.IsIgnored == true)
+                                    enemy.SetIgnoredStatus(false);
+
+                                _currentEnemy = enemy;
+                                _characterShooting.ActivShooting(_currentEnemy);
+                                yield break;
+                            }
                         }
                     }
                 }
-            }
 
-            yield return null;
+                yield return null;
+            }
         }
     }
 }

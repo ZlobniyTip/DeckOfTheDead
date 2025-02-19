@@ -2,30 +2,33 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class ShowButton : MonoBehaviour
+namespace CutScenes
 {
-    [SerializeField] private CutScenes _cutScenes;
-    [SerializeField] private Button _buttonNextLevel;
-
-    private void Start()
+    public class ShowButton : MonoBehaviour
     {
-        _cutScenes.EndCutScene += ShowFirstLevelButton;
-        _buttonNextLevel.onClick.AddListener(StartFirstLevel);
-    }
+        [SerializeField] private CutScenes _cutScenes;
+        [SerializeField] private Button _buttonNextLevel;
 
-    private void OnDisable()
-    {
-        _cutScenes.EndCutScene -= ShowFirstLevelButton;
-        _buttonNextLevel.onClick.RemoveListener(StartFirstLevel);
-    }
+        private void Start()
+        {
+            _cutScenes.EndCutScene += ShowFirstLevelButton;
+            _buttonNextLevel.onClick.AddListener(StartFirstLevel);
+        }
 
-    private void ShowFirstLevelButton()
-    {
-        _buttonNextLevel.gameObject.SetActive(true);
-    }
+        private void OnDisable()
+        {
+            _cutScenes.EndCutScene -= ShowFirstLevelButton;
+            _buttonNextLevel.onClick.RemoveListener(StartFirstLevel);
+        }
 
-    private void StartFirstLevel()
-    {
-        SceneManager.LoadScene(2);
+        private void ShowFirstLevelButton()
+        {
+            _buttonNextLevel.gameObject.SetActive(true);
+        }
+
+        private void StartFirstLevel()
+        {
+            SceneManager.LoadScene(2);
+        }
     }
 }

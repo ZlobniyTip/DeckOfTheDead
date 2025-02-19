@@ -1,7 +1,12 @@
+using Card;
+using Character;
+using Deck;
+using Save;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Weapons;
 
 namespace YG.Example
 {

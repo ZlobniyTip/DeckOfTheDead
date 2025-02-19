@@ -1,10 +1,11 @@
+using Spawner;
 using UnityEngine;
 
-namespace UI
+namespace UI.Bar
 {
     public class ProgressBar : Bar
     {
-        [SerializeField] private Spawner _spawner;
+        [SerializeField] private ZombieSpawner _spawner;
 
         private void OnEnable()
         {

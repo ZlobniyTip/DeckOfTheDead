@@ -2,44 +2,47 @@ using UI;
 using UnityEngine;
 using YG;
 
-public class TestFocus : MonoBehaviour
+namespace SDK
 {
-    [SerializeField] private Menu _menu;
-
-    private void OnEnable()
+    public class TestFocus : MonoBehaviour
     {
-        YandexGame.onVisibilityWindowGame += OnVisibilityWindowGame;
-    }
+        [SerializeField] private Menu _menu;
 
-    private void OnDisable()
-    {
-        YandexGame.onVisibilityWindowGame -= OnVisibilityWindowGame;
-    }
-
-    private void OnVisibilityWindowGame(bool inApp)
-    {
-        MuteAudio(!inApp);
-        PauseGame(!inApp);
-    }
-
-    private void MuteAudio(bool value)
-    {
-        if (value == false)
+        private void OnEnable()
         {
-            AudioListener.volume = YandexGame.savesData.sound;
+            YandexGame.onVisibilityWindowGame += OnVisibilityWindowGame;
         }
 
-        if (value == true)
+        private void OnDisable()
         {
-            AudioListener.volume = 0;
+            YandexGame.onVisibilityWindowGame -= OnVisibilityWindowGame;
         }
-    }
 
-    public void PauseGame(bool value)
-    {
-        if (_menu.IsPaused)
-            return;
+        private void OnVisibilityWindowGame(bool inApp)
+        {
+            MuteAudio(!inApp);
+            PauseGame(!inApp);
+        }
 
-        Time.timeScale = value ? 0 : 1;
+        private void MuteAudio(bool value)
+        {
+            if (value == false)
+            {
+                AudioListener.volume = YandexGame.savesData.sound;
+            }
+
+            if (value == true)
+            {
+                AudioListener.volume = 0;
+            }
+        }
+
+        public void PauseGame(bool value)
+        {
+            if (_menu.IsPaused)
+                return;
+
+            Time.timeScale = value ? 0 : 1;
+        }
     }
 }

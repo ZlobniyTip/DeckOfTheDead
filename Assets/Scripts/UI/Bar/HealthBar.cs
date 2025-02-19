@@ -1,6 +1,7 @@
+using Other;
 using UnityEngine;
 
-namespace UI
+namespace UI.Bar
 {
     public class HealthBar : Bar
     {

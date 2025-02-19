@@ -1,12 +1,15 @@
 using TMPro;
 using UnityEngine;
 
-public class FXUnit : MonoBehaviour
+namespace Units
 {
-    [SerializeField] private TMP_Text _timer;
-
-    public TMP_Text StartTimer()
+    public class FXUnit : MonoBehaviour
     {
-        return _timer;
+        [SerializeField] private TMP_Text _timer;
+
+        public TMP_Text StartTimer()
+        {
+            return _timer;
+        }
     }
 }

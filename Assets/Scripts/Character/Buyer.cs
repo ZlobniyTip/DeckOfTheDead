@@ -1,91 +1,99 @@
+using Card;
+using Other;
+using Save;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using Weapons;
 
-[RequireComponent(typeof(CharacterShooting))]
-[RequireComponent(typeof(CharacterCards))]
-[RequireComponent(typeof(Character))]
-public class Buyer : MonoBehaviour
+namespace Character
 {
-    [SerializeField] private List<RangeWeapon> _rangeWeapons;
-    [SerializeField] private List<MelleWeapon> _melleWeapons;
-    [SerializeField] private List<CardData> _cards;
+    [RequireComponent(typeof(CharacterShooting))]
+    [RequireComponent(typeof(CharacterCards))]
+    [RequireComponent(typeof(Player))]
 
-    private Character _character;
-    private CharacterShooting _characterShooting;
-    private CharacterCards _characterCards;
-
-    private int _money;
-
-    public event Action<int> MoneyChanged;
-    public event Action EquipmentChanged;
-
-    public int Money => _money;
-    public Character Character => _character;
-
-    private void Awake()
+    public class Buyer : MonoBehaviour
     {
-        _character = GetComponent<Character>();
-        _characterCards = GetComponent<CharacterCards>();
-        _characterShooting = GetComponent<CharacterShooting>();
-    }
+        [SerializeField] private List<RangeWeapon> _rangeWeapons;
+        [SerializeField] private List<MelleWeapon> _melleWeapons;
+        [SerializeField] private List<CardData> _cards;
 
-    public void GetMoney(int money)
-    {
-        _money += money;
-        MoneyChanged?.Invoke(_money);
-    }
+        private Player _character;
+        private CharacterShooting _characterShooting;
+        private CharacterCards _characterCards;
 
-    public void LoadMoney(int money)
-    {
-        _money = money;
-        MoneyChanged?.Invoke(_money);
-    }
+        private int _money;
 
-    public bool TryBuy(IProduct product)
-    {
-        if (_money < product.Price)
-            return false;
+        public event Action<int> MoneyChanged;
+        public event Action EquipmentChanged;
 
-        _money -= product.Price;
-        product.State.SetStatus(ItemStatus.Purchased);
+        public int Money => _money;
+        public Player Character => _character;
 
-        if (product.Type == ItemType.Card)
+        private void Awake()
         {
-            EquipItem(product);
+            _character = GetComponent<Player>();
+            _characterCards = GetComponent<CharacterCards>();
+            _characterShooting = GetComponent<CharacterShooting>();
         }
 
-        MoneyChanged?.Invoke(_money);
-        EquipmentChanged?.Invoke();
-
-        return true;
-    }
-
-    public bool TryLevelUpCard(int price)
-    {
-        if (_money < price)
-            return false;
-
-        _money -= price;
-        MoneyChanged?.Invoke(_money);
-        EquipmentChanged?.Invoke();
-
-        return true;
-    }
-
-    public void EquipItem(IProduct product)
-    {
-        switch (product.Type)
+        public void GetMoney(int money)
         {
-            case ItemType.RangeWeapon:
-                _characterShooting.EquipWeapon(_rangeWeapons[product.Index], EquipmentChanged);
-                break;
-            case ItemType.MelleWeapon:
-                _characterShooting.EquipWeapon(_melleWeapons[product.Index], EquipmentChanged);
-                break;
-            case ItemType.Card:
-                _characterCards.AddCard(_cards[product.Index], EquipmentChanged);
-                break;
+            _money += money;
+            MoneyChanged?.Invoke(_money);
+        }
+
+        public void LoadMoney(int money)
+        {
+            _money = money;
+            MoneyChanged?.Invoke(_money);
+        }
+
+        public bool TryBuy(IProduct product)
+        {
+            if (_money < product.Price)
+                return false;
+
+            _money -= product.Price;
+            product.State.SetStatus(ItemStatus.Purchased);
+
+            if (product.Type == ItemType.Card)
+            {
+                EquipItem(product);
+            }
+
+            MoneyChanged?.Invoke(_money);
+            EquipmentChanged?.Invoke();
+
+            return true;
+        }
+
+        public bool TryLevelUpCard(int price)
+        {
+            if (_money < price)
+                return false;
+
+            _money -= price;
+            MoneyChanged?.Invoke(_money);
+            EquipmentChanged?.Invoke();
+
+            return true;
+        }
+
+        public void EquipItem(IProduct product)
+        {
+            switch (product.Type)
+            {
+                case ItemType.RangeWeapon:
+                    _characterShooting.EquipWeapon(_rangeWeapons[product.Index], EquipmentChanged);
+                    break;
+                case ItemType.MelleWeapon:
+                    _characterShooting.EquipWeapon(_melleWeapons[product.Index], EquipmentChanged);
+                    break;
+                case ItemType.Card:
+                    _characterCards.AddCard(_cards[product.Index], EquipmentChanged);
+                    break;
+            }
         }
     }
 }

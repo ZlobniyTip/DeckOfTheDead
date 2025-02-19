@@ -1,88 +1,93 @@
+using Other;
+using Save;
 using System;
 using UnityEngine;
 
-public abstract class CardData : ScriptableObject, IProduct
+namespace Card
 {
-    private const int LevelOne = 1;
-    private const int LevelTwo = 2;
-    private const int LevelThree = 3;
-
-    [SerializeField] private Sprite _icon;
-    [SerializeField] private string _name;
-    [SerializeField] private int _energy;
-
-    [SerializeField] private ItemType _type;
-    [SerializeField] private int _index;
-    [SerializeField] private int _price;
-    [SerializeField] private int _priceLevel1;
-    [SerializeField] private int _priceLevel2;
-    [SerializeField] private int _priceLevel3;
-
-    [NonSerialized] private ItemState _state = null;
-
-    private int _level = 0;
-
-    private int _bonusDamage = 0;
-    private int _bonusHealth = 0;
-
-    private int _damageOneLevel = 5;
-    private int _damageTwoLevel = 10;
-    private int _damageThreeLevel = 20;
-
-    private int _healthOneLevel = 20;
-    private int _healthTwoLevel = 40;
-    private int _healthThreeLevel = 80;
-
-    public int PriceLevel1 => _priceLevel1;
-    public int PriceLevel2 => _priceLevel2;
-    public int PriceLevel3 => _priceLevel3;
-
-    public Sprite Icon => _icon;
-    public string Name => _name;
-    public int Energy => _energy;
-    public int BonusDamage => _bonusDamage;
-    public int BonusHealth => _bonusHealth;
-    public int Level => _level;
-    public ItemType Type => _type;
-    public int Price => _price;
-    public int Index => _index;
-    public ItemState State => _state ??= new ItemState(ItemStatus.NotPurchased);
-
-    public void Init(ItemStatus state, int level)
+    public abstract class CardData : ScriptableObject, IProduct
     {
-        State.SetStatus(state);
-        State.SetParameters(level);
+        private const int LevelOne = 1;
+        private const int LevelTwo = 2;
+        private const int LevelThree = 3;
 
-        _level = State.Level;
-        SetParametersFromLevel();
-    }
+        [SerializeField] private Sprite _icon;
+        [SerializeField] private string _name;
+        [SerializeField] private int _energy;
 
-    public void InitCardStatus(CardStatus cardStatus)
-    {
-        State.SetSelectedStatus(cardStatus);
-    }
+        [SerializeField] private ItemType _type;
+        [SerializeField] private int _index;
+        [SerializeField] private int _price;
+        [SerializeField] private int _priceLevel1;
+        [SerializeField] private int _priceLevel2;
+        [SerializeField] private int _priceLevel3;
 
-    public void SetParametersFromLevel()
-    {
-        switch (_level)
+        [NonSerialized] private ItemState _state = null;
+
+        private int _level = 0;
+
+        private int _bonusDamage = 0;
+        private int _bonusHealth = 0;
+
+        private int _damageOneLevel = 5;
+        private int _damageTwoLevel = 10;
+        private int _damageThreeLevel = 20;
+
+        private int _healthOneLevel = 20;
+        private int _healthTwoLevel = 40;
+        private int _healthThreeLevel = 80;
+
+        public int PriceLevel1 => _priceLevel1;
+        public int PriceLevel2 => _priceLevel2;
+        public int PriceLevel3 => _priceLevel3;
+
+        public Sprite Icon => _icon;
+        public string Name => _name;
+        public int Energy => _energy;
+        public int BonusDamage => _bonusDamage;
+        public int BonusHealth => _bonusHealth;
+        public int Level => _level;
+        public ItemType Type => _type;
+        public int Price => _price;
+        public int Index => _index;
+        public ItemState State => _state ??= new ItemState(ItemStatus.NotPurchased);
+
+        public void Init(ItemStatus state, int level)
         {
-            case LevelOne:
-                SetParameters(_damageOneLevel, _healthOneLevel);
-                break;
+            State.SetStatus(state);
+            State.SetParameters(level);
 
-            case LevelTwo:
-                SetParameters(_damageTwoLevel, _healthTwoLevel);
-                break;
-
-            case LevelThree:
-                SetParameters(_damageThreeLevel, _healthThreeLevel);
-                break;
+            _level = State.Level;
+            SetParametersFromLevel();
         }
-    }
 
-    private void SetParameters(int damage, int health)
-    {
-        _bonusDamage = damage;
-        _bonusHealth = health;
+        public void InitCardStatus(CardStatus cardStatus)
+        {
+            State.SetSelectedStatus(cardStatus);
+        }
+
+        public void SetParametersFromLevel()
+        {
+            switch (_level)
+            {
+                case LevelOne:
+                    SetParameters(_damageOneLevel, _healthOneLevel);
+                    break;
+
+                case LevelTwo:
+                    SetParameters(_damageTwoLevel, _healthTwoLevel);
+                    break;
+
+                case LevelThree:
+                    SetParameters(_damageThreeLevel, _healthThreeLevel);
+                    break;
+            }
+        }
+
+        private void SetParameters(int damage, int health)
+        {
+            _bonusDamage = damage;
+            _bonusHealth = health;
+        }
     }
 }

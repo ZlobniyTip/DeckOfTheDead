@@ -1,6 +1,7 @@
+using Character;
 using UnityEngine;
 
-namespace UI
+namespace UI.Reward
 {
     public class PlayersReward : MonoBehaviour
     {

@@ -1,39 +1,44 @@
-public class MovementState : IState
+using Weapons;
+
+namespace Character.StateMachine.States
 {
-    protected readonly IStateSwitcher StateSwitcher;
-
-    protected Weapon CurrentWeapon;
-
-    private readonly Character _character;
-
-    public MovementState(IStateSwitcher stateSwitcher, Character character)
+    public class MovementState : IState
     {
-        StateSwitcher = stateSwitcher;
-        _character = character;
-    }
+        protected readonly IStateSwitcher StateSwitcher;
 
-    protected CharacterView CharacterView => _character.CharacterView;
-    protected Character Character => _character;
+        protected Weapon CurrentWeapon;
 
-    public virtual void Enter()
-    {
-        _character.CharacterShooting.ChangedWeapon += IsChangedWeapon;
-    }
+        private readonly Player _character;
 
-    public virtual void Exit()
-    {
-        _character.CharacterShooting.ChangedWeapon -= IsChangedWeapon;
-    }
+        public MovementState(IStateSwitcher stateSwitcher, Player character)
+        {
+            StateSwitcher = stateSwitcher;
+            _character = character;
+        }
 
-    public virtual void Update()
-    {
-    }
+        protected CharacterView CharacterView => _character.CharacterView;
+        protected Player Character => _character;
 
-    protected bool IsMoving() => Character.Movement.NavMeshAgent.speed == 0;
-    protected bool IsAttacking() => Character.CharacterShooting.IsShooting;
-    protected void IsChangedWeapon()
-    {
-        Exit();
-        Enter();
+        public virtual void Enter()
+        {
+            _character.CharacterShooting.ChangedWeapon += IsChangedWeapon;
+        }
+
+        public virtual void Exit()
+        {
+            _character.CharacterShooting.ChangedWeapon -= IsChangedWeapon;
+        }
+
+        public virtual void Update()
+        {
+        }
+
+        protected bool IsMoving() => Character.Movement.NavMeshAgent.speed == 0;
+        protected bool IsAttacking() => Character.CharacterShooting.IsShooting;
+        protected void IsChangedWeapon()
+        {
+            Exit();
+            Enter();
+        }
     }
 }

@@ -1,85 +1,90 @@
-public class AttackState : MovementState
+using Weapons;
+
+namespace Character.StateMachine.States
 {
-    const string IsAttackingMelle = "IsMelleAttack";
-    const string IsShootingPistol = "IsShootingPistol";
-    const string IsShootingRifle = "IsShootingRifle";
-    const string IsShootingFlameThrower = "IsShootingFlameThrower";
-    const string IsShootinShotgun = "IsShootinShotgun";
-    const string IsShootingHunterRifle = "IsShootingHunterRifle";
-
-    public AttackState(IStateSwitcher stateSwitcher, Character character) : base(stateSwitcher, character)
+    public class AttackState : MovementState
     {
-    }
+        const string IsAttackingMelle = "IsMelleAttack";
+        const string IsShootingPistol = "IsShootingPistol";
+        const string IsShootingRifle = "IsShootingRifle";
+        const string IsShootingFlameThrower = "IsShootingFlameThrower";
+        const string IsShootinShotgun = "IsShootinShotgun";
+        const string IsShootingHunterRifle = "IsShootingHunterRifle";
 
-    public override void Enter()
-    {
-        base.Enter();
-
-        switch (Character.CharacterShooting.CurrentWeapon.WeaponType)
+        public AttackState(IStateSwitcher stateSwitcher, Player character) : base(stateSwitcher, character)
         {
-            case WeaponType.Melle:
-                CharacterView.StartState(IsAttackingMelle);
-                break;
-
-            case WeaponType.Pistol:
-                CharacterView.StartState(IsShootingPistol);
-                break;
-
-            case WeaponType.Rifle:
-                CharacterView.StartState(IsShootingRifle);
-                break;
-
-            case WeaponType.Shotgun:
-                CharacterView.StartState(IsShootinShotgun);
-                break;
-
-            case WeaponType.FlameThrower:
-                CharacterView.StartState(IsShootingFlameThrower);
-                break;
-
-            default:
-                CharacterView.StartState(IsShootingHunterRifle);
-                break;
         }
 
-        CurrentWeapon = Character.CharacterShooting.CurrentWeapon;
-    }
-
-    public override void Exit()
-    {
-        base.Exit();
-
-        switch (CurrentWeapon.WeaponType)
+        public override void Enter()
         {
-            case WeaponType.Melle:
-                CharacterView.StopState(IsAttackingMelle);
-                break;
+            base.Enter();
 
-            case WeaponType.Pistol:
-                CharacterView.StopState(IsShootingPistol);
-                break;
+            switch (Character.CharacterShooting.CurrentWeapon.WeaponType)
+            {
+                case WeaponType.Melle:
+                    CharacterView.StartState(IsAttackingMelle);
+                    break;
 
-            case WeaponType.Rifle:
-                CharacterView.StopState(IsShootingRifle);
-                break;
+                case WeaponType.Pistol:
+                    CharacterView.StartState(IsShootingPistol);
+                    break;
 
-            case WeaponType.Shotgun:
-                CharacterView.StopState(IsShootinShotgun);
-                break;
+                case WeaponType.Rifle:
+                    CharacterView.StartState(IsShootingRifle);
+                    break;
 
-            default:
-                CharacterView.StopState(IsShootingHunterRifle);
-                break;
+                case WeaponType.Shotgun:
+                    CharacterView.StartState(IsShootinShotgun);
+                    break;
+
+                case WeaponType.FlameThrower:
+                    CharacterView.StartState(IsShootingFlameThrower);
+                    break;
+
+                default:
+                    CharacterView.StartState(IsShootingHunterRifle);
+                    break;
+            }
+
+            CurrentWeapon = Character.CharacterShooting.CurrentWeapon;
         }
-    }
 
-    public override void Update()
-    {
-        base.Update();
+        public override void Exit()
+        {
+            base.Exit();
 
-        if (IsAttacking())
-            return;
+            switch (CurrentWeapon.WeaponType)
+            {
+                case WeaponType.Melle:
+                    CharacterView.StopState(IsAttackingMelle);
+                    break;
 
-        StateSwitcher.SwitchState<IdlingState>();
+                case WeaponType.Pistol:
+                    CharacterView.StopState(IsShootingPistol);
+                    break;
+
+                case WeaponType.Rifle:
+                    CharacterView.StopState(IsShootingRifle);
+                    break;
+
+                case WeaponType.Shotgun:
+                    CharacterView.StopState(IsShootinShotgun);
+                    break;
+
+                default:
+                    CharacterView.StopState(IsShootingHunterRifle);
+                    break;
+            }
+        }
+
+        public override void Update()
+        {
+            base.Update();
+
+            if (IsAttacking())
+                return;
+
+            StateSwitcher.SwitchState<IdlingState>();
+        }
     }
 }

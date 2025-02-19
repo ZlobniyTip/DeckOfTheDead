@@ -4,65 +4,68 @@ using UnityEngine.UI;
 using YG;
 using YG.Example;
 
-public class SceneSwitcher : MonoBehaviour
+namespace UI
 {
-    [SerializeField] private Button _nextLevelButton;
-    [SerializeField] private Button _repeatLevelButton;
-    [SerializeField] private SaverTest _saver;
-
-    private int _indexCurrentScene;
-
-    private void OnEnable()
+    public class SceneSwitcher : MonoBehaviour
     {
-        _indexCurrentScene = SceneManager.GetActiveScene().buildIndex;
+        [SerializeField] private Button _nextLevelButton;
+        [SerializeField] private Button _repeatLevelButton;
+        [SerializeField] private SaverTest _saver;
 
-        if (_nextLevelButton != null)
-        {
-            _nextLevelButton.onClick.AddListener(EnableNextLevel);
-        }
-        else
-        {
-            if (_repeatLevelButton != null)
-                _repeatLevelButton.onClick.AddListener(RepeatLevel);
-        }
-    }
+        private int _indexCurrentScene;
 
-    private void OnDisable()
-    {
-        if (_nextLevelButton != null)
+        private void OnEnable()
         {
-            _nextLevelButton.onClick.RemoveListener(EnableNextLevel);
-        }
-        else
-        {
-            if (_repeatLevelButton != null)
-                _repeatLevelButton.onClick.RemoveListener(RepeatLevel);
-        }
-    }
+            _indexCurrentScene = SceneManager.GetActiveScene().buildIndex;
 
-    public void EnableCurrentScene()
-    {
-        if (YandexGame.savesData.indexCurrentScene == 0)
-        {
-            SceneManager.LoadScene(1);
+            if (_nextLevelButton != null)
+            {
+                _nextLevelButton.onClick.AddListener(EnableNextLevel);
+            }
+            else
+            {
+                if (_repeatLevelButton != null)
+                    _repeatLevelButton.onClick.AddListener(RepeatLevel);
+            }
         }
-        else
+
+        private void OnDisable()
         {
-            SceneManager.LoadScene(YandexGame.savesData.indexCurrentScene);
+            if (_nextLevelButton != null)
+            {
+                _nextLevelButton.onClick.RemoveListener(EnableNextLevel);
+            }
+            else
+            {
+                if (_repeatLevelButton != null)
+                    _repeatLevelButton.onClick.RemoveListener(RepeatLevel);
+            }
         }
-   }
 
-    private void EnableNextLevel()
-    {
-        _saver.Save();
-        SceneManager.LoadScene(_indexCurrentScene + 1);
-        YandexGame.FullscreenShow();
-    }
+        public void EnableCurrentScene()
+        {
+            if (YandexGame.savesData.indexCurrentScene == 0)
+            {
+                SceneManager.LoadScene(1);
+            }
+            else
+            {
+                SceneManager.LoadScene(YandexGame.savesData.indexCurrentScene);
+            }
+        }
 
-    private void RepeatLevel()
-    {
-        _saver.Save();
-        SceneManager.LoadScene(_indexCurrentScene);
-        YandexGame.FullscreenShow();
+        private void EnableNextLevel()
+        {
+            _saver.Save();
+            SceneManager.LoadScene(_indexCurrentScene + 1);
+            YandexGame.FullscreenShow();
+        }
+
+        private void RepeatLevel()
+        {
+            _saver.Save();
+            SceneManager.LoadScene(_indexCurrentScene);
+            YandexGame.FullscreenShow();
+        }
     }
 }

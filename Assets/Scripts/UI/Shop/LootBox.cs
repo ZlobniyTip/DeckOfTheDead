@@ -1,74 +1,80 @@
+using Card;
+using Save;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Weapons;
 
-public class LootBox : MonoBehaviour
+namespace UI.Shop
 {
-    [SerializeField] private GameObject _prizesPanel;
-    [SerializeField] private List<Weapon> _weapons;
-    [SerializeField] private List<CardData> _cards;
-
-    private List<Weapon> _choosedWeapons = new();
-    private List<CardData> _choosedCards = new();
-    private int _countWeapons = 5;
-    private int _countCards = 10;
-
-    public List<Weapon> Weapons => _choosedWeapons;
-    public List<CardData> Cards => _choosedCards;
-
-    public void OpenLootBox()
+    public class LootBox : MonoBehaviour
     {
-        for (int i = 0; i < _countWeapons; i++)
+        [SerializeField] private GameObject _prizesPanel;
+        [SerializeField] private List<Weapon> _weapons;
+        [SerializeField] private List<CardData> _cards;
+
+        private List<Weapon> _choosedWeapons = new();
+        private List<CardData> _choosedCards = new();
+        private int _countWeapons = 5;
+        private int _countCards = 10;
+
+        public List<Weapon> Weapons => _choosedWeapons;
+        public List<CardData> Cards => _choosedCards;
+
+        public void OpenLootBox()
         {
-            StartCoroutine(ChooseRandomWeapon(_weapons));
+            for (int i = 0; i < _countWeapons; i++)
+            {
+                StartCoroutine(ChooseRandomWeapon(_weapons));
+            }
+
+            for (int i = 0; i < _countCards; i++)
+            {
+                StartCoroutine(ChooseRandomCard(_cards));
+            }
         }
 
-        for (int i = 0; i < _countCards; i++)
+        private IEnumerator ChooseRandomWeapon(List<Weapon> weapons)
         {
-            StartCoroutine(ChooseRandomCard(_cards));
-        }
-    }
+            bool isFound = false;
+            int weaponIndex = 0;
 
-    private IEnumerator ChooseRandomWeapon(List<Weapon> weapons)
-    {
-        bool isFound = false;
-        int weaponIndex = 0;
+            while (isFound == false)
+            {
+                weaponIndex = Random.Range(0, weapons.Count);
 
-        while (isFound == false)
-        {
-            weaponIndex = Random.Range(0, weapons.Count);
+                if (weapons[weaponIndex].State.Status == ItemStatus.NotPurchased)
+                    isFound = true;
 
-            if (weapons[weaponIndex].State.Status == ItemStatus.NotPurchased)
-                isFound = true;
+                yield return null;
+            }
 
-            yield return null;
+            weapons[weaponIndex].State.SetStatus(ItemStatus.Purchased);
+            _choosedWeapons.Add(weapons[weaponIndex]);
         }
 
-        weapons[weaponIndex].State.SetStatus(ItemStatus.Purchased);
-        _choosedWeapons.Add(weapons[weaponIndex]);
-    }
-
-    private IEnumerator ChooseRandomCard(List<CardData> cards)
-    {
-        bool isFound = false;
-        int cardIndex = 0;
-
-        while (isFound == false)
+        private IEnumerator ChooseRandomCard(List<CardData> cards)
         {
-            cardIndex = Random.Range(0, cards.Count);
+            bool isFound = false;
+            int cardIndex = 0;
 
-            if (cards[cardIndex].State.Status == ItemStatus.NotPurchased)
-                isFound = true;
+            while (isFound == false)
+            {
+                cardIndex = Random.Range(0, cards.Count);
 
-            yield return null;
-        }
+                if (cards[cardIndex].State.Status == ItemStatus.NotPurchased)
+                    isFound = true;
 
-        cards[cardIndex].State.SetStatus(ItemStatus.Purchased);
-        _choosedCards.Add(cards[cardIndex]);
+                yield return null;
+            }
 
-        if (_choosedCards.Count == 10)
-        {
-            _prizesPanel.SetActive(true);
+            cards[cardIndex].State.SetStatus(ItemStatus.Purchased);
+            _choosedCards.Add(cards[cardIndex]);
+
+            if (_choosedCards.Count == 10)
+            {
+                _prizesPanel.SetActive(true);
+            }
         }
     }
 }

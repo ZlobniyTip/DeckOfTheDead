@@ -1,22 +1,26 @@
+using Character;
 using UnityEngine;
 
-public class Loss : MonoBehaviour
+namespace UI.Loss
 {
-    [SerializeField] private GameObject _lossScreen;
-    [SerializeField] private Character _character;
-
-    private void Start()
+    public class Loss : MonoBehaviour
     {
-        _character.Died += OpenLossScreen;
-    }
+        [SerializeField] private GameObject _lossScreen;
+        [SerializeField] private Player _character;
 
-    private void OnDisable()
-    {
-        _character.Died -= OpenLossScreen;
-    }
+        private void Start()
+        {
+            _character.Died += OpenLossScreen;
+        }
 
-    private void OpenLossScreen()
-    {
-        _lossScreen.gameObject.SetActive(true);
+        private void OnDisable()
+        {
+            _character.Died -= OpenLossScreen;
+        }
+
+        private void OpenLossScreen()
+        {
+            _lossScreen.gameObject.SetActive(true);
+        }
     }
 }

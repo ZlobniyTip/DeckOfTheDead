@@ -1,6 +1,9 @@
-public interface IState
+namespace Character.StateMachine.States
 {
-    void Enter();
-    void Exit();
-    void Update();
+    public interface IState
+    {
+        void Enter();
+        void Exit();
+        void Update();
+    }
 }

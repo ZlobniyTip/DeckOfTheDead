@@ -5159,7 +5159,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _weaponPoint: {fileID: 3973772134067256291}
-  _distance: 0
+  _distance: 1
 --- !u!195 &7154171866864883310
 NavMeshAgent:
   m_ObjectHideFlags: 0

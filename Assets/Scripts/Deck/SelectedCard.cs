@@ -1,114 +1,119 @@
+using Card;
+using Character;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SelectedCard : MonoBehaviour
+namespace Deck
 {
-    [SerializeField] private CharacterCards _character;
-    [SerializeField] private Deck _deck;
-
-    [SerializeField] private GameObject _itemContainer;
-    [SerializeField] private CardViewUnit _templateCardUnit;
-    [SerializeField] private CardViewWeapon _templateCardWeapon;
-
-    [SerializeField] private Button _selectButton;
-
-    private List<CardView> _content = new();
-    private List<CardData> _selectedCards = new();
-
-    public event Action<List<CardData>> SelectedCards;
-    public event Action SelectedCardsSave;
-
-    private void OnEnable()
+    public class SelectedCard : MonoBehaviour
     {
-        _selectedCards.Clear();
-        FillDeck(_character.Cards);
-    }
+        [SerializeField] private CharacterCards _character;
+        [SerializeField] private PlayerDeck _deck;
 
-    private void OnDisable()
-    {
-        SelectedCards?.Invoke(_selectedCards);
-        SelectedCardsSave?.Invoke();
+        [SerializeField] private GameObject _itemContainer;
+        [SerializeField] private CardViewUnit _templateCardUnit;
+        [SerializeField] private CardViewWeapon _templateCardWeapon;
 
-        foreach (var card in _content)
+        [SerializeField] private Button _selectButton;
+
+        private List<CardView> _content = new();
+        private List<CardData> _selectedCards = new();
+
+        public event Action<List<CardData>> SelectedCards;
+        public event Action SelectedCardsSave;
+
+        private void OnEnable()
         {
-            card.SelectedCard -= OnSelectedCard;
-            Destroy(card.gameObject);
+            _selectedCards.Clear();
+            FillDeck(_character.Cards);
         }
 
-        _content.Clear();
-    }
-
-    private void FillDeck(List<CardData> cards)
-    {
-        foreach (var card in cards)
+        private void OnDisable()
         {
-            if (card is CardDataUnit)
+            SelectedCards?.Invoke(_selectedCards);
+            SelectedCardsSave?.Invoke();
+
+            foreach (var card in _content)
             {
-                var view = Instantiate(_templateCardUnit, _itemContainer.transform);
-                Init(view);
-            }
-            else if (card is CardDataWeapon)
-            {
-                var view = Instantiate(_templateCardWeapon, _itemContainer.transform);
-                Init(view);
+                card.SelectedCard -= OnSelectedCard;
+                Destroy(card.gameObject);
             }
 
-            void Init(CardView view)
-            {
-                view.gameObject.transform.localScale = new Vector3(1.3f, 1.3f, 1.3f);
-                view.Initialize(card);
-                view.SwitchDragAndDrop(false);
-                view.ActivateSelectedButton();
-                view.SelectedCard += OnSelectedCard;
-                view.ShowSelectedButtonText();
-                view.SetSelectedStatus(view.Card.State.SelectedStatus);
-                _content.Add(view);
+            _content.Clear();
+        }
 
-                if (view.Card.State.SelectedStatus == CardStatus.NotSelected)
+        private void FillDeck(List<CardData> cards)
+        {
+            foreach (var card in cards)
+            {
+                if (card is CardDataUnit)
                 {
-                    view.SetInteractable(false);
+                    var view = Instantiate(_templateCardUnit, _itemContainer.transform);
+                    Init(view);
                 }
-                else
+                else if (card is CardDataWeapon)
                 {
-                    _selectedCards.Add(view.Card);
+                    var view = Instantiate(_templateCardWeapon, _itemContainer.transform);
+                    Init(view);
+                }
+
+                void Init(CardView view)
+                {
+                    view.gameObject.transform.localScale = new Vector3(1.3f, 1.3f, 1.3f);
+                    view.Initialize(card);
+                    view.SwitchDragAndDrop(false);
+                    view.ActivateSelectedButton();
+                    view.SelectedCard += OnSelectedCard;
+                    view.ShowSelectedButtonText();
+                    view.SetSelectedStatus(view.Card.State.SelectedStatus);
+                    _content.Add(view);
+
+                    if (view.Card.State.SelectedStatus == CardStatus.NotSelected)
+                    {
+                        view.SetInteractable(false);
+                    }
+                    else
+                    {
+                        _selectedCards.Add(view.Card);
+                    }
                 }
             }
         }
-    }
 
-    private void OnSelectedCard(CardView card)
-    {
-        if (card.Card.State.SelectedStatus == CardStatus.NotSelected)
+        private void OnSelectedCard(CardView card)
         {
-            card.SelectedButtonLock(CardStatus.Selected);
-            _selectedCards.Add(card.Card);
-        }
-        else
-        {
-            card.SelectedButtonLock(CardStatus.NotSelected);
-            _selectedCards.Remove(card.Card);
-        }
-
-        if (_selectedCards.Count >= 10)
-        {
-            foreach (var button in _content)
+            if (card.Card.State.SelectedStatus == CardStatus.NotSelected)
             {
-                if (button.Card.State.SelectedStatus == CardStatus.NotSelected)
-                    button.SetInteractable(false);
+                card.SelectedButtonLock(CardStatus.Selected);
+                _selectedCards.Add(card.Card);
+            }
+            else
+            {
+                card.SelectedButtonLock(CardStatus.NotSelected);
+                _selectedCards.Remove(card.Card);
             }
 
-            _selectButton.interactable = true;
-        }
-        else
-        {
-            foreach (var button in _content)
+            if (_selectedCards.Count >= 10)
             {
-                button.SetInteractable(true);
-            }
+                foreach (var button in _content)
+                {
+                    if (button.Card.State.SelectedStatus == CardStatus.NotSelected)
+                        button.SetInteractable(false);
+                }
 
-            _selectButton.interactable = false;
+                _selectButton.interactable = true;
+            }
+            else
+            {
+                foreach (var button in _content)
+                {
+                    button.SetInteractable(true);
+                }
+
+                _selectButton.interactable = false;
+            }
         }
     }
 }

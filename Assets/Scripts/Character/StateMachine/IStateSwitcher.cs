@@ -1,4 +1,9 @@
-public interface IStateSwitcher
+using Character.StateMachine.States;
+
+namespace Character.StateMachine
 {
-    void SwitchState<State>() where State : IState;
+    public interface IStateSwitcher
+    {
+        void SwitchState<State>() where State : IState;
+    }
 }

@@ -1,6 +1,9 @@
-public enum ItemStatus
+namespace Save
 {
-    NotPurchased,
-    Purchased,
-    Equipped
+    public enum ItemStatus
+    {
+        NotPurchased,
+        Purchased,
+        Equipped
+    }
 }

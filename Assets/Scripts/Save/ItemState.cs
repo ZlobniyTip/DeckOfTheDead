@@ -1,32 +1,36 @@
+using Card;
 using System;
 
-[Serializable]
-public class ItemState
+namespace Save
 {
-    public event Action Changed;
-
-    public ItemStatus Status;
-    public CardStatus SelectedStatus;
-    public int Level;
-
-    public void SetStatus(ItemStatus status)
+    [Serializable]
+    public class ItemState
     {
-        Status = status;
-        Changed?.Invoke();
-    }
+        public event Action Changed;
 
-    public void SetSelectedStatus(CardStatus status)
-    {
-        SelectedStatus = status;
-    }
+        public ItemStatus Status;
+        public CardStatus SelectedStatus;
+        public int Level;
 
-    public void SetParameters(int level)
-    {
-        Level = level;
-    }
+        public void SetStatus(ItemStatus status)
+        {
+            Status = status;
+            Changed?.Invoke();
+        }
 
-    public ItemState(ItemStatus status)
-    {
-        Status = status;
+        public void SetSelectedStatus(CardStatus status)
+        {
+            SelectedStatus = status;
+        }
+
+        public void SetParameters(int level)
+        {
+            Level = level;
+        }
+
+        public ItemState(ItemStatus status)
+        {
+            Status = status;
+        }
     }
 }

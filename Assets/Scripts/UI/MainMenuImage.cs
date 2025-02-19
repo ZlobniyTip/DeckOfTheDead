@@ -2,20 +2,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MainMenuImage : MonoBehaviour
+namespace UI
 {
-    [SerializeField] private List<Sprite> _sprites;
-    [SerializeField] private Image _image;
-
-    private void Start()
+    public class MainMenuImage : MonoBehaviour
     {
-        GetMainMenuSprite();
-    }
+        [SerializeField] private List<Sprite> _sprites;
+        [SerializeField] private Image _image;
 
-    private void GetMainMenuSprite()
-    {
-        int random = Random.RandomRange(0 , _sprites.Count);
+        private void Start()
+        {
+            GetMainMenuSprite();
+        }
 
-        _image.sprite = _sprites[random];
+        private void GetMainMenuSprite()
+        {
+            int random = Random.RandomRange(0, _sprites.Count);
+
+            _image.sprite = _sprites[random];
+        }
     }
 }

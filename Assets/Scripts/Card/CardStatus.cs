@@ -1,5 +1,8 @@
-public enum CardStatus
+namespace Card
 {
-    NotSelected,
-    Selected
+    public enum CardStatus
+    {
+        NotSelected,
+        Selected
+    }
 }

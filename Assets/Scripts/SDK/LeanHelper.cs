@@ -3,7 +3,7 @@ using System;
 using UnityEngine;
 using YG;
 
-namespace UI
+namespace SDK
 {
     public class LeanHelper : MonoBehaviour
     {

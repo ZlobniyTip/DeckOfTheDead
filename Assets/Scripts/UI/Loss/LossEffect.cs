@@ -1,20 +1,23 @@
 using System.Collections;
 using UnityEngine;
 
-[RequireComponent(typeof(Animator))]
-public class LossEffect : MonoBehaviour
+namespace UI.Loss
 {
-    private void Start()
+    [RequireComponent(typeof(Animator))]
+    public class LossEffect : MonoBehaviour
     {
-        StartCoroutine(StopAnimator());
-    }
+        private void Start()
+        {
+            StartCoroutine(StopAnimator());
+        }
 
-    private IEnumerator StopAnimator()
-    {
-        var delay = new WaitForSeconds(1);
+        private IEnumerator StopAnimator()
+        {
+            var delay = new WaitForSeconds(1);
 
-        yield return delay;
+            yield return delay;
 
-        Destroy(gameObject);
+            Destroy(gameObject);
+        }
     }
 }

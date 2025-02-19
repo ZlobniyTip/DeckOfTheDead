@@ -1,130 +1,135 @@
+using DragAndDrop;
 using Lean.Localization;
 using System;
 using TMPro;
+using UI.Shop;
 using UnityEngine;
 using UnityEngine.UI;
 
-public abstract class CardView : ItemView
+namespace Card
 {
-    [SerializeField] private Image _activity;
-    [SerializeField] private TMP_Text _levelPrice;
-
-    [SerializeField] private Button _selectedButton;
-    [SerializeField] private TMP_Text _selectButtonText;
-
-    protected CardData _cardData;
-    private DragAndDropCardUnit _dragAndDrop;
-    private DragAndDropCardWeapon _dragAndDropWeapon;
-
-    public CardData Card => _cardData;
-
-    public event Action<CardView> LevelUpButtonPressed;
-    public event Action<CardView> SelectedCard;
-
-    private void Awake()
+    public abstract class CardView : ItemView
     {
-        _dragAndDrop = GetComponent<DragAndDropCardUnit>();
-        _dragAndDropWeapon = GetComponent<DragAndDropCardWeapon>();
+        [SerializeField] private Image _activity;
+        [SerializeField] private TMP_Text _levelPrice;
 
-        _equipButton.onClick.AddListener(OnLevelUpPressed);
-        _selectedButton.onClick.AddListener(OnSelectedCard);
-    }
+        [SerializeField] private Button _selectedButton;
+        [SerializeField] private TMP_Text _selectButtonText;
 
-    public abstract void Initialize(CardData cardData);
+        protected CardData _cardData;
+        private DragAndDropCardUnit _dragAndDrop;
+        private DragAndDropCardWeapon _dragAndDropWeapon;
 
-    public void SetInteractable(bool isInteractable)
-    {
-        _selectedButton.interactable = isInteractable;
-    }
+        public CardData Card => _cardData;
 
-    public void SetSelectedStatus(CardStatus status)
-    {
-        if (status == CardStatus.Selected)
+        public event Action<CardView> LevelUpButtonPressed;
+        public event Action<CardView> SelectedCard;
+
+        private void Awake()
         {
-            _cardData.State.SetSelectedStatus(CardStatus.Selected);
-            _selectedButton.GetComponent<Image>().color = Color.green;
+            _dragAndDrop = GetComponent<DragAndDropCardUnit>();
+            _dragAndDropWeapon = GetComponent<DragAndDropCardWeapon>();
+
+            _equipButton.onClick.AddListener(OnLevelUpPressed);
+            _selectedButton.onClick.AddListener(OnSelectedCard);
         }
-        else
+
+        public abstract void Initialize(CardData cardData);
+
+        public void SetInteractable(bool isInteractable)
         {
-            _cardData.State.SetSelectedStatus(CardStatus.NotSelected);
-            _selectedButton.GetComponent<Image>().color = Color.black;
+            _selectedButton.interactable = isInteractable;
         }
-    }
 
-    public void SelectedButtonLock(CardStatus status)
-    {
-        SetSelectedStatus(status);
-
-        if (status == CardStatus.Selected)
+        public void SetSelectedStatus(CardStatus status)
         {
-            _selectButtonText.text = LeanLocalization.GetTranslationText("Selected");
+            if (status == CardStatus.Selected)
+            {
+                _cardData.State.SetSelectedStatus(CardStatus.Selected);
+                _selectedButton.GetComponent<Image>().color = Color.green;
+            }
+            else
+            {
+                _cardData.State.SetSelectedStatus(CardStatus.NotSelected);
+                _selectedButton.GetComponent<Image>().color = Color.black;
+            }
         }
-        else
+
+        public void SelectedButtonLock(CardStatus status)
         {
-            _selectButtonText.text = LeanLocalization.GetTranslationText("Not selected");
+            SetSelectedStatus(status);
+
+            if (status == CardStatus.Selected)
+            {
+                _selectButtonText.text = LeanLocalization.GetTranslationText("Selected");
+            }
+            else
+            {
+                _selectButtonText.text = LeanLocalization.GetTranslationText("Not selected");
+            }
         }
-    }
 
-    public void ActivateSelectedButton()
-    {
-        _selectedButton.gameObject.SetActive(true);
-    }
-
-    public void ActivateCard()
-    {
-        _activity.gameObject.SetActive(false);
-        SwitchDragAndDrop(true);
-    }
-
-    public void DeactivateCard()
-    {
-        _activity.gameObject.SetActive(true);
-        SwitchDragAndDrop(false);
-    }
-
-    public void SwitchDragAndDrop(bool isActiv)
-    {
-        if (_dragAndDrop != null)
-            _dragAndDrop.enabled = isActiv;
-
-        if (_dragAndDropWeapon != null)
-            _dragAndDropWeapon.enabled = isActiv;
-    }
-
-    public void DeterminPriceLevelUp()
-    {
-        switch (_cardData.Level)
+        public void ActivateSelectedButton()
         {
-            case 0:
-                _levelPrice.text = _cardData.PriceLevel1.ToString();
-                break;
-
-            case 1:
-                _levelPrice.text = _cardData.PriceLevel2.ToString();
-                break;
-
-            case 2:
-                _levelPrice.text = _cardData.PriceLevel3.ToString();
-                break;
-
-            default:
-                _levelPrice.text = LeanLocalization.GetTranslationText("MaxLevel");
-                break;
+            _selectedButton.gameObject.SetActive(true);
         }
-    }
 
-    public void ShowSelectedButtonText()
-    {
-        _selectButtonText.text = LeanLocalization.GetTranslationText("Select");
-    }
+        public void ActivateCard()
+        {
+            _activity.gameObject.SetActive(false);
+            SwitchDragAndDrop(true);
+        }
 
-    private void OnLevelUpPressed()
-    {
-        LevelUpButtonPressed?.Invoke(this);
-    }
+        public void DeactivateCard()
+        {
+            _activity.gameObject.SetActive(true);
+            SwitchDragAndDrop(false);
+        }
 
-    private void OnSelectedCard()
-    {
-        SelectedCard?.Invoke(this);
+        public void SwitchDragAndDrop(bool isActiv)
+        {
+            if (_dragAndDrop != null)
+                _dragAndDrop.enabled = isActiv;
+
+            if (_dragAndDropWeapon != null)
+                _dragAndDropWeapon.enabled = isActiv;
+        }
+
+        public void DeterminPriceLevelUp()
+        {
+            switch (_cardData.Level)
+            {
+                case 0:
+                    _levelPrice.text = _cardData.PriceLevel1.ToString();
+                    break;
+
+                case 1:
+                    _levelPrice.text = _cardData.PriceLevel2.ToString();
+                    break;
+
+                case 2:
+                    _levelPrice.text = _cardData.PriceLevel3.ToString();
+                    break;
+
+                default:
+                    _levelPrice.text = LeanLocalization.GetTranslationText("MaxLevel");
+                    break;
+            }
+        }
+
+        public void ShowSelectedButtonText()
+        {
+            _selectButtonText.text = LeanLocalization.GetTranslationText("Select");
+        }
+
+        private void OnLevelUpPressed()
+        {
+            LevelUpButtonPressed?.Invoke(this);
+        }
+
+        private void OnSelectedCard()
+        {
+            SelectedCard?.Invoke(this);
+        }
     }
 }

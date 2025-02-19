@@ -1,47 +1,51 @@
+using Spawner;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-[RequireComponent(typeof(NavMeshAgent))]
-public class CharacterMovement : MonoBehaviour
+namespace Character
 {
-    [SerializeField] private List<Transform> _points;
-    [SerializeField] private Spawner _spawner;
-
-    private NavMeshAgent _navMesh;
-    private int _pointIndex = 0;
-    private float _speed = 4.5f;
-
-    public NavMeshAgent NavMeshAgent => _navMesh;
-
-    private void Awake()
+    [RequireComponent(typeof(NavMeshAgent))]
+    public class CharacterMovement : MonoBehaviour
     {
-        _navMesh = GetComponent<NavMeshAgent>();
-    }
+        [SerializeField] private List<Transform> _points;
+        [SerializeField] private ZombieSpawner _spawner;
 
-    private void OnEnable()
-    {
-        MoveToPoint();
-        _spawner.WaveCleared += MoveToPoint; 
-    }
+        private NavMeshAgent _navMesh;
+        private int _pointIndex = 0;
+        private float _speed = 4.5f;
 
-    private void OnDisable()
-    {
-        _spawner.WaveCleared -= MoveToPoint; 
-    }
+        public NavMeshAgent NavMeshAgent => _navMesh;
 
-    private void MoveToPoint()
-    {
-        if (_pointIndex < _points.Count)
+        private void Awake()
         {
-            _navMesh.speed = _speed;
-            _navMesh.SetDestination(_points[_pointIndex].position);
-            _pointIndex++;
+            _navMesh = GetComponent<NavMeshAgent>();
         }
-    }
 
-    public void StopMove()
-    {
-        _navMesh.speed = 0;
+        private void OnEnable()
+        {
+            MoveToPoint();
+            _spawner.WaveCleared += MoveToPoint;
+        }
+
+        private void OnDisable()
+        {
+            _spawner.WaveCleared -= MoveToPoint;
+        }
+
+        private void MoveToPoint()
+        {
+            if (_pointIndex < _points.Count)
+            {
+                _navMesh.speed = _speed;
+                _navMesh.SetDestination(_points[_pointIndex].position);
+                _pointIndex++;
+            }
+        }
+
+        public void StopMove()
+        {
+            _navMesh.speed = 0;
+        }
     }
 }

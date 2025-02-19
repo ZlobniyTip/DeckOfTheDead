@@ -1,14 +1,18 @@
+using Character;
 using UnityEngine;
 
-public class WinScreen : MonoBehaviour
+namespace UI.Reward
 {
-    [SerializeField] private GameObject _winScreen;
-
-    private void OnTriggerEnter(Collider other)
+    public class WinScreen : MonoBehaviour
     {
-        if (other.TryGetComponent(out Character character))
+        [SerializeField] private GameObject _winScreen;
+
+        private void OnTriggerEnter(Collider other)
         {
-            _winScreen.SetActive(true);
+            if (other.TryGetComponent(out Player character))
+            {
+                _winScreen.SetActive(true);
+            }
         }
     }
 }

@@ -1,68 +1,73 @@
-public class RunningState : MovementState
+using Weapons;
+
+namespace Character.StateMachine.States
 {
-    const string IsRunningMelle = "IsRunningMelle";
-    const string IsRunningPistol = "IsRunningPistol";
-    const string IsRunningRifle = "IsRunningRifle";
-
-    public RunningState(IStateSwitcher stateSwitcher, Character character) : base(stateSwitcher, character)
+    public class RunningState : MovementState
     {
-    }
+        const string IsRunningMelle = "IsRunningMelle";
+        const string IsRunningPistol = "IsRunningPistol";
+        const string IsRunningRifle = "IsRunningRifle";
 
-    public override void Enter()
-    {
-        base.Enter();
-
-        switch (Character.CharacterShooting.CurrentWeapon.WeaponType)
+        public RunningState(IStateSwitcher stateSwitcher, Player character) : base(stateSwitcher, character)
         {
-            case WeaponType.Melle:
-                CharacterView.StartState(IsRunningMelle);
-                break;
-
-            case WeaponType.Pistol:
-                CharacterView.StartState(IsRunningPistol);
-                break;
-
-            case WeaponType.Rifle:
-                CharacterView.StartState(IsRunningRifle);
-                break;
-
-            default:
-                CharacterView.StartState(IsRunningRifle);
-                break;
         }
 
-        CurrentWeapon = Character.CharacterShooting.CurrentWeapon;
-    }
-
-    public override void Exit()
-    {
-        base.Exit();
-
-        switch (CurrentWeapon.WeaponType)
+        public override void Enter()
         {
-            case WeaponType.Melle:
-                CharacterView.StopState(IsRunningMelle);
-                break;
+            base.Enter();
 
-            case WeaponType.Pistol:
-                CharacterView.StopState(IsRunningPistol);
-                break;
+            switch (Character.CharacterShooting.CurrentWeapon.WeaponType)
+            {
+                case WeaponType.Melle:
+                    CharacterView.StartState(IsRunningMelle);
+                    break;
 
-            case WeaponType.Rifle:
-                CharacterView.StopState(IsRunningRifle);
-                break;
+                case WeaponType.Pistol:
+                    CharacterView.StartState(IsRunningPistol);
+                    break;
 
-            default:
-                CharacterView.StopState(IsRunningRifle);
-                break;
+                case WeaponType.Rifle:
+                    CharacterView.StartState(IsRunningRifle);
+                    break;
+
+                default:
+                    CharacterView.StartState(IsRunningRifle);
+                    break;
+            }
+
+            CurrentWeapon = Character.CharacterShooting.CurrentWeapon;
         }
-    }
 
-    public override void Update()
-    {
-        base.Update();
+        public override void Exit()
+        {
+            base.Exit();
 
-        if (IsMoving())
-            StateSwitcher.SwitchState<IdlingState>();
+            switch (CurrentWeapon.WeaponType)
+            {
+                case WeaponType.Melle:
+                    CharacterView.StopState(IsRunningMelle);
+                    break;
+
+                case WeaponType.Pistol:
+                    CharacterView.StopState(IsRunningPistol);
+                    break;
+
+                case WeaponType.Rifle:
+                    CharacterView.StopState(IsRunningRifle);
+                    break;
+
+                default:
+                    CharacterView.StopState(IsRunningRifle);
+                    break;
+            }
+        }
+
+        public override void Update()
+        {
+            base.Update();
+
+            if (IsMoving())
+                StateSwitcher.SwitchState<IdlingState>();
+        }
     }
 }

@@ -315,8 +315,8 @@ MonoBehaviour:
     consumed: 1
   - id: Money
     title: Get 20,000 zombucks
-    description: Get 20,000 zombucks
-    imageURI: 
+    description: 
+    imageURI: https://disk.yandex.ru/i/hFaLwqSpsB8MPA
     price: 50 YAN
     priceValue: 50
     priceCurrencyCode: YAN
@@ -324,8 +324,8 @@ MonoBehaviour:
     consumed: 1
   - id: Money2
     title: Get 50,000 zombucks
-    description: Get 50,000 zombucks
-    imageURI: 
+    description: 
+    imageURI: https://disk.yandex.ru/i/hFaLwqSpsB8MPA
     price: 70 YAN
     priceValue: 70
     priceCurrencyCode: YAN

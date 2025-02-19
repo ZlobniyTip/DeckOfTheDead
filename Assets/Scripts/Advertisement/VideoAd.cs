@@ -1,4 +1,5 @@
-using UI;
+using Character;
+using UI.Reward;
 using UnityEngine;
 using UnityEngine.Events;
 using YG;

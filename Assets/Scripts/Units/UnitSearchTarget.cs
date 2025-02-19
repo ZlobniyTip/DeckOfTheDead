@@ -1,59 +1,63 @@
+using Enemy;
 using System.Collections;
 using UnityEngine;
 
-public class UnitSearchTarget : MonoBehaviour
+namespace Units
 {
-    private float _radius = 4;
-    private UnitAttack _unitAttack;
-    private Unit _unit;
-    private Coroutine _coroutine;
-
-    private void Awake()
+    public class UnitSearchTarget : MonoBehaviour
     {
-        _unit = GetComponent<Unit>();
-        _unitAttack = GetComponent<UnitAttack>();
-    }
+        private float _radius = 4;
+        private UnitAttack _unitAttack;
+        private Unit _unit;
+        private Coroutine _coroutine;
 
-    private void OnEnable()
-    {
-        _coroutine = StartCoroutine(SearchTarget());
-    }
-
-    private void OnDisable()
-    {
-        if (_coroutine != null)
+        private void Awake()
         {
-            StopCoroutine(_coroutine);
-            _coroutine = null;
-        }
-    }
-
-    public IEnumerator SearchTarget()
-    {
-        if (_unit.Attack.CurrentWeapon != null && _unit.Attack.CurrentWeapon.AttackDistance > _radius)
-        {
-            _radius = _unitAttack.CurrentWeapon.AttackDistance;
+            _unit = GetComponent<Unit>();
+            _unitAttack = GetComponent<UnitAttack>();
         }
 
-        while (true)
+        private void OnEnable()
         {
-            Collider[] overlappedColliders = Physics.OverlapSphere(transform.position, _radius);
-            Rigidbody rigidbody;
+            _coroutine = StartCoroutine(SearchTarget());
+        }
 
-            for (int i = 0; i < overlappedColliders.Length; i++)
+        private void OnDisable()
+        {
+            if (_coroutine != null)
             {
-                rigidbody = overlappedColliders[i].attachedRigidbody;
+                StopCoroutine(_coroutine);
+                _coroutine = null;
+            }
+        }
 
-                if (rigidbody)
-                {
-                    if (rigidbody.gameObject.TryGetComponent(out Zombie enemy) && enemy.IsDiying == false)
-                    {
-                        _unit.SetTarget(enemy);
-                    }
-                }
+        public IEnumerator SearchTarget()
+        {
+            if (_unit.Attack.CurrentWeapon != null && _unit.Attack.CurrentWeapon.AttackDistance > _radius)
+            {
+                _radius = _unitAttack.CurrentWeapon.AttackDistance;
             }
 
-            yield return 0.1f;
+            while (true)
+            {
+                Collider[] overlappedColliders = Physics.OverlapSphere(transform.position, _radius);
+                Rigidbody rigidbody;
+
+                for (int i = 0; i < overlappedColliders.Length; i++)
+                {
+                    rigidbody = overlappedColliders[i].attachedRigidbody;
+
+                    if (rigidbody)
+                    {
+                        if (rigidbody.gameObject.TryGetComponent(out Zombie enemy) && enemy.IsDiying == false)
+                        {
+                            _unit.SetTarget(enemy);
+                        }
+                    }
+                }
+
+                yield return 0.1f;
+            }
         }
     }
 }

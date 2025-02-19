@@ -2,49 +2,52 @@
 using TMPro;
 using UnityEngine;
 
-public class CardViewWeapon : CardView
+namespace Card
 {
-    [SerializeField] private TMP_Text _energy;
-    [SerializeField] private TMP_Text _level;
-    [SerializeField] private TMP_Text _damage;
-    [SerializeField] private TMP_Text _timeAction;
-    [SerializeField] private TMP_Text _delayBetweenShots;
-
-    private CardDataWeapon _cardDataWeapon;
-
-    public override void Initialize(CardData cardData)
+    public class CardViewWeapon : CardView
     {
-        _cardData = cardData;
-        CardDataWeapon cardDataWeapon = _cardData as CardDataWeapon;
-        _cardDataWeapon = cardDataWeapon;
+        [SerializeField] private TMP_Text _energy;
+        [SerializeField] private TMP_Text _level;
+        [SerializeField] private TMP_Text _damage;
+        [SerializeField] private TMP_Text _timeAction;
+        [SerializeField] private TMP_Text _delayBetweenShots;
 
-        _icon.sprite = cardDataWeapon.Icon;
-        _name.text = LeanLocalization.GetTranslationText(cardDataWeapon.Name);
+        private CardDataWeapon _cardDataWeapon;
 
-        if (_name.text == null)
-            _name.text = cardDataWeapon.Name;
+        public override void Initialize(CardData cardData)
+        {
+            _cardData = cardData;
+            CardDataWeapon cardDataWeapon = _cardData as CardDataWeapon;
+            _cardDataWeapon = cardDataWeapon;
 
-        _energy.text = cardDataWeapon.Energy.ToString();
-        _level.text = cardDataWeapon.Level.ToString();
-        _damage.text = cardDataWeapon.WeaponDamage.ToString();
-        _delayBetweenShots.text = cardDataWeapon.DelayBetweenShots.ToString();
-        _timeAction.text = LeanLocalization.GetTranslationText("Time of action") + 
-            ($" {cardDataWeapon.TimeAction.ToString()} ") + (LeanLocalization.GetTranslationText("seconds"));
-    }
+            _icon.sprite = cardDataWeapon.Icon;
+            _name.text = LeanLocalization.GetTranslationText(cardDataWeapon.Name);
 
-    public void TransferData()
-    {
-        _name.text = LeanLocalization.GetTranslationText(_cardDataWeapon.Name);
+            if (_name.text == null)
+                _name.text = cardDataWeapon.Name;
 
-        if (_name.text == null)
-            _name.text = _cardDataWeapon.Name;
+            _energy.text = cardDataWeapon.Energy.ToString();
+            _level.text = cardDataWeapon.Level.ToString();
+            _damage.text = cardDataWeapon.WeaponDamage.ToString();
+            _delayBetweenShots.text = cardDataWeapon.DelayBetweenShots.ToString();
+            _timeAction.text = LeanLocalization.GetTranslationText("Time of action") +
+                ($" {cardDataWeapon.TimeAction.ToString()} ") + (LeanLocalization.GetTranslationText("seconds"));
+        }
 
-        _timeAction.text = LeanLocalization.GetTranslationText("Time of action") +
-            ($" {_cardDataWeapon.TimeAction.ToString()} ") + (LeanLocalization.GetTranslationText("seconds"));
-    }
+        public void TransferData()
+        {
+            _name.text = LeanLocalization.GetTranslationText(_cardDataWeapon.Name);
 
-    public void UpdateLevelText(int level)
-    {
-        _level.text = level.ToString();
+            if (_name.text == null)
+                _name.text = _cardDataWeapon.Name;
+
+            _timeAction.text = LeanLocalization.GetTranslationText("Time of action") +
+                ($" {_cardDataWeapon.TimeAction.ToString()} ") + (LeanLocalization.GetTranslationText("seconds"));
+        }
+
+        public void UpdateLevelText(int level)
+        {
+            _level.text = level.ToString();
+        }
     }
 }

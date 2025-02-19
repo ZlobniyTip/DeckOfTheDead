@@ -1,10 +1,11 @@
+using Character;
 using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace UI
+namespace UI.Bar
 {
     public class EnergyCounter : MonoBehaviour
     {

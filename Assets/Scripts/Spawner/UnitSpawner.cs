@@ -1,5 +1,8 @@
+using Card;
+using Deck;
 using System;
 using System.Collections;
+using Units;
 using UnityEngine;
 
 public class UnitSpawner : MonoBehaviour
@@ -7,13 +10,13 @@ public class UnitSpawner : MonoBehaviour
     [SerializeField] private ParticleSystem _prefabSpawnEffect;
     [SerializeField] private AudioSource _soundSpawn;
 
-    private Deck _deck;
+    private PlayerDeck _deck;
 
     public event Action UsedCard;
 
     private void Awake()
     {
-        _deck = GetComponent<Deck>();
+        _deck = GetComponent<PlayerDeck>();
     }
 
     public void Spawn(Vector3 point, Unit prefabUnit, CardView cardView)

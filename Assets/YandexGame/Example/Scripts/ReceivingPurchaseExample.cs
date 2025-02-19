@@ -1,3 +1,5 @@
+using Character;
+using UI.Shop;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -10,6 +12,7 @@ namespace YG.Example
         [SerializeField] UnityEvent failedPurchased;
         [SerializeField] private Buyer _buyer;
         [SerializeField] private LootBox _lootBox;
+        [SerializeField] private SaverTest _saver;
 
         private void OnEnable()
         {
@@ -42,7 +45,7 @@ namespace YG.Example
                     break;
             }
 
-            YandexGame.SaveProgress();
+            _saver.Save();
         }
 
         void FailedPurchased(string id)

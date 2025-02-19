@@ -2,50 +2,53 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-public class PlayerEnergy : MonoBehaviour
+namespace Character
 {
-    [SerializeField] private ParticleSystem _energyProduction;
-    [SerializeField] private AudioSource _audioSource;
-
-    private int _maxEnergyCount = 10;
-    private int _currentEnergyCount = 0;
-
-    public event Action EnergyChanged;
-
-    public int CurrentEnergyCount => _currentEnergyCount;
-
-    private void Start()
+    public class PlayerEnergy : MonoBehaviour
     {
-        IncreaseEnergy();
-        EnergyChanged?.Invoke();
-    }
+        [SerializeField] private ParticleSystem _energyProduction;
+        [SerializeField] private AudioSource _audioSource;
 
-    public void IncreaseEnergy()
-    {
-        if (_currentEnergyCount < _maxEnergyCount)
+        private int _maxEnergyCount = 10;
+        private int _currentEnergyCount = 0;
+
+        public event Action EnergyChanged;
+
+        public int CurrentEnergyCount => _currentEnergyCount;
+
+        private void Start()
         {
-            _currentEnergyCount++;
+            IncreaseEnergy();
             EnergyChanged?.Invoke();
         }
-    }
 
-    public IEnumerator IncreaseEnergyJournalist()
-    {
-        yield return new WaitForSeconds(0.5f);
-
-        if (_audioSource != null)
-            _audioSource.Play();
-
-        _energyProduction.Play();
-        IncreaseEnergy();
-    }
-
-    public void UseUpEnergy(int energy)
-    {
-        if (_currentEnergyCount >= energy)
+        public void IncreaseEnergy()
         {
-            _currentEnergyCount -= energy;
-            EnergyChanged?.Invoke();
+            if (_currentEnergyCount < _maxEnergyCount)
+            {
+                _currentEnergyCount++;
+                EnergyChanged?.Invoke();
+            }
+        }
+
+        public IEnumerator IncreaseEnergyJournalist()
+        {
+            yield return new WaitForSeconds(0.5f);
+
+            if (_audioSource != null)
+                _audioSource.Play();
+
+            _energyProduction.Play();
+            IncreaseEnergy();
+        }
+
+        public void UseUpEnergy(int energy)
+        {
+            if (_currentEnergyCount >= energy)
+            {
+                _currentEnergyCount -= energy;
+                EnergyChanged?.Invoke();
+            }
         }
     }
 }

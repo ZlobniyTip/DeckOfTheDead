@@ -1,37 +1,42 @@
+using Character;
+using Spawner;
 using UnityEngine;
 
-public class RewardCounter : MonoBehaviour
+namespace UI.Reward
 {
-    [SerializeField] private UnitSpawner _cardUnit;
-    [SerializeField] private Character _character;
-    [SerializeField] private CharacterShooting _characterShooting;
-    [SerializeField] private Spawner _spawner;
-
-    public int UnitsUsed { get; private set; }
-    public int HeroDamage { get; private set; }
-    public int LeaderboardScore { get; private set; }
-    public int KilledEnemies { get; private set; }
-
-    private void OnEnable()
+    public class RewardCounter : MonoBehaviour
     {
-        _cardUnit.UsedCard += AddCardUsed;
-        _characterShooting.CausedDamage += AddHeroDamage;
-        _character.ChangedLeaderboardScore += AddLeaderboardScore;
-        _characterShooting.KilledTarget += AddKilledZombie;
-        _spawner.ZombieDie += AddKilledZombie;
-    }
+        [SerializeField] private UnitSpawner _cardUnit;
+        [SerializeField] private Player _character;
+        [SerializeField] private CharacterShooting _characterShooting;
+        [SerializeField] private ZombieSpawner _spawner;
 
-    private void OnDisable()
-    {
-        _cardUnit.UsedCard -= AddCardUsed;
-        _characterShooting.CausedDamage -= AddHeroDamage;
-        _character.ChangedLeaderboardScore -= AddLeaderboardScore;
-        _characterShooting.KilledTarget -= AddKilledZombie;
-        _spawner.ZombieDie -= AddKilledZombie;
-    }
+        public int UnitsUsed { get; private set; }
+        public int HeroDamage { get; private set; }
+        public int LeaderboardScore { get; private set; }
+        public int KilledEnemies { get; private set; }
 
-    private void AddCardUsed() => UnitsUsed++;
-    private void AddHeroDamage(int damage) => HeroDamage += damage;
-    private void AddLeaderboardScore(int score) => LeaderboardScore += score;
-    private void AddKilledZombie() => KilledEnemies++;
+        private void OnEnable()
+        {
+            _cardUnit.UsedCard += AddCardUsed;
+            _characterShooting.CausedDamage += AddHeroDamage;
+            _character.ChangedLeaderboardScore += AddLeaderboardScore;
+            _characterShooting.KilledTarget += AddKilledZombie;
+            _spawner.ZombieDie += AddKilledZombie;
+        }
+
+        private void OnDisable()
+        {
+            _cardUnit.UsedCard -= AddCardUsed;
+            _characterShooting.CausedDamage -= AddHeroDamage;
+            _character.ChangedLeaderboardScore -= AddLeaderboardScore;
+            _characterShooting.KilledTarget -= AddKilledZombie;
+            _spawner.ZombieDie -= AddKilledZombie;
+        }
+
+        private void AddCardUsed() => UnitsUsed++;
+        private void AddHeroDamage(int damage) => HeroDamage += damage;
+        private void AddLeaderboardScore(int score) => LeaderboardScore += score;
+        private void AddKilledZombie() => KilledEnemies++;
+    }
 }

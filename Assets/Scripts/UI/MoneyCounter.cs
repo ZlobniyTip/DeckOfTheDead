@@ -1,23 +1,27 @@
+using Character;
 using TMPro;
 using UnityEngine;
 
-public class MoneyCounter : MonoBehaviour
+namespace UI
 {
-    [SerializeField] private Buyer _buyer;
-    [SerializeField] private TMP_Text _money;
-
-    private void Awake()
+    public class MoneyCounter : MonoBehaviour
     {
-        _buyer.MoneyChanged += ChangeMoney;
-    }
+        [SerializeField] private Buyer _buyer;
+        [SerializeField] private TMP_Text _money;
 
-    private void OnDisable()
-    {
-        _buyer.MoneyChanged -= ChangeMoney;
-    }
+        private void Awake()
+        {
+            _buyer.MoneyChanged += ChangeMoney;
+        }
 
-    private void ChangeMoney(int money)
-    {
-        _money.text = money.ToString();
+        private void OnDisable()
+        {
+            _buyer.MoneyChanged -= ChangeMoney;
+        }
+
+        private void ChangeMoney(int money)
+        {
+            _money.text = money.ToString();
+        }
     }
 }
