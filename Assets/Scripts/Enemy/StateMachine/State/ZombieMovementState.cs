@@ -1,0 +1,37 @@
+using Character.StateMachine;
+using Character.StateMachine.States;
+
+namespace Enemy.StateMachine.State
+{
+    public class ZombieMovementState : IState
+    {
+        protected readonly IStateSwitcher StateSwitcher;
+
+        private readonly Zombie _enemy;
+
+        public ZombieMovementState(IStateSwitcher stateSwitcher, Zombie enemy)
+        {
+            StateSwitcher = stateSwitcher;
+            _enemy = enemy;
+        }
+
+        protected ZombieView ZombieView => _enemy.ZombieView;
+        protected Zombie Enemy => _enemy;
+
+        public virtual void Enter()
+        {
+        }
+
+        public virtual void Exit()
+        {
+        }
+
+        public virtual void Update()
+        {
+        }
+
+        protected bool IsMoving() => Enemy.Movement.NavMeshAgent.speed == 0;
+        protected bool IsAttacking() => Enemy.ZombieAttack.IsAttacking;
+        protected bool IsDiying() => Enemy.IsDiying;
+    }
+}
