@@ -74,7 +74,6 @@ namespace Enemy
             }
         }
 
-
         public void InitializeStartTarget(Health target)
         {
             _target = target;

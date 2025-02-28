@@ -16,7 +16,7 @@ namespace Units.Skills
                 Unit enemyFriend = Instantiate(_enemyFriend, enemy.transform.position, enemy.transform.rotation);
                 TimerHandler timerHandler = Instantiate(_timerHandler);
 
-                enemyFriend.SetValue(enemy.Value, enemy.MaxValue);
+                enemyFriend.SetValue(enemy.ValueHealth, enemy.MaxValueHealth);
                 enemyFriend.SetCharacter(character);
                 timerHandler.StartTimerEmoSkill(enemyFriend, character);
 

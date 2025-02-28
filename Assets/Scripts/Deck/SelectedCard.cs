@@ -9,6 +9,9 @@ namespace Deck
 {
     public class SelectedCard : MonoBehaviour
     {
+        private readonly List<CardView> Content = new();
+        private readonly List<CardData> SelectedCards = new();
+
         [SerializeField] private CharacterCards _character;
         [SerializeField] private PlayerDeck _deck;
 
@@ -18,30 +21,27 @@ namespace Deck
 
         [SerializeField] private Button _selectButton;
 
-        private List<CardView> _content = new();
-        private List<CardData> _selectedCards = new();
-
-        public event Action<List<CardData>> SelectedCards;
+        public event Action<List<CardData>> ChosenCards;
         public event Action SelectedCardsSave;
 
         private void OnEnable()
         {
-            _selectedCards.Clear();
+            SelectedCards.Clear();
             FillDeck(_character.Cards);
         }
 
         private void OnDisable()
         {
-            SelectedCards?.Invoke(_selectedCards);
+            ChosenCards?.Invoke(SelectedCards);
             SelectedCardsSave?.Invoke();
 
-            foreach (var card in _content)
+            foreach (var card in Content)
             {
                 card.SelectedCard -= OnSelectedCard;
                 Destroy(card.gameObject);
             }
 
-            _content.Clear();
+            Content.Clear();
         }
 
         private void FillDeck(List<CardData> cards)
@@ -68,7 +68,7 @@ namespace Deck
                     view.SelectedCard += OnSelectedCard;
                     view.ShowSelectedButtonText();
                     view.SetSelectedStatus(view.Card.State.SelectedStatus);
-                    _content.Add(view);
+                    Content.Add(view);
 
                     if (view.Card.State.SelectedStatus == CardStatus.NotSelected)
                     {
@@ -76,7 +76,7 @@ namespace Deck
                     }
                     else
                     {
-                        _selectedCards.Add(view.Card);
+                        SelectedCards.Add(view.Card);
                     }
                 }
             }
@@ -87,17 +87,17 @@ namespace Deck
             if (card.Card.State.SelectedStatus == CardStatus.NotSelected)
             {
                 card.SelectedButtonLock(CardStatus.Selected);
-                _selectedCards.Add(card.Card);
+                SelectedCards.Add(card.Card);
             }
             else
             {
                 card.SelectedButtonLock(CardStatus.NotSelected);
-                _selectedCards.Remove(card.Card);
+                SelectedCards.Remove(card.Card);
             }
 
-            if (_selectedCards.Count >= 10)
+            if (SelectedCards.Count >= 10)
             {
-                foreach (var button in _content)
+                foreach (var button in Content)
                 {
                     if (button.Card.State.SelectedStatus == CardStatus.NotSelected)
                         button.SetInteractable(false);
@@ -107,7 +107,7 @@ namespace Deck
             }
             else
             {
-                foreach (var button in _content)
+                foreach (var button in Content)
                 {
                     button.SetInteractable(true);
                 }

@@ -14,10 +14,10 @@ namespace UI.Shop
         [SerializeField] private Button _purchaseButton;
         [SerializeField] private GameObject _equippedLabel;
 
-        [SerializeField] protected Button _equipButton;
+        [SerializeField] protected Button EquipButton;
 
-        [SerializeField] protected TMP_Text _name;
-        [SerializeField] protected Image _icon;
+        [SerializeField] protected TMP_Text Name;
+        [SerializeField] protected Image Icon;
 
         private IProduct _product;
         private bool _isShopItem = false;
@@ -32,7 +32,7 @@ namespace UI.Shop
         {
             if (_isShopItem)
             {
-                _equipButton.onClick.RemoveListener(OnEquipButtonPressed);
+                EquipButton.onClick.RemoveListener(OnEquipButtonPressed);
                 _purchaseButton.onClick.RemoveListener(OnPurchaseButtonPressed);
             }
         }
@@ -55,7 +55,7 @@ namespace UI.Shop
             if (_isShopItem)
             {
                 _product.State.Changed += OnWeaponStateChanged;
-                _equipButton.onClick.AddListener(OnEquipButtonPressed);
+                EquipButton.onClick.AddListener(OnEquipButtonPressed);
                 _purchaseButton.onClick.AddListener(OnPurchaseButtonPressed);
             }
 
@@ -64,13 +64,13 @@ namespace UI.Shop
 
         private void UpdateView()
         {
-            _name.text = LeanLocalization.GetTranslationText(_product.Name);
+            Name.text = LeanLocalization.GetTranslationText(_product.Name);
 
-            if (_name.text == null)
-                _name.text = _product.Name;
+            if (Name.text == null)
+                Name.text = _product.Name;
 
             _price.text = _product.Price.ToString();
-            _icon.sprite = _product.Icon;
+            Icon.sprite = _product.Icon;
 
             switch (_product.State.Status)
             {
@@ -98,7 +98,7 @@ namespace UI.Shop
         private void ShowButton(bool isPurchase, bool isEquip, bool isEquipped)
         {
             _purchaseButton.gameObject.SetActive(isPurchase);
-            _equipButton.gameObject.SetActive(isEquip);
+            EquipButton.gameObject.SetActive(isEquip);
             _equippedLabel.SetActive(isEquipped);
         }
 

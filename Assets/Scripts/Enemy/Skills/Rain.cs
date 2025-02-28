@@ -5,6 +5,8 @@ namespace Enemy.Skills
 {
     public class Rain : MonoBehaviour
     {
+        private readonly float LifeTime = 5;
+
         [SerializeField] private ParticleSystem _rainEffect;
         [SerializeField] private int _damage;
         [SerializeField] private float _radius;
@@ -12,7 +14,6 @@ namespace Enemy.Skills
         [SerializeField] private AudioSource _source;
 
         private ParticleSystem _currentRain;
-        private float _lifeTime = 5;
         private float _timer = 0;
 
         private void Start()
@@ -29,7 +30,7 @@ namespace Enemy.Skills
 
         private IEnumerator StartRain()
         {
-            while (_lifeTime > _timer)
+            while (LifeTime > _timer)
             {
                 var delay = new WaitForSeconds(_delayBetweenDamage);
 

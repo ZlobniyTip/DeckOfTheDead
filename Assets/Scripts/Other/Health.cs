@@ -6,47 +6,47 @@ namespace Other
 {
     public abstract class Health : MonoBehaviour
     {
-        [SerializeField] protected int _maxValue;
+        [SerializeField] protected int MaxValue;
 
-        protected int _value;
-        protected Zombie _lastAttacker;
+        protected int Value;
+        protected Zombie LastAttacker;
 
         public event Action<int, int> Changed;
         public event Action Died;
 
         public bool IsDiying { get; private set; } = false;
-        public int MaxValue => _maxValue;
-        public int Value => _value;
+        public int MaxValueHealth => MaxValue;
+        public int ValueHealth => Value;
 
         public virtual void TakeDamage(int damage)
         {
             if (damage > 0)
             {
-                _value -= damage;
-                Changed?.Invoke(_value, _maxValue);
+                Value -= damage;
+                Changed?.Invoke(Value, MaxValue);
             }
         }
 
         public virtual void TakeHeal(int healValue)
         {
-            if (_value + healValue <= _maxValue)
+            if (Value + healValue <= MaxValue)
             {
-                _value += healValue;
-                Changed?.Invoke(_value, _maxValue);
+                Value += healValue;
+                Changed?.Invoke(Value, MaxValue);
             }
         }
 
         public void TakeDamageFromEnemy(int damage, Zombie attacker)
         {
-            _lastAttacker = attacker;
+            LastAttacker = attacker;
             TakeDamage(damage);
         }
 
         public void SetValue(int value, int maxValue)
         {
-            _value = value;
-            _maxValue = maxValue;
-            Changed?.Invoke(_value, _maxValue);
+            Value = value;
+            MaxValue = maxValue;
+            Changed?.Invoke(Value, MaxValue);
         }
 
         public void SetDiyingStatus(bool isDiying)

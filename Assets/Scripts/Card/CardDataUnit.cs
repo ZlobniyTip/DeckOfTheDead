@@ -12,7 +12,7 @@ namespace Card
 
         public Unit PrefabUnit => _prefabUnit;
         public int UnitHealth => _prefabUnit.UnitConfig.Health;
-        public int Damage => _prefabUnit.UnitConfig.Weapon.Damage;
+        public int Damage => _prefabUnit.UnitConfig.Weapon.DamageValue;
         public UnitConfig UnitConfig => _prefabUnit.UnitConfig;
         public string Ability => _ability;
     }

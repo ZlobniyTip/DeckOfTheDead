@@ -35,20 +35,22 @@ namespace Units
                 float distansToCharacterX = transform.position.x - _unit.Character.transform.position.x;
 
                 if (distansToCharacterX < 4)
+                {
                     MoveForward();
+                }
                 else
                 {
                     StopMovement();
 
                     if (_unitAttack.IsAttacking == false)
-                        _unitAnimator.PlauIdlingAnimation(_unitAttack.CurrentWeapon.WeaponType);
+                        _unitAnimator.PlauIdlingAnimation(_unitAttack.CurrentWeapon.WeaponKind);
                 }
             }
             else
             {
                 float distansToTarget = Vector3.Distance(transform.position, _unit.Target.transform.position);
 
-                if (distansToTarget > _unitAttack.CurrentWeapon.AttackDistance)
+                if (distansToTarget > _unitAttack.CurrentWeapon.AttackRange)
                 {
                     _cameUp = false;
                     MoveToTarget();
@@ -68,14 +70,14 @@ namespace Units
 
         private void MoveToTarget()
         {
-            _unitAnimator.PlauRunningAnimation(_unitAttack.CurrentWeapon.WeaponType);
+            _unitAnimator.PlauRunningAnimation(_unitAttack.CurrentWeapon.WeaponKind);
             _navMesh.speed = _unit.UnitConfig.Speed;
             _navMesh.SetDestination(_unit.Target.transform.position);
         }
 
         private void MoveForward()
         {
-            _unitAnimator.PlauRunningAnimation(_unitAttack.CurrentWeapon.WeaponType);
+            _unitAnimator.PlauRunningAnimation(_unitAttack.CurrentWeapon.WeaponKind);
             _navMesh.speed = _unit.UnitConfig.Speed;
             Vector3 forwardPosition = transform.position + Vector3.right * 5.0f;
             _navMesh.SetDestination(forwardPosition);

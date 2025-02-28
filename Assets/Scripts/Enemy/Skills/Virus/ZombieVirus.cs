@@ -7,6 +7,8 @@ namespace Enemy.Skills.Virus
 {
     public class ZombieVirus : MonoBehaviour
     {
+        private readonly HashSet<Unit> SubscribedObjects = new HashSet<Unit>();
+
         [SerializeField] private ParticleSystem _virusEffect;
         [SerializeField] private Zombie _zombiePrefab;
         [SerializeField] private int _damage;
@@ -15,10 +17,8 @@ namespace Enemy.Skills.Virus
         [SerializeField] private float _duration;
         [SerializeField] private float _delayBeforeDestruction;
 
-        private HashSet<Unit> _subscribedObjects = new HashSet<Unit>();
         private ParticleSystem _currentParticle;
         private float _timer = 0;
-        private Zombie _zombie;
 
         private void Start()
         {
@@ -53,9 +53,9 @@ namespace Enemy.Skills.Virus
                     {
                         if (rigidbody.gameObject.TryGetComponent(out Unit enemy))
                         {
-                            if (!_subscribedObjects.Contains(enemy))
+                            if (!SubscribedObjects.Contains(enemy))
                             {
-                                _subscribedObjects.Add(enemy);
+                                SubscribedObjects.Add(enemy);
                                 enemy.TurnIntoZombie += RiseZombie;
                             }
 
@@ -75,10 +75,10 @@ namespace Enemy.Skills.Virus
 
         private void RiseZombie(Unit unit)
         {
-            if (_subscribedObjects.Contains(unit))
+            if (SubscribedObjects.Contains(unit))
             {
                 unit.TurnIntoZombie -= RiseZombie;
-                _subscribedObjects.Remove(unit);
+                SubscribedObjects.Remove(unit);
             }
 
             if (!unit.IsZombie)
@@ -92,7 +92,7 @@ namespace Enemy.Skills.Virus
 
         private void UnsubscribeAll()
         {
-            foreach (Unit obj in _subscribedObjects)
+            foreach (Unit obj in SubscribedObjects)
             {
                 if (obj != null && obj.TryGetComponent(out Unit enemy))
                 {
@@ -100,7 +100,7 @@ namespace Enemy.Skills.Virus
                 }
             }
 
-            _subscribedObjects.Clear();
+            SubscribedObjects.Clear();
         }
     }
 }

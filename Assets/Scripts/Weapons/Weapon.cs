@@ -16,48 +16,48 @@ namespace Weapons
         [SerializeField] private int _price;
         [SerializeField] private int _index;
 
-        [SerializeField] protected float _attackDistance;
-        [SerializeField] protected int _damage;
-        [SerializeField] protected float _delayBetweenShots;
+        [SerializeField] protected float AttackDistance;
+        [SerializeField] protected int Damage;
+        [SerializeField] protected float DelayBetweenShots;
 
         [NonSerialized] private ItemState _state = null;
 
-        protected AudioSource _audio;
-        protected bool _isShooting = false;
-        protected bool _isCritical = false;
-        protected int _multiplyDamage = 3;
+        protected AudioSource Audio;
+        protected bool IsShooting = false;
+        protected bool IsCritical = false;
+        protected int MultiplyDamage = 3;
 
         public event Action Shooting;
 
-        public WeaponType WeaponType => _weaponType;
-        public float DelayBetweenShots => _delayBetweenShots;
-        public float AttackDistance => _attackDistance;
+        public WeaponType WeaponKind => _weaponType;
+        public float ShotCooldown => DelayBetweenShots;
+        public float AttackRange => AttackDistance;
 
         public ItemType Type => _type;
         public Sprite Icon => _icon;
         public string Name => _name;
         public int Price => _price;
         public int Index => _index;
-        public int Damage => _damage;
+        public int DamageValue => Damage;
 
         public ItemState State => _state ??= new ItemState(ItemStatus.NotPurchased);
 
         private void Start()
         {
-            _audio = GetComponent<AudioSource>();
+            Audio = GetComponent<AudioSource>();
         }
 
         public virtual int Shoot()
         {
             ReportImpact();
-            _audio.Play();
+            Audio.Play();
 
-            return _damage;
+            return Damage;
         }
 
         public void StopShooting()
         {
-            _isShooting = false;
+            IsShooting = false;
         }
 
         public void Init(ItemStatus state, int level)
@@ -73,7 +73,7 @@ namespace Weapons
 
         public void ApplyGain(CardView view)
         {
-            _damage += view.Card.BonusDamage;
+            Damage += view.Card.BonusDamage;
         }
     }
 }

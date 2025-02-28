@@ -16,7 +16,7 @@ namespace Character.StateMachine.States
         {
             base.Enter();
 
-            switch (Character.CharacterShooting.CurrentWeapon.WeaponType)
+            switch (Character.CharacterShooting.CurrentWeapon.WeaponKind)
             {
                 case WeaponType.Melle:
                     CharacterView.StartState(IsRunningMelle);
@@ -42,7 +42,7 @@ namespace Character.StateMachine.States
         {
             base.Exit();
 
-            switch (CurrentWeapon.WeaponType)
+            switch (CurrentWeapon.WeaponKind)
             {
                 case WeaponType.Melle:
                     CharacterView.StopState(IsRunningMelle);

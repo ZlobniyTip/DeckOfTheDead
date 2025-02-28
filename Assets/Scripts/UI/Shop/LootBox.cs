@@ -9,26 +9,26 @@ namespace UI.Shop
 {
     public class LootBox : MonoBehaviour
     {
+        private readonly List<Weapon> ChoosedWeapons = new();
+        private readonly List<CardData> ChoosedCards = new();
+        private readonly int CountWeapons = 5;
+        private readonly int CountCards = 10;
+
         [SerializeField] private GameObject _prizesPanel;
         [SerializeField] private List<Weapon> _weapons;
         [SerializeField] private List<CardData> _cards;
 
-        private List<Weapon> _choosedWeapons = new();
-        private List<CardData> _choosedCards = new();
-        private int _countWeapons = 5;
-        private int _countCards = 10;
-
-        public List<Weapon> Weapons => _choosedWeapons;
-        public List<CardData> Cards => _choosedCards;
+        public List<Weapon> Weapons => ChoosedWeapons;
+        public List<CardData> Cards => ChoosedCards;
 
         public void OpenLootBox()
         {
-            for (int i = 0; i < _countWeapons; i++)
+            for (int i = 0; i < CountWeapons; i++)
             {
                 StartCoroutine(ChooseRandomWeapon(_weapons));
             }
 
-            for (int i = 0; i < _countCards; i++)
+            for (int i = 0; i < CountCards; i++)
             {
                 StartCoroutine(ChooseRandomCard(_cards));
             }
@@ -50,7 +50,7 @@ namespace UI.Shop
             }
 
             weapons[weaponIndex].State.SetStatus(ItemStatus.Purchased);
-            _choosedWeapons.Add(weapons[weaponIndex]);
+            ChoosedWeapons.Add(weapons[weaponIndex]);
         }
 
         private IEnumerator ChooseRandomCard(List<CardData> cards)
@@ -69,9 +69,9 @@ namespace UI.Shop
             }
 
             cards[cardIndex].State.SetStatus(ItemStatus.Purchased);
-            _choosedCards.Add(cards[cardIndex]);
+            ChoosedCards.Add(cards[cardIndex]);
 
-            if (_choosedCards.Count == 10)
+            if (ChoosedCards.Count == 10)
             {
                 _prizesPanel.SetActive(true);
             }

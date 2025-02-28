@@ -14,7 +14,7 @@ namespace Units
         private Coroutine _coroutine;
         private int _damage = 0;
 
-        public float _distance;
+        private float _distance;
 
         public bool IsAttacking { get; private set; } = false;
         public Weapon CurrentWeapon => _currentWeapon;
@@ -53,7 +53,7 @@ namespace Units
             if (_currentWeapon == null)
                 yield break;
 
-            var delay = new WaitForSeconds(_currentWeapon.DelayBetweenShots);
+            var delay = new WaitForSeconds(_currentWeapon.ShotCooldown);
 
             while (IsAttacking)
             {
@@ -63,9 +63,9 @@ namespace Units
                 {
                     _distance = Vector3.Distance(transform.position, _unit.Target.transform.position);
 
-                    if (_distance <= _currentWeapon.AttackDistance)
+                    if (_distance <= _currentWeapon.AttackRange)
                     {
-                        _unitAnimator.PlauAttackAnimation(_currentWeapon.WeaponType);
+                        _unitAnimator.PlauAttackAnimation(_currentWeapon.WeaponKind);
 
                         if (_unit.Target != null)
                         {

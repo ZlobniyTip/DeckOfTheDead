@@ -68,7 +68,9 @@ namespace DragAndDrop
                     _isSpawnPossible = true;
                 }
                 else
+                {
                     UpdateSpawnVisuals(spawnPosition);
+                }
             }
             else
             {
@@ -126,9 +128,10 @@ namespace DragAndDrop
 
         private void UpdateAttackRadiusVisual()
         {
-            if (_currentAttackRadiusVisual == null) return;
+            if (_currentAttackRadiusVisual == null) 
+                return;
 
-            float attackDistance = (_cardView.Card as CardDataUnit).UnitConfig.Weapon.AttackDistance;
+            float attackDistance = (_cardView.Card as CardDataUnit).UnitConfig.Weapon.AttackRange;
             Vector3 newScale = new Vector3(attackDistance * 2, _currentAttackRadiusVisual.transform.localScale.y, attackDistance * 2);
             _currentAttackRadiusVisual.transform.localScale = newScale;
         }

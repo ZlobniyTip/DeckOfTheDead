@@ -9,7 +9,7 @@ namespace UI.Reward
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.TryGetComponent(out Player character))
+            if (other.GetComponent<Player>() != null)
             {
                 _winScreen.SetActive(true);
             }

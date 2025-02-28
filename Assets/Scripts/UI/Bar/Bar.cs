@@ -6,7 +6,7 @@ namespace UI.Bar
 {
     public abstract class Bar : MonoBehaviour
     {
-        [SerializeField] protected Slider _barFilling;
+        [SerializeField] protected Slider BarFilling;
 
         protected float RecoveryRate = 0.2f;
 
@@ -24,9 +24,9 @@ namespace UI.Bar
 
         private IEnumerator ChangeHealthBar(float target)
         {
-            while (_barFilling.value != target)
+            while (BarFilling.value != target)
             {
-                _barFilling.value = Mathf.MoveTowards(_barFilling.value, target, RecoveryRate * Time.deltaTime);
+                BarFilling.value = Mathf.MoveTowards(BarFilling.value, target, RecoveryRate * Time.deltaTime);
 
                 yield return null;
             }

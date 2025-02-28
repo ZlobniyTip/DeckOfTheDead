@@ -15,12 +15,6 @@ namespace Enemy.Skills.Virus
         private void OnDestroy()
         {
             Instantiate(_zombieVirus, transform.position, Quaternion.identity);
-            TransferZombies(_zombie);
-        }
-
-        public Zombie TransferZombies(Zombie zombie)
-        {
-            return zombie;
         }
     }
 }

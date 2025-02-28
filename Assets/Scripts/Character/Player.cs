@@ -38,7 +38,7 @@ namespace Character
             _movement = GetComponent<CharacterMovement>();
             _stateMachine = new CharacterStateMachine(this);
 
-            _value = _maxValue;
+            Value = MaxValue;
         }
 
         private void Update()
@@ -50,7 +50,7 @@ namespace Character
         {
             base.TakeDamage(damage);
 
-            if (_value <= 0)
+            if (Value <= 0)
             {
                 DeclareDeath();
                 Destroy(gameObject);

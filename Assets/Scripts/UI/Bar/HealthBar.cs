@@ -10,7 +10,7 @@ namespace UI.Bar
         private void Awake()
         {
             RecoveryRate = 0.8f;
-            _barFilling.value = _health.MaxValue;
+            BarFilling.value = _health.MaxValueHealth;
         }
 
         private void OnEnable()

@@ -6,12 +6,12 @@ namespace Enemy.Skills
 {
     public class PackLeader : MonoBehaviour
     {
-        [SerializeField] private float _radius;
+        private readonly HashSet<ZombieAttack> SubscribedObjects = new HashSet<ZombieAttack>();
+        private readonly int Cooldown = 1;
+        private readonly int MultiplyAttackSpeed = 2;
+        private readonly int MultiplyDamage = 2;
 
-        private HashSet<ZombieAttack> _subscribedObjects = new HashSet<ZombieAttack>();
-        private int _cooldown = 1;
-        private int _multiplyAttackSpeed = 2;
-        private int _multiplyDamage = 2;
+        [SerializeField] private float _radius;
 
         private void Start()
         {
@@ -20,7 +20,7 @@ namespace Enemy.Skills
 
         private IEnumerator ApplyReinforcement()
         {
-            var delay = new WaitForSeconds(_cooldown);
+            var delay = new WaitForSeconds(Cooldown);
 
             while (true)
             {
@@ -34,10 +34,10 @@ namespace Enemy.Skills
                     {
                         if (rigidbody.gameObject.TryGetComponent(out ZombieAttack zombie))
                         {
-                            if (!_subscribedObjects.Contains(zombie))
+                            if (!SubscribedObjects.Contains(zombie))
                             {
-                                _subscribedObjects.Add(zombie);
-                                zombie.BuffAttack(_multiplyAttackSpeed, _multiplyDamage);
+                                SubscribedObjects.Add(zombie);
+                                zombie.BuffAttack(MultiplyAttackSpeed, MultiplyDamage);
                             }
                         }
                     }

@@ -36,7 +36,7 @@ namespace Character
 
             while (_currentEnemy == null)
             {
-                Collider[] overlappedColliders = Physics.OverlapSphere(transform.position, _characterShooting.CurrentWeapon.AttackDistance);
+                Collider[] overlappedColliders = Physics.OverlapSphere(transform.position, _characterShooting.CurrentWeapon.AttackRange);
                 Rigidbody rigidbody;
 
                 for (int i = 0; i < overlappedColliders.Length; i++)

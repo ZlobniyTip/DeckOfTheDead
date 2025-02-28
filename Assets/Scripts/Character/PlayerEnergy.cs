@@ -6,15 +6,16 @@ namespace Character
 {
     public class PlayerEnergy : MonoBehaviour
     {
+        private readonly int MaxEnergyCount = 10;
+
         [SerializeField] private ParticleSystem _energyProduction;
         [SerializeField] private AudioSource _audioSource;
 
-        private int _maxEnergyCount = 10;
         private int _currentEnergyCount = 0;
 
-        public event Action EnergyChanged;
-
         public int CurrentEnergyCount => _currentEnergyCount;
+
+        public event Action EnergyChanged;
 
         private void Start()
         {
@@ -24,7 +25,7 @@ namespace Character
 
         public void IncreaseEnergy()
         {
-            if (_currentEnergyCount < _maxEnergyCount)
+            if (_currentEnergyCount < MaxEnergyCount)
             {
                 _currentEnergyCount++;
                 EnergyChanged?.Invoke();

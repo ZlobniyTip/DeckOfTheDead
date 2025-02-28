@@ -8,6 +8,13 @@ namespace UI.Reward
 {
     public class RewardView : MonoBehaviour
     {
+        private readonly float CountRewardHeroDamage = 0;
+        private readonly float CountRewardLbScore = 0;
+        private readonly float CountRewardUnitsUsed = 0;
+        private readonly float CountRewardKilledEnemies = 0;
+        private readonly float DelayCouner = 0.005f;
+        private readonly int CounterStep = 1000;
+
         [SerializeField] private GameObject _gamePanel;
         [SerializeField] private GameObject _buttonsPanel;
         [SerializeField] private Button _activPanelButton;
@@ -19,27 +26,20 @@ namespace UI.Reward
         [SerializeField] private TMP_Text _killedEnemies;
         [SerializeField] private TMP_Text _reward;
 
-        private float _delayCouner = 0.005f;
-        private int _counterStep = 1000;
         private int _completedCoroutines = 0;
 
-        private float _countRewardHeroDamage = 0;
-        private float _countRewardLbScore = 0;
-        private float _countRewardUnitsUsed = 0;
-        private float _countRewardKilledEnemies = 0;
+        public float CountReward { get; private set; } = 0;
 
         public event Action<float> RewardCounted;
-
-        public float CountReward { get; private set; } = 0;
 
         private void Start()
         {
             _gamePanel.SetActive(false);
             _activPanelButton.onClick.AddListener(OnActivPanel);
-            StartCoroutine(ChangeValue(_rewardCounter.HeroDamage, _heroDamage, 10, _countRewardHeroDamage));
-            StartCoroutine(ChangeValue(_rewardCounter.LeaderboardScore, _leaderboardScore, 0.05f, _countRewardLbScore));
-            StartCoroutine(ChangeValue(_rewardCounter.UnitsUsed, _unitsUsed, 100, _countRewardUnitsUsed));
-            StartCoroutine(ChangeValue(_rewardCounter.KilledEnemies, _killedEnemies, 100, _countRewardKilledEnemies));
+            StartCoroutine(ChangeValue(_rewardCounter.HeroDamage, _heroDamage, 10, CountRewardHeroDamage));
+            StartCoroutine(ChangeValue(_rewardCounter.LeaderboardScore, _leaderboardScore, 0.05f, CountRewardLbScore));
+            StartCoroutine(ChangeValue(_rewardCounter.UnitsUsed, _unitsUsed, 100, CountRewardUnitsUsed));
+            StartCoroutine(ChangeValue(_rewardCounter.KilledEnemies, _killedEnemies, 100, CountRewardKilledEnemies));
         }
 
         private void OnEnable()
@@ -49,12 +49,12 @@ namespace UI.Reward
 
         private IEnumerator ChangeValue(float value, TMP_Text text, float multiply, float countReward)
         {
-            var delay = new WaitForSeconds(_delayCouner);
+            var delay = new WaitForSeconds(DelayCouner);
             int counter = 0;
 
             while (counter < value)
             {
-                counter += _counterStep;
+                counter += CounterStep;
                 text.text = counter.ToString();
 
                 yield return delay;

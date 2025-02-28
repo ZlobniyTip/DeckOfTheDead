@@ -16,33 +16,33 @@ namespace Card
 
         public override void Initialize(CardData cardData)
         {
-            _cardData = cardData;
-            CardDataWeapon cardDataWeapon = _cardData as CardDataWeapon;
+            CardData = cardData;
+            CardDataWeapon cardDataWeapon = CardData as CardDataWeapon;
             _cardDataWeapon = cardDataWeapon;
 
-            _icon.sprite = cardDataWeapon.Icon;
-            _name.text = LeanLocalization.GetTranslationText(cardDataWeapon.Name);
+            Icon.sprite = cardDataWeapon.Icon;
+            Name.text = LeanLocalization.GetTranslationText(cardDataWeapon.Name);
 
-            if (_name.text == null)
-                _name.text = cardDataWeapon.Name;
+            if (Name.text == null)
+                Name.text = cardDataWeapon.Name;
 
             _energy.text = cardDataWeapon.Energy.ToString();
             _level.text = cardDataWeapon.Level.ToString();
             _damage.text = cardDataWeapon.WeaponDamage.ToString();
             _delayBetweenShots.text = cardDataWeapon.DelayBetweenShots.ToString();
             _timeAction.text = LeanLocalization.GetTranslationText("Time of action") +
-                ($" {cardDataWeapon.TimeAction.ToString()} ") + (LeanLocalization.GetTranslationText("seconds"));
+                $" {cardDataWeapon.TimeAction.ToString()} " + LeanLocalization.GetTranslationText("seconds");
         }
 
         public void TransferData()
         {
-            _name.text = LeanLocalization.GetTranslationText(_cardDataWeapon.Name);
+            Name.text = LeanLocalization.GetTranslationText(_cardDataWeapon.Name);
 
-            if (_name.text == null)
-                _name.text = _cardDataWeapon.Name;
+            if (Name.text == null)
+                Name.text = _cardDataWeapon.Name;
 
             _timeAction.text = LeanLocalization.GetTranslationText("Time of action") +
-                ($" {_cardDataWeapon.TimeAction.ToString()} ") + (LeanLocalization.GetTranslationText("seconds"));
+                $" {_cardDataWeapon.TimeAction.ToString()} " + LeanLocalization.GetTranslationText("seconds");
         }
 
         public void UpdateLevelText(int level)

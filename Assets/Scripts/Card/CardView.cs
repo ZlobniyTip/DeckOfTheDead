@@ -16,11 +16,11 @@ namespace Card
         [SerializeField] private Button _selectedButton;
         [SerializeField] private TMP_Text _selectButtonText;
 
-        protected CardData _cardData;
+        protected CardData CardData;
         private DragAndDropCardUnit _dragAndDrop;
         private DragAndDropCardWeapon _dragAndDropWeapon;
 
-        public CardData Card => _cardData;
+        public CardData Card => CardData;
 
         public event Action<CardView> LevelUpButtonPressed;
         public event Action<CardView> SelectedCard;
@@ -30,7 +30,7 @@ namespace Card
             _dragAndDrop = GetComponent<DragAndDropCardUnit>();
             _dragAndDropWeapon = GetComponent<DragAndDropCardWeapon>();
 
-            _equipButton.onClick.AddListener(OnLevelUpPressed);
+            EquipButton.onClick.AddListener(OnLevelUpPressed);
             _selectedButton.onClick.AddListener(OnSelectedCard);
         }
 
@@ -45,12 +45,12 @@ namespace Card
         {
             if (status == CardStatus.Selected)
             {
-                _cardData.State.SetSelectedStatus(CardStatus.Selected);
+                CardData.State.SetSelectedStatus(CardStatus.Selected);
                 _selectedButton.GetComponent<Image>().color = Color.green;
             }
             else
             {
-                _cardData.State.SetSelectedStatus(CardStatus.NotSelected);
+                CardData.State.SetSelectedStatus(CardStatus.NotSelected);
                 _selectedButton.GetComponent<Image>().color = Color.black;
             }
         }
@@ -97,24 +97,13 @@ namespace Card
 
         public void DeterminPriceLevelUp()
         {
-            switch (_cardData.Level)
+            _levelPrice.text = CardData.Level switch
             {
-                case 0:
-                    _levelPrice.text = _cardData.PriceLevel1.ToString();
-                    break;
-
-                case 1:
-                    _levelPrice.text = _cardData.PriceLevel2.ToString();
-                    break;
-
-                case 2:
-                    _levelPrice.text = _cardData.PriceLevel3.ToString();
-                    break;
-
-                default:
-                    _levelPrice.text = LeanLocalization.GetTranslationText("MaxLevel");
-                    break;
-            }
+                0 => CardData.PriceLevel1.ToString(),
+                1 => CardData.PriceLevel2.ToString(),
+                2 => CardData.PriceLevel3.ToString(),
+                _ => LeanLocalization.GetTranslationText("MaxLevel"),
+            };
         }
 
         public void ShowSelectedButtonText()

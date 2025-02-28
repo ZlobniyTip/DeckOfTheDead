@@ -8,25 +8,26 @@ namespace Enemy.StateMachine
 {
     public class ZombieStateMachine : IStateSwitcher
     {
-        private List<IState> _states;
+        private readonly List<IState> States;
+
         private IState _currentState;
 
         public ZombieStateMachine(Zombie enemy)
         {
-            _states = new List<IState>()
+            States = new List<IState>()
         {
             new ZombieRunningState(this, enemy),
             new ZombieAttackState(this, enemy),
             new ZombieDiyingState(this, enemy)
         };
 
-            _currentState = _states[0];
+            _currentState = States[0];
             _currentState.Enter();
         }
 
         public void SwitchState<State>() where State : IState
         {
-            IState state = _states.FirstOrDefault(state => state is State);
+            IState state = States.FirstOrDefault(state => state is State);
 
             _currentState.Exit();
             _currentState = state;

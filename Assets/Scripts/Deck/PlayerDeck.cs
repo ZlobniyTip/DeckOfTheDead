@@ -9,6 +9,10 @@ namespace Deck
 {
     public class PlayerDeck : MonoBehaviour
     {
+        private readonly HashSet<CardData> UsedCards = new();
+        private readonly bool ChecksActivity = true;
+        private readonly List<CardView> PlayerCards = new();
+
         [SerializeField] private Player _character;
         [SerializeField] private CharacterCards _characterCards;
         [SerializeField] private Transform _ñontainer;
@@ -18,23 +22,20 @@ namespace Deck
         [SerializeField] private LeanHelper _leanHelper;
         [SerializeField] private SelectedCard _selectedCard;
 
-        private List<CardView> _playerCards = new();
         private List<CardData> _selectedCards = new();
-        private HashSet<CardData> _usedCards = new();
-        private bool _checksActivity = true;
 
         public Player Character => _character;
 
         private void Awake()
         {
             _characterCards.Initialized += TakeStartCards;
-            _selectedCard.SelectedCards += TakeSelectedCards;
+            _selectedCard.ChosenCards += TakeSelectedCards;
         }
 
         private void OnDestroy()
         {
             _characterCards.Initialized -= TakeStartCards;
-            _selectedCard.SelectedCards -= TakeSelectedCards;
+            _selectedCard.ChosenCards -= TakeSelectedCards;
         }
 
         public void TakeSelectedCards(List<CardData> cards)
@@ -67,7 +68,7 @@ namespace Deck
 
         private void TakeCards()
         {
-            while (_playerCards.Count < 5)
+            while (PlayerCards.Count < 5)
             {
                 CreateCard();
             }
@@ -79,9 +80,9 @@ namespace Deck
         {
             var delay = new WaitForSeconds(0.3f);
 
-            while (_checksActivity)
+            while (ChecksActivity)
             {
-                foreach (var card in _playerCards)
+                foreach (var card in PlayerCards)
                 {
                     if (card.Card.Energy <= _playerEnergy.CurrentEnergyCount)
                     {
@@ -99,10 +100,10 @@ namespace Deck
 
         public void RemoveCard(CardView cardView)
         {
-            if (_playerCards.Contains(cardView))
+            if (PlayerCards.Contains(cardView))
             {
-                _usedCards.Remove(cardView.Card);
-                _playerCards.Remove(cardView);
+                UsedCards.Remove(cardView.Card);
+                PlayerCards.Remove(cardView);
             }
 
             CreateCard();
@@ -121,7 +122,7 @@ namespace Deck
             {
                 CardView cardView = Instantiate(_cardViewUnit, _ñontainer);
                 cardView.Initialize(randomCardData);
-                _playerCards.Add(cardView);
+                PlayerCards.Add(cardView);
 
                 CardViewUnit cardViewUnit = cardView as CardViewUnit;
                 _leanHelper.ChangedLanguage += cardViewUnit.TransferData;
@@ -131,7 +132,7 @@ namespace Deck
             {
                 CardView cardView = Instantiate(_cardViewWeapon, _ñontainer);
                 cardView.Initialize(randomCardData);
-                _playerCards.Add(cardView);
+                PlayerCards.Add(cardView);
 
                 CardViewWeapon cardViewWeapon = cardView as CardViewWeapon;
                 _leanHelper.ChangedLanguage += cardViewWeapon.TransferData;
@@ -140,7 +141,7 @@ namespace Deck
 
         private CardData GetUniqueCard()
         {
-            if (_playerCards.Count >= _selectedCards.Count)
+            if (PlayerCards.Count >= _selectedCards.Count)
                 return null;
 
             CardData randomCard;
@@ -148,9 +149,9 @@ namespace Deck
             do
             {
                 randomCard = _selectedCards[Random.Range(0, _selectedCards.Count)];
-            } while (_usedCards.Contains(randomCard));
+            } while (UsedCards.Contains(randomCard));
 
-            _usedCards.Add(randomCard);
+            UsedCards.Add(randomCard);
             return randomCard;
         }
     }

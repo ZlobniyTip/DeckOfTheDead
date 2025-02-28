@@ -5,7 +5,6 @@ namespace Enemy.StateMachine.State
     public class ZombieAttackState : ZombieMovementState
     {
         private const string IsAttackingZombie = "IsAttacking";
-        private const string IsJump = "IsJump";
 
         public ZombieAttackState(IStateSwitcher stateSwitcher, Zombie enemy) : base(stateSwitcher, enemy)
         {

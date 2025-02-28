@@ -20,10 +20,10 @@ namespace Weapons
         {
             MelleAttack?.Invoke();
 
-            if (_audio != null)
-                _audio.Play();
+            if (Audio != null)
+                Audio.Play();
 
-            return _damage;
+            return Damage;
         }
     }
 }

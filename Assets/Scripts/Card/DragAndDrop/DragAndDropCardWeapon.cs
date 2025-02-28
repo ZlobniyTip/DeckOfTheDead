@@ -52,7 +52,7 @@ namespace DragAndDrop
 
         private void TryUpdateSpawnVisuals()
         {
-            if (FindSpawnLocation(out Vector3 spawnPosition))
+            if (FindSpawnLocation(out Vector3 _))
             {
                 if (!_isSpawnPossible)
                 {

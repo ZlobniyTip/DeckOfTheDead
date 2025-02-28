@@ -68,7 +68,7 @@ namespace Advertisement
             AudioListener.volume = 1f;
         }
 
-        private void OnRewardCallback(int reward)
+        private void OnRewardCallback(int _)
         {
             RewardedCallback?.Invoke();
         }

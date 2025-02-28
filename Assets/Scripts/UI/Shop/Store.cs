@@ -161,20 +161,13 @@ namespace UI.Shop
 
         private int DeterminePriceImprovement(CardView card)
         {
-            switch (card.Card.Level)
+            return card.Card.Level switch
             {
-                case 0:
-                    return card.Card.PriceLevel1;
-
-                case 1:
-                    return card.Card.PriceLevel2;
-
-                case 2:
-                    return card.Card.PriceLevel3;
-
-                default:
-                    return 0;
-            }
+                0 => card.Card.PriceLevel1,
+                1 => card.Card.PriceLevel2,
+                2 => card.Card.PriceLevel3,
+                _ => 0,
+            };
         }
     }
 }

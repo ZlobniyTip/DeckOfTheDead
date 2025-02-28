@@ -6,11 +6,11 @@ namespace UI
 {
     public class Bestiary : MonoBehaviour
     {
+        private readonly List<BestiaryView> Content = new();
+
         [SerializeField] private List<ZombieData> _zombies;
         [SerializeField] private GameObject _container;
         [SerializeField] private BestiaryView _prefabView;
-
-        private List<BestiaryView> _content = new();
 
         private void OnEnable()
         {
@@ -19,12 +19,12 @@ namespace UI
 
         private void OnDisable()
         {
-            for (int i = 0; i < _content.Count; i++)
+            for (int i = 0; i < Content.Count; i++)
             {
-                Destroy(_content[i].gameObject);
+                Destroy(Content[i].gameObject);
             }
 
-            _content.Clear();
+            Content.Clear();
         }
 
         private void FillBestiary()
@@ -33,7 +33,7 @@ namespace UI
             {
                 var view = Instantiate(_prefabView, _container.transform);
                 view.Initialize(_zombies[i]);
-                _content.Add(view);
+                Content.Add(view);
             }
         }
     }

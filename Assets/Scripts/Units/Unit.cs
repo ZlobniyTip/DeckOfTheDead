@@ -13,6 +13,8 @@ namespace Units
 {
     public class Unit : Health, IAim
     {
+        private readonly float DelayBetweenDeath = 2.7f;
+
         [SerializeField] private UnitConfig _config;
         [SerializeField] private AudioSource _soundSpawn;
         [SerializeField] private PoliceAmmunition _policeArmour;
@@ -24,9 +26,6 @@ namespace Units
         private UnitObserver _controller;
         private FXUnit _fxUnit;
         private CardView _cardView;
-        private float _delayBetweenDeath = 2.7f;
-
-        public event Action<Unit> TurnIntoZombie;
 
         public UnitAttack Attack => _attack;
         public UnitConfig UnitConfig => _config;
@@ -35,10 +34,12 @@ namespace Units
         public FXUnit FXUnit => _fxUnit;
         public bool IsZombie { get; set; } = false;
 
+        public event Action<Unit> TurnIntoZombie;
+
         private void Awake()
         {
-            _maxValue = _config.Health;
-            _value = _maxValue;
+            MaxValue = _config.Health;
+            Value = MaxValue;
 
             _attack = GetComponent<UnitAttack>();
             _unitAnimator = GetComponent<UnitAnimator>();
@@ -81,13 +82,13 @@ namespace Units
             {
                 BlockDamageWithArmour(damage);
 
-                if (_policeArmour.Value > 0)
+                if (_policeArmour.ValueHealth > 0)
                     return;
             }
 
             base.TakeDamage(damage);
 
-            if (_value <= 0)
+            if (Value <= 0)
             {
                 StartCoroutine(Die());
             }
@@ -95,21 +96,21 @@ namespace Units
 
         private void SetParameters()
         {
-            _maxValue += _cardView.Card.BonusHealth;
-            _value = _maxValue;
+            MaxValue += _cardView.Card.BonusHealth;
+            Value = MaxValue;
             Attack.SetAdditionalDamage(_cardView.Card.BonusDamage);
         }
 
         private IEnumerator Die()
         {
             DeclareDeath();
-            var delay = new WaitForSeconds(_delayBetweenDeath);
+            var delay = new WaitForSeconds(DelayBetweenDeath);
 
             var zombieConverter = GetComponent<SkillEmo>();
 
             if (zombieConverter != null)
             {
-                zombieConverter.ConvertEnemyToAlly(_lastAttacker, _character);
+                zombieConverter.ConvertEnemyToAlly(LastAttacker, _character);
             }
 
             _controller.DisableStates();

@@ -8,9 +8,10 @@ namespace Enemy
     [RequireComponent(typeof(Zombie))]
     public class EnemyMovement : MonoBehaviour
     {
+        private readonly float Speed = 2;
+
         private ZombieSearchTarget _zombieSearch;
         private NavMeshAgent _navMesh;
-        private float _speed = 2;
         private ZombieAttack _zombieAttack;
         private Zombie _enemy;
 
@@ -54,7 +55,7 @@ namespace Enemy
                 if (distansToTarget > _zombieAttack.AttackDistance)
                 {
                     _navMesh.isStopped = false;
-                    _navMesh.speed = _speed;
+                    _navMesh.speed = Speed;
                     _navMesh.SetDestination(_zombieSearch.Target.transform.position);
                 }
                 else

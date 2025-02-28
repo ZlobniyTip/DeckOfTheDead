@@ -9,15 +9,15 @@ namespace Enemy.StateMachine.State
 
         private void Start()
         {
-            _startSpeedAnimation = _animator.speed;
+            _startSpeedAnimation = Animator.speed;
         }
 
-        public override void Initialize() => _animator = GetComponent<Animator>();
+        public override void Initialize() => Animator = GetComponent<Animator>();
 
-        public override void StartState(string state) => _animator.SetBool(state, true);
-        public override void StopState(string state) => _animator.SetBool(state, false);
+        public override void StartState(string state) => Animator.SetBool(state, true);
+        public override void StopState(string state) => Animator.SetBool(state, false);
 
-        public void ChangeSpeed(float speed) => _animator.speed /= speed;
-        public void RestoreAnimationSpeed() => _animator.speed = _startSpeedAnimation;
+        public void ChangeSpeed(float speed) => Animator.speed /= speed;
+        public void RestoreAnimationSpeed() => Animator.speed = _startSpeedAnimation;
     }
 }

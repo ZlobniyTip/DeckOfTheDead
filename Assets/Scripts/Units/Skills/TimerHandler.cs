@@ -29,7 +29,7 @@ namespace Units.Skills
             }
 
             Zombie enemy = Instantiate(_prefabEnemy, enemyFriend.transform.position, enemyFriend.transform.rotation);
-            enemy.SetValue(enemyFriend.Value, enemyFriend.MaxValue);
+            enemy.SetValue(enemyFriend.ValueHealth, enemyFriend.MaxValueHealth);
             enemy.ZombieSearch.InitializeStartTarget(character);
 
             Destroy(enemyFriend.gameObject);

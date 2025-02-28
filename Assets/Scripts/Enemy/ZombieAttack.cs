@@ -19,7 +19,6 @@ namespace Enemy
         public bool IsAttacking => _isAttacking;
         public float DelayBetweenAttack => _delayBetweenAttack;
 
-
         private void Awake()
         {
             _startDelayBetweenAttack = _delayBetweenAttack;
@@ -28,10 +27,14 @@ namespace Enemy
 
         public void ActivateAttack()
         {
-            if (_isAttacking) return;
+            if (_isAttacking)
+                return;
 
             _isAttacking = true;
-            if (_attackCoroutine != null) StopCoroutine(_attackCoroutine);
+
+            if (_attackCoroutine != null) 
+                StopCoroutine(_attackCoroutine);
+
             _attackCoroutine = StartCoroutine(Attacking());
         }
 
@@ -58,7 +61,9 @@ namespace Enemy
                     _zombieSearchTarget.Target.TakeDamageFromEnemy(_damage, _enemy);
                 }
                 else
+                {
                     break;
+                }
 
                 yield return delay;
             }

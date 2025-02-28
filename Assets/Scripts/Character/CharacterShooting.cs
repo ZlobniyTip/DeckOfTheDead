@@ -26,9 +26,6 @@ namespace Character
         private int _time;
         private Coroutine _weaponTimerCoroutine;
 
-        private bool _isIgnored = false;
-        public bool IsIgnored => _isIgnored;
-
         public bool IsShooting { get; private set; } = false;
         public Weapon CurrentWeapon => _currentWeapon;
         public Zombie Target => _currentEnemy;
@@ -124,7 +121,7 @@ namespace Character
         {
             StopCoroutine(Shooting());
 
-            if (_currentWeapon.WeaponType == WeaponType.FlameThrower)
+            if (_currentWeapon.WeaponKind == WeaponType.FlameThrower)
             {
                 FlameThrower flame = _currentWeapon as FlameThrower;
                 flame.StopEffect();
@@ -133,20 +130,19 @@ namespace Character
 
         private IEnumerator Shooting()
         {
-            var delay = new WaitForSeconds(_currentWeapon.DelayBetweenShots);
+            var delay = new WaitForSeconds(_currentWeapon.ShotCooldown);
 
             while (_currentEnemy.IsDiying == false && _currentEnemy.IsIgnored == false)
             {
                 TurnToTarget();
                 _currentEnemy.TakeDamage(_currentWeapon.Shoot());
 
-
                 CausedDamage?.Invoke(_currentWeapon.Shoot());
 
                 yield return delay;
             }
 
-            if (_currentWeapon.WeaponType == WeaponType.FlameThrower)
+            if (_currentWeapon.WeaponKind == WeaponType.FlameThrower)
             {
                 _currentWeapon.StopShooting();
             }

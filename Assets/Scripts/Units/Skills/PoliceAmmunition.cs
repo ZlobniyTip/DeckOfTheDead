@@ -11,7 +11,7 @@ namespace Units.Skills
 
         private void Awake()
         {
-            _value = _maxValue;
+            Value = MaxValue;
         }
     }
 }

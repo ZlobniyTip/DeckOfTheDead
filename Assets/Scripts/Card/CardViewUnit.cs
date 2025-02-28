@@ -16,12 +16,12 @@ namespace Card
 
         public override void Initialize(CardData cardData)
         {
-            _cardData = cardData;
-            CardDataUnit cardDataUnit = _cardData as CardDataUnit;
+            CardData = cardData;
+            CardDataUnit cardDataUnit = CardData as CardDataUnit;
             _cardDataUnit = cardDataUnit;
 
-            _icon.sprite = cardDataUnit.Icon;
-            _name.text = LeanLocalization.GetTranslationText(cardDataUnit.Name);
+            Icon.sprite = cardDataUnit.Icon;
+            Name.text = LeanLocalization.GetTranslationText(cardDataUnit.Name);
             _energy.text = cardDataUnit.Energy.ToString();
             _level.text = cardDataUnit.Level.ToString();
             _health.text = cardDataUnit.UnitHealth.ToString();
@@ -31,7 +31,7 @@ namespace Card
 
         public void TransferData()
         {
-            _name.text = LeanLocalization.GetTranslationText(_cardDataUnit.Name);
+            Name.text = LeanLocalization.GetTranslationText(_cardDataUnit.Name);
             _ability.text = LeanLocalization.GetTranslationText(_cardDataUnit.Ability);
         }
 

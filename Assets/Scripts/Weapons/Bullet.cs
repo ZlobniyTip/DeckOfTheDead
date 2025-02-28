@@ -5,13 +5,14 @@ namespace Weapons
 {
     public class Bullet : MonoBehaviour
     {
-        private float _force = 30;
+        private readonly float Force = 30;
+
         private float _timer = 2;
 
         private void Update()
         {
             _timer -= Time.deltaTime;
-            transform.Translate(Vector3.forward * _force * Time.deltaTime);
+            transform.Translate(Vector3.forward * Force * Time.deltaTime);
 
             if (_timer <= 0)
             {

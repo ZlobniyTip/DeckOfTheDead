@@ -6,9 +6,8 @@ namespace Units.Skills
 {
     public class SkillNun : Skill
     {
-        private HashSet<Unit> _units = new HashSet<Unit>();
-
-        private float _detectionRadius = 2f;
+        private readonly HashSet<Unit> Units = new HashSet<Unit>();
+        private readonly float DetectionRadius = 2f;
 
         private void Start()
         {
@@ -24,7 +23,7 @@ namespace Units.Skills
         {
             while (true)
             {
-                Collider[] detectedColliders = Physics.OverlapSphere(transform.position, _detectionRadius);
+                Collider[] detectedColliders = Physics.OverlapSphere(transform.position, DetectionRadius);
                 HashSet<Unit> currentDetectedUnits = new HashSet<Unit>();
 
                 for (int i = 0; i < detectedColliders.Length; i++)
@@ -33,24 +32,22 @@ namespace Units.Skills
                     {
                         currentDetectedUnits.Add(unit);
 
-                        if (_units.Contains(unit))
+                        if (Units.Contains(unit))
                         {
                             unit.TakeHeal(2);
                         }
                         else
                         {
-                            //unit.RestoringHealth();
-                            _units.Add(unit);
+                            Units.Add(unit);
                         }
                     }
                 }
 
-                foreach (var unit in new List<Unit>(_units))
+                foreach (var unit in new List<Unit>(Units))
                 {
                     if (!currentDetectedUnits.Contains(unit))
                     {
-                        _units.Remove(unit);
-                        //unit.NotRestoringHealth();
+                        Units.Remove(unit);
                     }
                 }
 

@@ -11,6 +11,8 @@ namespace Enemy
     [RequireComponent(typeof(EnemyMovement))]
     public class Zombie : Health
     {
+        private readonly float DelayBetweenDeath = 2.5f;
+
         [SerializeField] private ZombieView _zombieView;
         [SerializeField] private ParticleSystem _effectCamp;
         [SerializeField] private int _rewardLeaderboardPoints;
@@ -20,10 +22,9 @@ namespace Enemy
         private ZombieStateMachine _zombieStateMachine;
         private ZombieSearchTarget _zombieSearch;
         private bool _isUnderCamp = false;
-        private float _delayBetweenDeath = 2.5f;
         private bool _isIgnored = false;
-        public bool IsIgnored => _isIgnored;
 
+        public bool IsIgnored => _isIgnored;
         public int Reward => _rewardLeaderboardPoints;
         public bool IsUnderCamp => _isUnderCamp;
         public ZombieSearchTarget ZombieSearch => _zombieSearch;
@@ -41,7 +42,7 @@ namespace Enemy
             _movement = GetComponent<EnemyMovement>();
             _zombieStateMachine = new ZombieStateMachine(this);
 
-            _value = _maxValue;
+            Value = MaxValue;
             _effectCamp.Stop();
         }
 
@@ -84,20 +85,21 @@ namespace Enemy
 
             base.TakeDamage(damage);
 
-            if (_value <= 0)
+            if (Value <= 0)
                 StartCoroutine(Die());
         }
 
         private IEnumerator Die()
         {
-            if (IsDiying) yield break;
+            if (IsDiying) 
+                yield break;
 
             DieRewarder?.Invoke(_rewardLeaderboardPoints);
             DeclareDeath();
             SetDiyingStatus(true);
             _movement.StopMovement();
 
-            var delay = new WaitForSeconds(_delayBetweenDeath);
+            var delay = new WaitForSeconds(DelayBetweenDeath);
             yield return delay;
             Destroy(gameObject);
         }

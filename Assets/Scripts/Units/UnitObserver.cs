@@ -12,8 +12,6 @@ namespace Units
         private UnitAttack _unitAttack;
         private UnitMovement _unitMovement;
         private Unit _unit;
-
-        private Coroutine _currentRoutine;
         private bool _isAttackBlocked = false;
 
         private void Awake()

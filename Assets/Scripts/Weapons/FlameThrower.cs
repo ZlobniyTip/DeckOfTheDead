@@ -4,20 +4,20 @@ namespace Weapons
     {
         public override int Shoot()
         {
-            if (_isShooting == false)
+            if (IsShooting == false)
             {
-                _audio.Play();
-                _shotEffect.Play();
-                _isShooting = true;
+                Audio.Play();
+                ShotEffect.Play();
+                IsShooting = true;
             }
 
-            return _damage;
+            return Damage;
         }
 
         public void StopEffect()
         {
-            _shotEffect.Stop();
-            _audio.Stop();
+            ShotEffect.Stop();
+            Audio.Stop();
         }
     }
 }

@@ -33,9 +33,9 @@ namespace Units
 
         public IEnumerator SearchTarget()
         {
-            if (_unit.Attack.CurrentWeapon != null && _unit.Attack.CurrentWeapon.AttackDistance > _radius)
+            if (_unit.Attack.CurrentWeapon != null && _unit.Attack.CurrentWeapon.AttackRange > _radius)
             {
-                _radius = _unitAttack.CurrentWeapon.AttackDistance;
+                _radius = _unitAttack.CurrentWeapon.AttackRange;
             }
 
             while (true)
