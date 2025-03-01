@@ -17,6 +17,7 @@ namespace Character.StateMachine.States
         }
 
         protected CharacterView CharacterView => _character.CharacterView;
+
         protected Player Character => _character;
 
         public virtual void Enter()
@@ -34,7 +35,9 @@ namespace Character.StateMachine.States
         }
 
         protected bool IsMoving() => Character.Movement.NavMeshAgent.speed == 0;
+
         protected bool IsAttacking() => Character.CharacterShooting.IsShooting;
+
         protected void IsChangedWeapon()
         {
             Exit();

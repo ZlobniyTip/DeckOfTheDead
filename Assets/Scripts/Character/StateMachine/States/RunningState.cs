@@ -4,9 +4,9 @@ namespace Character.StateMachine.States
 {
     public class RunningState : MovementState
     {
-        const string IsRunningMelle = "IsRunningMelle";
-        const string IsRunningPistol = "IsRunningPistol";
-        const string IsRunningRifle = "IsRunningRifle";
+        private const string IsRunningMelle = "IsRunningMelle";
+        private const string IsRunningPistol = "IsRunningPistol";
+        private const string IsRunningRifle = "IsRunningRifle";
 
         public RunningState(IStateSwitcher stateSwitcher, Player character) : base(stateSwitcher, character)
         {

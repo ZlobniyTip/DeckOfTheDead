@@ -14,14 +14,13 @@ namespace Deck
 
         [SerializeField] private CharacterCards _character;
         [SerializeField] private PlayerDeck _deck;
-
         [SerializeField] private GameObject _itemContainer;
         [SerializeField] private CardViewUnit _templateCardUnit;
         [SerializeField] private CardViewWeapon _templateCardWeapon;
-
         [SerializeField] private Button _selectButton;
 
         public event Action<List<CardData>> ChosenCards;
+
         public event Action SelectedCardsSave;
 
         private void OnEnable()

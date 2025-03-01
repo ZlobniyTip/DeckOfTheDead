@@ -35,18 +35,29 @@ namespace Card
         private int _bonusHealth = 0;
 
         public int PriceLevel1 => _priceLevel1;
+
         public int PriceLevel2 => _priceLevel2;
+
         public int PriceLevel3 => _priceLevel3;
 
         public Sprite Icon => _icon;
+
         public string Name => _name;
+
         public int Energy => _energy;
+
         public int BonusDamage => _bonusDamage;
+
         public int BonusHealth => _bonusHealth;
+
         public int Level => _level;
+
         public ItemType Type => _type;
+
         public int Price => _price;
+
         public int Index => _index;
+
         public ItemState State => _state ??= new ItemState(ItemStatus.NotPurchased);
 
         public void Init(ItemStatus state, int level)

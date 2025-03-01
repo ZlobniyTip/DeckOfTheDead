@@ -11,9 +11,13 @@ namespace Card
         [SerializeField] private string _ability;
 
         public Unit PrefabUnit => _prefabUnit;
+
         public int UnitHealth => _prefabUnit.UnitConfig.Health;
+
         public int Damage => _prefabUnit.UnitConfig.Weapon.DamageValue;
+
         public UnitConfig UnitConfig => _prefabUnit.UnitConfig;
+
         public string Ability => _ability;
     }
 }

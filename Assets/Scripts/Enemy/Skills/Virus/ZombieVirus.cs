@@ -17,6 +17,7 @@ namespace Enemy.Skills.Virus
         [SerializeField] private float _duration;
         [SerializeField] private float _delayBeforeDestruction;
 
+        private Collider[] _overlappedColliders = new Collider[10];
         private ParticleSystem _currentParticle;
         private float _timer = 0;
 
@@ -43,12 +44,13 @@ namespace Enemy.Skills.Virus
 
             while (_timer < _duration)
             {
-                Collider[] overlappedColliders = Physics.OverlapSphere(transform.position, _radius);
+                int count = Physics.OverlapSphereNonAlloc(transform.position, _radius, _overlappedColliders);
                 Rigidbody rigidbody;
 
-                for (int i = 0; i < overlappedColliders.Length; i++)
+                for (int i = 0; i < count; i++)
                 {
-                    rigidbody = overlappedColliders[i].attachedRigidbody;
+                    rigidbody = _overlappedColliders[i].attachedRigidbody;
+
                     if (rigidbody)
                     {
                         if (rigidbody.gameObject.TryGetComponent(out Unit enemy))

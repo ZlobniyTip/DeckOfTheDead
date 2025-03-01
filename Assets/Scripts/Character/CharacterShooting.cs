@@ -27,11 +27,15 @@ namespace Character
         private Coroutine _weaponTimerCoroutine;
 
         public bool IsShooting { get; private set; } = false;
+
         public Weapon CurrentWeapon => _currentWeapon;
+
         public Zombie Target => _currentEnemy;
 
         public event Action ChangedWeapon;
+
         public event Action KilledTarget;
+
         public event Action<int> CausedDamage;
 
         private void Awake()
@@ -136,7 +140,6 @@ namespace Character
             {
                 TurnToTarget();
                 _currentEnemy.TakeDamage(_currentWeapon.Shoot());
-
                 CausedDamage?.Invoke(_currentWeapon.Shoot());
 
                 yield return delay;

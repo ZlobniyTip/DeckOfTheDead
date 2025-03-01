@@ -4,12 +4,12 @@ namespace Character.StateMachine.States
 {
     public class AttackState : MovementState
     {
-        const string IsAttackingMelle = "IsMelleAttack";
-        const string IsShootingPistol = "IsShootingPistol";
-        const string IsShootingRifle = "IsShootingRifle";
-        const string IsShootingFlameThrower = "IsShootingFlameThrower";
-        const string IsShootinShotgun = "IsShootinShotgun";
-        const string IsShootingHunterRifle = "IsShootingHunterRifle";
+        private const string IsAttackingMelle = "IsMelleAttack";
+        private const string IsShootingPistol = "IsShootingPistol";
+        private const string IsShootingRifle = "IsShootingRifle";
+        private const string IsShootingFlameThrower = "IsShootingFlameThrower";
+        private const string IsShootinShotgun = "IsShootinShotgun";
+        private const string IsShootingHunterRifle = "IsShootingHunterRifle";
 
         public AttackState(IStateSwitcher stateSwitcher, Player character) : base(stateSwitcher, character)
         {

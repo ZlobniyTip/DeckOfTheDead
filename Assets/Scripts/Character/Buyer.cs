@@ -25,9 +25,11 @@ namespace Character
         private int _money;
 
         public event Action<int> MoneyChanged;
+
         public event Action EquipmentChanged;
 
         public int Money => _money;
+
         public Player Character => _character;
 
         private void Awake()

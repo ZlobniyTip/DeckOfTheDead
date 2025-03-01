@@ -36,7 +36,6 @@ namespace Enemy.StateMachine.State
 
             if (IsDiying())
                 StateSwitcher.SwitchState<ZombieDiyingState>();
-
         }
     }
 }

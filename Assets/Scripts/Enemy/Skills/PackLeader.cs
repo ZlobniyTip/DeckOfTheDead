@@ -6,12 +6,15 @@ namespace Enemy.Skills
 {
     public class PackLeader : MonoBehaviour
     {
+        private readonly Collider[] OverlappedColliders = new Collider[10];
         private readonly HashSet<ZombieAttack> SubscribedObjects = new HashSet<ZombieAttack>();
         private readonly int Cooldown = 1;
         private readonly int MultiplyAttackSpeed = 2;
         private readonly int MultiplyDamage = 2;
 
         [SerializeField] private float _radius;
+
+        private bool _isWorks = true;
 
         private void Start()
         {
@@ -22,25 +25,20 @@ namespace Enemy.Skills
         {
             var delay = new WaitForSeconds(Cooldown);
 
-            while (true)
+            while (_isWorks)
             {
-                Collider[] overlappedColliders = Physics.OverlapSphere(transform.position, _radius);
-                Rigidbody rigidbody;
+                int count = Physics.OverlapSphereNonAlloc(transform.position, _radius, OverlappedColliders);
 
-                for (int i = 0; i < overlappedColliders.Length; i++)
+                for (int i = 0; i < count; i++)
                 {
-                    rigidbody = overlappedColliders[i].attachedRigidbody;
-                    if (rigidbody)
-                    {
-                        if (rigidbody.gameObject.TryGetComponent(out ZombieAttack zombie))
-                        {
-                            if (!SubscribedObjects.Contains(zombie))
-                            {
-                                SubscribedObjects.Add(zombie);
-                                zombie.BuffAttack(MultiplyAttackSpeed, MultiplyDamage);
-                            }
-                        }
-                    }
+                    if (!OverlappedColliders[i].TryGetComponent(out Rigidbody rigidbody) || rigidbody == null)
+                        continue;
+
+                    if (!rigidbody.gameObject.TryGetComponent(out ZombieAttack zombie) || SubscribedObjects.Contains(zombie))
+                        continue;
+
+                    SubscribedObjects.Add(zombie);
+                    zombie.BuffAttack(MultiplyAttackSpeed, MultiplyDamage);
                 }
 
                 yield return delay;

@@ -10,8 +10,11 @@ namespace Card
         [SerializeField] private int _timeAction;
 
         public Weapon PrefabWeapon => _prefabWeapon;
+
         public float WeaponDamage => _prefabWeapon.DamageValue;
+
         public float DelayBetweenShots => _prefabWeapon.ShotCooldown;
+
         public int TimeAction => _timeAction;
     }
 }

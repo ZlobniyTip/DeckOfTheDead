@@ -16,6 +16,7 @@ namespace Enemy.StateMachine.State
         }
 
         protected ZombieView ZombieView => _enemy.ZombieView;
+
         protected Zombie Enemy => _enemy;
 
         public virtual void Enter()
@@ -31,7 +32,9 @@ namespace Enemy.StateMachine.State
         }
 
         protected bool IsMoving() => Enemy.Movement.NavMeshAgent.speed == 0;
+
         protected bool IsAttacking() => Enemy.ZombieAttack.IsAttacking;
+
         protected bool IsDiying() => Enemy.IsDiying;
     }
 }

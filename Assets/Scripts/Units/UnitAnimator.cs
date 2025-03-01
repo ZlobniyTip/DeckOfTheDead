@@ -5,19 +5,19 @@ namespace Units
 {
     public class UnitAnimator : MonoBehaviour
     {
-        const string IsAttackingMelle = "IsMelleAttack";
-        const string IsShootingPistol = "IsShootingPistol";
-        const string IsShootingRifle = "IsShootingRifle";
-        const string IsShootingShotgun = "IsShootinShotgun";
-        const string IsShootingHunterRifle = "IsShootingHunterRifle";
+        private const string IsAttackingMelle = "IsMelleAttack";
+        private const string IsShootingPistol = "IsShootingPistol";
+        private const string IsShootingRifle = "IsShootingRifle";
+        private const string IsShootingShotgun = "IsShootinShotgun";
+        private const string IsShootingHunterRifle = "IsShootingHunterRifle";
 
-        const string IsRunningMelle = "IsRunningMelle";
-        const string IsRunningPistol = "IsRunningPistol";
-        const string IsRunningRifle = "IsRunningRifle";
+        private const string IsRunningMelle = "IsRunningMelle";
+        private const string IsRunningPistol = "IsRunningPistol";
+        private const string IsRunningRifle = "IsRunningRifle";
 
-        const string IsIdlingMelle = "IsIdlingMelle";
-        const string IsIdlingPistol = "IsIdlingPistol";
-        const string IsIdlingRifle = "IsIdlingRifle";
+        private const string IsIdlingMelle = "IsIdlingMelle";
+        private const string IsIdlingPistol = "IsIdlingPistol";
+        private const string IsIdlingRifle = "IsIdlingRifle";
 
         private const string IsDiying = "IsDiying";
         private const string Throws = "Throws";

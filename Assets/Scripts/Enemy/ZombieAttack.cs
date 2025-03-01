@@ -39,6 +39,7 @@ namespace Enemy
         }
 
         public void SlowingDownAttack(float speed) => _delayBetweenAttack *= speed;
+
         public void RestoreAttackSpeed() => _delayBetweenAttack = _startDelayBetweenAttack;
 
         public void BuffAttack(int multiplyAttackSpeed, int multiplyDamage)

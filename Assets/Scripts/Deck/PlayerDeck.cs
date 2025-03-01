@@ -149,7 +149,9 @@ namespace Deck
             do
             {
                 randomCard = _selectedCards[Random.Range(0, _selectedCards.Count)];
-            } while (UsedCards.Contains(randomCard));
+            } 
+            while 
+            (UsedCards.Contains(randomCard));
 
             UsedCards.Add(randomCard);
             return randomCard;

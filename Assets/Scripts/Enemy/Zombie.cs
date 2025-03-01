@@ -25,12 +25,19 @@ namespace Enemy
         private bool _isIgnored = false;
 
         public bool IsIgnored => _isIgnored;
+
         public int Reward => _rewardLeaderboardPoints;
+
         public bool IsUnderCamp => _isUnderCamp;
+
         public ZombieSearchTarget ZombieSearch => _zombieSearch;
+
         public EnemyMovement Movement => _movement;
+
         public ZombieView ZombieView => _zombieView;
+
         public ZombieAttack ZombieAttack => _zombieAttack;
+
 
         public event Action<int> DieRewarder;
 

@@ -6,11 +6,11 @@ namespace Character
 {
     public class CharacterScaning : MonoBehaviour
     {
+        private readonly Collider[] OverlappedColliders = new Collider[10];
+
         [SerializeField] private CharacterShooting _characterShooting;
 
         private Zombie _currentEnemy;
-
-        public Zombie CurrentEnemy => _currentEnemy;
 
         private void Start()
         {
@@ -36,28 +36,22 @@ namespace Character
 
             while (_currentEnemy == null)
             {
-                Collider[] overlappedColliders = Physics.OverlapSphere(transform.position, _characterShooting.CurrentWeapon.AttackRange);
-                Rigidbody rigidbody;
+                int count = Physics.OverlapSphereNonAlloc(transform.position, _characterShooting.CurrentWeapon.AttackRange, OverlappedColliders);
 
-                for (int i = 0; i < overlappedColliders.Length; i++)
+                for (int i = 0; i < count; i++)
                 {
-                    rigidbody = overlappedColliders[i].attachedRigidbody;
+                    if (!OverlappedColliders[i].TryGetComponent(out Rigidbody rigidbody) || rigidbody == null)
+                        continue;
 
-                    if (rigidbody)
-                    {
-                        if (rigidbody.gameObject.TryGetComponent(out Zombie enemy))
-                        {
-                            if (enemy.IsDiying == false)
-                            {
-                                if (enemy.IsIgnored == true)
-                                    enemy.SetIgnoredStatus(false);
+                    if (!rigidbody.gameObject.TryGetComponent(out Zombie enemy) || enemy.IsDiying)
+                        continue;
 
-                                _currentEnemy = enemy;
-                                _characterShooting.ActivShooting(_currentEnemy);
-                                yield break;
-                            }
-                        }
-                    }
+                    if (enemy.IsIgnored)
+                        enemy.SetIgnoredStatus(false);
+
+                    _currentEnemy = enemy;
+                    _characterShooting.ActivShooting(_currentEnemy);
+                    yield break;
                 }
 
                 yield return null;

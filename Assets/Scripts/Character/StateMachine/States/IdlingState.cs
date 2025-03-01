@@ -4,9 +4,9 @@ namespace Character.StateMachine.States
 {
     public class IdlingState : MovementState
     {
-        const string IsIdlingMelle = "IsIdlingMelle";
-        const string IsIdlingPistol = "IsIdlingPistol";
-        const string IsIdlingRifle = "IsIdlingRifle";
+        private const string IsIdlingMelle = "IsIdlingMelle";
+        private const string IsIdlingPistol = "IsIdlingPistol";
+        private const string IsIdlingRifle = "IsIdlingRifle";
 
         public IdlingState(IStateSwitcher stateSwitcher, Player character) : base(stateSwitcher, character)
         {
@@ -59,7 +59,6 @@ namespace Character.StateMachine.States
                 default:
                     CharacterView.StopState(IsIdlingRifle);
                     break;
-
             }
         }
 

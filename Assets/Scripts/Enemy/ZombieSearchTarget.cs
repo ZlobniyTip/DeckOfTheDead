@@ -13,9 +13,10 @@ namespace Enemy
 
         private Health _target;
         private Health _startTarget;
+        private Collider[] _overlappedColliders = new Collider[10];
 
         public Health Target => _target;
-        public Health StartTarget => _startTarget;
+ 
         public bool SearchingTarget { get; private set; } = true;
 
         private void Start()
@@ -29,12 +30,13 @@ namespace Enemy
 
             while (SearchingTarget)
             {
-                Collider[] overlappedColliders = Physics.OverlapSphere(transform.position, _radius);
+               int count = Physics.OverlapSphereNonAlloc(transform.position, _radius, _overlappedColliders);
+
                 Rigidbody rigidbody;
                 Health unitTarget = null;
                 Health characterTarget = null;
 
-                foreach (var collider in overlappedColliders)
+                foreach (var collider in _overlappedColliders)
                 {
                     rigidbody = collider.attachedRigidbody;
 

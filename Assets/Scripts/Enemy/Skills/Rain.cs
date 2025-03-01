@@ -6,6 +6,7 @@ namespace Enemy.Skills
     public class Rain : MonoBehaviour
     {
         private readonly float LifeTime = 5;
+        private readonly Collider[] OverlappedColliders = new Collider[10];
 
         [SerializeField] private ParticleSystem _rainEffect;
         [SerializeField] private int _damage;
@@ -30,23 +31,20 @@ namespace Enemy.Skills
 
         private IEnumerator StartRain()
         {
+            var delay = new WaitForSeconds(_delayBetweenDamage);
+
             while (LifeTime > _timer)
             {
-                var delay = new WaitForSeconds(_delayBetweenDamage);
+                int count = Physics.OverlapSphereNonAlloc(transform.position, _radius, OverlappedColliders);
 
-                Collider[] overlappedColliders = Physics.OverlapSphere(transform.position, _radius);
-                Rigidbody rigidbody;
-
-                for (int i = 0; i < overlappedColliders.Length; i++)
+                for (int i = 0; i < count; i++)
                 {
-                    rigidbody = overlappedColliders[i].attachedRigidbody;
+                    if (!OverlappedColliders[i].TryGetComponent(out Rigidbody rigidbody) || rigidbody == null)
+                        continue;
 
-                    if (rigidbody)
+                    if (rigidbody.gameObject.TryGetComponent(out Zombie enemy))
                     {
-                        if (rigidbody.gameObject.TryGetComponent(out Zombie enemy))
-                        {
-                            enemy.TakeDamage(_damage);
-                        }
+                        enemy.TakeDamage(_damage);
                     }
                 }
 
