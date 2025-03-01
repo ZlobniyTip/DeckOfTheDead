@@ -1,5 +1,5 @@
-using Enemy;
 using System.Collections.Generic;
+using Enemy;
 using UnityEngine;
 
 namespace UI

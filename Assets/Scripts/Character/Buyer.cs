@@ -1,8 +1,8 @@
+using System;
+using System.Collections.Generic;
 using Card;
 using Other;
 using Save;
-using System;
-using System.Collections.Generic;
 using UnityEngine;
 using Weapons;
 
@@ -51,10 +51,10 @@ namespace Character
             MoneyChanged?.Invoke(_money);
         }
 
-        public bool TryBuy(IProduct product)
+        public void TryBuy(IProduct product)
         {
             if (_money < product.Price)
-                return false;
+                return;
 
             _money -= product.Price;
             product.State.SetStatus(ItemStatus.Purchased);
@@ -66,8 +66,6 @@ namespace Character
 
             MoneyChanged?.Invoke(_money);
             EquipmentChanged?.Invoke();
-
-            return true;
         }
 
         public bool TryLevelUpCard(int price)

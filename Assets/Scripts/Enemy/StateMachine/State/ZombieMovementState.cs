@@ -5,9 +5,9 @@ namespace Enemy.StateMachine.State
 {
     public class ZombieMovementState : IState
     {
-        protected readonly IStateSwitcher StateSwitcher;
-
         private readonly Zombie _enemy;
+
+        protected IStateSwitcher StateSwitcher { get; set; }
 
         public ZombieMovementState(IStateSwitcher stateSwitcher, Zombie enemy)
         {

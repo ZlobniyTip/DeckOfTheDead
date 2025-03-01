@@ -7,6 +7,6 @@ namespace Weapons
         Rifle,
         Shotgun,
         HunterRifle,
-        FlameThrower
+        FlameThrower,
     }
 }

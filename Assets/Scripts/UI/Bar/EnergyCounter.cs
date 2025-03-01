@@ -1,6 +1,5 @@
-using Character;
-using System;
 using System.Collections;
+using Character;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;

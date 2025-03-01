@@ -12,8 +12,11 @@ namespace UI.Reward
         [SerializeField] private ZombieSpawner _spawner;
 
         public int UnitsUsed { get; private set; }
+
         public int HeroDamage { get; private set; }
+
         public int LeaderboardScore { get; private set; }
+
         public int KilledEnemies { get; private set; }
 
         private void OnEnable()
@@ -35,8 +38,11 @@ namespace UI.Reward
         }
 
         private void AddCardUsed() => UnitsUsed++;
+
         private void AddHeroDamage(int damage) => HeroDamage += damage;
+
         private void AddLeaderboardScore(int score) => LeaderboardScore += score;
+
         private void AddKilledZombie() => KilledEnemies++;
     }
 }

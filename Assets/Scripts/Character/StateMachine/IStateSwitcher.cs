@@ -4,6 +4,7 @@ namespace Character.StateMachine
 {
     public interface IStateSwitcher
     {
-        void SwitchState<State>() where State : IState;
+        void SwitchState<TState>() 
+            where TState : IState;
     }
 }

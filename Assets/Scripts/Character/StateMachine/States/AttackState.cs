@@ -11,9 +11,8 @@ namespace Character.StateMachine.States
         private const string IsShootinShotgun = "IsShootinShotgun";
         private const string IsShootingHunterRifle = "IsShootingHunterRifle";
 
-        public AttackState(IStateSwitcher stateSwitcher, Player character) : base(stateSwitcher, character)
-        {
-        }
+        public AttackState(IStateSwitcher stateSwitcher, Player character)
+            : base(stateSwitcher, character) { }
 
         public override void Enter()
         {

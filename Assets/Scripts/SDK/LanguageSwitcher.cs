@@ -6,13 +6,13 @@ namespace SDK
 {
     public class LanguageSwitcher : MonoBehaviour
     {
-        [SerializeField] private Button _rs;
-        [SerializeField] private Button _tr;
-        [SerializeField] private Button _en;
-
         private readonly string _rus = "ru";
         private readonly string _tur = "tr";
         private readonly string _eng = "en";
+
+        [SerializeField] private Button _rs;
+        [SerializeField] private Button _tr;
+        [SerializeField] private Button _en;
 
         private void OnEnable()
         {

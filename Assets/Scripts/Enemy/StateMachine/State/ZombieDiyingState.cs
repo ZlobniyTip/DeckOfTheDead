@@ -10,9 +10,8 @@ namespace Enemy.StateMachine.State
 
         private int _randomState;
 
-        public ZombieDiyingState(IStateSwitcher stateSwitcher, Zombie enemy) : base(stateSwitcher, enemy)
-        {
-        }
+        public ZombieDiyingState(IStateSwitcher stateSwitcher, Zombie enemy) 
+            : base(stateSwitcher, enemy) { }
 
         public override void Enter()
         {

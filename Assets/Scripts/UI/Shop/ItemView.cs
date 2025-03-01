@@ -14,19 +14,25 @@ namespace UI.Shop
         [SerializeField] private Button _purchaseButton;
         [SerializeField] private GameObject _equippedLabel;
 
-        [SerializeField] protected Button EquipButton;
-
-        [SerializeField] protected TMP_Text Name;
-        [SerializeField] protected Image Icon;
+        [SerializeField] private Button _equipButton; 
+        [SerializeField] private TMP_Text _nameText;
+        [SerializeField] private Image _icon;
 
         private IProduct _product;
         private bool _isShopItem = false;
         private Store _shop;
 
-        public event UnityAction<ItemView> PurchaseButtonPressed;
-        public event UnityAction<ItemView> EquipButtonPressed;
+        protected Button EquipButton => _equipButton; 
+
+        protected TMP_Text Name => _nameText;
+
+        protected Image Icon => _icon;
 
         public IProduct Product => _product;
+
+        public event UnityAction<ItemView> PurchaseButtonPressed;
+
+        public event UnityAction<ItemView> EquipButtonPressed;
 
         private void OnDisable()
         {

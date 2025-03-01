@@ -6,11 +6,13 @@ namespace UI.Bar
 {
     public abstract class Bar : MonoBehaviour
     {
-        [SerializeField] protected Slider BarFilling;
-
-        protected float RecoveryRate = 0.2f;
+        [SerializeField] private Slider _barFilling;
 
         private Coroutine _changeValue;
+
+        public Slider BarFilling => _barFilling;
+
+        protected float RecoveryRate { get; set; } = 0.2f;
 
         public void OnValueChanged(int value, int maxValue)
         {

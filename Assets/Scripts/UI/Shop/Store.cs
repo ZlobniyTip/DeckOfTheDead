@@ -1,9 +1,9 @@
+using System;
+using System.Collections.Generic;
 using Card;
 using Character;
 using Other;
 using Save;
-using System;
-using System.Collections.Generic;
 using UnityEngine;
 using Weapons;
 
@@ -11,6 +11,8 @@ namespace UI.Shop
 {
     public class Store : MonoBehaviour
     {
+        private readonly List<ItemView> _content = new();
+
         [SerializeField] private Buyer _buyer;
 
         [SerializeField] private ItemType _type;
@@ -24,8 +26,6 @@ namespace UI.Shop
         [SerializeField] private CardView _templateCardWeapon;
         [SerializeField] private CardView _templateCardUnit;
         [SerializeField] private GameObject _itemContainer;
-
-        private readonly List<ItemView> _content = new();
 
         public event Action PlayerEquippedItem;
 

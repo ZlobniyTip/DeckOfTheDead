@@ -1,8 +1,8 @@
+using System.Collections.Generic;
+using System.Linq;
 using Character.StateMachine;
 using Character.StateMachine.States;
 using Enemy.StateMachine.State;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace Enemy.StateMachine
 {
@@ -18,16 +18,17 @@ namespace Enemy.StateMachine
         {
             new ZombieRunningState(this, enemy),
             new ZombieAttackState(this, enemy),
-            new ZombieDiyingState(this, enemy)
+            new ZombieDiyingState(this, enemy),
         };
 
             _currentState = States[0];
             _currentState.Enter();
         }
 
-        public void SwitchState<State>() where State : IState
+        public void SwitchState<TState>() 
+            where TState : IState
         {
-            IState state = States.FirstOrDefault(state => state is State);
+            IState state = States.FirstOrDefault(state => state is TState);
 
             _currentState.Exit();
             _currentState = state;

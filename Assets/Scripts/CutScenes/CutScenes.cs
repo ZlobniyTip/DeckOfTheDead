@@ -1,9 +1,9 @@
-using Cinemachine;
+using System;
 using System.Collections;
+using Cinemachine;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
-using System;
 
 namespace CutScenes
 {

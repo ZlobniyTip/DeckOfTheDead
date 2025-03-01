@@ -16,7 +16,9 @@ namespace Enemy
         private Zombie _enemy;
 
         public float AttackDistance => _attackDistance;
+
         public bool IsAttacking => _isAttacking;
+
         public float DelayBetweenAttack => _delayBetweenAttack;
 
         private void Awake()

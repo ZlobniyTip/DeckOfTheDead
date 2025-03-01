@@ -1,16 +1,18 @@
-using Card;
 using System;
+using Card;
 
 namespace Save
 {
     [Serializable]
     public class ItemState
     {
-        public event Action Changed;
+        public ItemStatus Status { get; set; }
 
-        public ItemStatus Status;
-        public CardStatus SelectedStatus;
-        public int Level;
+        public CardStatus SelectedStatus { get; set; }
+
+        public int Level { get; set; }
+
+        public event Action Changed;
 
         public void SetStatus(ItemStatus status)
         {

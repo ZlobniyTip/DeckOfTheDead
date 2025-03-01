@@ -31,7 +31,7 @@ namespace Card
             _damage.text = cardDataWeapon.WeaponDamage.ToString();
             _delayBetweenShots.text = cardDataWeapon.DelayBetweenShots.ToString();
             _timeAction.text = LeanLocalization.GetTranslationText("Time of action") +
-                $" {cardDataWeapon.TimeAction.ToString()} " + LeanLocalization.GetTranslationText("seconds");
+                $" {cardDataWeapon.TimeAction} " + LeanLocalization.GetTranslationText("seconds");
         }
 
         public void TransferData()
@@ -42,7 +42,7 @@ namespace Card
                 Name.text = _cardDataWeapon.Name;
 
             _timeAction.text = LeanLocalization.GetTranslationText("Time of action") +
-                $" {_cardDataWeapon.TimeAction.ToString()} " + LeanLocalization.GetTranslationText("seconds");
+                $" {_cardDataWeapon.TimeAction} " + LeanLocalization.GetTranslationText("seconds");
         }
 
         public void UpdateLevelText(int level)

@@ -1,5 +1,5 @@
-using Save;
 using System;
+using Save;
 using UnityEngine;
 
 namespace Other
@@ -15,10 +15,15 @@ namespace Other
         [NonSerialized] private ItemState _state = null;
 
         public ItemType Type => _type;
+
         public Sprite Icon => _icon;
+
         public string Name => _name;
+
         public int Price => _price;
+
         public int Index => _index;
+
         public ItemState State => _state ??= new ItemState(ItemStatus.NotPurchased);
 
         public void Init(ItemStatus state)

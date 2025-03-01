@@ -8,9 +8,8 @@ namespace Character.StateMachine.States
         private const string IsRunningPistol = "IsRunningPistol";
         private const string IsRunningRifle = "IsRunningRifle";
 
-        public RunningState(IStateSwitcher stateSwitcher, Player character) : base(stateSwitcher, character)
-        {
-        }
+        public RunningState(IStateSwitcher stateSwitcher, Player character) 
+            : base(stateSwitcher, character) { }
 
         public override void Enter()
         {

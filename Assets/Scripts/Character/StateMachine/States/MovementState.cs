@@ -4,30 +4,30 @@ namespace Character.StateMachine.States
 {
     public class MovementState : IState
     {
-        protected readonly IStateSwitcher StateSwitcher;
+        private readonly Player Ñharacter;
 
-        protected Weapon CurrentWeapon;
+        protected IStateSwitcher StateSwitcher { get; set; }
 
-        private readonly Player _character;
+        protected Weapon CurrentWeapon { get; set; }
 
         public MovementState(IStateSwitcher stateSwitcher, Player character)
         {
             StateSwitcher = stateSwitcher;
-            _character = character;
+            Ñharacter = character;
         }
 
-        protected CharacterView CharacterView => _character.CharacterView;
+        protected CharacterView CharacterView => Ñharacter.CharacterView;
 
-        protected Player Character => _character;
+        protected Player Character => Ñharacter;
 
         public virtual void Enter()
         {
-            _character.CharacterShooting.ChangedWeapon += IsChangedWeapon;
+            Ñharacter.CharacterShooting.ChangedWeapon += IsChangedWeapon;
         }
 
         public virtual void Exit()
         {
-            _character.CharacterShooting.ChangedWeapon -= IsChangedWeapon;
+            Ñharacter.CharacterShooting.ChangedWeapon -= IsChangedWeapon;
         }
 
         public virtual void Update()

@@ -1,11 +1,13 @@
-using Enemy;
 using System.Collections;
+using Enemy;
 using UnityEngine;
 
 namespace Weapons
 {
     public class Molotov : MonoBehaviour
     {
+        private readonly Collider[] OverlappedColliders = new Collider[10];
+
         [SerializeField] private ParticleSystem _burningEffect;
         [SerializeField] private ParticleSystem _radiusEffect;
         [SerializeField] private float _delayBetweenDamage;
@@ -43,12 +45,12 @@ namespace Weapons
             {
                 var delay = new WaitForSeconds(_delayBetweenDamage);
 
-                Collider[] overlappedColliders = Physics.OverlapSphere(transform.position, _radius);
+                int count = Physics.OverlapSphereNonAlloc(transform.position, _radius, OverlappedColliders);
                 Rigidbody rigidbody;
 
-                for (int i = 0; i < overlappedColliders.Length; i++)
+                for (int i = 0; i < count; i++)
                 {
-                    rigidbody = overlappedColliders[i].attachedRigidbody;
+                    rigidbody = OverlappedColliders[i].attachedRigidbody;
 
                     if (rigidbody)
                     {

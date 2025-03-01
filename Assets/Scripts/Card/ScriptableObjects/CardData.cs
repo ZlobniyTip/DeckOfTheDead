@@ -1,6 +1,6 @@
+using System;
 using Other;
 using Save;
-using System;
 using UnityEngine;
 
 namespace Card

@@ -1,6 +1,6 @@
+using System.Collections;
 using Character;
 using Enemy;
-using System.Collections;
 using TMPro;
 using UnityEngine;
 

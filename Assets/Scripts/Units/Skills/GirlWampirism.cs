@@ -1,5 +1,5 @@
-using Enemy;
 using System.Collections;
+using Enemy;
 using UnityEngine;
 
 namespace Units.Skills
@@ -13,6 +13,7 @@ namespace Units.Skills
         [SerializeField] private float _radius;
 
         private Unit _unit;
+        private Collider[] _overlappedColliders = new Collider[10];
 
         private void Awake()
         {
@@ -31,12 +32,12 @@ namespace Units.Skills
             {
                 var delay = new WaitForSeconds(_cooldown);
 
-                Collider[] overlappedColliders = Physics.OverlapSphere(transform.position, _radius);
+                int count = Physics.OverlapSphereNonAlloc(transform.position, _radius, _overlappedColliders);
                 Rigidbody rigidbody;
 
-                for (int i = 0; i < overlappedColliders.Length; i++)
+                for (int i = 0; i < count; i++)
                 {
-                    rigidbody = overlappedColliders[i].attachedRigidbody;
+                    rigidbody = _overlappedColliders[i].attachedRigidbody;
 
                     if (rigidbody)
                     {

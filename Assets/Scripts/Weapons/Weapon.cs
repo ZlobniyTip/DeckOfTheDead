@@ -1,7 +1,7 @@
+using System;
 using Card;
 using Other;
 using Save;
-using System;
 using UnityEngine;
 
 namespace Weapons
@@ -15,32 +15,47 @@ namespace Weapons
         [SerializeField] private string _name;
         [SerializeField] private int _price;
         [SerializeField] private int _index;
-
-        [SerializeField] protected float AttackDistance;
-        [SerializeField] protected int Damage;
-        [SerializeField] protected float DelayBetweenShots;
+        [SerializeField] private float _attackDistance;
+        [SerializeField] private int _damage;
+        [SerializeField] private float _delayBetweenShots;
 
         [NonSerialized] private ItemState _state = null;
 
-        protected AudioSource Audio;
-        protected bool IsShooting = false;
-        protected bool IsCritical = false;
-        protected int MultiplyDamage = 3;
+        protected AudioSource Audio { get; set; }
 
-        public event Action Shooting;
+        protected bool IsShooting { get; set; } = false;
+
+        protected bool IsCritical { get; set; } = false;
+
+        protected int MultiplyDamage { get; set; } = 3;
+
+        protected float AttackDistance => _attackDistance;
+
+        protected int Damage => _damage;
+
+        protected float DelayBetweenShots=> _delayBetweenShots;
 
         public WeaponType WeaponKind => _weaponType;
+
         public float ShotCooldown => DelayBetweenShots;
+
         public float AttackRange => AttackDistance;
 
         public ItemType Type => _type;
+
         public Sprite Icon => _icon;
+
         public string Name => _name;
+
         public int Price => _price;
+
         public int Index => _index;
+
         public int DamageValue => Damage;
 
         public ItemState State => _state ??= new ItemState(ItemStatus.NotPurchased);
+
+        public event Action Shooting;
 
         private void Start()
         {
@@ -73,7 +88,7 @@ namespace Weapons
 
         public void ApplyGain(CardView view)
         {
-            Damage += view.Card.BonusDamage;
+            _damage += view.Card.BonusDamage;
         }
     }
 }

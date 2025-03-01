@@ -13,10 +13,10 @@ namespace Units
         private UnitAnimator _unitAnimator;
         private Coroutine _coroutine;
         private int _damage = 0;
-
         private float _distance;
 
         public bool IsAttacking { get; private set; } = false;
+
         public Weapon CurrentWeapon => _currentWeapon;
 
         private void Awake()

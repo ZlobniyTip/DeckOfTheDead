@@ -1,7 +1,7 @@
+using System.Collections;
 using Character;
 using Enemy;
 using Other;
-using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -13,15 +13,17 @@ namespace Spawner
         [SerializeField] private Player _character;
         [SerializeField] private PlayerMovePoint[] _playerMovePoints;
         [SerializeField] private Zombie[] _prefabEnemies;
-
         [SerializeField] private int _delaySpawn = 2;
 
         private int _currentPoint = 0;
         private int _activeEnemies = 0;
 
         public event UnityAction<int, int> ReachedPoint;
+
         public event UnityAction WaveCleared;
+
         public event UnityAction ZombieDie;
+
         public event UnityAction<int> ZombieDieRewardLbScore;
 
         private void OnEnable()
@@ -54,7 +56,8 @@ namespace Spawner
 
             while (numberEnemiesInWave > 0)
             {
-                Zombie enemy = Instantiate(_prefabEnemies[Random.Range(0, _prefabEnemies.Length)],
+                Zombie enemy = Instantiate(
+                    _prefabEnemies[Random.Range(0, _prefabEnemies.Length)],
                     spawnPoints[Random.Range(0, spawnPoints.Length)].transform.position,
                     Quaternion.identity);
 

@@ -1,7 +1,7 @@
-using Card;
-using Save;
 using System.Collections;
 using System.Collections.Generic;
+using Card;
+using Save;
 using UnityEngine;
 using Weapons;
 
@@ -19,6 +19,7 @@ namespace UI.Shop
         [SerializeField] private List<CardData> _cards;
 
         public List<Weapon> Weapons => ChoosedWeapons;
+
         public List<CardData> Cards => ChoosedCards;
 
         public void OpenLootBox()

@@ -12,7 +12,7 @@ namespace Weapons
         private void Update()
         {
             _timer -= Time.deltaTime;
-            transform.Translate(Vector3.forward * Force * Time.deltaTime);
+            transform.Translate(Force * Time.deltaTime * Vector3.forward);
 
             if (_timer <= 0)
             {

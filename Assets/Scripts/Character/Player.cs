@@ -1,6 +1,6 @@
+using System;
 using Character.StateMachine;
 using Other;
-using System;
 using UnityEngine;
 
 namespace Character

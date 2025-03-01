@@ -1,6 +1,6 @@
-using Character.StateMachine.States;
 using System.Collections.Generic;
 using System.Linq;
+using Character.StateMachine.States;
 
 namespace Character.StateMachine
 {
@@ -16,16 +16,17 @@ namespace Character.StateMachine
         {
             new IdlingState(this, character),
             new RunningState(this, character),
-            new AttackState(this, character)
+            new AttackState(this, character),
         };
 
             _currentState = States[0];
             _currentState.Enter();
         }
 
-        public void SwitchState<State>() where State : IState
+        public void SwitchState<TState>() 
+            where TState : IState
         {
-            IState state = States.FirstOrDefault(state => state is State);
+            IState state = States.FirstOrDefault(state => state is TState);
 
             _currentState.Exit();
             _currentState = state;

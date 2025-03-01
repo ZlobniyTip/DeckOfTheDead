@@ -1,11 +1,13 @@
-using Enemy;
 using System.Collections;
+using Enemy;
 using UnityEngine;
 
 namespace Units
 {
     public class UnitSearchTarget : MonoBehaviour
     {
+        private readonly Collider[] OverlappedColliders = new Collider[10];
+
         private float _radius = 4;
         private UnitAttack _unitAttack;
         private Unit _unit;
@@ -40,12 +42,12 @@ namespace Units
 
             while (true)
             {
-                Collider[] overlappedColliders = Physics.OverlapSphere(transform.position, _radius);
+                int count = Physics.OverlapSphereNonAlloc(transform.position, _radius, OverlappedColliders);
                 Rigidbody rigidbody;
 
-                for (int i = 0; i < overlappedColliders.Length; i++)
+                for (int i = 0; i < count; i++)
                 {
-                    rigidbody = overlappedColliders[i].attachedRigidbody;
+                    rigidbody = OverlappedColliders[i].attachedRigidbody;
 
                     if (rigidbody)
                     {

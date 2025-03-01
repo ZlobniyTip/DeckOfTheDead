@@ -1,7 +1,7 @@
-using Card;
-using Character;
 using System;
 using System.Collections.Generic;
+using Card;
+using Character;
 using UnityEngine;
 using UnityEngine.UI;
 

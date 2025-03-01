@@ -5,10 +5,12 @@ namespace Weapons
 {
     public class RangeWeapon : Weapon
     {
-        [SerializeField] protected ParticleSystem ShotEffect;
+        [SerializeField] private ParticleSystem _shotEffect;
         [SerializeField] private ParticleSystem _shotEffect2;
         [SerializeField] private Bullet _bullet;
         [SerializeField] private List<Transform> _bulletPoints;
+
+        protected ParticleSystem ShotEffect => _shotEffect;
 
         public override int Shoot()
         {

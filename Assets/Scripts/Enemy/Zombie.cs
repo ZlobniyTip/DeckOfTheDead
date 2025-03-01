@@ -1,8 +1,8 @@
+using System;
+using System.Collections;
 using Enemy.StateMachine;
 using Enemy.StateMachine.State;
 using Other;
-using System;
-using System.Collections;
 using UnityEngine;
 
 namespace Enemy

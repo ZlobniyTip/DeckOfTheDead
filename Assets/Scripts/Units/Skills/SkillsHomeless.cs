@@ -1,6 +1,6 @@
-using Enemy;
 using System.Collections;
 using System.Collections.Generic;
+using Enemy;
 using UnityEngine;
 
 namespace Units.Skills
@@ -10,6 +10,7 @@ namespace Units.Skills
         private readonly HashSet<Zombie> SlowedZombies = new HashSet<Zombie>();
         private readonly float DetectionRadius = 2f;
         private readonly float DecelerationFactor = 2f;
+        private readonly Collider[] OverlappedColliders = new Collider[10];
 
         private void Start()
         {
@@ -28,12 +29,12 @@ namespace Units.Skills
         {
             while (true)
             {
-                Collider[] enemyes = Physics.OverlapSphere(transform.position, DetectionRadius);
+                int count = Physics.OverlapSphereNonAlloc(transform.position, DetectionRadius, OverlappedColliders);
                 HashSet<Zombie> currentDetectedEnemies = new HashSet<Zombie>();
 
-                for (int i = 0; i < enemyes.Length; i++)
+                for (int i = 0; i < count; i++)
                 {
-                    if (enemyes[i].TryGetComponent(out Zombie enemy))
+                    if (OverlappedColliders[i].TryGetComponent(out Zombie enemy))
                     {
                         currentDetectedEnemies.Add(enemy);
 

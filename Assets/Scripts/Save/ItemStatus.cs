@@ -4,6 +4,6 @@ namespace Save
     {
         NotPurchased,
         Purchased,
-        Equipped
+        Equipped,
     }
 }

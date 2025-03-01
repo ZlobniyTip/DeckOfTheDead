@@ -1,22 +1,32 @@
-using Enemy;
 using System;
+using Enemy;
 using UnityEngine;
 
 namespace Other
 {
     public abstract class Health : MonoBehaviour
     {
-        [SerializeField] protected int MaxValue;
+        [SerializeField] private int _maxValue;
 
-        protected int Value;
-        protected Zombie LastAttacker;
+        protected int MaxValue
+        {
+            get => _maxValue;
+            set => _maxValue = value;
+        }
 
-        public event Action<int, int> Changed;
-        public event Action Died;
+        protected int Value { get; set; }
+
+        protected Zombie LastAttacker { get; set; }
 
         public bool IsDiying { get; private set; } = false;
+
         public int MaxValueHealth => MaxValue;
+
         public int ValueHealth => Value;
+
+        public event Action<int, int> Changed;
+
+        public event Action Died;
 
         public virtual void TakeDamage(int damage)
         {

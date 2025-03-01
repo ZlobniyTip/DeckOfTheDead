@@ -6,9 +6,8 @@ namespace Enemy.StateMachine.State
     {
         private const string IsAttackingZombie = "IsAttacking";
 
-        public ZombieAttackState(IStateSwitcher stateSwitcher, Zombie enemy) : base(stateSwitcher, enemy)
-        {
-        }
+        public ZombieAttackState(IStateSwitcher stateSwitcher, Zombie enemy) 
+            : base(stateSwitcher, enemy) { }
 
         public override void Enter()
         {

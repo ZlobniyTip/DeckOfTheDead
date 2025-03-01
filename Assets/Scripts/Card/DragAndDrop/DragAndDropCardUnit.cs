@@ -1,7 +1,7 @@
+using System.Collections.Generic;
 using Card;
 using Deck;
 using Other;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -9,10 +9,11 @@ namespace DragAndDrop
 {
     public class DragAndDropCardUnit : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler
     {
+        private readonly RaycastHit[] Hits = new RaycastHit[10];
+
         [SerializeField] private GameObject _cardObject;
         [SerializeField] private ParticleSystem _prefabSpawnPlaceEffect;
         [SerializeField] private GameObject attackRadiusVisual;
-
         [SerializeField] private AudioSource _soundCard;
 
         private GameObject _currentAttackRadiusVisual;
@@ -144,23 +145,23 @@ namespace DragAndDrop
                 return false;
             }
 
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit[] hits = Physics.RaycastAll(ray);
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);  
+            int hitCount = Physics.RaycastNonAlloc(ray, Hits);
 
-            foreach (var hit in hits)
+            for (int i = 0; i < hitCount; i++)
             {
-                if (hit.collider.GetComponent<Arm>() != null)
+                if (Hits[i].collider.GetComponent<Arm>() != null)
                 {
                     spawnPosition = _originalPosition;
                     return false;
                 }
             }
 
-            foreach (var hit in hits)
+            for (int i = 0; i < hitCount; i++)
             {
-                if (hit.collider.GetComponent<Road>() != null)
+                if (Hits[i].collider.GetComponent<Road>() != null)
                 {
-                    spawnPosition = hit.point;
+                    spawnPosition = Hits[i].point;
                     return true;
                 }
             }
@@ -173,7 +174,7 @@ namespace DragAndDrop
         {
             PointerEventData eventData = new PointerEventData(EventSystem.current)
             {
-                position = Input.mousePosition
+                position = Input.mousePosition,
             };
 
             List<RaycastResult> results = new List<RaycastResult>();

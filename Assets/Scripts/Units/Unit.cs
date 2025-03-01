@@ -1,9 +1,9 @@
+using System;
+using System.Collections;
 using Card;
 using Character;
 using Enemy;
 using Other;
-using System;
-using System.Collections;
 using Units.Skills;
 using Units.UnitConfi;
 using UnityEngine;
@@ -28,11 +28,17 @@ namespace Units
         private CardView _cardView;
 
         public UnitAttack Attack => _attack;
+
         public UnitConfig UnitConfig => _config;
+
         public Zombie Target => _target;
+
         public Player Character => _character;
+
         public FXUnit FXUnit => _fxUnit;
+
         public bool IsZombie { get; set; } = false;
+
 
         public event Action<Unit> TurnIntoZombie;
 

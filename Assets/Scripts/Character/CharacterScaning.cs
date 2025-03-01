@@ -1,5 +1,5 @@
-using Enemy;
 using System.Collections;
+using Enemy;
 using UnityEngine;
 
 namespace Character

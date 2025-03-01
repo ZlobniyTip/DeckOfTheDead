@@ -8,6 +8,7 @@ namespace Units.Skills
     {
         private readonly HashSet<Unit> Units = new HashSet<Unit>();
         private readonly float DetectionRadius = 2f;
+        private readonly Collider[] OverlappedColliders = new Collider[10];
 
         private void Start()
         {
@@ -23,12 +24,12 @@ namespace Units.Skills
         {
             while (true)
             {
-                Collider[] detectedColliders = Physics.OverlapSphere(transform.position, DetectionRadius);
+                int count = Physics.OverlapSphereNonAlloc(transform.position, DetectionRadius, OverlappedColliders);
                 HashSet<Unit> currentDetectedUnits = new HashSet<Unit>();
 
-                for (int i = 0; i < detectedColliders.Length; i++)
+                for (int i = 0; i < count; i++)
                 {
-                    if (detectedColliders[i].TryGetComponent(out Unit unit))
+                    if (OverlappedColliders[i].TryGetComponent(out Unit unit))
                     {
                         currentDetectedUnits.Add(unit);
 

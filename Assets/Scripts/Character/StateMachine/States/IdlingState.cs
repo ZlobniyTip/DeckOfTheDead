@@ -8,9 +8,8 @@ namespace Character.StateMachine.States
         private const string IsIdlingPistol = "IsIdlingPistol";
         private const string IsIdlingRifle = "IsIdlingRifle";
 
-        public IdlingState(IStateSwitcher stateSwitcher, Player character) : base(stateSwitcher, character)
-        {
-        }
+        public IdlingState(IStateSwitcher stateSwitcher, Player character) 
+            : base(stateSwitcher, character) { }
 
         public override void Enter()
         {

@@ -1,7 +1,7 @@
+using System.Collections.Generic;
 using Card;
 using Deck;
 using Other;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -10,6 +10,8 @@ namespace DragAndDrop
 {
     public class DragAndDropCardWeapon : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler
     {
+        private readonly RaycastHit[] Hits = new RaycastHit[10];
+
         [SerializeField] private GameObject _cardObject;
         [SerializeField] private AudioSource _soundCard;
         [SerializeField] private Image _indikator;
@@ -98,22 +100,22 @@ namespace DragAndDrop
             }
 
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit[] hits = Physics.RaycastAll(ray);
+            int hitCount = Physics.RaycastNonAlloc(ray, Hits);
 
-            foreach (var hit in hits)
+            for (int i = 0; i < hitCount; i++)
             {
-                if (hit.collider.GetComponent<Arm>() != null)
+                if (Hits[i].collider.GetComponent<Arm>() != null)
                 {
                     spawnPosition = _originalPosition;
                     return false;
                 }
             }
 
-            foreach (var hit in hits)
+            for (int i = 0; i < hitCount; i++)
             {
-                if (hit.collider.GetComponent<Road>() != null)
+                if (Hits[i].collider.GetComponent<Road>() != null)
                 {
-                    spawnPosition = hit.point;
+                    spawnPosition = Hits[i].point;
                     return true;
                 }
             }
@@ -126,7 +128,7 @@ namespace DragAndDrop
         {
             PointerEventData eventData = new PointerEventData(EventSystem.current)
             {
-                position = Input.mousePosition
+                position = Input.mousePosition,
             };
 
             List<RaycastResult> results = new List<RaycastResult>();

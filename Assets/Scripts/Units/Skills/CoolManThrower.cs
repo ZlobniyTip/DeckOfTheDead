@@ -26,6 +26,7 @@ namespace Units.Skills
         }
 
         private void OnEnable() => StartCoroutine(ThrowRoutine());
+
         private void OnDisable() => StopCoroutine(ThrowRoutine());
 
         private IEnumerator ThrowRoutine()
@@ -43,7 +44,7 @@ namespace Units.Skills
 
         private IEnumerator PerformThrow(Transform target)
         {
-            _unitObserver?.BlockAttack(true);
+            _unitObserver.BlockAttack(true);
             _animator.PlayThrows();
 
             yield return new WaitForSeconds(0.5f);
@@ -51,7 +52,7 @@ namespace Units.Skills
             var molotovInstance = Instantiate(_molotov, _startingPoint.position, Quaternion.identity);
 
             yield return StartCoroutine(PerformArchedFlight(molotovInstance, target.position));
-            _unitObserver?.BlockAttack(false);
+            _unitObserver.BlockAttack(false);
         }
 
         private IEnumerator PerformArchedFlight(Molotov molotovInstance, Vector3 targetPosition)

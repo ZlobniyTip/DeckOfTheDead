@@ -13,6 +13,7 @@ namespace Units
         private bool _cameUp;
 
         public NavMeshAgent NavMeshAgent => _navMesh;
+
         public bool CameUp => _cameUp;
 
         private void Awake()
@@ -43,7 +44,9 @@ namespace Units
                     StopMovement();
 
                     if (_unitAttack.IsAttacking == false)
+                    {
                         _unitAnimator.PlauIdlingAnimation(_unitAttack.CurrentWeapon.WeaponKind);
+                    }
                 }
             }
             else

@@ -11,7 +11,9 @@ namespace Units.UnitConfi
         [SerializeField] private float _speed;
 
         public int Health => _health;
+
         public Weapon Weapon => _weapon;
+
         public float Speed => _speed;
     }
 }
