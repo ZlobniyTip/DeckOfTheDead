@@ -966,7 +966,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _cardObject: {fileID: 3428677139722256099}
   _prefabSpawnPlaceEffect: {fileID: 5003715098164324716, guid: 02e32cab0ae4bc4428a3844d35c90c4d, type: 3}
-  attackRadiusVisual: {fileID: 4669786038433809806, guid: ad24ac0e5d1a63a498972578a78ba9f0, type: 3}
+  _attackRadiusVisual: {fileID: 4669786038433809806, guid: ad24ac0e5d1a63a498972578a78ba9f0, type: 3}
   _soundCard: {fileID: -5502527369774416988}
 --- !u!82 &-5502527369774416988
 AudioSource:
@@ -1080,7 +1080,7 @@ MonoBehaviour:
   _purchaseButton: {fileID: 3878098190908314816}
   _equippedLabel: {fileID: 5770114541918438059}
   _equipButton: {fileID: 6294409039225468056}
-  _name: {fileID: 8320021411205515304}
+  _nameText: {fileID: 8320021411205515304}
   _icon: {fileID: 4490216494014467748}
   _activity: {fileID: 7934541689023240800}
   _levelPrice: {fileID: 5381065038796398989}
