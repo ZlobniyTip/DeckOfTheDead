@@ -24,8 +24,6 @@ namespace Spawner
 
         public event UnityAction ZombieDie;
 
-        public event UnityAction<int> ZombieDieRewardLbScore;
-
         private void OnEnable()
         {
             foreach (var playerMovePoint in _playerMovePoints)

@@ -1,7 +1,6 @@
 using Character;
 using UI.Reward;
 using UnityEngine;
-using UnityEngine.Events;
 using YG;
 using YG.Example;
 
@@ -15,13 +14,10 @@ namespace Advertisement
         [SerializeField] private RewardView _rewardView;
         [SerializeField] private SaverTest _saverTest;
 
-        public event UnityAction RewardedCallback;
-
         private void OnEnable()
         {
             YandexGame.OpenVideoEvent += OnOpenCallback;
             YandexGame.CloseVideoEvent += OnCloseCallback;
-            YandexGame.RewardVideoEvent += OnRewardCallback;
             YandexGame.RewardVideoEvent += Rewarded;
         }
 
@@ -29,7 +25,6 @@ namespace Advertisement
         {
             YandexGame.OpenVideoEvent -= OnOpenCallback;
             YandexGame.CloseVideoEvent -= OnCloseCallback;
-            YandexGame.RewardVideoEvent -= OnRewardCallback;
             YandexGame.RewardVideoEvent -= Rewarded;
         }
 
@@ -68,11 +63,6 @@ namespace Advertisement
         {
             Time.timeScale = 0;
             AudioListener.volume = 1f;
-        }
-
-        private void OnRewardCallback(int _)
-        {
-            RewardedCallback?.Invoke();
         }
     }
 }

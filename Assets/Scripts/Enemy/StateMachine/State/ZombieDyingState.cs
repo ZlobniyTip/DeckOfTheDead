@@ -42,10 +42,5 @@ namespace Enemy.StateMachine.State
                 ZombieView.StopState(DiyingVar2);
             }
         }
-
-        public override void Update()
-        {
-            base.Update();
-        }
     }
 }

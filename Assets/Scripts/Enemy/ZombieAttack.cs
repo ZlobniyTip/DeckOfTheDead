@@ -19,8 +19,6 @@ namespace Enemy
 
         public bool IsAttacking => _isAttacking;
 
-        public float DelayBetweenAttack => _delayBetweenAttack;
-
         private void Awake()
         {
             _startDelayBetweenAttack = _delayBetweenAttack;

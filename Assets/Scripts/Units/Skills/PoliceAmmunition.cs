@@ -7,8 +7,6 @@ namespace Units.Skills
     {
         [SerializeField] private string _name;
 
-        public string Name => _name;
-
         private void Awake()
         {
             Value = MaxValue;

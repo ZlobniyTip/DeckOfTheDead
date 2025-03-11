@@ -11,7 +11,6 @@ namespace Character
     [RequireComponent(typeof(CharacterShooting))]
     [RequireComponent(typeof(CharacterCards))]
     [RequireComponent(typeof(Player))]
-
     public class Buyer : MonoBehaviour
     {
         [SerializeField] private List<RangeWeapon> _rangeWeapons;
@@ -25,11 +24,9 @@ namespace Character
         private int _money;
 
         public event Action<int> MoneyChanged;
-
         public event Action EquipmentChanged;
 
         public int Money => _money;
-
         public Player Character => _character;
 
         private void Awake()
@@ -53,30 +50,30 @@ namespace Character
 
         public void TryBuy(IProduct product)
         {
-            if (_money < product.Price)
-                return;
-
-            _money -= product.Price;
-            product.State.SetStatus(ItemStatus.Purchased);
-
-            if (product.Type == ItemType.Card)
+            if (SpendMoney(product.Price))
             {
-                EquipItem(product);
-            }
+                product.State.SetStatus(ItemStatus.Purchased);
 
-            MoneyChanged?.Invoke(_money);
-            EquipmentChanged?.Invoke();
+                if (product.Type == ItemType.Card)
+                    EquipItem(product);
+
+                EquipmentChanged?.Invoke();
+            }
         }
 
         public bool TryLevelUpCard(int price)
         {
-            if (_money < price)
+            return SpendMoney(price);
+        }
+
+        private bool SpendMoney(int amount)
+        {
+            if (_money < amount)
                 return false;
 
-            _money -= price;
+            _money -= amount;
             MoneyChanged?.Invoke(_money);
             EquipmentChanged?.Invoke();
-
             return true;
         }
 
