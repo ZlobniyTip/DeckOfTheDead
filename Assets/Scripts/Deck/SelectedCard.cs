@@ -11,6 +11,8 @@ namespace Deck
     {
         private readonly List<CardView> Content = new();
         private readonly List<CardData> SelectedCards = new();
+        private readonly float NormalizationDisplay = 1.3f;
+        private readonly int NumberCardsDeck = 10;
 
         [SerializeField] private CharacterCards _character;
         [SerializeField] private PlayerDeck _deck;
@@ -60,7 +62,7 @@ namespace Deck
 
                 void Init(CardView view)
                 {
-                    view.gameObject.transform.localScale = new Vector3(1.3f, 1.3f, 1.3f);
+                    view.gameObject.transform.localScale = new Vector3(NormalizationDisplay, NormalizationDisplay, NormalizationDisplay);
                     view.Initialize(card);
                     view.SwitchDragAndDrop(false);
                     view.ActivateSelectedButton();
@@ -94,7 +96,7 @@ namespace Deck
                 SelectedCards.Remove(card.Card);
             }
 
-            if (SelectedCards.Count >= 10)
+            if (SelectedCards.Count >= NumberCardsDeck)
             {
                 foreach (var button in Content)
                 {

@@ -4,9 +4,9 @@ namespace Character.StateMachine.States
 {
     public class RunningState : MovementState
     {
-        private const string IsRunningMelle = "IsRunningMelle";
-        private const string IsRunningPistol = "IsRunningPistol";
-        private const string IsRunningRifle = "IsRunningRifle";
+        private const string RunningMelle = "IsRunningMelle";
+        private const string RunningPistol = "IsRunningPistol";
+        private const string RunningRifle = "IsRunningRifle";
 
         public RunningState(IStateSwitcher stateSwitcher, Player character) 
             : base(stateSwitcher, character) { }
@@ -18,19 +18,19 @@ namespace Character.StateMachine.States
             switch (Character.CharacterShooting.CurrentWeapon.WeaponKind)
             {
                 case WeaponType.Melle:
-                    CharacterView.StartState(IsRunningMelle);
+                    CharacterView.StartState(RunningMelle);
                     break;
 
                 case WeaponType.Pistol:
-                    CharacterView.StartState(IsRunningPistol);
+                    CharacterView.StartState(RunningPistol);
                     break;
 
                 case WeaponType.Rifle:
-                    CharacterView.StartState(IsRunningRifle);
+                    CharacterView.StartState(RunningRifle);
                     break;
 
                 default:
-                    CharacterView.StartState(IsRunningRifle);
+                    CharacterView.StartState(RunningRifle);
                     break;
             }
 
@@ -44,19 +44,19 @@ namespace Character.StateMachine.States
             switch (CurrentWeapon.WeaponKind)
             {
                 case WeaponType.Melle:
-                    CharacterView.StopState(IsRunningMelle);
+                    CharacterView.StopState(RunningMelle);
                     break;
 
                 case WeaponType.Pistol:
-                    CharacterView.StopState(IsRunningPistol);
+                    CharacterView.StopState(RunningPistol);
                     break;
 
                 case WeaponType.Rifle:
-                    CharacterView.StopState(IsRunningRifle);
+                    CharacterView.StopState(RunningRifle);
                     break;
 
                 default:
-                    CharacterView.StopState(IsRunningRifle);
+                    CharacterView.StopState(RunningRifle);
                     break;
             }
         }

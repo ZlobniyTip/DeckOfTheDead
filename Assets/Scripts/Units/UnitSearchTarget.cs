@@ -35,12 +35,15 @@ namespace Units
 
         public IEnumerator SearchTarget()
         {
+            float amountDelay = 0.1f;
+            var delay = new WaitForSeconds(amountDelay);
+
             if (_unit.Attack.CurrentWeapon != null && _unit.Attack.CurrentWeapon.AttackRange > _radius)
             {
                 _radius = _unitAttack.CurrentWeapon.AttackRange;
             }
 
-            while (true)
+            while (enabled)
             {
                 int count = Physics.OverlapSphereNonAlloc(transform.position, _radius, OverlappedColliders);
                 Rigidbody rigidbody;
@@ -58,7 +61,7 @@ namespace Units
                     }
                 }
 
-                yield return 0.1f;
+                yield return delay;
             }
         }
     }

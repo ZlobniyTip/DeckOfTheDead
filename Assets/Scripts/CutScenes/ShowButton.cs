@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -6,6 +7,8 @@ namespace CutScenes
 {
     public class ShowButton : MonoBehaviour
     {
+        private readonly int GameStartScene = 2;
+
         [SerializeField] private CutScenes _cutScenes;
         [SerializeField] private Button _buttonNextLevel;
 
@@ -28,7 +31,7 @@ namespace CutScenes
 
         private void StartFirstLevel()
         {
-            SceneManager.LoadScene(2);
+            SceneManager.LoadScene(GameStartScene);
         }
     }
 }

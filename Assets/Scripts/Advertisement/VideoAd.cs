@@ -9,6 +9,8 @@ namespace Advertisement
 {
     public class VideoAd : MonoBehaviour
     {
+        private readonly int AmountReward = 5000;
+
         [SerializeField] private Buyer _buyer;
         [SerializeField] private RewardView _rewardView;
         [SerializeField] private SaverTest _saverTest;
@@ -49,7 +51,7 @@ namespace Advertisement
             }
             else if (id == 1)
             {
-                _buyer.GetMoney(5000);
+                _buyer.GetMoney(AmountReward);
             }
 
             YandexGame.ConsumePurchases();

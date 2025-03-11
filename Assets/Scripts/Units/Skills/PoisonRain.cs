@@ -26,7 +26,7 @@ namespace Units.Skills
         {
             var delay = new WaitForSeconds(_cooldown);
 
-            while (true)
+            while (enabled)
             {
                 UseSkill();
 

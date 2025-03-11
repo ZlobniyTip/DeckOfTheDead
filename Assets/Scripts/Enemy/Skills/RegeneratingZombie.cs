@@ -24,7 +24,7 @@ namespace Enemy.Skills
         {
             var delay = new WaitForSeconds(_cooldown);
 
-            while (true)
+            while (enabled)
             {
                 _zombie.TakeHeal(_healValue);
 

@@ -5,21 +5,21 @@ namespace Units
 {
     public class UnitAnimator : MonoBehaviour
     {
-        private const string IsAttackingMelle = "IsMelleAttack";
-        private const string IsShootingPistol = "IsShootingPistol";
-        private const string IsShootingRifle = "IsShootingRifle";
-        private const string IsShootingShotgun = "IsShootinShotgun";
-        private const string IsShootingHunterRifle = "IsShootingHunterRifle";
+        private const string AttackingMelle = "IsMelleAttack";
+        private const string ShootingPistol = "IsShootingPistol";
+        private const string ShootingRifle = "IsShootingRifle";
+        private const string ShootingShotgun = "IsShootinShotgun";
+        private const string ShootingHunterRifle = "IsShootingHunterRifle";
 
-        private const string IsRunningMelle = "IsRunningMelle";
-        private const string IsRunningPistol = "IsRunningPistol";
-        private const string IsRunningRifle = "IsRunningRifle";
+        private const string RunningMelle = "IsRunningMelle";
+        private const string RunningPistol = "IsRunningPistol";
+        private const string RunningRifle = "IsRunningRifle";
 
-        private const string IsIdlingMelle = "IsIdlingMelle";
-        private const string IsIdlingPistol = "IsIdlingPistol";
-        private const string IsIdlingRifle = "IsIdlingRifle";
+        private const string IdlingMelle = "IsIdlingMelle";
+        private const string IdlingPistol = "IsIdlingPistol";
+        private const string IdlingRifle = "IsIdlingRifle";
 
-        private const string IsDiying = "IsDiying";
+        private const string Diying = "IsDiying";
         private const string Throws = "Throws";
 
         private string _currentAnimationKey = string.Empty;
@@ -31,27 +31,27 @@ namespace Units
             switch (weaponType)
             {
                 case WeaponType.Melle:
-                    SetAnimation(IsAttackingMelle);
+                    SetAnimation(AttackingMelle);
                     break;
 
                 case WeaponType.Pistol:
-                    SetAnimation(IsShootingPistol);
+                    SetAnimation(ShootingPistol);
                     break;
 
                 case WeaponType.Rifle:
-                    SetAnimation(IsShootingRifle);
+                    SetAnimation(ShootingRifle);
                     break;
 
                 case WeaponType.Shotgun:
-                    SetAnimation(IsShootingShotgun);
+                    SetAnimation(ShootingShotgun);
                     break;
 
                 case WeaponType.HunterRifle:
-                    SetAnimation(IsShootingHunterRifle);
+                    SetAnimation(ShootingHunterRifle);
                     break;
 
                 case WeaponType.FlameThrower:
-                    SetAnimation(IsShootingRifle);
+                    SetAnimation(ShootingRifle);
                     break;
             }
         }
@@ -61,27 +61,27 @@ namespace Units
             switch (weaponType)
             {
                 case WeaponType.Melle:
-                    SetAnimation(IsRunningMelle);
+                    SetAnimation(RunningMelle);
                     break;
 
                 case WeaponType.Pistol:
-                    SetAnimation(IsRunningPistol);
+                    SetAnimation(RunningPistol);
                     break;
 
                 case WeaponType.Rifle:
-                    SetAnimation(IsRunningRifle);
+                    SetAnimation(RunningRifle);
                     break;
 
                 case WeaponType.FlameThrower:
-                    SetAnimation(IsRunningRifle);
+                    SetAnimation(RunningRifle);
                     break;
 
                 case WeaponType.Shotgun:
-                    SetAnimation(IsShootingShotgun);
+                    SetAnimation(ShootingShotgun);
                     break;
 
                 case WeaponType.HunterRifle:
-                    SetAnimation(IsRunningRifle);
+                    SetAnimation(RunningRifle);
                     break;
             }
         }
@@ -91,27 +91,27 @@ namespace Units
             switch (weaponType)
             {
                 case WeaponType.Melle:
-                    SetAnimation(IsIdlingMelle);
+                    SetAnimation(IdlingMelle);
                     break;
 
                 case WeaponType.Pistol:
-                    SetAnimation(IsIdlingPistol);
+                    SetAnimation(IdlingPistol);
                     break;
 
                 case WeaponType.Rifle:
-                    SetAnimation(IsIdlingRifle);
+                    SetAnimation(IdlingRifle);
                     break;
 
                 case WeaponType.FlameThrower:
-                    SetAnimation(IsIdlingRifle);
+                    SetAnimation(IdlingRifle);
                     break;
 
                 case WeaponType.Shotgun:
-                    SetAnimation(IsIdlingRifle);
+                    SetAnimation(IdlingRifle);
                     break;
 
                 case WeaponType.HunterRifle:
-                    SetAnimation(IsIdlingRifle);
+                    SetAnimation(IdlingRifle);
 
                     break;
             }
@@ -119,7 +119,7 @@ namespace Units
 
         public void PlauDiyingAnimation()
         {
-            SetAnimation(IsDiying);
+            SetAnimation(Diying);
         }
 
         public void PlayThrows()

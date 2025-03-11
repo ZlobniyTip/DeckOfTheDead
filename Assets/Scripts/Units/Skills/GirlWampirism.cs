@@ -28,7 +28,7 @@ namespace Units.Skills
 
         private IEnumerator StealingLife()
         {
-            while (true)
+            while (enabled)
             {
                 var delay = new WaitForSeconds(_cooldown);
 

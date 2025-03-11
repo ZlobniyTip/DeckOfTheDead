@@ -27,7 +27,7 @@ namespace Units.Skills
 
         private IEnumerator SearchTarget()
         {
-            while (true)
+            while (enabled)
             {
                 int count = Physics.OverlapSphereNonAlloc(transform.position, DetectionRadius, OverlappedColliders);
                 HashSet<Zombie> currentDetectedEnemies = new HashSet<Zombie>();

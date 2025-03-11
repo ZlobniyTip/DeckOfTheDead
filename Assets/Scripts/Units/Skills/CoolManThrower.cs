@@ -33,7 +33,7 @@ namespace Units.Skills
         {
             var delay = new WaitForSeconds(_cooldownThrow);
 
-            while (true)
+            while (enabled)
             {
                 yield return delay;
 

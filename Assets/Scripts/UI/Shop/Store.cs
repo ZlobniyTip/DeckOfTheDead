@@ -6,12 +6,21 @@ using Other;
 using Save;
 using UnityEngine;
 using Weapons;
+using static UnityEngine.ParticleSystem;
 
 namespace UI.Shop
 {
     public class Store : MonoBehaviour
     {
-        private readonly List<ItemView> _content = new();
+        private readonly List<ItemView> Content = new();
+        private readonly float NormalizationCardDisplay = 1.6f;
+        private readonly int FirstlevelCardStore = 1;
+        private readonly int SecondlevelCardStore = 2;
+        private readonly int ThirdlevelCardStore = 3;
+
+        private const int FirstlevelCard = 0;
+        private const int SecondlevelCard = 1;
+        private const int ThirdlevelCard = 2;
 
         [SerializeField] private Buyer _buyer;
 
@@ -49,14 +58,14 @@ namespace UI.Shop
 
         private void OnDisable()
         {
-            foreach (var item in _content)
+            foreach (var item in Content)
             {
                 item.PurchaseButtonPressed -= OnPurchaseButtonPressed;
                 item.EquipButtonPressed -= OnEquipButtonPressed;
                 Destroy(item.gameObject);
             }
 
-            _content.Clear();
+            Content.Clear();
         }
 
         private void DeterminTypeCard()
@@ -84,7 +93,7 @@ namespace UI.Shop
             view.Init(product, this);
             view.PurchaseButtonPressed += OnPurchaseButtonPressed;
             view.EquipButtonPressed += OnEquipButtonPressed;
-            _content.Add(view);
+            Content.Add(view);
         }
 
         private void AddCardView(IProduct product, CardData card)
@@ -102,13 +111,13 @@ namespace UI.Shop
 
             void Init(CardView view)
             {
-                view.gameObject.transform.localScale = new Vector3(1.6f, 1.6f, 1.6f);
+                view.gameObject.transform.localScale = new Vector3(NormalizationCardDisplay, NormalizationCardDisplay, NormalizationCardDisplay);
                 view.Init(product, this);
                 view.Initialize(card);
                 view.SwitchDragAndDrop(false);
                 view.PurchaseButtonPressed += OnPurchaseButtonPressed;
                 view.LevelUpButtonPressed += OnLevelUpPressed;
-                _content.Add(view);
+                Content.Add(view);
                 view.DeterminPriceLevelUp();
             }
         }
@@ -131,16 +140,16 @@ namespace UI.Shop
 
             switch (view.Card.Level)
             {
-                case 0:
-                    view.Card.Init(ItemStatus.Purchased, 1);
+                case FirstlevelCard:
+                    view.Card.Init(ItemStatus.Purchased, FirstlevelCardStore);
                     break;
 
-                case 1:
-                    view.Card.Init(ItemStatus.Purchased, 2);
+                case SecondlevelCard:
+                    view.Card.Init(ItemStatus.Purchased, SecondlevelCardStore);
                     break;
 
-                case 2:
-                    view.Card.Init(ItemStatus.Purchased, 3);
+                case ThirdlevelCard:
+                    view.Card.Init(ItemStatus.Purchased, ThirdlevelCardStore);
                     break;
             }
 

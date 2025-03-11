@@ -8,12 +8,13 @@ namespace Enemy
 {
     public class ZombieSearchTarget : MonoBehaviour
     {
+        private readonly Collider[] OverlappedColliders = new Collider[10];
+
         [SerializeField] private ZombieAttack _zombieAttack;
         [SerializeField] private float _radius;
 
         private Health _target;
         private Health _startTarget;
-        private Collider[] _overlappedColliders = new Collider[10];
 
         public Health Target => _target;
  
@@ -30,13 +31,13 @@ namespace Enemy
 
             while (SearchingTarget)
             {
-               int count = Physics.OverlapSphereNonAlloc(transform.position, _radius, _overlappedColliders);
+               int count = Physics.OverlapSphereNonAlloc(transform.position, _radius, OverlappedColliders);
 
                 Rigidbody rigidbody;
                 Health unitTarget = null;
                 Health characterTarget = null;
 
-                foreach (var collider in _overlappedColliders)
+                foreach (var collider in OverlappedColliders)
                 {
                     rigidbody = collider.attachedRigidbody;
 

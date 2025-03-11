@@ -4,9 +4,9 @@ namespace Character.StateMachine.States
 {
     public class IdlingState : MovementState
     {
-        private const string IsIdlingMelle = "IsIdlingMelle";
-        private const string IsIdlingPistol = "IsIdlingPistol";
-        private const string IsIdlingRifle = "IsIdlingRifle";
+        private const string IdlingMelle = "IsIdlingMelle";
+        private const string IdlingPistol = "IsIdlingPistol";
+        private const string IdlingRifle = "IsIdlingRifle";
 
         public IdlingState(IStateSwitcher stateSwitcher, Player character) 
             : base(stateSwitcher, character) { }
@@ -18,19 +18,19 @@ namespace Character.StateMachine.States
             switch (Character.CharacterShooting.CurrentWeapon.WeaponKind)
             {
                 case WeaponType.Melle:
-                    CharacterView.StartState(IsIdlingMelle);
+                    CharacterView.StartState(IdlingMelle);
                     break;
 
                 case WeaponType.Pistol:
-                    CharacterView.StartState(IsIdlingPistol);
+                    CharacterView.StartState(IdlingPistol);
                     break;
 
                 case WeaponType.Rifle:
-                    CharacterView.StartState(IsIdlingRifle);
+                    CharacterView.StartState(IdlingRifle);
                     break;
 
                 default:
-                    CharacterView.StartState(IsIdlingRifle);
+                    CharacterView.StartState(IdlingRifle);
                     break;
             }
 
@@ -44,19 +44,19 @@ namespace Character.StateMachine.States
             switch (CurrentWeapon.WeaponKind)
             {
                 case WeaponType.Melle:
-                    CharacterView.StopState(IsIdlingMelle);
+                    CharacterView.StopState(IdlingMelle);
                     break;
 
                 case WeaponType.Pistol:
-                    CharacterView.StopState(IsIdlingPistol);
+                    CharacterView.StopState(IdlingPistol);
                     break;
 
                 case WeaponType.Rifle:
-                    CharacterView.StopState(IsIdlingRifle);
+                    CharacterView.StopState(IdlingRifle);
                     break;
 
                 default:
-                    CharacterView.StopState(IsIdlingRifle);
+                    CharacterView.StopState(IdlingRifle);
                     break;
             }
         }

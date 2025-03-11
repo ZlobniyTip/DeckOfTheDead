@@ -8,6 +8,7 @@ namespace Enemy.Skills.Virus
     public class ZombieVirus : MonoBehaviour
     {
         private readonly HashSet<Unit> SubscribedObjects = new HashSet<Unit>();
+        private readonly Collider[] OverlappedColliders = new Collider[10];
 
         [SerializeField] private ParticleSystem _virusEffect;
         [SerializeField] private Zombie _zombiePrefab;
@@ -17,7 +18,6 @@ namespace Enemy.Skills.Virus
         [SerializeField] private float _duration;
         [SerializeField] private float _delayBeforeDestruction;
 
-        private Collider[] _overlappedColliders = new Collider[10];
         private ParticleSystem _currentParticle;
         private float _timer = 0;
 
@@ -44,12 +44,12 @@ namespace Enemy.Skills.Virus
 
             while (_timer < _duration)
             {
-                int count = Physics.OverlapSphereNonAlloc(transform.position, _radius, _overlappedColliders);
+                int count = Physics.OverlapSphereNonAlloc(transform.position, _radius, OverlappedColliders);
                 Rigidbody rigidbody;
 
                 for (int i = 0; i < count; i++)
                 {
-                    rigidbody = _overlappedColliders[i].attachedRigidbody;
+                    rigidbody = OverlappedColliders[i].attachedRigidbody;
 
                     if (rigidbody)
                     {

@@ -9,6 +9,7 @@ namespace Units.Skills
         private readonly HashSet<Unit> Units = new HashSet<Unit>();
         private readonly float DetectionRadius = 2f;
         private readonly Collider[] OverlappedColliders = new Collider[10];
+        private readonly int AmountRegeneration = 2;
 
         private void Start()
         {
@@ -22,7 +23,7 @@ namespace Units.Skills
 
         public IEnumerator RestoreHealth()
         {
-            while (true)
+            while (enabled)
             {
                 int count = Physics.OverlapSphereNonAlloc(transform.position, DetectionRadius, OverlappedColliders);
                 HashSet<Unit> currentDetectedUnits = new HashSet<Unit>();
@@ -35,7 +36,7 @@ namespace Units.Skills
 
                         if (Units.Contains(unit))
                         {
-                            unit.TakeHeal(2);
+                            unit.TakeHeal(AmountRegeneration);
                         }
                         else
                         {

@@ -3,14 +3,14 @@ using UnityEngine;
 
 namespace Enemy.StateMachine.State
 {
-    public class ZombieDiyingState : ZombieMovementState
+    public class ZombieDyingState : ZombieMovementState
     {
-        private const string IsDiyingVar1 = "IsDiyingVar1";
-        private const string IsDiyingVar2 = "IsDiyingVar2";
+        private const string DiyingVar1 = "IsDiyingVar1";
+        private const string DiyingVar2 = "IsDiyingVar2";
 
         private int _randomState;
 
-        public ZombieDiyingState(IStateSwitcher stateSwitcher, Zombie enemy) 
+        public ZombieDyingState(IStateSwitcher stateSwitcher, Zombie enemy) 
             : base(stateSwitcher, enemy) { }
 
         public override void Enter()
@@ -21,11 +21,11 @@ namespace Enemy.StateMachine.State
 
             if (_randomState == 0)
             {
-                ZombieView.StartState(IsDiyingVar1);
+                ZombieView.StartState(DiyingVar1);
             }
             else
             {
-                ZombieView.StartState(IsDiyingVar2);
+                ZombieView.StartState(DiyingVar2);
             }
         }
 
@@ -35,11 +35,11 @@ namespace Enemy.StateMachine.State
 
             if (_randomState == 0)
             {
-                ZombieView.StopState(IsDiyingVar1);
+                ZombieView.StopState(DiyingVar1);
             }
             else
             {
-                ZombieView.StopState(IsDiyingVar2);
+                ZombieView.StopState(DiyingVar2);
             }
         }
 

@@ -10,10 +10,11 @@ namespace DragAndDrop
     public class DragAndDropCardUnit : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler
     {
         private readonly RaycastHit[] Hits = new RaycastHit[10];
+        private readonly int NormalizationDisplay = 2;
 
         [SerializeField] private GameObject _cardObject;
         [SerializeField] private ParticleSystem _prefabSpawnPlaceEffect;
-        [SerializeField] private GameObject attackRadiusVisual;
+        [SerializeField] private GameObject _attackRadiusVisual;
         [SerializeField] private AudioSource _soundCard;
 
         private GameObject _currentAttackRadiusVisual;
@@ -100,7 +101,7 @@ namespace DragAndDrop
         private void CreateSpawnVisuals(Vector3 position)
         {
             _spawnPlaceEffect = Instantiate(_prefabSpawnPlaceEffect, position, Quaternion.identity);
-            _currentAttackRadiusVisual = Instantiate(attackRadiusVisual, position, Quaternion.identity);
+            _currentAttackRadiusVisual = Instantiate(_attackRadiusVisual, position, Quaternion.identity);
             UpdateAttackRadiusVisual();
         }
 
@@ -133,7 +134,7 @@ namespace DragAndDrop
                 return;
 
             float attackDistance = (_cardView.Card as CardDataUnit).UnitConfig.Weapon.AttackRange;
-            Vector3 newScale = new Vector3(attackDistance * 2, _currentAttackRadiusVisual.transform.localScale.y, attackDistance * 2);
+            Vector3 newScale = new Vector3(attackDistance * NormalizationDisplay, _currentAttackRadiusVisual.transform.localScale.y, attackDistance * NormalizationDisplay);
             _currentAttackRadiusVisual.transform.localScale = newScale;
         }
 

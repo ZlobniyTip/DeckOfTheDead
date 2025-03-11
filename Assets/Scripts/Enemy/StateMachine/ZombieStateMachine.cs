@@ -18,7 +18,7 @@ namespace Enemy.StateMachine
         {
             new ZombieRunningState(this, enemy),
             new ZombieAttackState(this, enemy),
-            new ZombieDiyingState(this, enemy),
+            new ZombieDyingState(this, enemy),
         };
 
             _currentState = States[0];

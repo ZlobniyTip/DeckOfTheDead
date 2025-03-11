@@ -76,7 +76,7 @@ namespace Units
                     }
                 }
 
-                yield return 0.1f;
+                yield return null;
             }
         }
 

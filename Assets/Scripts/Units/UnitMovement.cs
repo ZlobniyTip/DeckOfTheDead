@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -6,6 +7,8 @@ namespace Units
 {
     public class UnitMovement : MonoBehaviour
     {
+        private readonly float MaximumDistancePlayer = 4;
+
         private Unit _unit;
         private UnitAttack _unitAttack;
         private NavMeshAgent _navMesh;
@@ -35,7 +38,7 @@ namespace Units
             {
                 float distansToCharacterX = transform.position.x - _unit.Character.transform.position.x;
 
-                if (distansToCharacterX < 4)
+                if (distansToCharacterX < MaximumDistancePlayer)
                 {
                     MoveForward();
                 }
@@ -82,7 +85,7 @@ namespace Units
         {
             _unitAnimator.PlauRunningAnimation(_unitAttack.CurrentWeapon.WeaponKind);
             _navMesh.speed = _unit.UnitConfig.Speed;
-            Vector3 forwardPosition = transform.position + Vector3.right * 5.0f;
+            Vector3 forwardPosition = transform.position + Vector3.right * _unit.UnitConfig.Speed;
             _navMesh.SetDestination(forwardPosition);
         }
 

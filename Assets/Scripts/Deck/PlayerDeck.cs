@@ -10,8 +10,8 @@ namespace Deck
     public class PlayerDeck : MonoBehaviour
     {
         private readonly HashSet<CardData> UsedCards = new();
-        private readonly bool ChecksActivity = true;
         private readonly List<CardView> PlayerCards = new();
+        private readonly int NumberCardsHand = 5;
 
         [SerializeField] private Player _character;
         [SerializeField] private CharacterCards _characterCards;
@@ -68,7 +68,7 @@ namespace Deck
 
         private void TakeCards()
         {
-            while (PlayerCards.Count < 5)
+            while (PlayerCards.Count < NumberCardsHand)
             {
                 CreateCard();
             }
@@ -78,9 +78,10 @@ namespace Deck
 
         private IEnumerator ViewActivity()
         {
-            var delay = new WaitForSeconds(0.3f);
+            float amountDelay = 0.3f;
+            var delay = new WaitForSeconds(amountDelay);
 
-            while (ChecksActivity)
+            while (enabled)
             {
                 foreach (var card in PlayerCards)
                 {

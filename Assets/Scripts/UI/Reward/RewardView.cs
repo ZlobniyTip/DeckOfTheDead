@@ -13,7 +13,14 @@ namespace UI.Reward
         private readonly float CountRewardUnitsUsed = 0;
         private readonly float CountRewardKilledEnemies = 0;
         private readonly float DelayCouner = 0.005f;
+        private readonly float DamagRewardCoefficient = 10f;
+        private readonly float RewardIncreaseCoefficientLeaderboard = 0.05f;
+        private readonly float UnitRewardIncreaseRate = 100f;
+        private readonly float CoefficientIncreasingRewardKilledEnemies = 100f;
         private readonly int CounterStep = 1000;
+        private readonly int TotalCoroutines = 4;
+        private readonly int RewardCoroutineIndex = 5;
+        private readonly float FinalRewardMultiplier = 0.3f;
 
         [SerializeField] private GameObject _gamePanel;
         [SerializeField] private GameObject _buttonsPanel;
@@ -36,10 +43,10 @@ namespace UI.Reward
         {
             _gamePanel.SetActive(false);
             _activPanelButton.onClick.AddListener(OnActivPanel);
-            StartCoroutine(ChangeValue(_rewardCounter.HeroDamage, _heroDamage, 10, CountRewardHeroDamage));
-            StartCoroutine(ChangeValue(_rewardCounter.LeaderboardScore, _leaderboardScore, 0.05f, CountRewardLbScore));
-            StartCoroutine(ChangeValue(_rewardCounter.UnitsUsed, _unitsUsed, 100, CountRewardUnitsUsed));
-            StartCoroutine(ChangeValue(_rewardCounter.KilledEnemies, _killedEnemies, 100, CountRewardKilledEnemies));
+            StartCoroutine(ChangeValue(_rewardCounter.HeroDamage, _heroDamage, DamagRewardCoefficient, CountRewardHeroDamage));
+            StartCoroutine(ChangeValue(_rewardCounter.LeaderboardScore, _leaderboardScore, RewardIncreaseCoefficientLeaderboard, CountRewardLbScore));
+            StartCoroutine(ChangeValue(_rewardCounter.UnitsUsed, _unitsUsed, UnitRewardIncreaseRate, CountRewardUnitsUsed));
+            StartCoroutine(ChangeValue(_rewardCounter.KilledEnemies, _killedEnemies, CoefficientIncreasingRewardKilledEnemies, CountRewardKilledEnemies));
         }
 
         private void OnEnable()
@@ -62,7 +69,7 @@ namespace UI.Reward
 
             _completedCoroutines++;
 
-            if (_completedCoroutines != 5)
+            if (_completedCoroutines != RewardCoroutineIndex)
             {
                 countReward += value * multiply;
                 CountReward += countReward;
@@ -71,9 +78,9 @@ namespace UI.Reward
             if (counter > value)
                 text.text = value.ToString();
 
-            if (_completedCoroutines == 4)
+            if (_completedCoroutines == TotalCoroutines)
             {
-                StartCoroutine(ChangeValue(CountReward, _reward, 0.3f, CountReward));
+                StartCoroutine(ChangeValue(CountReward, _reward, FinalRewardMultiplier, CountReward));
             }
         }
 

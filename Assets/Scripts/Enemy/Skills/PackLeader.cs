@@ -14,8 +14,6 @@ namespace Enemy.Skills
 
         [SerializeField] private float _radius;
 
-        private bool _isWorks = true;
-
         private void Start()
         {
             StartCoroutine(ApplyReinforcement());
@@ -25,7 +23,7 @@ namespace Enemy.Skills
         {
             var delay = new WaitForSeconds(Cooldown);
 
-            while (_isWorks)
+            while (enabled)
             {
                 int count = Physics.OverlapSphereNonAlloc(transform.position, _radius, OverlappedColliders);
 

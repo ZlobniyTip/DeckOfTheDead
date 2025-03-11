@@ -4,7 +4,7 @@ namespace Enemy.StateMachine.State
 {
     public class ZombieRunningState : ZombieMovementState
     {
-        private const string IsRunning = "IsRunning";
+        private const string Running = "IsRunning";
 
         public ZombieRunningState(IStateSwitcher stateSwitcher, Zombie enemy) 
             : base(stateSwitcher, enemy) { }
@@ -13,14 +13,14 @@ namespace Enemy.StateMachine.State
         {
             base.Enter();
 
-            ZombieView.StartState(IsRunning);
+            ZombieView.StartState(Running);
         }
 
         public override void Exit()
         {
             base.Exit();
 
-            ZombieView.StopState(IsRunning);
+            ZombieView.StopState(Running);
         }
 
         public override void Update()
@@ -34,7 +34,7 @@ namespace Enemy.StateMachine.State
             }
 
             if (IsDiying())
-                StateSwitcher.SwitchState<ZombieDiyingState>();
+                StateSwitcher.SwitchState<ZombieDyingState>();
         }
     }
 }
