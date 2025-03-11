@@ -4,41 +4,45 @@ using Deck;
 using Other;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 namespace DragAndDrop
 {
-    public class DragAndDropCardUnit : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler
+    public class DragAndDropCard : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler
     {
         private readonly RaycastHit[] Hits = new RaycastHit[10];
-        private readonly int NormalizationDisplay = 2;
 
         [SerializeField] private GameObject _cardObject;
+        [SerializeField] private AudioSource _soundCard;
+        [SerializeField] private AudioSource _spawnSound;
+        [SerializeField] private Image _weaponIndicator;
         [SerializeField] private ParticleSystem _prefabSpawnPlaceEffect;
         [SerializeField] private GameObject _attackRadiusVisual;
-        [SerializeField] private AudioSource _soundCard;
 
         private GameObject _currentAttackRadiusVisual;
+        private ParticleSystem _spawnPlaceEffect;
         private RectTransform _rectTransform;
         private Vector3 _originalPosition;
-        private ParticleSystem _spawnPlaceEffect;
         private bool _isSpawnPossible;
 
         private CardView _cardView;
-        private UnitSpawner _unitSpawner;
         private PlayerDeck _deck;
+        private UnitSpawner _unitSpawner;
 
         private void Awake()
         {
-            _unitSpawner = GetComponentInParent<UnitSpawner>();
             _deck = GetComponentInParent<PlayerDeck>();
+            _unitSpawner = GetComponentInParent<UnitSpawner>();
             _rectTransform = GetComponent<RectTransform>();
             _cardView = GetComponent<CardView>();
+
+            if (_weaponIndicator != null)
+                _weaponIndicator.gameObject.SetActive(false);
         }
 
         public void OnBeginDrag(PointerEventData eventData)
         {
             _soundCard.Play();
-
             _originalPosition = transform.position;
             TryUpdateSpawnVisuals();
         }
@@ -65,52 +69,76 @@ namespace DragAndDrop
             {
                 if (!_isSpawnPossible)
                 {
-                    CreateSpawnVisuals(spawnPosition);
-                    _cardObject.SetActive(false);
+                    if (_cardView.Card is CardDataUnit)
+                    {
+                        CreateUnitSpawnVisuals(spawnPosition);
+                        _cardObject.SetActive(false);
+                    }
+                    else if (_cardView.Card is CardDataWeapon)
+                    {
+                        if (_weaponIndicator != null)
+                            _weaponIndicator.gameObject.SetActive(true);
+                    }
                     _isSpawnPossible = true;
                 }
                 else
                 {
-                    UpdateSpawnVisuals(spawnPosition);
+                    if (_spawnPlaceEffect != null) _spawnPlaceEffect.transform.position = spawnPosition;
+                    if (_currentAttackRadiusVisual != null) _currentAttackRadiusVisual.transform.position = spawnPosition;
                 }
             }
-            else
+            else if (_isSpawnPossible)
             {
-                if (_isSpawnPossible)
-                {
-                    CleanupVisuals();
+                CleanupVisuals();
+                if (_cardView.Card is CardDataUnit)
                     _cardObject.SetActive(true);
-                    _isSpawnPossible = false;
-                }
+
+                _isSpawnPossible = false;
             }
         }
 
         private void PerformSpawn()
         {
-            Vector3 spawnPosition = _spawnPlaceEffect.transform.position;
+            if (_cardView.Card is CardDataUnit unitCard)
+            {
+                Vector3 spawnPosition = _spawnPlaceEffect.transform.position;
+                _unitSpawner.Spawn(spawnPosition, unitCard.PrefabUnit, _cardView);
+            }
+            else if (_cardView.Card is CardDataWeapon weaponCard)
+            {
+                _deck.Character.CharacterShooting.UseTemporaryWeapons(weaponCard.PrefabWeapon, _cardView);
+                _deck.Character.CharacterShooting.StartWeaponTimer(weaponCard.TimeAction);
+                _deck.Character.CharacterShooting.PlayWeaponSpawnEffect();
+                _deck.Character.CharacterShooting.PlaySoundEffect();
+                _spawnSound.Play();
+            }
 
-            _unitSpawner.Spawn(spawnPosition, (_cardView.Card as CardDataUnit).PrefabUnit, _cardView);
             _deck.RemoveCard(_cardView);
             _deck.TakeAwayPlayerEnergy(_cardView.Card.Energy);
 
             Destroy(gameObject);
         }
 
-        private void ResetPosition() => transform.position = _originalPosition;
+        private void ResetPosition()
+        {
+            transform.position = _originalPosition;
+            if (_weaponIndicator != null)
+                _weaponIndicator.gameObject.SetActive(false);
+        }
 
-        private void CreateSpawnVisuals(Vector3 position)
+        private void CreateUnitSpawnVisuals(Vector3 position)
         {
             _spawnPlaceEffect = Instantiate(_prefabSpawnPlaceEffect, position, Quaternion.identity);
             _currentAttackRadiusVisual = Instantiate(_attackRadiusVisual, position, Quaternion.identity);
             UpdateAttackRadiusVisual();
         }
 
-        private void UpdateSpawnVisuals(Vector3 position)
+        private void UpdateAttackRadiusVisual()
         {
-            if (_spawnPlaceEffect != null)
-                _spawnPlaceEffect.transform.position = position;
-            if (_currentAttackRadiusVisual != null)
-                _currentAttackRadiusVisual.transform.position = position;
+            if (_currentAttackRadiusVisual == null) return;
+
+            float attackDistance = (_cardView.Card as CardDataUnit).UnitConfig.Weapon.AttackRange;
+            _currentAttackRadiusVisual.transform.localScale = new Vector3(attackDistance * 2, _currentAttackRadiusVisual.transform.localScale.y, attackDistance * 2);
         }
 
         private void CleanupVisuals()
@@ -126,16 +154,9 @@ namespace DragAndDrop
                 Destroy(_currentAttackRadiusVisual.gameObject);
                 _currentAttackRadiusVisual = null;
             }
-        }
 
-        private void UpdateAttackRadiusVisual()
-        {
-            if (_currentAttackRadiusVisual == null) 
-                return;
-
-            float attackDistance = (_cardView.Card as CardDataUnit).UnitConfig.Weapon.AttackRange;
-            Vector3 newScale = new Vector3(attackDistance * NormalizationDisplay, _currentAttackRadiusVisual.transform.localScale.y, attackDistance * NormalizationDisplay);
-            _currentAttackRadiusVisual.transform.localScale = newScale;
+            if (_weaponIndicator != null)
+                _weaponIndicator.gameObject.SetActive(false);
         }
 
         private bool FindSpawnLocation(out Vector3 spawnPosition)
@@ -146,7 +167,7 @@ namespace DragAndDrop
                 return false;
             }
 
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);  
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             int hitCount = Physics.RaycastNonAlloc(ray, Hits);
 
             for (int i = 0; i < hitCount; i++)

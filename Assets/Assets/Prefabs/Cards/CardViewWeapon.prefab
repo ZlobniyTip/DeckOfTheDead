@@ -602,8 +602,8 @@ GameObject:
   - component: {fileID: 4330495036282801212}
   - component: {fileID: -5502527369774416988}
   - component: {fileID: 3279787587145919853}
-  - component: {fileID: 473607371920017408}
   - component: {fileID: 3964170527892978237}
+  - component: {fileID: 6264711827437521283}
   m_Layer: 5
   m_Name: CardViewWeapon
   m_TagString: Untagged
@@ -760,22 +760,6 @@ MonoBehaviour:
   _damage: {fileID: 122629526916313137}
   _timeAction: {fileID: 5784285601499063229}
   _delayBetweenShots: {fileID: 1670559531296966140}
---- !u!114 &473607371920017408
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3797920145551860953}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 791d6af378d01954985cc799302c2107, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _cardObject: {fileID: 3428677139722256099}
-  _soundCard: {fileID: -5502527369774416988}
-  _indikator: {fileID: 1682267744551645157}
-  _spawnSound: {fileID: 3964170527892978237}
 --- !u!82 &3964170527892978237
 AudioSource:
   m_ObjectHideFlags: 0
@@ -872,6 +856,24 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &6264711827437521283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3797920145551860953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0446bb4c2f139314c944b099000fa177, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _cardObject: {fileID: 3428677139722256099}
+  _soundCard: {fileID: -5502527369774416988}
+  _spawnSound: {fileID: 3964170527892978237}
+  _weaponIndicator: {fileID: 1682267744551645157}
+  _prefabSpawnPlaceEffect: {fileID: 0}
+  _attackRadiusVisual: {fileID: 0}
 --- !u!1 &4303438788156474068
 GameObject:
   m_ObjectHideFlags: 0

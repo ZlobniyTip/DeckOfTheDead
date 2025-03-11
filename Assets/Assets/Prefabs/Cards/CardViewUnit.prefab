@@ -917,9 +917,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4330495036282801212}
-  - component: {fileID: 1521320477085201690}
   - component: {fileID: -5502527369774416988}
   - component: {fileID: 1453442143205344714}
+  - component: {fileID: 1463374479223459347}
   m_Layer: 5
   m_Name: CardViewUnit
   m_TagString: Untagged
@@ -952,22 +952,6 @@ RectTransform:
   m_AnchoredPosition: {x: -6.0999756, y: -19.799988}
   m_SizeDelta: {x: 240.1059, y: 352.4688}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1521320477085201690
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3797920145551860953}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a0103d706e8f7814fb86792f25daa4e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _cardObject: {fileID: 3428677139722256099}
-  _prefabSpawnPlaceEffect: {fileID: 5003715098164324716, guid: 02e32cab0ae4bc4428a3844d35c90c4d, type: 3}
-  _attackRadiusVisual: {fileID: 4669786038433809806, guid: ad24ac0e5d1a63a498972578a78ba9f0, type: 3}
-  _soundCard: {fileID: -5502527369774416988}
 --- !u!82 &-5502527369774416988
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1091,6 +1075,24 @@ MonoBehaviour:
   _health: {fileID: 5784285601499063229}
   _damage: {fileID: 122629526916313137}
   _ability: {fileID: 313814251757816875}
+--- !u!114 &1463374479223459347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3797920145551860953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0446bb4c2f139314c944b099000fa177, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _cardObject: {fileID: 3428677139722256099}
+  _soundCard: {fileID: -5502527369774416988}
+  _spawnSound: {fileID: 0}
+  _weaponIndicator: {fileID: 0}
+  _prefabSpawnPlaceEffect: {fileID: 5003715098164324716, guid: 02e32cab0ae4bc4428a3844d35c90c4d, type: 3}
+  _attackRadiusVisual: {fileID: 4669786038433809806, guid: ad24ac0e5d1a63a498972578a78ba9f0, type: 3}
 --- !u!1 &4303438788156474068
 GameObject:
   m_ObjectHideFlags: 0

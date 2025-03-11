@@ -18,8 +18,8 @@ namespace Card
 
         protected CardData CardData { get; set; }
 
-        private DragAndDropCardUnit _dragAndDrop;
-        private DragAndDropCardWeapon _dragAndDropWeapon;
+        private DragAndDropCard _dragAndDrop;
+        private DragAndDropCard _dragAndDropWeapon;
 
         public CardData Card => CardData;
 
@@ -29,8 +29,8 @@ namespace Card
 
         private void Awake()
         {
-            _dragAndDrop = GetComponent<DragAndDropCardUnit>();
-            _dragAndDropWeapon = GetComponent<DragAndDropCardWeapon>();
+            _dragAndDrop = GetComponent<DragAndDropCard>();
+            _dragAndDropWeapon = GetComponent<DragAndDropCard>();
 
             EquipButton.onClick.AddListener(OnLevelUpPressed);
             _selectedButton.onClick.AddListener(OnSelectedCard);
