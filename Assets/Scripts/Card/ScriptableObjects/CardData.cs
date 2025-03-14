@@ -28,8 +28,8 @@ namespace Card
         [SerializeField] private int _priceLevel1;
         [SerializeField] private int _priceLevel2;
         [SerializeField] private int _priceLevel3;
-        [NonSerialized] private ItemState _state = null;
 
+        private ItemState _state = null;
         private int _level = 0;
         private int _bonusDamage = 0;
         private int _bonusHealth = 0;

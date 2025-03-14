@@ -27,13 +27,13 @@ namespace Enemy.StateMachine.State
         {
             base.Update();
 
-            if (IsAttacking())
+            if (IsAttacking)
             {
                 StateSwitcher.SwitchState<ZombieAttackState>();
                 return;
             }
 
-            if (IsDiying())
+            if (IsDiying)
                 StateSwitcher.SwitchState<ZombieDyingState>();
         }
     }

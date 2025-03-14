@@ -7,7 +7,6 @@ namespace Character.StateMachine.States
         private readonly Player Ñharacter;
 
         protected IStateSwitcher StateSwitcher { get; set; }
-
         protected Weapon CurrentWeapon { get; set; }
 
         public MovementState(IStateSwitcher stateSwitcher, Player character)
@@ -17,28 +16,25 @@ namespace Character.StateMachine.States
         }
 
         protected CharacterView CharacterView => Ñharacter.CharacterView;
-
         protected Player Character => Ñharacter;
+        protected float MoveSpeed => Character.Movement.NavMeshAgent.speed;
+        protected bool IsAttacking => Character.CharacterShooting.IsShooting;
 
         public virtual void Enter()
         {
-            Ñharacter.CharacterShooting.ChangedWeapon += IsChangedWeapon;
+            Ñharacter.CharacterShooting.ChangedWeapon += ChangeWeapon;
         }
 
         public virtual void Exit()
         {
-            Ñharacter.CharacterShooting.ChangedWeapon -= IsChangedWeapon;
+            Ñharacter.CharacterShooting.ChangedWeapon -= ChangeWeapon;
         }
 
         public virtual void Update()
         {
         }
 
-        protected bool IsMoving() => Character.Movement.NavMeshAgent.speed == 0;
-
-        protected bool IsAttacking() => Character.CharacterShooting.IsShooting;
-
-        protected void IsChangedWeapon()
+        protected void ChangeWeapon()
         {
             Exit();
             Enter();

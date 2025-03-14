@@ -80,7 +80,7 @@ namespace Character.StateMachine.States
         {
             base.Update();
 
-            if (IsAttacking())
+            if (IsAttacking)
                 return;
 
             StateSwitcher.SwitchState<IdlingState>();

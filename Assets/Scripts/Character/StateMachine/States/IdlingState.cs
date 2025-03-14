@@ -65,12 +65,12 @@ namespace Character.StateMachine.States
         {
             base.Update();
 
-            if (IsAttacking())
+            if (IsAttacking)
             {
                 StateSwitcher.SwitchState<AttackState>();
             }
 
-            if (IsMoving())
+            if (MoveSpeed <= 0)
                 return;
 
             StateSwitcher.SwitchState<RunningState>();

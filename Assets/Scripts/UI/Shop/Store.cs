@@ -6,7 +6,6 @@ using Other;
 using Save;
 using UnityEngine;
 using Weapons;
-using static UnityEngine.ParticleSystem;
 
 namespace UI.Shop
 {
@@ -138,20 +137,7 @@ namespace UI.Shop
             if (_buyer.TryLevelUpCard(DeterminePriceImprovement(view)) == false)
                 return;
 
-            switch (view.Card.Level)
-            {
-                case FirstlevelCard:
-                    view.Card.Init(ItemStatus.Purchased, FirstlevelCardStore);
-                    break;
-
-                case SecondlevelCard:
-                    view.Card.Init(ItemStatus.Purchased, SecondlevelCardStore);
-                    break;
-
-                case ThirdlevelCard:
-                    view.Card.Init(ItemStatus.Purchased, ThirdlevelCardStore);
-                    break;
-            }
+            view.Card.Init(ItemStatus.Purchased, view.Card.Level + 1);
 
             view.DeterminPriceLevelUp();
 

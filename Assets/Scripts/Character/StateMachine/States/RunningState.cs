@@ -65,7 +65,7 @@ namespace Character.StateMachine.States
         {
             base.Update();
 
-            if (IsMoving())
+            if (MoveSpeed <= 0)
                 StateSwitcher.SwitchState<IdlingState>();
         }
     }
