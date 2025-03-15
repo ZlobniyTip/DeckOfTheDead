@@ -14,27 +14,27 @@ namespace Units.Skills
 
         private void Start()
         {
-            _unit.Attack.CurrentWeapon.Shooting += TryInflictLethalDamage;
+            _unit.Attack.CurrentWeapon.Shooting += OnTryInflictLethalDamage;
         }
 
         private void OnDestroy()
         {
-            _unit.Attack.CurrentWeapon.Shooting -= TryInflictLethalDamage;
+            _unit.Attack.CurrentWeapon.Shooting -= OnTryInflictLethalDamage;
         }
 
-        public override void UseSkill()
+        public override void OnUseSkill()
         {
             _particle.Play();
             _audioSource.Play();
             _unit.Target.TakeDamage(_unit.Attack.CurrentWeapon.DamageValue * MultiplyDamage);
         }
 
-        private void TryInflictLethalDamage()
+        private void OnTryInflictLethalDamage()
         {
             int random = Random.Range(LethalCount, Chance);
 
             if (random == LethalCount)
-                UseSkill();
+                OnUseSkill();
         }
     }
 }

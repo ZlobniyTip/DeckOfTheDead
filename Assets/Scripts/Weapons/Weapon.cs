@@ -19,43 +19,27 @@ namespace Weapons
         [SerializeField] private int _damage;
         [SerializeField] private float _delayBetweenShots;
 
-        [NonSerialized] private ItemState _state = null;
-
-        protected AudioSource Audio { get; set; }
-
-        protected bool IsShooting { get; set; } = false;
-
-        protected bool IsCritical { get; set; } = false;
-
-        protected int MultiplyDamage { get; set; } = 3;
-
-        protected float AttackDistance => _attackDistance;
-
-        protected int Damage => _damage;
-
-        protected float DelayBetweenShots=> _delayBetweenShots;
-
-        public WeaponType WeaponKind => _weaponType;
-
-        public float ShotCooldown => DelayBetweenShots;
-
-        public float AttackRange => AttackDistance;
-
-        public ItemType Type => _type;
-
-        public Sprite Icon => _icon;
-
-        public string Name => _name;
-
-        public int Price => _price;
-
-        public int Index => _index;
-
-        public int DamageValue => Damage;
-
-        public ItemState State => _state ??= new ItemState(ItemStatus.NotPurchased);
+        private ItemState _state = null;
 
         public event Action Shooting;
+
+        public WeaponType WeaponKind => _weaponType;
+        public float ShotCooldown => DelayBetweenShots;
+        public float AttackRange => AttackDistance;
+        public ItemType Type => _type;
+        public Sprite Icon => _icon;
+        public string Name => _name;
+        public int Price => _price;
+        public int Index => _index;
+        public int DamageValue => Damage;
+        public ItemState State => _state ??= new ItemState(ItemStatus.NotPurchased);
+
+        protected AudioSource Audio { get; set; }
+        protected bool IsShooting { get; set; } = false;
+
+        protected float AttackDistance => _attackDistance;
+        protected int Damage => _damage;
+        protected float DelayBetweenShots => _delayBetweenShots;
 
         private void Start()
         {
@@ -64,7 +48,7 @@ namespace Weapons
 
         public virtual int Shoot()
         {
-            ReportImpact();
+            OnReportImpact();
             Audio.Play();
 
             return Damage;
@@ -81,7 +65,7 @@ namespace Weapons
             State.SetParameters(level);
         }
 
-        public void ReportImpact()
+        public void OnReportImpact()
         {
             Shooting?.Invoke();
         }

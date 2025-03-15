@@ -26,17 +26,14 @@ namespace Character
         private int _time;
         private Coroutine _weaponTimerCoroutine;
 
+        public event Action ChangedWeapon;
+        public event Action KilledTarget;
+        public event Action<int> CausedDamage;
+
         public bool IsShooting { get; private set; } = false;
 
         public Weapon CurrentWeapon => _currentWeapon;
-
         public Zombie Target => _currentEnemy;
-
-        public event Action ChangedWeapon;
-
-        public event Action KilledTarget;
-
-        public event Action<int> CausedDamage;
 
         private void Awake()
         {

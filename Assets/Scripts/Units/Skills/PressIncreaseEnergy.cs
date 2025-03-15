@@ -8,16 +8,16 @@ namespace Units.Skills
 
         private void Start()
         {
-            _unit.Died -= UseSkill;
-            _unit.Died += UseSkill;
+            _unit.Died -= OnUseSkill;
+            _unit.Died += OnUseSkill;
         }
 
         private void OnDestroy()
         {
-            _unit.Died -= UseSkill;
+            _unit.Died -= OnUseSkill;
         }
 
-        public override void UseSkill()
+        public override void OnUseSkill()
         {
             if (!_unit.IsDiying)
             {

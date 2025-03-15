@@ -28,17 +28,17 @@ namespace Deck
 
         private void Awake()
         {
-            _characterCards.Initialized += TakeStartCards;
-            _selectedCard.ChosenCards += TakeSelectedCards;
+            _characterCards.Initialized += OnTakeStartCards;
+            _selectedCard.ChosedCards += OnTakeSelectedCards;
         }
 
         private void OnDestroy()
         {
-            _characterCards.Initialized -= TakeStartCards;
-            _selectedCard.ChosenCards -= TakeSelectedCards;
+            _characterCards.Initialized -= OnTakeStartCards;
+            _selectedCard.ChosedCards -= OnTakeSelectedCards;
         }
 
-        public void TakeSelectedCards(List<CardData> cards)
+        public void OnTakeSelectedCards(List<CardData> cards)
         {
             if (_selectedCards.Count != 0)
             {
@@ -53,7 +53,7 @@ namespace Deck
             TakeCards();
         }
 
-        private void TakeStartCards(List<CardData> cards)
+        private void OnTakeStartCards(List<CardData> cards)
         {
             _selectedCards.Clear();
 
@@ -126,7 +126,7 @@ namespace Deck
                 PlayerCards.Add(cardView);
 
                 CardViewUnit cardViewUnit = cardView as CardViewUnit;
-                _leanHelper.ChangedLanguage += cardViewUnit.TransferData;
+                _leanHelper.LanguageChanged += cardViewUnit.TransferData;
             }
 
             if (randomCardData is CardDataWeapon)
@@ -136,7 +136,7 @@ namespace Deck
                 PlayerCards.Add(cardView);
 
                 CardViewWeapon cardViewWeapon = cardView as CardViewWeapon;
-                _leanHelper.ChangedLanguage += cardViewWeapon.TransferData;
+                _leanHelper.LanguageChanged += cardViewWeapon.TransferData;
             }
         }
 

@@ -10,13 +10,13 @@ namespace Spawner
         [SerializeField] private int _numberEnemiesInWave = 8;
         [SerializeField] private AudioSource _zombieSource;
 
-        public event Action<Transform[], int> PlayerOnPoint;
+        public event Action<Transform[], int> PlayerCheckpointEntered;
 
         private void OnTriggerEnter(Collider other)
         {
             if (other.TryGetComponent(out Player character))
             {
-                PlayerOnPoint?.Invoke(_spawnPoints, _numberEnemiesInWave);
+                PlayerCheckpointEntered?.Invoke(_spawnPoints, _numberEnemiesInWave);
                 character.Movement.StopMove();
                 _zombieSource.Play();
             }

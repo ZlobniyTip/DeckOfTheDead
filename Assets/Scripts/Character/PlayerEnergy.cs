@@ -13,9 +13,9 @@ namespace Character
 
         private int _currentEnergyCount = 0;
 
-        public int CurrentEnergyCount => _currentEnergyCount;
-
         public event Action EnergyChanged;
+
+        public int CurrentEnergyCount => _currentEnergyCount;
 
         private void Start()
         {

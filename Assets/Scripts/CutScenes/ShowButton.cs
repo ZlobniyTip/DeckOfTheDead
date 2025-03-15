@@ -14,22 +14,22 @@ namespace CutScenes
 
         private void Start()
         {
-            _cutScenes.EndCutScene += ShowFirstLevelButton;
-            _buttonNextLevel.onClick.AddListener(StartFirstLevel);
+            _cutScenes.EndCutScene += OnShowFirstLevelButton;
+            _buttonNextLevel.onClick.AddListener(OnStartFirstLevel);
         }
 
         private void OnDisable()
         {
-            _cutScenes.EndCutScene -= ShowFirstLevelButton;
-            _buttonNextLevel.onClick.RemoveListener(StartFirstLevel);
+            _cutScenes.EndCutScene -= OnShowFirstLevelButton;
+            _buttonNextLevel.onClick.RemoveListener(OnStartFirstLevel);
         }
 
-        private void ShowFirstLevelButton()
+        private void OnShowFirstLevelButton()
         {
             _buttonNextLevel.gameObject.SetActive(true);
         }
 
-        private void StartFirstLevel()
+        private void OnStartFirstLevel()
         {
             SceneManager.LoadScene(GameStartScene);
         }

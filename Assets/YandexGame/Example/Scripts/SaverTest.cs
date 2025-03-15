@@ -41,8 +41,8 @@ namespace YG.Example
             }
 
             YandexGame.GetDataEvent += GetLoad;
-            _selectedCard.SelectedCardsSave += Save;
-            _buyer.EquipmentChanged += Save;
+            _selectedCard.SelectedCardsSave += OnEquipmentChanged;
+            _buyer.EquipmentChanged += OnEquipmentChanged;
         }
 
         private void OnDisable()
@@ -52,8 +52,8 @@ namespace YG.Example
 
         private void OnDestroy()
         {
-            _selectedCard.SelectedCardsSave -= Save;
-            _buyer.EquipmentChanged -= Save;
+            _selectedCard.SelectedCardsSave -= OnEquipmentChanged;
+            _buyer.EquipmentChanged -= OnEquipmentChanged;
         }
 
         public void Save()
@@ -131,10 +131,9 @@ namespace YG.Example
             Save();
         }
 
-        public void ResetSave()
+        private void OnEquipmentChanged()
         {
-            YandexGame.ResetSaveProgress();
-            YandexGame.SaveProgress();
+            Save();
         }
     }
 }

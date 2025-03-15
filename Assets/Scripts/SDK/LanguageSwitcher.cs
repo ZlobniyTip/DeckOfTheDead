@@ -16,29 +16,29 @@ namespace SDK
 
         private void OnEnable()
         {
-            _rs.onClick.AddListener(SetRusLanguage);
-            _tr.onClick.AddListener(SetTrLanguage);
-            _en.onClick.AddListener(SetEngLanguage);
+            _rs.onClick.AddListener(OnSetRusLanguage);
+            _tr.onClick.AddListener(OnSetTrLanguage);
+            _en.onClick.AddListener(OnSetEngLanguage);
         }
 
         private void OnDisable()
         {
-            _rs.onClick.RemoveListener(SetRusLanguage);
-            _tr.onClick.RemoveListener(SetTrLanguage);
-            _en.onClick.RemoveListener(SetEngLanguage);
+            _rs.onClick.RemoveListener(OnSetRusLanguage);
+            _tr.onClick.RemoveListener(OnSetTrLanguage);
+            _en.onClick.RemoveListener(OnSetEngLanguage);
         }
 
-        private void SetRusLanguage()
+        private void OnSetRusLanguage()
         {
             YandexGame.SwitchLanguage(Rus);
         }
 
-        private void SetTrLanguage()
+        private void OnSetTrLanguage()
         {
             YandexGame.SwitchLanguage(Tur);
         }
 
-        private void SetEngLanguage()
+        private void OnSetEngLanguage()
         {
             YandexGame.SwitchLanguage(Eng);
         }

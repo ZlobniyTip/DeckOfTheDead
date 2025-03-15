@@ -18,22 +18,22 @@ namespace UI.Bar
 
         private void OnEnable()
         {
-            _playerEnergy.EnergyChanged += StartTimer;
-            _playerEnergy.EnergyChanged += ChangeEnergyCount;
+            _playerEnergy.EnergyChanged += OnStartTimer;
+            _playerEnergy.EnergyChanged += OnChangeEnergyCount;
         }
 
         private void OnDisable()
         {
-            _playerEnergy.EnergyChanged -= StartTimer;
-            _playerEnergy.EnergyChanged -= ChangeEnergyCount;
+            _playerEnergy.EnergyChanged -= OnStartTimer;
+            _playerEnergy.EnergyChanged -= OnChangeEnergyCount;
         }
 
-        private void ChangeEnergyCount()
+        private void OnChangeEnergyCount()
         {
             _energyCount.text = _playerEnergy.CurrentEnergyCount.ToString();
         }
 
-        private void StartTimer()
+        private void OnStartTimer()
         {
             if (_changeValue != null)
             {

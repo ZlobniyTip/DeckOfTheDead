@@ -25,16 +25,16 @@ namespace Character
 
         private void OnEnable()
         {
-            MoveToPoint();
-            _spawner.WaveCleared += MoveToPoint;
+            OnMoveToPoint();
+            _spawner.WaveCleared += OnMoveToPoint;
         }
 
         private void OnDisable()
         {
-            _spawner.WaveCleared -= MoveToPoint;
+            _spawner.WaveCleared -= OnMoveToPoint;
         }
 
-        private void MoveToPoint()
+        private void OnMoveToPoint()
         {
             if (_pointIndex < _points.Count)
             {

@@ -20,7 +20,6 @@ namespace Character
         private Player _character;
         private CharacterShooting _characterShooting;
         private CharacterCards _characterCards;
-
         private int _money;
 
         public event Action<int> MoneyChanged;

@@ -16,7 +16,7 @@ namespace Units.Skills
             StartCoroutine(CallPoisonRain());
         }
 
-        public override void UseSkill()
+        public override void OnUseSkill()
         {
             _currentRain = Instantiate(_rain, transform.position, Quaternion.identity);
             _currentRain.transform.parent = null;
@@ -28,7 +28,7 @@ namespace Units.Skills
 
             while (enabled)
             {
-                UseSkill();
+                OnUseSkill();
 
                 yield return delay;
             }

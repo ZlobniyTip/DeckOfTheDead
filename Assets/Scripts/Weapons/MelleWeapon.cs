@@ -4,21 +4,21 @@ namespace Weapons
 {
     public class MelleWeapon : Weapon
     {
-        public event Action MelleAttack;
+        public event Action Attacked;
 
         private void OnEnable()
         {
-            MelleAttack += ReportImpact;
+            Attacked += OnReportImpact;
         }
 
         private void OnDisable()
         {
-            MelleAttack += ReportImpact;
+            Attacked += OnReportImpact;
         }
 
         public override int Shoot()
         {
-            MelleAttack?.Invoke();
+            Attacked?.Invoke();
 
             if (Audio != null)
                 Audio.Play();

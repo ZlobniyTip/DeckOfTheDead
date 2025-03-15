@@ -24,22 +24,15 @@ namespace Enemy
         private bool _isUnderCamp = false;
         private bool _isIgnored = false;
 
+        public event Action<int> DieRewarded;
+
         public bool IsIgnored => _isIgnored;
-
         public int Reward => _rewardLeaderboardPoints;
-
         public bool IsUnderCamp => _isUnderCamp;
-
         public ZombieSearchTarget ZombieSearch => _zombieSearch;
-
         public EnemyMovement Movement => _movement;
-
         public ZombieView ZombieView => _zombieView;
-
         public ZombieAttack ZombieAttack => _zombieAttack;
-
-
-        public event Action<int> DieRewarder;
 
         private void Awake()
         {
@@ -101,7 +94,7 @@ namespace Enemy
             if (IsDiying) 
                 yield break;
 
-            DieRewarder?.Invoke(_rewardLeaderboardPoints);
+            DieRewarded?.Invoke(_rewardLeaderboardPoints);
             DeclareDeath();
             SetDiyingStatus(true);
             _movement.StopMovement();

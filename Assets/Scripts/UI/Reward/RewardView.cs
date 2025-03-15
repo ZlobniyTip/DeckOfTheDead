@@ -35,9 +35,9 @@ namespace UI.Reward
 
         private int _completedCoroutines = 0;
 
-        public float CountReward { get; private set; } = 0;
-
         public event Action<float> RewardCounted;
+
+        public float CountReward { get; private set; } = 0;
 
         private void Start()
         {

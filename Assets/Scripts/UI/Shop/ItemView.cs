@@ -22,17 +22,13 @@ namespace UI.Shop
         private bool _isShopItem = false;
         private Store _shop;
 
-        protected Button EquipButton => _equipButton; 
-
-        protected TMP_Text Name => _nameText;
-
-        protected Image Icon => _icon;
-
-        public IProduct Product => _product;
-
         public event UnityAction<ItemView> PurchaseButtonPressed;
-
         public event UnityAction<ItemView> EquipButtonPressed;
+
+        protected Button EquipButton => _equipButton; 
+        protected TMP_Text Name => _nameText;
+        protected Image Icon => _icon;
+        public IProduct Product => _product;
 
         private void OnDisable()
         {
@@ -48,7 +44,7 @@ namespace UI.Shop
             if (_isShopItem)
             {
                 _shop.PlayerEquippedItem -= ShowEquipButton;
-                _product.State.Changed -= OnWeaponStateChanged;
+                _product.State.StatusChanged -= OnWeaponStateChanged;
             }
         }
 
@@ -60,7 +56,7 @@ namespace UI.Shop
 
             if (_isShopItem)
             {
-                _product.State.Changed += OnWeaponStateChanged;
+                _product.State.StatusChanged += OnWeaponStateChanged;
                 EquipButton.onClick.AddListener(OnEquipButtonPressed);
                 _purchaseButton.onClick.AddListener(OnPurchaseButtonPressed);
             }

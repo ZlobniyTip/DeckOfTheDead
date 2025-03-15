@@ -46,7 +46,7 @@ namespace Units
 
                     if (_unitAttack.IsAttacking == false)
                     {
-                        _unitAnimator.PlauIdlingAnimation(_unitAttack.CurrentWeapon.WeaponKind);
+                        _unitAnimator.PlayIdlingAnimation(_unitAttack.CurrentWeapon.WeaponKind);
                     }
                 }
             }
@@ -74,14 +74,14 @@ namespace Units
 
         private void MoveToTarget()
         {
-            _unitAnimator.PlauRunningAnimation(_unitAttack.CurrentWeapon.WeaponKind);
+            _unitAnimator.PlayRunningAnimation(_unitAttack.CurrentWeapon.WeaponKind);
             _navMesh.speed = _unit.UnitConfig.Speed;
             _navMesh.SetDestination(_unit.Target.transform.position);
         }
 
         private void MoveForward()
         {
-            _unitAnimator.PlauRunningAnimation(_unitAttack.CurrentWeapon.WeaponKind);
+            _unitAnimator.PlayRunningAnimation(_unitAttack.CurrentWeapon.WeaponKind);
             _navMesh.speed = _unit.UnitConfig.Speed;
             Vector3 forwardPosition = transform.position + Vector3.right * _unit.UnitConfig.Speed;
             _navMesh.SetDestination(forwardPosition);

@@ -15,28 +15,28 @@ namespace Units.Skills
 
         private void Start()
         {
-            _unit.Attack.CurrentWeapon.Shooting += CountStrokes;
+            _unit.Attack.CurrentWeapon.Shooting += OnCountStrokes;
         }
 
         private void OnDestroy()
         {
-            _unit.Attack.CurrentWeapon.Shooting -= CountStrokes;
+            _unit.Attack.CurrentWeapon.Shooting -= OnCountStrokes;
         }
 
-        public override void UseSkill()
+        public override void OnUseSkill()
         {
             _particleSystem.Play();
             _audioSource.Play();
             _unit.Target.TakeDamage(_unit.Attack.CurrentWeapon.DamageValue * MultiplyDamage);
         }
 
-        private void CountStrokes()
+        private void OnCountStrokes()
         {
             _impactCounter++;
 
             if (_impactCounter == CriticalAttackCounter)
             {
-                UseSkill();
+                OnUseSkill();
                 _impactCounter = 0;
             }
         }

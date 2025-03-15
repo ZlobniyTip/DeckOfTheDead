@@ -58,7 +58,7 @@ namespace Enemy.Skills.Virus
                             if (!SubscribedObjects.Contains(enemy))
                             {
                                 SubscribedObjects.Add(enemy);
-                                enemy.TurnIntoZombie += RiseZombie;
+                                enemy.TurnedIntoZombie += OnTurnedIntoZombie;
                             }
 
                             enemy.TakeDamage(_damage);
@@ -75,11 +75,11 @@ namespace Enemy.Skills.Virus
             Destroy(gameObject);
         }
 
-        private void RiseZombie(Unit unit)
+        private void OnTurnedIntoZombie(Unit unit)
         {
             if (SubscribedObjects.Contains(unit))
             {
-                unit.TurnIntoZombie -= RiseZombie;
+                unit.TurnedIntoZombie -= OnTurnedIntoZombie;
                 SubscribedObjects.Remove(unit);
             }
 
@@ -98,7 +98,7 @@ namespace Enemy.Skills.Virus
             {
                 if (obj != null && obj.TryGetComponent(out Unit enemy))
                 {
-                    enemy.TurnIntoZombie -= RiseZombie;
+                    enemy.TurnedIntoZombie -= OnTurnedIntoZombie;
                 }
             }
 

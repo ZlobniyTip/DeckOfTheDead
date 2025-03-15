@@ -16,16 +16,15 @@ namespace Card
         [SerializeField] private Button _selectedButton;
         [SerializeField] private TMP_Text _selectButtonText;
 
-        protected CardData CardData { get; set; }
-
         private DragAndDropCard _dragAndDrop;
         private DragAndDropCard _dragAndDropWeapon;
 
-        public CardData Card => CardData;
-
         public event Action<CardView> LevelUpButtonPressed;
-
         public event Action<CardView> SelectedCard;
+
+        protected CardData CardData { get; set; }
+
+        public CardData Card => CardData;
 
         private void Awake()
         {

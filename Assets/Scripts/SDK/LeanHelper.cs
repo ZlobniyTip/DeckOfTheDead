@@ -9,20 +9,20 @@ namespace SDK
     {
         [SerializeField] private LeanLocalization _leanLocalization;
 
-        public event Action ChangedLanguage;
+        public event Action LanguageChanged;
 
         private void Start()
         {
-            ChangeLeanLanguage(YandexGame.lang);
-            YandexGame.SwitchLangEvent += ChangeLeanLanguage;
+            OnLealLanguageChanged(YandexGame.lang);
+            YandexGame.SwitchLangEvent += OnLealLanguageChanged;
         }
 
         private void OnDisable()
         {
-            YandexGame.SwitchLangEvent -= ChangeLeanLanguage;
+            YandexGame.SwitchLangEvent -= OnLealLanguageChanged;
         }
 
-        private void ChangeLeanLanguage(string lang)
+        private void OnLealLanguageChanged(string lang)
         {
             switch (lang)
             {
@@ -37,7 +37,7 @@ namespace SDK
                     break;
             }
 
-            ChangedLanguage?.Invoke();
+            LanguageChanged?.Invoke();
         }
     }
 }

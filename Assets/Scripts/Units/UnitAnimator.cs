@@ -22,11 +22,11 @@ namespace Units
         private const string Diying = "IsDiying";
         private const string Throws = "Throws";
 
+        [SerializeField] private Animator _animator;
+
         private string _currentAnimationKey = string.Empty;
 
-        [SerializeField] Animator _animator;
-
-        public void PlauAttackAnimation(WeaponType weaponType)
+        public void PlayAttackAnimation(WeaponType weaponType)
         {
             switch (weaponType)
             {
@@ -56,7 +56,7 @@ namespace Units
             }
         }
 
-        public void PlauRunningAnimation(WeaponType weaponType)
+        public void PlayRunningAnimation(WeaponType weaponType)
         {
             switch (weaponType)
             {
@@ -86,7 +86,7 @@ namespace Units
             }
         }
 
-        public void PlauIdlingAnimation(WeaponType weaponType)
+        public void PlayIdlingAnimation(WeaponType weaponType)
         {
             switch (weaponType)
             {
@@ -117,7 +117,7 @@ namespace Units
             }
         }
 
-        public void PlauDiyingAnimation()
+        public void PlayDiyingAnimation()
         {
             SetAnimation(Diying);
         }

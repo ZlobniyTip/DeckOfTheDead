@@ -27,20 +27,14 @@ namespace Units
         private FXUnit _fxUnit;
         private CardView _cardView;
 
+        public event Action<Unit> TurnedIntoZombie;
+
         public UnitAttack Attack => _attack;
-
         public UnitConfig UnitConfig => _config;
-
         public Zombie Target => _target;
-
         public Player Character => _character;
-
         public FXUnit FXUnit => _fxUnit;
-
         public bool IsZombie { get; set; } = false;
-
-
-        public event Action<Unit> TurnIntoZombie;
 
         private void Awake()
         {
@@ -120,11 +114,11 @@ namespace Units
             }
 
             _controller.DisableStates();
-            _unitAnimator.PlauDiyingAnimation();
+            _unitAnimator.PlayDiyingAnimation();
             SetDiyingStatus(true);
             yield return delay;
 
-            TurnIntoZombie?.Invoke(this);
+            TurnedIntoZombie?.Invoke(this);
 
             Destroy(gameObject);
         }

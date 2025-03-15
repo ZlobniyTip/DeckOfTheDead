@@ -9,12 +9,12 @@ namespace UI.Bar
 
         private void OnEnable()
         {
-            _spawner.ReachedPoint += OnValueChanged;
+            _spawner.PointReached += OnValueChanged;
         }
 
         private void OnDisable()
         {
-            _spawner.ReachedPoint -= OnValueChanged;
+            _spawner.PointReached -= OnValueChanged;
         }
     }
 }

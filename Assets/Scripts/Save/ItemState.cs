@@ -6,18 +6,16 @@ namespace Save
     [Serializable]
     public class ItemState
     {
+        public event Action StatusChanged;
+
         public ItemStatus Status { get; set; }
-
         public CardStatus SelectedStatus { get; set; }
-
         public int Level { get; set; }
-
-        public event Action Changed;
 
         public void SetStatus(ItemStatus status)
         {
             Status = status;
-            Changed?.Invoke();
+            StatusChanged?.Invoke();
         }
 
         public void SetSelectedStatus(CardStatus status)

@@ -14,26 +14,22 @@ namespace Other
             set => _maxValue = value;
         }
 
-        protected int Value { get; set; }
+        public event Action<int, int> HealthChanged;
+        public event Action Died;
 
+        protected int Value { get; set; }
         protected Zombie LastAttacker { get; set; }
 
         public bool IsDiying { get; private set; } = false;
-
         public int MaxValueHealth => MaxValue;
-
         public int ValueHealth => Value;
-
-        public event Action<int, int> Changed;
-
-        public event Action Died;
 
         public virtual void TakeDamage(int damage)
         {
             if (damage > 0)
             {
                 Value -= damage;
-                Changed?.Invoke(Value, MaxValue);
+                HealthChanged?.Invoke(Value, MaxValue);
             }
         }
 
@@ -42,7 +38,7 @@ namespace Other
             if (Value + healValue <= MaxValue)
             {
                 Value += healValue;
-                Changed?.Invoke(Value, MaxValue);
+                HealthChanged?.Invoke(Value, MaxValue);
             }
         }
 
@@ -56,7 +52,7 @@ namespace Other
         {
             Value = value;
             MaxValue = maxValue;
-            Changed?.Invoke(Value, MaxValue);
+            HealthChanged?.Invoke(Value, MaxValue);
         }
 
         public void SetDiyingStatus(bool isDiying)

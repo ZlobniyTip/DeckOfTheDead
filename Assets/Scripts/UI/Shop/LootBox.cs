@@ -19,7 +19,6 @@ namespace UI.Shop
         [SerializeField] private List<CardData> _cards;
 
         public List<Weapon> Weapons => ChoosedWeapons;
-
         public List<CardData> Cards => ChoosedCards;
 
         public void OpenLootBox()

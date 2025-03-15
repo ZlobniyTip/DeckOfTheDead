@@ -13,9 +13,9 @@ namespace Character
 
         [SerializeField] private SaverTest _saver;
 
-        public List<CardData> Cards => PurchasedCards;
-
         public event Action<List<CardData>> Initialized;
+
+        public List<CardData> Cards => PurchasedCards;
 
         public void AddCard(CardData card, Action equipmentChanged)
         {

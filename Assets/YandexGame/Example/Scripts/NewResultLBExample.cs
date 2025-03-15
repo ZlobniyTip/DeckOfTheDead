@@ -9,17 +9,17 @@ namespace YG.Example
 
         private void OnEnable()
         {
-            _saverTest.LoadedLeaderboardScore += NewScore;
-            _saverTest.SavedLeaderboardScore += NewScore;
+            _saverTest.LoadedLeaderboardScore += OnLoadedNewScore;
+            _saverTest.SavedLeaderboardScore += OnLoadedNewScore;
         }
 
         private void OnDisable()
         {
-            _saverTest.LoadedLeaderboardScore -= NewScore;
-            _saverTest.SavedLeaderboardScore -= NewScore;
+            _saverTest.LoadedLeaderboardScore -= OnLoadedNewScore;
+            _saverTest.SavedLeaderboardScore -= OnLoadedNewScore;
         }
 
-        private void NewScore(int score)
+        private void OnLoadedNewScore(int score)
         {
             YandexGame.NewLeaderboardScores(_leaderboardYG.nameLB, score);
         }

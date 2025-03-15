@@ -6,7 +6,7 @@ namespace Units.Skills
     {
         [SerializeField] private string _name;
 
-        public virtual void UseSkill()
+        public virtual void OnUseSkill()
         {
         }
     }

@@ -18,17 +18,15 @@ namespace Spawner
         private int _currentPoint = 0;
         private int _activeEnemies = 0;
 
-        public event UnityAction<int, int> ReachedPoint;
-
+        public event UnityAction<int, int> PointReached;
         public event UnityAction WaveCleared;
-
-        public event UnityAction ZombieDie;
+        public event UnityAction ZombieDied;
 
         private void OnEnable()
         {
             foreach (var playerMovePoint in _playerMovePoints)
             {
-                playerMovePoint.PlayerOnPoint += StartSpawnEnemyes;
+                playerMovePoint.PlayerCheckpointEntered += OnPlayerCheckpointEntered;
             }
         }
 
@@ -36,14 +34,14 @@ namespace Spawner
         {
             foreach (var playerMovePoint in _playerMovePoints)
             {
-                playerMovePoint.PlayerOnPoint -= StartSpawnEnemyes;
+                playerMovePoint.PlayerCheckpointEntered -= OnPlayerCheckpointEntered;
             }
         }
 
-        private void StartSpawnEnemyes(Transform[] spawnPoints, int numberEnemiesInWave)
+        private void OnPlayerCheckpointEntered(Transform[] spawnPoints, int numberEnemiesInWave)
         {
             _currentPoint++;
-            ReachedPoint?.Invoke(_currentPoint, _playerMovePoints.Length);
+            PointReached?.Invoke(_currentPoint, _playerMovePoints.Length);
             StartCoroutine(SpawnEnemyes(spawnPoints, numberEnemiesInWave));
         }
 
@@ -60,23 +58,23 @@ namespace Spawner
                     Quaternion.identity);
 
                 enemy.ZombieSearch.InitializeStartTarget(_target);
-                enemy.Died += HandleEnemyDeath;
-                enemy.DieRewarder += GetLbScore;
+                enemy.Died += OnHandleEnemyDeath;
+                enemy.DieRewarded += OnGetLeaderboardScore;
                 numberEnemiesInWave--;
 
                 yield return delay;
             }
         }
 
-        private void GetLbScore(int reward)
+        private void OnGetLeaderboardScore(int reward)
         {
             _character.GetLeaderboardScore(reward);
         }
 
-        private void HandleEnemyDeath()
+        private void OnHandleEnemyDeath()
         {
             _activeEnemies--;
-            ZombieDie?.Invoke();
+            ZombieDied?.Invoke();
 
             if (_activeEnemies <= 0)
                 WaveCleared?.Invoke();

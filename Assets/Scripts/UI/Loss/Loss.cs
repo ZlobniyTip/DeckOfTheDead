@@ -10,15 +10,15 @@ namespace UI.Loss
 
         private void Start()
         {
-            _character.Died += OpenLossScreen;
+            _character.Died += OnOpenLossScreen;
         }
 
         private void OnDisable()
         {
-            _character.Died -= OpenLossScreen;
+            _character.Died -= OnOpenLossScreen;
         }
 
-        private void OpenLossScreen()
+        private void OnOpenLossScreen()
         {
             _lossScreen.gameObject.SetActive(true);
         }

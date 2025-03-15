@@ -12,37 +12,34 @@ namespace UI.Reward
         [SerializeField] private ZombieSpawner _spawner;
 
         public int UnitsUsed { get; private set; }
-
         public int HeroDamage { get; private set; }
-
         public int LeaderboardScore { get; private set; }
-
         public int KilledEnemies { get; private set; }
 
         private void OnEnable()
         {
-            _cardUnit.UsedCard += AddCardUsed;
-            _characterShooting.CausedDamage += AddHeroDamage;
-            _character.ChangedLeaderboardScore += AddLeaderboardScore;
-            _characterShooting.KilledTarget += AddKilledZombie;
-            _spawner.ZombieDie += AddKilledZombie;
+            _cardUnit.UsedCard += OnAddCardUsed;
+            _characterShooting.CausedDamage += OnAddHeroDamage;
+            _character.ChangedLeaderboardScore += OnAddLeaderboardScore;
+            _characterShooting.KilledTarget += OnAddKilledZombie;
+            _spawner.ZombieDied += OnAddKilledZombie;
         }
 
         private void OnDisable()
         {
-            _cardUnit.UsedCard -= AddCardUsed;
-            _characterShooting.CausedDamage -= AddHeroDamage;
-            _character.ChangedLeaderboardScore -= AddLeaderboardScore;
-            _characterShooting.KilledTarget -= AddKilledZombie;
-            _spawner.ZombieDie -= AddKilledZombie;
+            _cardUnit.UsedCard -= OnAddCardUsed;
+            _characterShooting.CausedDamage -= OnAddHeroDamage;
+            _character.ChangedLeaderboardScore -= OnAddLeaderboardScore;
+            _characterShooting.KilledTarget -= OnAddKilledZombie;
+            _spawner.ZombieDied -= OnAddKilledZombie;
         }
 
-        private void AddCardUsed() => UnitsUsed++;
+        private void OnAddCardUsed() => UnitsUsed++;
 
-        private void AddHeroDamage(int damage) => HeroDamage += damage;
+        private void OnAddHeroDamage(int damage) => HeroDamage += damage;
 
-        private void AddLeaderboardScore(int score) => LeaderboardScore += score;
+        private void OnAddLeaderboardScore(int score) => LeaderboardScore += score;
 
-        private void AddKilledZombie() => KilledEnemies++;
+        private void OnAddKilledZombie() => KilledEnemies++;
     }
 }

@@ -15,12 +15,12 @@ namespace UI.Bar
 
         private void OnEnable()
         {
-            _health.Changed += OnValueChanged;
+            _health.HealthChanged += OnValueChanged;
         }
 
         private void OnDisable()
         {
-            _health.Changed -= OnValueChanged;
+            _health.HealthChanged -= OnValueChanged;
         }
     }
 }

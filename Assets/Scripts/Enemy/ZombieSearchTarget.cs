@@ -86,12 +86,12 @@ namespace Enemy
         public void InitializeTarget(Health target)
         {
             if (_target != null)
-                _target.Died -= ClearTarget;
+                _target.Died -= OnClearTarget;
 
             if (target != null && !target.IsDiying)
             {
                 _target = target;
-                _target.Died += ClearTarget;
+                _target.Died += OnClearTarget;
             }
         }
 
@@ -100,9 +100,9 @@ namespace Enemy
             _target = _startTarget;
         }
 
-        public void ClearTarget()
+        public void OnClearTarget()
         {
-            _target.Died -= ClearTarget;
+            _target.Died -= OnClearTarget;
             SetStartTarget();
         }
 

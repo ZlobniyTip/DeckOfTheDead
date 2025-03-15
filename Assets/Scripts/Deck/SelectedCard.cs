@@ -21,8 +21,7 @@ namespace Deck
         [SerializeField] private CardViewWeapon _templateCardWeapon;
         [SerializeField] private Button _selectButton;
 
-        public event Action<List<CardData>> ChosenCards;
-
+        public event Action<List<CardData>> ChosedCards;
         public event Action SelectedCardsSave;
 
         private void OnEnable()
@@ -33,7 +32,7 @@ namespace Deck
 
         private void OnDisable()
         {
-            ChosenCards?.Invoke(SelectedCards);
+            ChosedCards?.Invoke(SelectedCards);
             SelectedCardsSave?.Invoke();
 
             foreach (var card in Content)

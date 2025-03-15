@@ -20,17 +20,13 @@ namespace Character
         private int _currentLevelLeaderboardScore;
         private CharacterStateMachine _stateMachine;
 
-        public int LeaderboardScore => _leaderboardScore;
-
-        public PlayerEnergy Energy => _playerEnergy;
-
-        public CharacterMovement Movement => _movement;
-
-        public CharacterView CharacterView => _characterView;
-
-        public CharacterShooting CharacterShooting => _characterShooting;
-
         public event Action<int> ChangedLeaderboardScore;
+
+        public int LeaderboardScore => _leaderboardScore;
+        public PlayerEnergy Energy => _playerEnergy;
+        public CharacterMovement Movement => _movement;
+        public CharacterView CharacterView => _characterView;
+        public CharacterShooting CharacterShooting => _characterShooting;
 
         private void Start()
         {

@@ -65,7 +65,7 @@ namespace Units
 
                     if (_distance <= _currentWeapon.AttackRange)
                     {
-                        _unitAnimator.PlauAttackAnimation(_currentWeapon.WeaponKind);
+                        _unitAnimator.PlayAttackAnimation(_currentWeapon.WeaponKind);
 
                         if (_unit.Target != null)
                         {
