@@ -12,6 +12,8 @@ namespace Units.Skills
         private readonly float DecelerationFactor = 2f;
         private readonly Collider[] OverlappedColliders = new Collider[10];
 
+        private HashSet<Zombie> _currentDetectedEnemies = new HashSet<Zombie>();
+
         private void Start()
         {
             StartCoroutine(SearchTarget());
@@ -27,16 +29,17 @@ namespace Units.Skills
 
         private IEnumerator SearchTarget()
         {
+            var delaySearch = new WaitForSeconds(0.1f);
+
             while (enabled)
             {
                 int count = Physics.OverlapSphereNonAlloc(transform.position, DetectionRadius, OverlappedColliders);
-                HashSet<Zombie> currentDetectedEnemies = new HashSet<Zombie>();
 
                 for (int i = 0; i < count; i++)
                 {
                     if (OverlappedColliders[i].TryGetComponent(out Zombie enemy))
                     {
-                        currentDetectedEnemies.Add(enemy);
+                        _currentDetectedEnemies.Add(enemy);
 
                         if (SlowedZombies.Contains(enemy) == false)
                         {
@@ -53,14 +56,14 @@ namespace Units.Skills
 
                 foreach (var enemy in new List<Zombie>(SlowedZombies))
                 {
-                    if (currentDetectedEnemies.Contains(enemy) == false)
+                    if (_currentDetectedEnemies.Contains(enemy) == false)
                     {
                         RestoreCharacteristics(enemy);
                         SlowedZombies.Remove(enemy);
                     }
                 }
 
-                yield return new WaitForSeconds(0.1f);
+                yield return delaySearch;
             }
         }
 

@@ -28,10 +28,10 @@ namespace Units.Skills
 
         private IEnumerator StealingLife()
         {
+            var delay = new WaitForSeconds(_cooldown);
+
             while (enabled)
             {
-                var delay = new WaitForSeconds(_cooldown);
-
                 int count = Physics.OverlapSphereNonAlloc(transform.position, _radius, _overlappedColliders);
                 Rigidbody rigidbody;
 

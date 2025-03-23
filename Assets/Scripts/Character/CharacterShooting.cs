@@ -93,13 +93,16 @@ namespace Character
 
         private IEnumerator WeaponTimer(int time)
         {
+            var delay = new WaitForSeconds(1);
+
             _time = time;
             _tectTime.gameObject.SetActive(true);
 
             while (_time > 0)
             {
                 _tectTime.text = _time.ToString();
-                yield return new WaitForSeconds(1);
+
+                yield return delay;
                 _time--;
             }
 

@@ -21,10 +21,14 @@ namespace Units.Skills
 
         private IEnumerator TimerEmoSkill(Unit enemyFriend, Player character)
         {
+            var delay = new WaitForSeconds(1);
+
             while (_timerEmoSrill > 0)
             {
                 _timer.text = _timerEmoSrill.ToString();
-                yield return new WaitForSeconds(1);
+
+                yield return delay;
+
                 _timerEmoSrill--;
             }
 
