@@ -34,6 +34,9 @@ namespace CutScenes
 
         private IEnumerator TurnOnCameras()
         {
+            int duration = 7;
+            var delay = new WaitForSeconds(duration);
+
             yield return StartCoroutine(FadeOutBlackout());
 
             for (int i = 0; i < _camers.Length; i++)
@@ -43,7 +46,7 @@ namespace CutScenes
                 if (i < _texts.Length)
                     _texts[i].gameObject.SetActive(true);
 
-                yield return new WaitForSeconds(7f);
+                yield return delay;
 
                 _camers[i].gameObject.SetActive(false);
 

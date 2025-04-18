@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Spawner;
 using Card;
 using Deck;
 using Other;
@@ -138,7 +139,8 @@ namespace DragAndDrop
             if (_currentAttackRadiusVisual == null) return;
 
             float attackDistance = (_cardView.Card as CardDataUnit).UnitConfig.Weapon.AttackRange;
-            _currentAttackRadiusVisual.transform.localScale = new Vector3(attackDistance * 2, _currentAttackRadiusVisual.transform.localScale.y, attackDistance * 2);
+            _currentAttackRadiusVisual.transform.localScale = 
+                new Vector3(attackDistance * 2, _currentAttackRadiusVisual.transform.localScale.y, attackDistance * 2);
         }
 
         private void CleanupVisuals()

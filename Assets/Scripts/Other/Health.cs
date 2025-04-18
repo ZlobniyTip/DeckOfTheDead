@@ -8,21 +8,20 @@ namespace Other
     {
         [SerializeField] private int _maxValue;
 
+        public event Action<int, int> HealthChanged;
+        public event Action Died;
+
+        public bool IsDiying { get; private set; } = false;
+        public int MaxValueHealth => MaxValue;
+        public int ValueHealth => Value;
+
         protected int MaxValue
         {
             get => _maxValue;
             set => _maxValue = value;
         }
-
-        public event Action<int, int> HealthChanged;
-        public event Action Died;
-
         protected int Value { get; set; }
         protected Zombie LastAttacker { get; set; }
-
-        public bool IsDiying { get; private set; } = false;
-        public int MaxValueHealth => MaxValue;
-        public int ValueHealth => Value;
 
         public virtual void TakeDamage(int damage)
         {

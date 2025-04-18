@@ -36,7 +36,8 @@ namespace Character
 
             while (_currentEnemy == null)
             {
-                int count = Physics.OverlapSphereNonAlloc(transform.position, _characterShooting.CurrentWeapon.AttackRange, OverlappedColliders);
+                int count = Physics.OverlapSphereNonAlloc(transform.position, 
+                    _characterShooting.CurrentWeapon.AttackRange, OverlappedColliders);
 
                 for (int i = 0; i < count; i++)
                 {

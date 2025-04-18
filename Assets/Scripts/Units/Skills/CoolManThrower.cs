@@ -7,6 +7,8 @@ namespace Units.Skills
     [RequireComponent(typeof(Unit))]
     public class CoolManThrower : Skill
     {
+        private const float Delay = 0.5f;
+
         [SerializeField] private Molotov _molotov;
         [SerializeField] private Transform _startingPoint;
         [SerializeField] private AnimationCurve _flightCurve;
@@ -32,22 +34,23 @@ namespace Units.Skills
         private IEnumerator ThrowRoutine()
         {
             var delay = new WaitForSeconds(_cooldownThrow);
+            var duration = new WaitForSeconds(Delay);
 
             while (enabled)
             {
                 yield return delay;
 
                 if (_unit.Target != null)
-                    yield return PerformThrow(_unit.Target.transform);
+                    yield return PerformThrow(_unit.Target.transform, duration);
             }
         }
 
-        private IEnumerator PerformThrow(Transform target)
+        private IEnumerator PerformThrow(Transform target, WaitForSeconds delay)
         {
             _unitObserver.BlockAttack(true);
             _animator.PlayThrows();
 
-            yield return new WaitForSeconds(0.5f);
+            yield return delay;
             _molotovSource.Play();
             var molotovInstance = Instantiate(_molotov, _startingPoint.position, Quaternion.identity);
 

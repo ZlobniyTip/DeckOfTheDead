@@ -47,7 +47,8 @@ namespace UI.Bar
         {
             while (_barFilling.value != _barFilling.maxValue)
             {
-                _barFilling.value = Mathf.MoveTowards(_barFilling.value, _barFilling.maxValue, RecoveryRate * Time.deltaTime);
+                _barFilling.value = 
+                    Mathf.MoveTowards(_barFilling.value, _barFilling.maxValue, RecoveryRate * Time.deltaTime);
 
                 yield return null;
             }

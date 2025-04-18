@@ -61,7 +61,8 @@ namespace Deck
 
                 void Init(CardView view)
                 {
-                    view.gameObject.transform.localScale = new Vector3(NormalizationDisplay, NormalizationDisplay, NormalizationDisplay);
+                    view.gameObject.transform.localScale = 
+                        new Vector3(NormalizationDisplay, NormalizationDisplay, NormalizationDisplay);
                     view.Initialize(card);
                     view.SwitchDragAndDrop(false);
                     view.ActivateSelectedButton();

@@ -28,7 +28,8 @@ namespace UI.Bar
         {
             while (BarFilling.value != target)
             {
-                BarFilling.value = Mathf.MoveTowards(BarFilling.value, target, RecoveryRate * Time.deltaTime);
+                BarFilling.value = 
+                    Mathf.MoveTowards(BarFilling.value, target, RecoveryRate * Time.deltaTime);
 
                 yield return null;
             }

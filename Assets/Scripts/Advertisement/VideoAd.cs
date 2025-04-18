@@ -8,7 +8,9 @@ namespace Advertisement
 {
     public class VideoAd : MonoBehaviour
     {
-        private readonly int AmountReward = 5000;
+        private readonly int _amountReward = 5000;
+        private readonly int _rewardIndexMoney = 0;
+        private readonly int _rewardIndexMoneyx2 = 1;
 
         [SerializeField] private Buyer _buyer;
         [SerializeField] private RewardView _rewardView;
@@ -30,23 +32,23 @@ namespace Advertisement
 
         public void GivePlayerMoneyX2()
         {
-            YandexGame.RewVideoShow(0);
+            YandexGame.RewVideoShow(_rewardIndexMoneyx2);
         }
 
         public void GivePlayerMoney()
         {
-            YandexGame.RewVideoShow(1);
+            YandexGame.RewVideoShow(_rewardIndexMoney);
         }
 
         public void Rewarded(int id)
         {
-            if (id == 0)
+            if (id == _rewardIndexMoney)
             {
                 _buyer.GetMoney((int)_rewardView.CountReward);
             }
-            else if (id == 1)
+            else if (id == _rewardIndexMoneyx2)
             {
-                _buyer.GetMoney(AmountReward);
+                _buyer.GetMoney(_amountReward);
             }
 
             YandexGame.ConsumePurchases();

@@ -8,19 +8,19 @@ namespace UI.Reward
 {
     public class RewardView : MonoBehaviour
     {
-        private readonly float CountRewardHeroDamage = 0;
-        private readonly float CountRewardLbScore = 0;
-        private readonly float CountRewardUnitsUsed = 0;
-        private readonly float CountRewardKilledEnemies = 0;
-        private readonly float DelayCouner = 0.005f;
-        private readonly float DamagRewardCoefficient = 10f;
-        private readonly float RewardIncreaseCoefficientLeaderboard = 0.05f;
-        private readonly float UnitRewardIncreaseRate = 100f;
-        private readonly float CoefficientIncreasingRewardKilledEnemies = 100f;
-        private readonly int CounterStep = 1000;
-        private readonly int TotalCoroutines = 4;
-        private readonly int RewardCoroutineIndex = 5;
-        private readonly float FinalRewardMultiplier = 0.3f;
+        private readonly float _countRewardHeroDamage = 0;
+        private readonly float _countRewardLbScore = 0;
+        private readonly float _countRewardUnitsUsed = 0;
+        private readonly float _countRewardKilledEnemies = 0;
+        private readonly float _delayCouner = 0.005f;
+        private readonly float _damagRewardCoefficient = 10f;
+        private readonly float _rewardIncreaseCoefficientLeaderboard = 0.05f;
+        private readonly float _unitRewardIncreaseRate = 100f;
+        private readonly float _coefficientIncreasingRewardKilledEnemies = 100f;
+        private readonly int _counterStep = 1000;
+        private readonly int _totalCoroutines = 4;
+        private readonly int _rewardCoroutineIndex = 5;
+        private readonly float _finalRewardMultiplier = 0.3f;
 
         [SerializeField] private GameObject _gamePanel;
         [SerializeField] private GameObject _buttonsPanel;
@@ -43,10 +43,17 @@ namespace UI.Reward
         {
             _gamePanel.SetActive(false);
             _activPanelButton.onClick.AddListener(OnActivPanel);
-            StartCoroutine(ChangeValue(_rewardCounter.HeroDamage, _heroDamage, DamagRewardCoefficient, CountRewardHeroDamage));
-            StartCoroutine(ChangeValue(_rewardCounter.LeaderboardScore, _leaderboardScore, RewardIncreaseCoefficientLeaderboard, CountRewardLbScore));
-            StartCoroutine(ChangeValue(_rewardCounter.UnitsUsed, _unitsUsed, UnitRewardIncreaseRate, CountRewardUnitsUsed));
-            StartCoroutine(ChangeValue(_rewardCounter.KilledEnemies, _killedEnemies, CoefficientIncreasingRewardKilledEnemies, CountRewardKilledEnemies));
+            StartCoroutine(ChangeValue(_rewardCounter.HeroDamage, _heroDamage, 
+                _damagRewardCoefficient, _countRewardHeroDamage));
+
+            StartCoroutine(ChangeValue(_rewardCounter.LeaderboardScore, _leaderboardScore, 
+                _rewardIncreaseCoefficientLeaderboard, _countRewardLbScore));
+
+            StartCoroutine(ChangeValue(_rewardCounter.UnitsUsed, _unitsUsed,
+                _unitRewardIncreaseRate, _countRewardUnitsUsed));
+
+            StartCoroutine(ChangeValue(_rewardCounter.KilledEnemies, _killedEnemies, 
+                _coefficientIncreasingRewardKilledEnemies, _countRewardKilledEnemies));
         }
 
         private void OnEnable()
@@ -56,12 +63,12 @@ namespace UI.Reward
 
         private IEnumerator ChangeValue(float value, TMP_Text text, float multiply, float countReward)
         {
-            var delay = new WaitForSeconds(DelayCouner);
+            var delay = new WaitForSeconds(_delayCouner);
             int counter = 0;
 
             while (counter < value)
             {
-                counter += CounterStep;
+                counter += _counterStep;
                 text.text = counter.ToString();
 
                 yield return delay;
@@ -69,7 +76,7 @@ namespace UI.Reward
 
             _completedCoroutines++;
 
-            if (_completedCoroutines != RewardCoroutineIndex)
+            if (_completedCoroutines != _rewardCoroutineIndex)
             {
                 countReward += value * multiply;
                 CountReward += countReward;
@@ -78,9 +85,10 @@ namespace UI.Reward
             if (counter > value)
                 text.text = value.ToString();
 
-            if (_completedCoroutines == TotalCoroutines)
+            if (_completedCoroutines == _totalCoroutines)
             {
-                StartCoroutine(ChangeValue(CountReward, _reward, FinalRewardMultiplier, CountReward));
+                StartCoroutine(ChangeValue(CountReward, _reward, 
+                    _finalRewardMultiplier, CountReward));
             }
         }
 

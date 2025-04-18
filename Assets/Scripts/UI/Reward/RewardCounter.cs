@@ -1,5 +1,5 @@
-using Character;
 using Spawner;
+using Character;
 using UnityEngine;
 
 namespace UI.Reward

@@ -91,6 +91,20 @@ namespace Character
             _weaponTimerCoroutine = StartCoroutine(WeaponTimer(time));
         }
 
+        public void PlayWeaponSpawnEffect() => _weaponSpawn.Play();
+        public void PlaySoundEffect() => _audioSource.Play();
+
+        public void StopShooting()
+        {
+            StopCoroutine(Shooting());
+
+            if (_currentWeapon.WeaponKind == WeaponType.FlameThrower)
+            {
+                FlameThrower flame = _currentWeapon as FlameThrower;
+                flame.StopEffect();
+            }
+        }
+
         private IEnumerator WeaponTimer(int time)
         {
             var delay = new WaitForSeconds(1);
@@ -116,20 +130,6 @@ namespace Character
                 _currentEnemy.SetIgnoredStatus(true);
 
             _tectTime.gameObject.SetActive(false);
-        }
-
-        public void PlayWeaponSpawnEffect() => _weaponSpawn.Play();
-        public void PlaySoundEffect() => _audioSource.Play();
-
-        public void StopShooting()
-        {
-            StopCoroutine(Shooting());
-
-            if (_currentWeapon.WeaponKind == WeaponType.FlameThrower)
-            {
-                FlameThrower flame = _currentWeapon as FlameThrower;
-                flame.StopEffect();
-            }
         }
 
         private IEnumerator Shooting()

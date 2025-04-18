@@ -29,10 +29,12 @@ namespace Enemy.Skills
 
                 for (int i = 0; i < count; i++)
                 {
-                    if (!OverlappedColliders[i].TryGetComponent(out Rigidbody rigidbody) || rigidbody == null)
+                    if (!OverlappedColliders[i].
+                        TryGetComponent(out Rigidbody rigidbody) || rigidbody == null)
                         continue;
 
-                    if (!rigidbody.gameObject.TryGetComponent(out ZombieAttack zombie) || SubscribedObjects.Contains(zombie))
+                    if (!rigidbody.gameObject.
+                        TryGetComponent(out ZombieAttack zombie) || SubscribedObjects.Contains(zombie))
                         continue;
 
                     SubscribedObjects.Add(zombie);

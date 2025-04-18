@@ -110,7 +110,8 @@ namespace UI.Shop
 
             void Init(CardView view)
             {
-                view.gameObject.transform.localScale = new Vector3(NormalizationCardDisplay, NormalizationCardDisplay, NormalizationCardDisplay);
+                view.gameObject.transform.localScale = 
+                    new Vector3(NormalizationCardDisplay, NormalizationCardDisplay, NormalizationCardDisplay);
                 view.Init(product, this);
                 view.Initialize(card);
                 view.SwitchDragAndDrop(false);
