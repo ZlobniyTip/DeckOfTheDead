@@ -33,7 +33,7 @@ namespace Units
             }
         }
 
-        public IEnumerator SearchTarget()
+        private IEnumerator SearchTarget()
         {
             float amountDelay = 0.1f;
             var delay = new WaitForSeconds(amountDelay);

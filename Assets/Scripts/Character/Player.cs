@@ -20,7 +20,7 @@ namespace Character
         private int _currentLevelLeaderboardScore;
         private CharacterStateMachine _stateMachine;
 
-        public event Action<int> ChangedLeaderboardScore;
+        public event Action<int> LeaderboardScoreChanged;
 
         public int LeaderboardScore => _leaderboardScore;
         public PlayerEnergy Energy => _playerEnergy;
@@ -59,7 +59,7 @@ namespace Character
         public void GetLeaderboardScore(int score)
         {
             _leaderboardScore += score;
-            ChangedLeaderboardScore?.Invoke(_leaderboardScore - _currentLevelLeaderboardScore);
+            LeaderboardScoreChanged?.Invoke(_leaderboardScore - _currentLevelLeaderboardScore);
         }
 
         public void LoadScore(int score)

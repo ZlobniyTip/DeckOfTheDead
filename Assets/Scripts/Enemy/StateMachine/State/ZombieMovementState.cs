@@ -16,9 +16,10 @@ namespace Enemy.StateMachine.State
         }
 
         protected ZombieView ZombieView => _enemy.ZombieView;
-        protected Zombie Enemy => _enemy;
-        protected bool IsAttacking => Enemy.ZombieAttack.IsAttacking;
-        protected bool IsDiying => Enemy.IsDiying;
+
+        protected bool IsAttacking => _enemy.ZombieAttack.IsAttacking;
+
+        protected bool IsDiying => _enemy.IsDiying;
 
         public virtual void Enter()
         {

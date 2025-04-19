@@ -6,7 +6,7 @@ namespace Weapons
 {
     public class Molotov : MonoBehaviour
     {
-        private readonly Collider[] OverlappedColliders = new Collider[10];
+        private readonly Collider[] _overlappedColliders = new Collider[10];
 
         [SerializeField] private ParticleSystem _burningEffect;
         [SerializeField] private ParticleSystem _radiusEffect;
@@ -45,12 +45,12 @@ namespace Weapons
             {
                 var delay = new WaitForSeconds(_delayBetweenDamage);
 
-                int count = Physics.OverlapSphereNonAlloc(transform.position, _radius, OverlappedColliders);
+                int count = Physics.OverlapSphereNonAlloc(transform.position, _radius, _overlappedColliders);
                 Rigidbody rigidbody;
 
                 for (int i = 0; i < count; i++)
                 {
-                    rigidbody = OverlappedColliders[i].attachedRigidbody;
+                    rigidbody = _overlappedColliders[i].attachedRigidbody;
 
                     if (rigidbody)
                     {

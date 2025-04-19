@@ -43,7 +43,7 @@ namespace UI.Shop
         {
             if (_isShopItem)
             {
-                _shop.PlayerEquippedItem -= ShowEquipButton;
+                _shop.PlayerItemEquipped -= ShowEquipButton;
                 _product.State.StatusChanged -= OnWeaponStateChanged;
             }
         }
@@ -86,7 +86,7 @@ namespace UI.Shop
                     ShowEquippedLabel();
 
                     if (_isShopItem)
-                        _shop.PlayerEquippedItem += ChangeStatus;
+                        _shop.PlayerItemEquipped += ChangeStatus;
                     break;
             }
         }

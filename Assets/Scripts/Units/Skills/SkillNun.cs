@@ -6,10 +6,10 @@ namespace Units.Skills
 {
     public class SkillNun : Skill
     {
-        private readonly HashSet<Unit> Units = new HashSet<Unit>();
-        private readonly float DetectionRadius = 2f;
-        private readonly Collider[] OverlappedColliders = new Collider[10];
-        private readonly int AmountRegeneration = 2;
+        private readonly HashSet<Unit> _units = new HashSet<Unit>();
+        private readonly float _detectionRadius = 2f;
+        private readonly Collider[] _overlappedColliders = new Collider[10];
+        private readonly int _amountRegeneration = 2;
 
         private HashSet<Unit> _currentDetectedUnits = new HashSet<Unit>();
 
@@ -27,30 +27,30 @@ namespace Units.Skills
         {
             while (enabled)
             {
-                int count = Physics.OverlapSphereNonAlloc(transform.position, DetectionRadius, OverlappedColliders);
+                int count = Physics.OverlapSphereNonAlloc(transform.position, _detectionRadius, _overlappedColliders);
 
                 for (int i = 0; i < count; i++)
                 {
-                    if (OverlappedColliders[i].TryGetComponent(out Unit unit))
+                    if (_overlappedColliders[i].TryGetComponent(out Unit unit))
                     {
                         _currentDetectedUnits.Add(unit);
 
-                        if (Units.Contains(unit))
+                        if (_units.Contains(unit))
                         {
-                            unit.TakeHeal(AmountRegeneration);
+                            unit.TakeHeal(_amountRegeneration);
                         }
                         else
                         {
-                            Units.Add(unit);
+                            _units.Add(unit);
                         }
                     }
                 }
 
-                foreach (var unit in new List<Unit>(Units))
+                foreach (var unit in new List<Unit>(_units))
                 {
                     if (!_currentDetectedUnits.Contains(unit))
                     {
-                        Units.Remove(unit);
+                        _units.Remove(unit);
                     }
                 }
 

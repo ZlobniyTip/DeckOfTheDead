@@ -27,7 +27,7 @@ namespace Units
         private FXUnit _fxUnit;
         private CardView _cardView;
 
-        public event Action<Unit> TurnedIntoZombie;
+        public event Action<Unit> IntoZombieTurned;
 
         public UnitAttack Attack => _attack;
         public UnitConfig UnitConfig => _config;
@@ -118,7 +118,7 @@ namespace Units
             SetDiyingStatus(true);
             yield return delay;
 
-            TurnedIntoZombie?.Invoke(this);
+            IntoZombieTurned?.Invoke(this);
 
             Destroy(gameObject);
         }

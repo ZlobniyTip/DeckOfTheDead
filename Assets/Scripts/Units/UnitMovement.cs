@@ -6,7 +6,7 @@ namespace Units
 {
     public class UnitMovement : MonoBehaviour
     {
-        private readonly float MaximumDistancePlayer = 4;
+        private readonly float _maximumDistancePlayer = 4;
 
         private Unit _unit;
         private UnitAttack _unitAttack;
@@ -35,7 +35,7 @@ namespace Units
             {
                 float distansToCharacterX = transform.position.x - _unit.Character.transform.position.x;
 
-                if (distansToCharacterX < MaximumDistancePlayer)
+                if (distansToCharacterX < _maximumDistancePlayer)
                 {
                     MoveForward();
                 }

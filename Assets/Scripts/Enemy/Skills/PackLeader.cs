@@ -6,11 +6,11 @@ namespace Enemy.Skills
 {
     public class PackLeader : MonoBehaviour
     {
-        private readonly Collider[] OverlappedColliders = new Collider[10];
-        private readonly HashSet<ZombieAttack> SubscribedObjects = new HashSet<ZombieAttack>();
-        private readonly int Cooldown = 1;
-        private readonly int MultiplyAttackSpeed = 2;
-        private readonly int MultiplyDamage = 2;
+        private readonly Collider[] _overlappedColliders = new Collider[10];
+        private readonly HashSet<ZombieAttack> _subscribedObjects = new HashSet<ZombieAttack>();
+        private readonly int _cooldown = 1;
+        private readonly int _multiplyAttackSpeed = 2;
+        private readonly int _multiplyDamage = 2;
 
         [SerializeField] private float _radius;
 
@@ -21,24 +21,24 @@ namespace Enemy.Skills
 
         private IEnumerator ApplyReinforcement()
         {
-            var delay = new WaitForSeconds(Cooldown);
+            var delay = new WaitForSeconds(_cooldown);
 
             while (enabled)
             {
-                int count = Physics.OverlapSphereNonAlloc(transform.position, _radius, OverlappedColliders);
+                int count = Physics.OverlapSphereNonAlloc(transform.position, _radius, _overlappedColliders);
 
                 for (int i = 0; i < count; i++)
                 {
-                    if (!OverlappedColliders[i].
+                    if (!_overlappedColliders[i].
                         TryGetComponent(out Rigidbody rigidbody) || rigidbody == null)
                         continue;
 
                     if (!rigidbody.gameObject.
-                        TryGetComponent(out ZombieAttack zombie) || SubscribedObjects.Contains(zombie))
+                        TryGetComponent(out ZombieAttack zombie) || _subscribedObjects.Contains(zombie))
                         continue;
 
-                    SubscribedObjects.Add(zombie);
-                    zombie.BuffAttack(MultiplyAttackSpeed, MultiplyDamage);
+                    _subscribedObjects.Add(zombie);
+                    zombie.BuffAttack(_multiplyAttackSpeed, _multiplyDamage);
                 }
 
                 yield return delay;

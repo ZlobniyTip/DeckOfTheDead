@@ -9,26 +9,26 @@ namespace UI.Shop
 {
     public class LootBox : MonoBehaviour
     {
-        private readonly List<Weapon> ChoosedWeapons = new();
-        private readonly List<CardData> ChoosedCards = new();
-        private readonly int CountWeapons = 5;
-        private readonly int CountCards = 10;
+        private readonly List<Weapon> _choosedWeapons = new();
+        private readonly List<CardData> _choosedCards = new();
+        private readonly int _countWeapons = 5;
+        private readonly int _countCards = 10;
 
         [SerializeField] private GameObject _prizesPanel;
         [SerializeField] private List<Weapon> _weapons;
         [SerializeField] private List<CardData> _cards;
 
-        public List<Weapon> Weapons => ChoosedWeapons;
-        public List<CardData> Cards => ChoosedCards;
+        public List<Weapon> Weapons => _choosedWeapons;
+        public List<CardData> Cards => _choosedCards;
 
         public void OpenLootBox()
         {
-            for (int i = 0; i < CountWeapons; i++)
+            for (int i = 0; i < _countWeapons; i++)
             {
                 StartCoroutine(ChooseRandomWeapon(_weapons));
             }
 
-            for (int i = 0; i < CountCards; i++)
+            for (int i = 0; i < _countCards; i++)
             {
                 StartCoroutine(ChooseRandomCard(_cards));
             }
@@ -50,7 +50,7 @@ namespace UI.Shop
             }
 
             weapons[weaponIndex].State.SetStatus(ItemStatus.Purchased);
-            ChoosedWeapons.Add(weapons[weaponIndex]);
+            _choosedWeapons.Add(weapons[weaponIndex]);
         }
 
         private IEnumerator ChooseRandomCard(List<CardData> cards)
@@ -69,9 +69,9 @@ namespace UI.Shop
             }
 
             cards[cardIndex].State.SetStatus(ItemStatus.Purchased);
-            ChoosedCards.Add(cards[cardIndex]);
+            _choosedCards.Add(cards[cardIndex]);
 
-            if (ChoosedCards.Count == 10)
+            if (_choosedCards.Count == 10)
             {
                 _prizesPanel.SetActive(true);
             }

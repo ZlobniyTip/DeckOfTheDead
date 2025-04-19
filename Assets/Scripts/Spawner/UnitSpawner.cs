@@ -14,7 +14,7 @@ namespace Spawner
 
         private PlayerDeck _deck;
 
-        public event Action UsedCard;
+        public event Action CardUsed;
 
         private void Awake()
         {
@@ -23,7 +23,7 @@ namespace Spawner
 
         public void Spawn(Vector3 point, Unit prefabUnit, CardView cardView)
         {
-            UsedCard?.Invoke();
+            CardUsed?.Invoke();
             _soundSpawn.Play();
             Instantiate(_prefabSpawnEffect, point + Vector3.up * 0.5f, Quaternion.identity);
             StartCoroutine(SetDelaySpawning(point, prefabUnit, cardView));

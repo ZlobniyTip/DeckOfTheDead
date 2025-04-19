@@ -8,7 +8,7 @@ namespace Enemy
 {
     public class ZombieSearchTarget : MonoBehaviour
     {
-        private readonly Collider[] OverlappedColliders = new Collider[10];
+        private readonly Collider[] _overlappedColliders = new Collider[10];
 
         [SerializeField] private ZombieAttack _zombieAttack;
         [SerializeField] private float _radius;
@@ -31,13 +31,13 @@ namespace Enemy
 
             while (SearchingTarget)
             {
-               int count = Physics.OverlapSphereNonAlloc(transform.position, _radius, OverlappedColliders);
+               int count = Physics.OverlapSphereNonAlloc(transform.position, _radius, _overlappedColliders);
 
                 Rigidbody rigidbody;
                 Health unitTarget = null;
                 Health characterTarget = null;
 
-                foreach (var collider in OverlappedColliders)
+                foreach (var collider in _overlappedColliders)
                 {
                     rigidbody = collider.attachedRigidbody;
 
@@ -81,9 +81,20 @@ namespace Enemy
         {
             _target = target;
             _startTarget = target;
+        }  
+
+        public void SetStartTarget()
+        {
+            _target = _startTarget;
         }
 
-        public void InitializeTarget(Health target)
+        private void OnClearTarget()
+        {
+            _target.Died -= OnClearTarget;
+            SetStartTarget();
+        }
+
+        private void InitializeTarget(Health target)
         {
             if (_target != null)
                 _target.Died -= OnClearTarget;
@@ -93,17 +104,6 @@ namespace Enemy
                 _target = target;
                 _target.Died += OnClearTarget;
             }
-        }
-
-        public void SetStartTarget()
-        {
-            _target = _startTarget;
-        }
-
-        public void OnClearTarget()
-        {
-            _target.Died -= OnClearTarget;
-            SetStartTarget();
         }
 
         private void OnDisable()

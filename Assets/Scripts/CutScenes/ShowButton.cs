@@ -6,20 +6,20 @@ namespace CutScenes
 {
     public class ShowButton : MonoBehaviour
     {
-        private readonly int GameStartScene = 2;
+        private readonly int _gameStartScene = 2;
 
         [SerializeField] private CutScenes _cutScenes;
         [SerializeField] private Button _buttonNextLevel;
 
         private void Start()
         {
-            _cutScenes.EndCutScene += OnShowFirstLevelButton;
+            _cutScenes.CutSceneCompleted += OnShowFirstLevelButton;
             _buttonNextLevel.onClick.AddListener(OnStartFirstLevel);
         }
 
         private void OnDisable()
         {
-            _cutScenes.EndCutScene -= OnShowFirstLevelButton;
+            _cutScenes.CutSceneCompleted -= OnShowFirstLevelButton;
             _buttonNextLevel.onClick.RemoveListener(OnStartFirstLevel);
         }
 
@@ -30,7 +30,7 @@ namespace CutScenes
 
         private void OnStartFirstLevel()
         {
-            SceneManager.LoadScene(GameStartScene);
+            SceneManager.LoadScene(_gameStartScene);
         }
     }
 }

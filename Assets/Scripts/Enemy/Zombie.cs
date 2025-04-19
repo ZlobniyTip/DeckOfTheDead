@@ -11,7 +11,7 @@ namespace Enemy
     [RequireComponent(typeof(EnemyMovement))]
     public class Zombie : Health
     {
-        private readonly float DelayBetweenDeath = 2.5f;
+        private readonly float _delayBetweenDeath = 2.5f;
 
         [SerializeField] private ZombieView _zombieView;
         [SerializeField] private ParticleSystem _effectCamp;
@@ -30,7 +30,6 @@ namespace Enemy
         public int Reward => _rewardLeaderboardPoints;
         public bool IsUnderCamp => _isUnderCamp;
         public ZombieSearchTarget ZombieSearch => _zombieSearch;
-        public EnemyMovement Movement => _movement;
         public ZombieView ZombieView => _zombieView;
         public ZombieAttack ZombieAttack => _zombieAttack;
 
@@ -99,7 +98,7 @@ namespace Enemy
             SetDiyingStatus(true);
             _movement.StopMovement();
 
-            var delay = new WaitForSeconds(DelayBetweenDeath);
+            var delay = new WaitForSeconds(_delayBetweenDeath);
             yield return delay;
             Destroy(gameObject);
         }

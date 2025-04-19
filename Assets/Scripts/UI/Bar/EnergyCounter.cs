@@ -8,7 +8,7 @@ namespace UI.Bar
 {
     public class EnergyCounter : MonoBehaviour
     {
-        private readonly float RecoveryRate = 0.18f;
+        private readonly float _recoveryRate = 0.18f;
 
         [SerializeField] private Slider _barFilling;
         [SerializeField] private PlayerEnergy _playerEnergy;
@@ -45,15 +45,15 @@ namespace UI.Bar
 
         private IEnumerator Timer()
         {
-            while (_barFilling.value != _barFilling.maxValue)
+            while (Mathf.Abs(_barFilling.value - _barFilling.maxValue) > 0.001f)
             {
-                _barFilling.value = 
-                    Mathf.MoveTowards(_barFilling.value, _barFilling.maxValue, RecoveryRate * Time.deltaTime);
+                _barFilling.value =
+                    Mathf.MoveTowards(_barFilling.value, _barFilling.maxValue, _recoveryRate * Time.deltaTime);
 
                 yield return null;
             }
 
-            _barFilling.value = 0;
+            _barFilling.value = 0f; 
             _playerEnergy.IncreaseEnergy();
 
             yield break;

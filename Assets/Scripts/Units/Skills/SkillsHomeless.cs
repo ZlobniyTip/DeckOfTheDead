@@ -7,10 +7,10 @@ namespace Units.Skills
 {
     public class SkillsHomeless : Skill
     {
-        private readonly HashSet<Zombie> SlowedZombies = new HashSet<Zombie>();
-        private readonly float DetectionRadius = 2f;
-        private readonly float DecelerationFactor = 2f;
-        private readonly Collider[] OverlappedColliders = new Collider[10];
+        private readonly HashSet<Zombie> _slowedZombies = new HashSet<Zombie>();
+        private readonly float _detectionRadius = 2f;
+        private readonly float _decelerationFactor = 2f;
+        private readonly Collider[] _overlappedColliders = new Collider[10];
 
         private HashSet<Zombie> _currentDetectedEnemies = new HashSet<Zombie>();
 
@@ -21,7 +21,7 @@ namespace Units.Skills
 
         private void OnDisable()
         {
-            foreach (var enemy in SlowedZombies)
+            foreach (var enemy in _slowedZombies)
             {
                 RestoreCharacteristics(enemy);
             }
@@ -33,33 +33,33 @@ namespace Units.Skills
 
             while (enabled)
             {
-                int count = Physics.OverlapSphereNonAlloc(transform.position, DetectionRadius, OverlappedColliders);
+                int count = Physics.OverlapSphereNonAlloc(transform.position, _detectionRadius, _overlappedColliders);
 
                 for (int i = 0; i < count; i++)
                 {
-                    if (OverlappedColliders[i].TryGetComponent(out Zombie enemy))
+                    if (_overlappedColliders[i].TryGetComponent(out Zombie enemy))
                     {
                         _currentDetectedEnemies.Add(enemy);
 
-                        if (SlowedZombies.Contains(enemy) == false)
+                        if (_slowedZombies.Contains(enemy) == false)
                         {
                             if (enemy.IsUnderCamp == false)
                             {
                                 enemy.EnterCamp();
-                                enemy.ZombieAttack.SlowingDownAttack(DecelerationFactor);
-                                enemy.ZombieView.ChangeSpeed(DecelerationFactor);
-                                SlowedZombies.Add(enemy);
+                                enemy.ZombieAttack.SlowingDownAttack(_decelerationFactor);
+                                enemy.ZombieView.ChangeSpeed(_decelerationFactor);
+                                _slowedZombies.Add(enemy);
                             }
                         }
                     }
                 }
 
-                foreach (var enemy in new List<Zombie>(SlowedZombies))
+                foreach (var enemy in new List<Zombie>(_slowedZombies))
                 {
                     if (_currentDetectedEnemies.Contains(enemy) == false)
                     {
                         RestoreCharacteristics(enemy);
-                        SlowedZombies.Remove(enemy);
+                        _slowedZombies.Remove(enemy);
                     }
                 }
 

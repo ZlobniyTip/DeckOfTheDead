@@ -6,13 +6,13 @@ namespace Card
 {
     public abstract class CardData : ScriptableObject, IProduct
     {
-        private readonly int DamageOneLevel = 5;
-        private readonly int DamageTwoLevel = 10;
-        private readonly int DamageThreeLevel = 20;
+        private readonly int _damageOneLevel = 5;
+        private readonly int damageTwoLevel = 10;
+        private readonly int _damageThreeLevel = 20;
 
-        private readonly int HealthOneLevel = 20;
-        private readonly int HealthTwoLevel = 40;
-        private readonly int HealthThreeLevel = 80;
+        private readonly int _healthOneLevel = 20;
+        private readonly int _healthTwoLevel = 40;
+        private readonly int _healthThreeLevel = 80;
 
         private const int LevelOne = 1;
         private const int LevelTwo = 2;
@@ -78,15 +78,15 @@ namespace Card
             switch (_level)
             {
                 case LevelOne:
-                    SetParameters(DamageOneLevel, HealthOneLevel);
+                    SetParameters(_damageOneLevel, _healthOneLevel);
                     break;
 
                 case LevelTwo:
-                    SetParameters(DamageTwoLevel, HealthTwoLevel);
+                    SetParameters(damageTwoLevel, _healthTwoLevel);
                     break;
 
                 case LevelThree:
-                    SetParameters(DamageThreeLevel, HealthThreeLevel);
+                    SetParameters(_damageThreeLevel, _healthThreeLevel);
                     break;
             }
         }

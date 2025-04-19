@@ -26,15 +26,14 @@ namespace UI.Bar
 
         private IEnumerator ChangeHealthBar(float target)
         {
-            while (BarFilling.value != target)
+            while (Mathf.Abs(BarFilling.value - target) > 0.001f)
             {
-                BarFilling.value = 
-                    Mathf.MoveTowards(BarFilling.value, target, RecoveryRate * Time.deltaTime);
+                BarFilling.value = Mathf.MoveTowards(BarFilling.value, target, RecoveryRate * Time.deltaTime);
 
                 yield return null;
             }
 
-            yield break;
+            BarFilling.value = target;
         }
     }
 }

@@ -7,8 +7,8 @@ namespace Enemy.Skills.Virus
 {
     public class ZombieVirus : MonoBehaviour
     {
-        private readonly HashSet<Unit> SubscribedObjects = new HashSet<Unit>();
-        private readonly Collider[] OverlappedColliders = new Collider[10];
+        private readonly HashSet<Unit> _subscribedObjects = new HashSet<Unit>();
+        private readonly Collider[] _overlappedColliders = new Collider[10];
 
         [SerializeField] private ParticleSystem _virusEffect;
         [SerializeField] private Zombie _zombiePrefab;
@@ -44,21 +44,21 @@ namespace Enemy.Skills.Virus
 
             while (_timer < _duration)
             {
-                int count = Physics.OverlapSphereNonAlloc(transform.position, _radius, OverlappedColliders);
+                int count = Physics.OverlapSphereNonAlloc(transform.position, _radius, _overlappedColliders);
                 Rigidbody rigidbody;
 
                 for (int i = 0; i < count; i++)
                 {
-                    rigidbody = OverlappedColliders[i].attachedRigidbody;
+                    rigidbody = _overlappedColliders[i].attachedRigidbody;
 
                     if (rigidbody)
                     {
                         if (rigidbody.gameObject.TryGetComponent(out Unit enemy))
                         {
-                            if (!SubscribedObjects.Contains(enemy))
+                            if (!_subscribedObjects.Contains(enemy))
                             {
-                                SubscribedObjects.Add(enemy);
-                                enemy.TurnedIntoZombie += OnTurnedIntoZombie;
+                                _subscribedObjects.Add(enemy);
+                                enemy.IntoZombieTurned += OnTurnedIntoZombie;
                             }
 
                             enemy.TakeDamage(_damage);
@@ -77,10 +77,10 @@ namespace Enemy.Skills.Virus
 
         private void OnTurnedIntoZombie(Unit unit)
         {
-            if (SubscribedObjects.Contains(unit))
+            if (_subscribedObjects.Contains(unit))
             {
-                unit.TurnedIntoZombie -= OnTurnedIntoZombie;
-                SubscribedObjects.Remove(unit);
+                unit.IntoZombieTurned -= OnTurnedIntoZombie;
+                _subscribedObjects.Remove(unit);
             }
 
             if (!unit.IsZombie)
@@ -94,15 +94,15 @@ namespace Enemy.Skills.Virus
 
         private void UnsubscribeAll()
         {
-            foreach (Unit obj in SubscribedObjects)
+            foreach (Unit obj in _subscribedObjects)
             {
                 if (obj != null && obj.TryGetComponent(out Unit enemy))
                 {
-                    enemy.TurnedIntoZombie -= OnTurnedIntoZombie;
+                    enemy.IntoZombieTurned -= OnTurnedIntoZombie;
                 }
             }
 
-            SubscribedObjects.Clear();
+            _subscribedObjects.Clear();
         }
     }
 }

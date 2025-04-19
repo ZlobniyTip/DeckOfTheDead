@@ -11,15 +11,11 @@ namespace UI.Shop
 {
     public class Store : MonoBehaviour
     {
-        private readonly List<ItemView> Content = new();
-        private readonly float NormalizationCardDisplay = 1.6f;
-        private readonly int FirstlevelCardStore = 1;
-        private readonly int SecondlevelCardStore = 2;
-        private readonly int ThirdlevelCardStore = 3;
-
-        private const int FirstlevelCard = 0;
-        private const int SecondlevelCard = 1;
-        private const int ThirdlevelCard = 2;
+        private readonly List<ItemView> _content = new();
+        private readonly float _normalizationCardDisplay = 1.6f;
+        private readonly int _firstlevelCardStore = 1;
+        private readonly int _secondlevelCardStore = 2;
+        private readonly int _thirdlevelCardStore = 3;
 
         [SerializeField] private Buyer _buyer;
 
@@ -35,7 +31,7 @@ namespace UI.Shop
         [SerializeField] private CardView _templateCardUnit;
         [SerializeField] private GameObject _itemContainer;
 
-        public event Action PlayerEquippedItem;
+        public event Action PlayerItemEquipped;
 
         private void OnEnable()
         {
@@ -57,14 +53,14 @@ namespace UI.Shop
 
         private void OnDisable()
         {
-            foreach (var item in Content)
+            foreach (var item in _content)
             {
                 item.PurchaseButtonPressed -= OnPurchaseButtonPressed;
                 item.EquipButtonPressed -= OnEquipButtonPressed;
                 Destroy(item.gameObject);
             }
 
-            Content.Clear();
+            _content.Clear();
         }
 
         private void DeterminTypeCard()
@@ -92,7 +88,7 @@ namespace UI.Shop
             view.Init(product, this);
             view.PurchaseButtonPressed += OnPurchaseButtonPressed;
             view.EquipButtonPressed += OnEquipButtonPressed;
-            Content.Add(view);
+            _content.Add(view);
         }
 
         private void AddCardView(IProduct product, CardData card)
@@ -111,13 +107,13 @@ namespace UI.Shop
             void Init(CardView view)
             {
                 view.gameObject.transform.localScale = 
-                    new Vector3(NormalizationCardDisplay, NormalizationCardDisplay, NormalizationCardDisplay);
+                    new Vector3(_normalizationCardDisplay, _normalizationCardDisplay, _normalizationCardDisplay);
                 view.Init(product, this);
                 view.Initialize(card);
                 view.SwitchDragAndDrop(false);
                 view.PurchaseButtonPressed += OnPurchaseButtonPressed;
                 view.LevelUpButtonPressed += OnLevelUpPressed;
-                Content.Add(view);
+                _content.Add(view);
                 view.DeterminPriceLevelUp();
             }
         }
@@ -129,7 +125,7 @@ namespace UI.Shop
 
         private void OnEquipButtonPressed(ItemView view)
         {
-            PlayerEquippedItem?.Invoke();
+            PlayerItemEquipped?.Invoke();
             _buyer.EquipItem(view.Product);
         }
 

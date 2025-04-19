@@ -26,9 +26,9 @@ namespace Character
         private int _time;
         private Coroutine _weaponTimerCoroutine;
 
-        public event Action ChangedWeapon;
-        public event Action KilledTarget;
-        public event Action<int> CausedDamage;
+        public event Action WeaponChanged;
+        public event Action TargetKilled;
+        public event Action<int> DamageCaused;
 
         public bool IsShooting { get; private set; } = false;
 
@@ -53,7 +53,7 @@ namespace Character
             weapon.State.SetStatus(ItemStatus.Equipped);
 
             equipmentChanged?.Invoke();
-            ChangedWeapon?.Invoke();
+            WeaponChanged?.Invoke();
 
             if (_currentWeapon != null)
             {
@@ -74,7 +74,7 @@ namespace Character
             _previousWeapons = _currentWeapon;
             _currentWeapon = Instantiate(weapon, _weaponPoint);
             _currentWeapon.ApplyGain(view);
-            ChangedWeapon?.Invoke();
+            WeaponChanged?.Invoke();
             _previousWeapons.gameObject.SetActive(false);
 
             _characterScaning.ActivSearch();
@@ -124,7 +124,7 @@ namespace Character
 
             _currentWeapon = Instantiate(_defaultWeapon, _weaponPoint);
             _currentWeapon.gameObject.SetActive(true);
-            ChangedWeapon?.Invoke();
+            WeaponChanged?.Invoke();
 
             if (_currentEnemy != null)
                 _currentEnemy.SetIgnoredStatus(true);
@@ -140,7 +140,7 @@ namespace Character
             {
                 TurnToTarget();
                 _currentEnemy.TakeDamage(_currentWeapon.Shoot());
-                CausedDamage?.Invoke(_currentWeapon.Shoot());
+                DamageCaused?.Invoke(_currentWeapon.Shoot());
 
                 yield return delay;
             }
@@ -150,7 +150,7 @@ namespace Character
                 _currentWeapon.StopShooting();
             }
 
-            KilledTarget?.Invoke();
+            TargetKilled?.Invoke();
             IsShooting = false;
             _character.GetLeaderboardScore(_currentEnemy.Reward);
             _characterScaning.ActivSearch();

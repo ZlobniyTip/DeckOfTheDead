@@ -9,31 +9,31 @@ namespace Character
 {
     public class CharacterCards : MonoBehaviour
     {
-        private readonly List<CardData> PurchasedCards = new ();
+        private readonly List<CardData> _purchasedCards = new ();
 
         [SerializeField] private SaverTest _saver;
 
         public event Action<List<CardData>> Initialized;
 
-        public List<CardData> Cards => PurchasedCards;
+        public List<CardData> Cards => _purchasedCards;
 
         public void AddCard(CardData card, Action equipmentChanged)
         {
-            PurchasedCards.Add(card);
+            _purchasedCards.Add(card);
             equipmentChanged?.Invoke();
         }
 
         public void InitializeCard(List<CardData> cards)
         {
-            PurchasedCards.Clear();
+            _purchasedCards.Clear();
 
             for (int i = 0; i < cards.Count; i++)
             {
                 if (cards[i].State.Status == ItemStatus.Purchased)
-                    PurchasedCards.Add(cards[i]);
+                    _purchasedCards.Add(cards[i]);
             }
 
-            Initialized?.Invoke(PurchasedCards);
+            Initialized?.Invoke(_purchasedCards);
         }
     }
 }

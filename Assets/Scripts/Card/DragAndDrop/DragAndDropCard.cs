@@ -11,7 +11,7 @@ namespace DragAndDrop
 {
     public class DragAndDropCard : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler
     {
-        private readonly RaycastHit[] Hits = new RaycastHit[10];
+        private readonly RaycastHit[] _hits = new RaycastHit[10];
 
         [SerializeField] private GameObject _cardObject;
         [SerializeField] private AudioSource _soundCard;
@@ -170,11 +170,11 @@ namespace DragAndDrop
             }
 
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            int hitCount = Physics.RaycastNonAlloc(ray, Hits);
+            int hitCount = Physics.RaycastNonAlloc(ray, _hits);
 
             for (int i = 0; i < hitCount; i++)
             {
-                if (Hits[i].collider.GetComponent<Arm>() != null)
+                if (_hits[i].collider.GetComponent<Arm>() != null)
                 {
                     spawnPosition = _originalPosition;
                     return false;
@@ -183,9 +183,9 @@ namespace DragAndDrop
 
             for (int i = 0; i < hitCount; i++)
             {
-                if (Hits[i].collider.GetComponent<Road>() != null)
+                if (_hits[i].collider.GetComponent<Road>() != null)
                 {
-                    spawnPosition = Hits[i].point;
+                    spawnPosition = _hits[i].point;
                     return true;
                 }
             }

@@ -8,7 +8,7 @@ namespace Character
     [RequireComponent(typeof(NavMeshAgent))]
     public class CharacterMovement : MonoBehaviour
     {
-        private readonly float Speed = 4.5f;
+        private readonly float _speed = 4.5f;
 
         [SerializeField] private List<Transform> _points;
         [SerializeField] private ZombieSpawner _spawner;
@@ -38,7 +38,7 @@ namespace Character
         {
             if (_pointIndex < _points.Count)
             {
-                _navMesh.speed = Speed;
+                _navMesh.speed = _speed;
                 _navMesh.SetDestination(_points[_pointIndex].position);
                 _pointIndex++;
             }

@@ -54,14 +54,14 @@ namespace Other
             HealthChanged?.Invoke(Value, MaxValue);
         }
 
-        public void SetDiyingStatus(bool isDiying)
-        {
-            IsDiying = isDiying;
-        }
-
         public void DeclareDeath()
         {
             Died?.Invoke();
+        }
+
+        public void SetDiyingStatus(bool isDiying)
+        {
+            IsDiying = isDiying;
         }
     }
 }

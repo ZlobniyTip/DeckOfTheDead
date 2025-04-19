@@ -22,19 +22,19 @@ namespace Character.StateMachine.States
 
         public virtual void Enter()
         {
-            Ñharacter.CharacterShooting.ChangedWeapon += OnChangeWeapon;
+            Ñharacter.CharacterShooting.WeaponChanged += OnChangeWeapon;
         }
 
         public virtual void Exit()
         {
-            Ñharacter.CharacterShooting.ChangedWeapon -= OnChangeWeapon;
+            Ñharacter.CharacterShooting.WeaponChanged -= OnChangeWeapon;
         }
 
         public virtual void Update()
         {
         }
 
-        protected void OnChangeWeapon()
+        private void OnChangeWeapon()
         {
             Exit();
             Enter();

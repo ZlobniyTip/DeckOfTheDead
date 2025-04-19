@@ -18,19 +18,19 @@ namespace UI.Reward
 
         private void OnEnable()
         {
-            _cardUnit.UsedCard += OnAddCardUsed;
-            _characterShooting.CausedDamage += OnAddHeroDamage;
-            _character.ChangedLeaderboardScore += OnAddLeaderboardScore;
-            _characterShooting.KilledTarget += OnAddKilledZombie;
+            _cardUnit.CardUsed += OnAddCardUsed;
+            _characterShooting.DamageCaused += OnAddHeroDamage;
+            _character.LeaderboardScoreChanged += OnAddLeaderboardScore;
+            _characterShooting.TargetKilled += OnAddKilledZombie;
             _spawner.ZombieDied += OnAddKilledZombie;
         }
 
         private void OnDisable()
         {
-            _cardUnit.UsedCard -= OnAddCardUsed;
-            _characterShooting.CausedDamage -= OnAddHeroDamage;
-            _character.ChangedLeaderboardScore -= OnAddLeaderboardScore;
-            _characterShooting.KilledTarget -= OnAddKilledZombie;
+            _cardUnit.CardUsed -= OnAddCardUsed;
+            _characterShooting.DamageCaused -= OnAddHeroDamage;
+            _character.LeaderboardScoreChanged -= OnAddLeaderboardScore;
+            _characterShooting.TargetKilled -= OnAddKilledZombie;
             _spawner.ZombieDied -= OnAddKilledZombie;
         }
 

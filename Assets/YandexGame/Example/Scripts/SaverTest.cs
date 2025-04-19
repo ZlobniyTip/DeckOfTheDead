@@ -41,7 +41,7 @@ namespace YG.Example
             }
 
             YandexGame.GetDataEvent += GetLoad;
-            _selectedCard.SelectedCardsSave += OnEquipmentChanged;
+            _selectedCard.CardsSaveSelected += OnEquipmentChanged;
             _buyer.EquipmentChanged += OnEquipmentChanged;
         }
 
@@ -52,7 +52,7 @@ namespace YG.Example
 
         private void OnDestroy()
         {
-            _selectedCard.SelectedCardsSave -= OnEquipmentChanged;
+            _selectedCard.CardsSaveSelected -= OnEquipmentChanged;
             _buyer.EquipmentChanged -= OnEquipmentChanged;
         }
 

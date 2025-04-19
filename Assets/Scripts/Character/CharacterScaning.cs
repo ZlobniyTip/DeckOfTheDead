@@ -6,7 +6,7 @@ namespace Character
 {
     public class CharacterScaning : MonoBehaviour
     {
-        private readonly Collider[] OverlappedColliders = new Collider[10];
+        private readonly Collider[] _overlappedColliders = new Collider[10];
 
         [SerializeField] private CharacterShooting _characterShooting;
 
@@ -37,11 +37,11 @@ namespace Character
             while (_currentEnemy == null)
             {
                 int count = Physics.OverlapSphereNonAlloc(transform.position, 
-                    _characterShooting.CurrentWeapon.AttackRange, OverlappedColliders);
+                    _characterShooting.CurrentWeapon.AttackRange, _overlappedColliders);
 
                 for (int i = 0; i < count; i++)
                 {
-                    if (!OverlappedColliders[i].TryGetComponent(out Rigidbody rigidbody) || rigidbody == null)
+                    if (!_overlappedColliders[i].TryGetComponent(out Rigidbody rigidbody) || rigidbody == null)
                         continue;
 
                     if (!rigidbody.gameObject.TryGetComponent(out Zombie enemy) || enemy.IsDiying)

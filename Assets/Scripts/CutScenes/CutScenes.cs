@@ -14,7 +14,7 @@ namespace CutScenes
         [SerializeField] private Image _blackout;
         [SerializeField] private float _fadeDuration = 1.5f;
 
-        public event Action EndCutScene;
+        public event Action CutSceneCompleted;
 
         private void Awake()
         {
@@ -87,7 +87,7 @@ namespace CutScenes
             }
 
             _blackout.color = endColor;
-            EndCutScene?.Invoke();
+            CutSceneCompleted?.Invoke();
         }
     }
 }

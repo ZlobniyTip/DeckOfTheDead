@@ -9,10 +9,10 @@ namespace Deck
 {
     public class SelectedCard : MonoBehaviour
     {
-        private readonly List<CardView> Content = new();
-        private readonly List<CardData> SelectedCards = new();
-        private readonly float NormalizationDisplay = 1.3f;
-        private readonly int NumberCardsDeck = 10;
+        private readonly List<CardView> _content = new();
+        private readonly List<CardData> _selectedCards = new();
+        private readonly float _normalizationDisplay = 1.3f;
+        private readonly int _numberCardsDeck = 10;
 
         [SerializeField] private CharacterCards _character;
         [SerializeField] private PlayerDeck _deck;
@@ -21,27 +21,27 @@ namespace Deck
         [SerializeField] private CardViewWeapon _templateCardWeapon;
         [SerializeField] private Button _selectButton;
 
-        public event Action<List<CardData>> ChosedCards;
-        public event Action SelectedCardsSave;
+        public event Action<List<CardData>> CardsChosed;
+        public event Action CardsSaveSelected;
 
         private void OnEnable()
         {
-            SelectedCards.Clear();
+            _selectedCards.Clear();
             FillDeck(_character.Cards);
         }
 
         private void OnDisable()
         {
-            ChosedCards?.Invoke(SelectedCards);
-            SelectedCardsSave?.Invoke();
+            CardsChosed?.Invoke(_selectedCards);
+            CardsSaveSelected?.Invoke();
 
-            foreach (var card in Content)
+            foreach (var card in _content)
             {
-                card.SelectedCard -= OnSelectedCard;
+                card.CardSelecteded -= OnSelectedCard;
                 Destroy(card.gameObject);
             }
 
-            Content.Clear();
+            _content.Clear();
         }
 
         private void FillDeck(List<CardData> cards)
@@ -62,14 +62,14 @@ namespace Deck
                 void Init(CardView view)
                 {
                     view.gameObject.transform.localScale = 
-                        new Vector3(NormalizationDisplay, NormalizationDisplay, NormalizationDisplay);
+                        new Vector3(_normalizationDisplay, _normalizationDisplay, _normalizationDisplay);
                     view.Initialize(card);
                     view.SwitchDragAndDrop(false);
                     view.ActivateSelectedButton();
-                    view.SelectedCard += OnSelectedCard;
+                    view.CardSelecteded += OnSelectedCard;
                     view.ShowSelectedButtonText();
                     view.SetSelectedStatus(view.Card.State.SelectedStatus);
-                    Content.Add(view);
+                    _content.Add(view);
 
                     if (view.Card.State.SelectedStatus == CardStatus.NotSelected)
                     {
@@ -77,7 +77,7 @@ namespace Deck
                     }
                     else
                     {
-                        SelectedCards.Add(view.Card);
+                        _selectedCards.Add(view.Card);
                     }
                 }
             }
@@ -88,17 +88,17 @@ namespace Deck
             if (card.Card.State.SelectedStatus == CardStatus.NotSelected)
             {
                 card.SelectedButtonLock(CardStatus.Selected);
-                SelectedCards.Add(card.Card);
+                _selectedCards.Add(card.Card);
             }
             else
             {
                 card.SelectedButtonLock(CardStatus.NotSelected);
-                SelectedCards.Remove(card.Card);
+                _selectedCards.Remove(card.Card);
             }
 
-            if (SelectedCards.Count >= NumberCardsDeck)
+            if (_selectedCards.Count >= _numberCardsDeck)
             {
-                foreach (var button in Content)
+                foreach (var button in _content)
                 {
                     if (button.Card.State.SelectedStatus == CardStatus.NotSelected)
                         button.SetInteractable(false);
@@ -108,7 +108,7 @@ namespace Deck
             }
             else
             {
-                foreach (var button in Content)
+                foreach (var button in _content)
                 {
                     button.SetInteractable(true);
                 }

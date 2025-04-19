@@ -6,9 +6,9 @@ namespace SDK
 {
     public class LanguageSwitcher : MonoBehaviour
     {
-        private readonly string Rus = "ru";
-        private readonly string Tur = "tr";
-        private readonly string Eng = "en";
+        private readonly string _rus = "ru";
+        private readonly string _tur = "tr";
+        private readonly string _eng = "en";
 
         [SerializeField] private Button _rs;
         [SerializeField] private Button _tr;
@@ -30,17 +30,17 @@ namespace SDK
 
         private void OnSetRusLanguage()
         {
-            YandexGame.SwitchLanguage(Rus);
+            YandexGame.SwitchLanguage(_rus);
         }
 
         private void OnSetTrLanguage()
         {
-            YandexGame.SwitchLanguage(Tur);
+            YandexGame.SwitchLanguage(_tur);
         }
 
         private void OnSetEngLanguage()
         {
-            YandexGame.SwitchLanguage(Eng);
+            YandexGame.SwitchLanguage(_eng);
         }
     }
 }

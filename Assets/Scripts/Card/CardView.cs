@@ -20,7 +20,7 @@ namespace Card
         private DragAndDropCard _dragAndDropWeapon;
 
         public event Action<CardView> LevelUpButtonPressed;
-        public event Action<CardView> SelectedCard;
+        public event Action<CardView> CardSelecteded;
 
         protected CardData CardData { get; set; }
 
@@ -119,7 +119,7 @@ namespace Card
 
         private void OnSelectedCard()
         {
-            SelectedCard?.Invoke(this);
+            CardSelecteded?.Invoke(this);
         }
     }
 }

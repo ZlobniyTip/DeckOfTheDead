@@ -7,8 +7,8 @@ namespace Enemy.Skills.ClawedStrike
 {
     public class ClawStrike : Skill
     {
-        private readonly Collider[] OverlappedColliders = new Collider[10];
-        private readonly bool IsWorks = true;
+        private readonly Collider[] _overlappedColliders = new Collider[10];
+        private readonly bool _isWorks = true;
 
         [SerializeField] private ParticleSystem _hitEffect;
         [SerializeField] private Bleeding _bleeding;
@@ -26,13 +26,13 @@ namespace Enemy.Skills.ClawedStrike
         {
             var delay = new WaitForSeconds(_cooldown);
 
-            while (IsWorks)
+            while (_isWorks)
             {
-                int count = Physics.OverlapSphereNonAlloc(transform.position, _radius, OverlappedColliders);
+                int count = Physics.OverlapSphereNonAlloc(transform.position, _radius, _overlappedColliders);
 
                 for (int i = 0; i < count; i++)
                 {
-                    if (!OverlappedColliders[i].TryGetComponent(out Rigidbody rigidbody) || rigidbody == null)
+                    if (!_overlappedColliders[i].TryGetComponent(out Rigidbody rigidbody) || rigidbody == null)
                         continue;
 
                     if (!rigidbody.gameObject.TryGetComponent(out Unit enemy))

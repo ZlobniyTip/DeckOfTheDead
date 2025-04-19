@@ -9,9 +9,9 @@ namespace Deck
 {
     public class PlayerDeck : MonoBehaviour
     {
-        private readonly HashSet<CardData> UsedCards = new();
-        private readonly List<CardView> PlayerCards = new();
-        private readonly int NumberCardsHand = 5;
+        private readonly HashSet<CardData> _usedCards = new();
+        private readonly List<CardView> _playerCards = new();
+        private readonly int _numberCardsHand = 5;
 
         [SerializeField] private Player _character;
         [SerializeField] private CharacterCards _characterCards;
@@ -29,13 +29,13 @@ namespace Deck
         private void Awake()
         {
             _characterCards.Initialized += OnTakeStartCards;
-            _selectedCard.ChosedCards += OnTakeSelectedCards;
+            _selectedCard.CardsChosed += OnTakeSelectedCards;
         }
 
         private void OnDestroy()
         {
             _characterCards.Initialized -= OnTakeStartCards;
-            _selectedCard.ChosedCards -= OnTakeSelectedCards;
+            _selectedCard.CardsChosed -= OnTakeSelectedCards;
         }
 
         public void OnTakeSelectedCards(List<CardData> cards)
@@ -68,7 +68,7 @@ namespace Deck
 
         private void TakeCards()
         {
-            while (PlayerCards.Count < NumberCardsHand)
+            while (_playerCards.Count < _numberCardsHand)
             {
                 CreateCard();
             }
@@ -83,7 +83,7 @@ namespace Deck
 
             while (enabled)
             {
-                foreach (var card in PlayerCards)
+                foreach (var card in _playerCards)
                 {
                     if (card.Card.Energy <= _playerEnergy.CurrentEnergyCount)
                     {
@@ -101,10 +101,10 @@ namespace Deck
 
         public void RemoveCard(CardView cardView)
         {
-            if (PlayerCards.Contains(cardView))
+            if (_playerCards.Contains(cardView))
             {
-                UsedCards.Remove(cardView.Card);
-                PlayerCards.Remove(cardView);
+                _usedCards.Remove(cardView.Card);
+                _playerCards.Remove(cardView);
             }
 
             CreateCard();
@@ -118,31 +118,36 @@ namespace Deck
         private void CreateCard()
         {
             CardData randomCardData = GetUniqueCard();
+            CardView cardView = null;
 
             if (randomCardData is CardDataUnit)
             {
-                CardView cardView = Instantiate(_cardViewUnit, _ñontainer);
-                cardView.Initialize(randomCardData);
-                PlayerCards.Add(cardView);
-
-                CardViewUnit cardViewUnit = cardView as CardViewUnit;
-                _leanHelper.LanguageChanged += cardViewUnit.TransferData;
+                cardView = Instantiate(_cardViewUnit, _ñontainer);
+            }
+            else if (randomCardData is CardDataWeapon)
+            {
+                cardView = Instantiate(_cardViewWeapon, _ñontainer);
             }
 
-            if (randomCardData is CardDataWeapon)
+            if (cardView != null)
             {
-                CardView cardView = Instantiate(_cardViewWeapon, _ñontainer);
                 cardView.Initialize(randomCardData);
-                PlayerCards.Add(cardView);
+                _playerCards.Add(cardView);
 
-                CardViewWeapon cardViewWeapon = cardView as CardViewWeapon;
-                _leanHelper.LanguageChanged += cardViewWeapon.TransferData;
+                if (cardView is CardViewUnit unit)
+                {
+                    _leanHelper.LanguageChanged += unit.TransferData;
+                }
+                else if (cardView is CardViewWeapon weapon)
+                {
+                    _leanHelper.LanguageChanged += weapon.TransferData;
+                }
             }
         }
 
         private CardData GetUniqueCard()
         {
-            if (PlayerCards.Count >= _selectedCards.Count)
+            if (_playerCards.Count >= _selectedCards.Count)
                 return null;
 
             CardData randomCard;
@@ -152,9 +157,9 @@ namespace Deck
                 randomCard = _selectedCards[Random.Range(0, _selectedCards.Count)];
             } 
             while 
-            (UsedCards.Contains(randomCard));
+            (_usedCards.Contains(randomCard));
 
-            UsedCards.Add(randomCard);
+            _usedCards.Add(randomCard);
             return randomCard;
         }
     }

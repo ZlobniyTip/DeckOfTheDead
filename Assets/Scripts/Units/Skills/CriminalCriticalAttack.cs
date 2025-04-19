@@ -4,9 +4,9 @@ namespace Units.Skills
 {
     public class CriminalCriticalAttack : Skill
     {
-        private readonly int LethalCount = 1;
-        private readonly int Chance = 20;
-        private readonly int MultiplyDamage = 100;
+        private readonly int _lethalCount = 1;
+        private readonly int _chance = 20;
+        private readonly int _multiplyDamage = 100;
 
         [SerializeField] private Unit _unit;
         [SerializeField] private ParticleSystem _particle;
@@ -26,14 +26,14 @@ namespace Units.Skills
         {
             _particle.Play();
             _audioSource.Play();
-            _unit.Target.TakeDamage(_unit.Attack.CurrentWeapon.DamageValue * MultiplyDamage);
+            _unit.Target.TakeDamage(_unit.Attack.CurrentWeapon.DamageValue * _multiplyDamage);
         }
 
         private void OnTryInflictLethalDamage()
         {
-            int random = Random.Range(LethalCount, Chance);
+            int random = Random.Range(_lethalCount, _chance);
 
-            if (random == LethalCount)
+            if (random == _lethalCount)
                 OnUseSkill();
         }
     }
