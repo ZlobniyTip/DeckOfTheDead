@@ -1,3 +1,4 @@
+using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -8,24 +9,21 @@ namespace UI
 {
     public class SceneSwitcher : MonoBehaviour
     {
+        [SerializeField, Scene] private string _nextSceneName;
+        [SerializeField, Scene] private string _currentSceneName;
         [SerializeField] private Button _nextLevelButton;
         [SerializeField] private Button _repeatLevelButton;
         [SerializeField] private SaverTest _saver;
 
-        private int _indexCurrentScene;
-
         private void OnEnable()
         {
-            _indexCurrentScene = SceneManager.GetActiveScene().buildIndex;
-
             if (_nextLevelButton != null)
             {
                 _nextLevelButton.onClick.AddListener(EnableNextLevel);
             }
-            else
+            if (_repeatLevelButton != null)
             {
-                if (_repeatLevelButton != null)
-                    _repeatLevelButton.onClick.AddListener(RepeatLevel);
+                _repeatLevelButton.onClick.AddListener(RepeatLevel);
             }
         }
 
@@ -35,36 +33,32 @@ namespace UI
             {
                 _nextLevelButton.onClick.RemoveListener(EnableNextLevel);
             }
-            else
+            if (_repeatLevelButton != null)
             {
-                if (_repeatLevelButton != null)
-                    _repeatLevelButton.onClick.RemoveListener(RepeatLevel);
+                _repeatLevelButton.onClick.RemoveListener(RepeatLevel);
             }
         }
 
         public void EnableCurrentScene()
         {
-            if (YandexGame.savesData.indexCurrentScene == 0)
-            {
-                SceneManager.LoadScene(1);
-            }
-            else
-            {
-                SceneManager.LoadScene(YandexGame.savesData.indexCurrentScene);
-            }
+            string sceneToLoad = YandexGame.savesData.indexCurrentScene == 0
+                ? SceneNames.Level1
+                : SceneManager.GetSceneByBuildIndex(YandexGame.savesData.indexCurrentScene).name;
+
+            SceneManager.LoadScene(sceneToLoad);
         }
 
         private void EnableNextLevel()
         {
             _saver.Save();
-            SceneManager.LoadScene(_indexCurrentScene + 1);
+            SceneManager.LoadScene(_nextSceneName);
             YandexGame.FullscreenShow();
         }
 
         private void RepeatLevel()
         {
             _saver.Save();
-            SceneManager.LoadScene(_indexCurrentScene);
+            SceneManager.LoadScene(_currentSceneName);
             YandexGame.FullscreenShow();
         }
     }
